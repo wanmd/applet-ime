@@ -1,0 +1,36 @@
+<view class="bgc-fff p-44 pb-100">
+  <view class="header h-82 d-f jc-sb ai-c mb-48">
+    <view class="inputWrap d-f ai-c"><input bindinput="handleInput" value="{{label}}" placeholder-class="fz-28" placeholder="输入产品标签1-6字"/></view>
+    <view class="ok" bindtap="confirm">确定</view>
+  </view>
+  <view class="selectRemarks">
+    <view class="title">产品标签({{productLabels.length}}/3个)</view>
+    <view class="d-f jc-fs fxw-w">
+      <view class="remarkItem" wx:for="{{productLabels}}" wx:key="id">
+        <image data-name="{{item.name}}" class="w-34 h-34 delete" src="../../assets/images/index/delete@2x.png" bindtap="handleDelete"/>
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <view class="usedRemarks">
+    <view class="title">常用产品标签</view>
+    <view class="d-f jc-fs fxw-w">
+      <view class="remarkItem" wx:for="{{usedLabels}}" wx:key="id" data-item="{{item}}" bindtap="handleCheck">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <view class="historyRemarks">
+    <view class="title">产品标签历史</view>
+    <view class="d-f jc-fs fxw-w">
+      <view class="remarkItem" wx:for="{{historyLabels}}" wx:key="id" data-item="{{item}}" bindtap="handleCheck">
+        {{item.name}}
+      </view>
+    </view>
+    
+  </view>
+</view>
+<view class="bottom">
+  <view class="save" bindtap="handleSave">保存</view>
+</view>
+

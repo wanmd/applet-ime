@@ -1,0 +1,62 @@
+  <import src="/widgets/templates.wxml" />
+<view style='background:#fff;padding-bottom:100rpx;'>
+  <!-- <view style='background:#000;'> -->
+  <view wx:if="{{rentingData.picture.length>0}}">
+    <swiper indicator-dots indicator-color='rgba(255,255,255,0.3)' indicator-active-color='#ffffff' style='height:750rpx' bindchange='swiperChange'>
+      <swiper-item class="swiper-item" wx:for='{{rentingData.picture}}' wx:key="index">
+        <image style='width:100%;' mode='widthFix' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{rentingData.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="renting-text">
+      <view class="line">
+        <view class="label">租赁类型：</view>
+        <view class="txt">{{rentingData.type==2?'招租':'求租'}}</view>
+      </view>
+      <view class="line">
+        <view class="label">区域位置：</view>
+        <view class="txt">{{rentingData.location}}</view>
+      </view>
+      <view class="line">
+        <view class="label">市场/小区/写字楼名称：</view>
+        <view class="txt">{{rentingData.title}}</view>
+      </view>
+      <view class="line">
+        <view class="label">楼层：</view>
+        <view class="txt">{{rentingData.floor}}</view>
+      </view>
+      <view class="line" wx:if="{{rentingData.type==2}}">
+        <view class="label">房号：</view>
+        <view class="txt">{{rentingData.room_number}}</view>
+      </view>
+      <view class="line">
+        <view class="label">需求面积：</view>
+        <view class="txt">{{rentingData.type==2 ? rentingData.supply_area: rentingData.demand_area}}</view>
+      </view>
+  </view>
+  <view class="renting-info">
+    <view class="txt">{{rentingData.content}}</view>
+  </view>
+	<template is="linkbox" data="{{userInfo:user, showlink:showlink}}" />
+</view>
+
+<view class="comment_flex">
+  <view class="user-wrap">
+    <view class="user-img" data-url="/pages/homepage/index?userId={{rentingData.user_id}}" bind:tap="isAuth_">
+      <image class='avatar' src='{{rentingData.avatar}}'></image>
+    </view>
+  </view>
+  <view class="share1">
+    <button hover-class="none" class='share1' open-type='share'>
+      <image mode='widthFix' class='icon' src='/assets/images/ic_share1@2x.png'></image>
+      <view>分享</view>
+    </button>
+  </view>
+  <view class="share2" data-user_id="{{rentingData.user_id}}" bind:tap="contact">
+    <image mode='widthFix' class='icon' src='/assets/images/lianxiTA1@2x.png'></image>
+    <view >联系TA</view>
+  </view>
+  <view class="btn-wrap">
+    <view class="btn-mobile"  data-phone="{{rentingData.mobile}}" bind:tap="callNumPhone">电话咨询</view>
+  </view>
+</view>

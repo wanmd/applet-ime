@@ -1,0 +1,15 @@
+<!--packages/pack-A/pages/user/setQrCode/index.wxml-->
+<view>
+  <view class="mt-140 ml-56 c-333 fz-24 lh-32 mb-18">微信二维码</view>
+  <view class="d-f ml-56">
+    <view>
+      <!-- <image class="w-240 h-240 mr-78" src="../../../../../assets/images/index/wx_pay.png" /> -->
+      <img wx:if="{{wx_qr_code}}" class="image mr-78" mode="aspectFill" src="{{wx_qr_code}}" />
+    </view>
+    <view class="w-240 h-240 bgc-F2F2F2 c-999 d-f jc-c ai-c fxd-c"  bindtap="setQrCode">
+      <view class="fz-48">+</view>
+      <view class="fz-24 mt-20">添加微信二维码</view>
+    </view>
+  </view>
+  <view class="btn" bindtap='confirm'>保存</view>
+</view>

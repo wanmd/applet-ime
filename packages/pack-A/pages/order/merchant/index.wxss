@@ -1,0 +1,6 @@
+@import '../order.wxss';
+page{
+  background:rgba(247,247,247,1);
+  height:100%;
+  padding-top:264rpx;
+}

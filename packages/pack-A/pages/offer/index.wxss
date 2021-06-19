@@ -1,0 +1,96 @@
+.offer_header,
+.offer_list {
+    display: flex;
+    padding: 0 44rpx;
+    align-items: center;
+}
+
+.offer_header .th,
+.offer_list .td {
+    padding: 20rpx 10rpx;
+    font-size: 20rpx;
+    line-height: 28rpx;
+}
+
+.offer_header .th1,
+.offer_list .td1 {
+    width: 160rpx;
+}
+
+.offer_header .th2,
+.offer_list .td2 {
+    flex: 1;
+}
+
+.offer_header .th3,
+.offer_list .td3 {
+    text-align: center;
+    width: 80rpx;
+}
+
+.offer_header .th4,
+.offer_list .td4 {
+    text-align: center;
+    width: 160rpx;
+}
+
+.offer_header {}
+
+.offer_header .th {
+    text-align: center;
+    color: #666;
+}
+
+.offer_header .th1 {
+    text-align: left;
+}
+
+.offer_header .th2 {}
+
+.offer_header .th3 {}
+
+.offer_header .th4 {}
+
+.offer_list {}
+
+.offer_list .td {
+    color: #141414;
+}
+
+.offer_list .td1 {}
+
+.offer_list .td1>view {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.offer_list .td1 .nickname {
+    padding-left: 10rpx;
+    width: 90rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.offer_list .td3,
+.offer_list .td3 view,
+.offer_list .td2,
+.offer_list .td2 view {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.offer_list .td3 {}
+
+.offer_list .td4 {
+    color: #666;
+}
+
+.user {
+    width: 36rpx;
+    height: 36rpx;
+    border: 1rpx solid #ccc;
+    margin-right: 10rpx;
+}

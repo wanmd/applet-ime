@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "goods": "./orderGoods/index",
+    "store": "./store/index",
+    "deliveryInfo": "./deliveryInfo/index",
+    "confirm": "../../../../component/confirm/index"
+  }
+}

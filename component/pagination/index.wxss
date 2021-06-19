@@ -1,0 +1,26 @@
+.page-container{
+  height:100%;
+  position:relative;
+}
+.load-show{
+  text-align:center;
+  line-height:100rpx;
+}
+.no-more{
+  position:relative;
+}
+
+.no-more::before,.no-more::after{
+  content: '';
+  position:absolute;
+  border-top:1px dashed #ccc;
+  width:200rpx;
+  top:50%;
+  transform:translateY(-50%);
+}
+.no-more::before{
+  left:-220rpx;
+}
+.no-more::after{
+  right:-220rpx;
+}

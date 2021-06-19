@@ -1,0 +1,20 @@
+<view class='p-l-r' hidden='{{true}}'>
+  <view>
+    <cell title='附近红包'></cell>
+  </view>
+  <view>
+    <cell title='城市红包'></cell>
+  </view>
+  <view>
+    <cell title='全国红包'></cell>
+  </view>
+</view>
+<scroll-view scroll-into-view='{{to}}' style='height:100%' scroll-y>
+  <view class='area-block' wx:for='{{views}}'>
+    <view class='index p-l-r' id='{{item.index}}'>{{item.index}}</view>
+    <view class='item p-l-r' wx:for='{{item.city}}' data-id='{{item.id}}' data-name='{{item.name}}' bindtap='selectArea'>{{item.name}}</view>
+  </view>
+</scroll-view>
+<view class='index-list'>
+  <view class='item' wx:for='{{indexesList}}' data-index='{{item}}' bindtap='selectIndex'>{{item}}</view>
+</view>

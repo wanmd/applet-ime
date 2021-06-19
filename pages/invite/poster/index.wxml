@@ -1,0 +1,18 @@
+<view style='width:560rpx;margin:64rpx auto 0rpx auto;position:relative'>
+  <canvas style="width: 100%; height: 720rpx;" id='canvasEl' canvas-id="firstCanvas"></canvas>
+  <view class='poster'>
+    <view style='padding-top:96rpx;'>
+      <image class='avatar' src='{{avatar}}'></image>
+      <view class='text-center m-t-30'>
+        <view>{{nickname}}</view>
+        <view style='font-size:48rpx;margin-top:50rpx'>我为IME代言</view>
+        <view class='m-t-60'>
+          <image style='width:240rpx;height:240rpx;margin:auto;' src='{{qrcode}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='m-t-60'>
+    <btn style-text='background:rgba(236,189,117,1)' type='primary' bindtap='draw'>保存到本地</btn>
+  </view>
+</view>

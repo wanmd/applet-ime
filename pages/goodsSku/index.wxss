@@ -1,0 +1,128 @@
+/* pages/goodsSku/index.wxss */
+page {
+  background-color: #fff !important;
+}
+.goods_skuItem {
+  margin-right: 20rpx;
+  width: 712rpx;
+  height: 308rpx;
+  border: 2rpx solid #DFDFDF;
+  opacity: 1;
+  border-radius: 20rpx;
+  margin-left: 20rpx;
+  margin-bottom: 28rpx;
+  padding-top: 36rpx;
+  padding-left: 36rpx;
+  padding-right: 36rpx;
+}
+.addSku {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 640rpx;
+  height: 94rpx;
+  background: rgba(255, 0, 0, 0.08);
+  border-radius: 10rpx;
+  color: #FF0000;
+  margin-left: 50rpx;
+  margin-top: 24rpx;
+  margin-bottom: 80rpx;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.wrap {
+  position: fixed;
+  top: 20%;
+  left: 20rpx;
+  width: 712rpx;
+  height: 716rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #DFDFDF;
+  opacity: 1;
+  border-radius: 20rpx;
+  padding-top: 38rpx;
+  padding-left: 36rpx;
+  padding-right: 36rpx;
+  overflow: 34rpx;
+}
+.header {
+  position: relative;
+}
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 48rpx;
+  color: #ccc;
+}
+.bottom {
+  position: absolute;
+  bottom: 34rpx;
+  left: 42rpx;
+  right: 48rpx;
+}
+input {
+  position: relative;
+  height: 70rpx;
+  background: #F9F9F9;
+  border-radius: 8rpx;
+  padding-left: 20rpx;
+}
+.skuInput {
+  position: relative;
+}
+.delete {
+  position: absolute;
+  content: 'x';
+  top: 10rpx;
+  right: 10rpx;
+  font-size: 30rpx;
+  color: #999999;
+  z-index: 99;
+}
+.btn {
+  width: 286rpx;
+  height: 70rpx;
+  background: rgba(255, 0, 0, 0.08);
+  opacity: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  color: #FF0000;
+}
+.bottomwrap {
+  /* position: fixed;
+  bottom: 74rpx; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-top: 144rpx;
+  margin-bottom: 50rpx;
+}
+.save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400rpx;
+  height: 96rpx;
+  background: #FFE200;
+  opacity: 1;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  color: #333333;
+}

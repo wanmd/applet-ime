@@ -1,0 +1,50 @@
+<view>
+  <view class='toggle-item'>
+    <view class='item {{type == 1 ? "current" : ""}}' data-type='1' bindtap='toggle'>领取的红包</view>
+    <view class='item {{type == 2 ? "current" : ""}}' data-type='2' bindtap='toggle'>发出的红包</view>
+  </view>
+</view>
+<view class='number-container'>
+  <view class='item'>
+    <view class='name'>总金额</view>
+    <view class='num'>{{numbers.amount || 0}}</view>
+  </view>
+  <view class='item'>
+    <view class='name'>总个数</view>
+    <view class='num'>{{numbers.number || 0}}</view>
+  </view>
+</view>
+<pagination id='pagination' pkName='id' url='{{type == 1 ? "redenvelope/receiveLog" : "redenvelope/redenvelopeLog"}}' bindload='load'>
+<view class='list'>
+  <view class='log-item' wx:for='{{logList}}' wx:key='id'>
+    <view class='avatar-container'>
+      <block wx:if='{{type == 1}}'>
+        <avatar wx:if='{{item.type != 3}}' class='absolute xy' src='{{item.avatar}}' size='48rpx;'></avatar>
+        <el-image wx:else class='absolute xy' src='index/official.png' style='width:48rpx;height:48rpx'></el-image>
+      </block>
+      <el-image wx:else class='absolute xy' src='index/near-self.png' style='width:48rpx;height:48rpx'></el-image>
+    </view>
+    <view wx:if='{{(type == 1 && item.type != 3) || type == 2}}' class='relative' data-index='{{index}}' bindtap='navTo'>
+      <img src='{{item.cover}}' class='goods-pic' thumb></img>
+      <view class='info'>
+        <view class='p-l-r h-100'>
+          <view class='h-100 relative'>
+            <view class='ellipsis-2 text-justify'>{{item.content}}</view>
+            <view class='date'>{{item.add_time}}</view>
+            <view class='amount'>{{item.amount}}元</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class='relative' style='line-height:60rpx;'>
+      <view>平台红包</view>
+      <view class='info'>
+        <view class='f-24 overflow p-l-r'>
+          <view class='pull-left'>{{item.add_time}}</view>
+          <view class='pull-right'>{{item.amount}}元</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</pagination>

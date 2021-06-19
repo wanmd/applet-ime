@@ -1,0 +1,25 @@
+<view class='top-nav'>
+  <view class='toggle-item'>
+    <view wx:for='{{topNavs}}' wx:key="index" class='item {{selectedNav == item.type ? "current" : ""}}' data-type='{{item.type}}' bindtap='toggleType'>{{item.name}}</view>
+  </view>
+</view>
+<!-- <pagination> -->
+  <view class='list' wx:if='{{userList.length>0}}'>
+    <view class='item p-l-r' wx:for='{{userList}}' wx:key="index">
+      <cell height='140rpx' url='/pages/homepage/index?userId={{selectedNav==1 ? item.user_id:item.looked_user_id}}'>
+        <view slot='title'>
+          <avatar size='80rpx' src='{{item.avatar}}'>
+            <view class='user-info'>
+              <view class='bold f-32'>{{item.nickname}}</view>
+              <view class='f-24 color-999'>
+                <text>{{item.add_time}}</text>
+              </view>
+            </view>
+          </avatar>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <empty wx:else class='absolute xy'></empty>
+<!-- </pagination> -->
+

@@ -1,0 +1,1 @@
+<image class='image' src='{{imgUrl}}{{src}}' style='{{style}}' mode='{{mode}}'></image>

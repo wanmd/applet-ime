@@ -1,0 +1,126 @@
+<!-- Template Name: emptylist
+Template Params:
+   -->
+<template name="linkbox">
+  <!-- <view class="flex--c z100 link-box {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}">
+    <view class="link-wrap border-b">
+      <view class="link-tit">微信：{{wechat}}</view>
+      <view class="link-num" data-content="{{wechat}}" catch:tap="capy">复制</view>
+    </view>
+    <view class="link-wrap">
+      <view class="link-tit">手机：{{phone}}</view>
+      <view class="link-num" data-phone="{{phone}}" catch:tap="callNumPhone">拨号</view>
+    </view>
+    <view class="line10"></view>
+    <view class="text-align mar_t-16" catch:tap="hideMark">取消</view>
+  </view> -->
+  <view class="flex--c fixed__ z100 {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}" catch:tap="hideMark">
+    <view class="link-box" style="bottom: 560rpx;" data-content="{{userInfo.wechat}}" catch:tap="copy">
+      <view class="link-wrap">
+        <view class="buyer_user">
+          <view class="buyer_img">
+            <image class="" src="{{userInfo.avatar}}"></image>
+            <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
+          </view>
+          <view class="buyer_name">{{userInfo.nickname}}</view>
+        </view>
+
+        <view class="link-tit">
+          <el-image class="icon" src='ic_contact_wechat@2x.png' style='width:42rpx;display: inline-block;'></el-image>
+          <text>{{userInfo.wechat}}</text>
+        </view>
+        <!-- <view class="link-num" data-content="{{userInfo.wechat}}" catch:tap="copy">复制</view> -->
+      </view>
+    </view>
+    <view class="link-box" style="bottom: 210rpx;" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">
+      <view class="link-wrap">
+        <view class="buyer_user">
+          <view class="buyer_img">
+            <image class="" src="{{userInfo.avatar}}"></image>
+            <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
+          </view>
+          <view class="buyer_name">{{userInfo.nickname}}</view>
+        </view>
+        <view class="link-tit">
+          <el-image class="icon" src='ic_contact_phone@2x.png' style='width:42rpx;display: inline-block;'></el-image>
+          <text>{{userInfo.mobile}}</text>
+        </view>
+        <!-- <view class="link-num" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">拨号</view> -->
+      </view>
+    </view>
+    <view class="text-align" catch:tap="hideMark">取消</view>
+  </view>
+
+  <view class="mark {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}" catch:tap="hideMark"></view>
+</template>
+
+<!--
+Template Name: loadmore
+Template Params:
+  show: boolean, 是否显示
+  ajaxing: boolean, 是否加载中
+  loadnum: integer, 已加载记录数
+  totalnum: integer, 总记录数
+-->
+<template name="loadmore">
+<view class="loadmore" wx:if="{{show}}">
+  <button wx:if="{{ajaxing}}" loading="true" class="loadmore-btn">加载中...</button>
+  <block wx:else>
+    <view class="loadmore-row" wx:if="{{loadnum < totalnum && totalnum > 0}}">已加载{{loadnum}}条记录，共{{totalnum}}条，下拉可加载更多
+    </view>
+    <view class="loadmore-row" wx:else>当前条件共{{totalnum}}条记录，已全部加载完成</view>
+  </block>
+</view>
+</template>
+
+<!--
+Template Name: loadmore
+Template Params:
+  show: boolean, 是否显示
+  ajaxing: boolean, 是否加载中
+  loadnum: integer, 已加载记录数
+  totalnum: integer, 总记录数
+-->
+<template name="loadorder">
+  <view class="loadmore" wx:if="{{show}}">
+    <button wx:if="{{ajaxing}}" loading="true" class="loadmore-btn">加载中...</button>
+    <block wx:else>
+      <view class="loadmore-row" wx:if="{{loadnum < totalnum && totalnum > 0}}">已加载{{loadnum}}条记录，共{{totalnum}}条，下拉可加载更多
+      </view>
+      <view class="loadmore-row" wx:else>当前条件共{{totalnum}}条记录，已全部加载完成</view>
+    </block>
+    <block wx:if="{{totalnum>20}}">
+      <scroll-view class="order-btn" bindtap="goTop" scroll-into-view="{{topNum}}" scroll-y="true" enable-back-to-top="true">
+        <view class="order-btn__t">{{loadnum}}</view>
+        <view class="order-btn__b">{{totalnum}}</view>
+        <view id="order0" class="order-scroll"></view>
+      </scroll-view>
+    </block>
+
+  </view>
+</template>
+
+
+<!--
+  Template Name: pageloading
+  Template Params:
+    show: boolean, 是否显示
+-->
+<template name="pageloading">
+<!-- <view class="css3-loading" wx:if="{{show}}"></view> -->
+<view class="loading-wrap" wx:if="{{show}}">
+  <view class="k-letter-holder" >
+    <view class="k-letter-1b k-letter">L</view>
+    <view class="k-letter-2b k-letter">o</view>
+    <view class="k-letter-3b k-letter">a</view>
+    <view class="k-letter-4b k-letter">d</view>
+    <view class="k-letter-5b k-letter">i</view>
+    <view class="k-letter-6b k-letter">n</view>
+    <view class="k-letter-7b k-letter">g</view>
+    <view class="k-letter-8b k-letter">.</view>
+    <view class="k-letter-9b k-letter">.</view>
+    <view class="k-letter-10b k-letter">.</view>
+  </view>
+</view>
+</template>
+

@@ -1,0 +1,18 @@
+<!--pages/goodsCategoryManageNew/index.wxml-->
+<view class="p-44 mb-300">
+  <view class="mb-44 borderb-1-solid-EAEAEA pb-40" wx:for="{{treeData}}" wx:key="id" wx:for-index="parentIndex">
+    <!-- 一级分类 -->
+    <view class="d-f ai-c jc-c w-330 h-82 {{item.active ? 'bgc-FFE200' : 'bgc-EFEFEF' }} c-333 fz-28 mb-28">{{item.name}}</view>
+    <!-- 二级分类 -->
+    <view wx:if="{{item.son.length}}"  class="d-f fxw-w ">
+      <view wx:for="{{item.son}}" wx:key="id" wx:for-item="sonItem">
+        <view bindtap="handleCheck" data-id="{{sonItem.id}}" data-parent-index="{{parentIndex}}" data-index="{{index}}" class="level2 {{sonItem.active ? 'bgc-FFE200' : 'bgc-EFEFEF'}}">{{sonItem.name}}</view>
+      </view>
+    </view>
+    <block wx:else>当前没有子分类</block>
+  </view>
+</view>
+<view class="bottom">
+  <view class="save" bindtap="handleSave">保存</view>
+  <view class="edit" bindtap="handleEdit">编辑分类</view>
+</view>

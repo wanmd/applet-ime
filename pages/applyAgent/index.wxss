@@ -1,0 +1,59 @@
+page{
+  background-size:cover;
+  color:#fff;
+  background-color: #CC0605;
+  padding-bottom: 120rpx;
+}
+.image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.page{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.content{
+  padding:0rpx 80rpx;
+}
+
+.content .item{
+  overflow:hidden;
+  line-height:70rpx;
+}
+.content .item .title{
+  float:left;
+}
+.content .item .value{
+  float:right;
+}
+
+
+.merchant{
+  text-align:center;
+  padding-top:100rpx;
+}
+
+.merchant .avatar{
+  display:block;
+  width:130rpx;
+  height:130rpx;
+  margin:auto;
+  border-radius:50%;
+}
+.picbg{
+  margin-top: 10rpx;
+}
+.apply-btn{
+  position: fixed;
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  bottom: 0rpx;
+  background:linear-gradient(-23deg,rgba(204,174,123,1),rgba(250,224,177,1));
+}

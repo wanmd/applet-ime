@@ -1,0 +1,234 @@
+
+<!-- <view> -->
+<view class="{{SMFlag ? 'page' : ''}}">
+	<view wx:if="{{SMFlag}}" class='p-l-r fixed w-100 bc-fff' style='left:0;top:0;z-index:2;'>
+	  <view class='top-nav'>
+	    <view class='toggle-item'>
+	      <view wx:for='{{topNavs}}' wx:key="index" class='item {{selectedNav == item.type ? "current" : ""}}' data-type='{{item.type}}' bindtap='toggleType'>{{item.name}}</view>
+	    </view>
+	  </view>
+	</view>
+	<view class="page__item"  wx:if='{{selectedNav==1}}'>
+		<view class="makes__title" style="padding-top: 40rpx;">
+			<view class="title">今日销售数据</view>
+			<view class="makes__nav flex_items" style="padding: 30rpx 0 40rpx;">
+				<!-- <view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-color1"></view>{{quantity.todayHasPayNum||0}}</view>
+					<view class="text">已付款订单数</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-color2"></view>{{quantity.todaySaleGoods||0}}</view>
+					<view class="text">商品数</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-color3"></view>{{quantity.todaySaleMoney||0}}</view>
+					<view class="text">营收金额</view>
+				</view> -->
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-FF006F"></view>{{quantity.todaySaleMoney||888}}</view>
+					<view class="text">访客量</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-FF8800"></view>￥{{quantity.todaySaleMoney||888}}</view>
+					<view class="text">成交金额</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-00B9FF"></view>{{quantity.todaySaleMoney||888}}</view>
+					<view class="text">成交商品数</view>
+				</view>
+			</view>
+			<view class="makes__nav flex_items" style="padding: 30rpx 0 40rpx;">
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-88FF00"></view>{{quantity.todaySaleMoney||888}}</view>
+					<view class="text">待付款</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-FF0000"></view>{{quantity.todaySaleMoney||888}}</view>
+					<view class="text">待发货</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon icon-AB00FF"></view>{{quantity.todaySaleMoney||888}}</view>
+					<view class="text">售后中</view>
+				</view>
+			</view>
+		</view>
+		<view class="makes__title" style="padding-top: 40rpx">
+			<view class="title">昨日销售数据</view>
+			<!-- <view class="makes__nav flex_items" style="padding: 30rpx 0 40rpx;">
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-color1"></view>{{quantity.yesterdayHasPayNum||0}}</view>
+					<view class="text">已付款订单数</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-color2"></view>{{quantity.yesterdaySaleGoods||0}}</view>
+					<view class="text">商品数</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-color3"></view>{{quantity.yesterdaySaleMoney||0}}</view>
+					<view class="text">营收金额</view>
+				</view>
+			</view> -->
+			<view class="makes__nav flex_items" style="padding: 30rpx 0 40rpx;">
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-C40155"></view>{{quantity.yesterdayHasPayNum||0}}</view>
+					<view class="text">访客量</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-944F00"></view>{{quantity.yesterdaySaleGoods||0}}</view>
+					<view class="text">营收金额</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-006B94"></view>{{quantity.yesterdaySaleMoney||0}}</view>
+					<view class="text">成交商品数</view>
+				</view>
+			</view>
+			<view class="makes__nav flex_items" style="padding: 30rpx 0 40rpx;">
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-478401"></view>{{quantity.yesterdayHasPayNum||0}}</view>
+					<view class="text">待付款</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-B70101"></view>{{quantity.yesterdaySaleGoods||0}}</view>
+					<view class="text">待发货</view>
+				</view>
+				<view class="makes__item">
+					<view class="num font-num Bebas"><view class="icon  icon-5C008A"></view>{{quantity.yesterdaySaleMoney||0}}</view>
+					<view class="text">售后中</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="makes__title makes__title_90 border-top" style="padding-top: 40rpx">
+			<view class="makes_items makes__item_50">
+				<view class="title">本周销售数据</view>
+				<view class="makes__nav" style="padding: 30rpx 0 40rpx;">
+					<view class="makes__item makes__item_100">
+						<view class="num font-num Bebas">￥888</view>
+						<view class="text">营收金额</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.curWeekHasPayNum||0}}</view>
+						<view class="text">访客数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.curWeekHasPayNum||0}}</view>
+						<view class="text">订单数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.curWeekSaleGoods||0}}</view>
+						<view class="text">商品数</view>
+					</view>
+				</view>
+			</view>
+			<view class="makes_items makes__item_50">
+				<view class="title">上周销售数据</view>
+				<view class="makes__nav" style="padding: 30rpx 0 40rpx;">
+					<view class="makes__item makes__item_100">
+						<view class="num font-num Bebas">￥{{quantity.lastWeekSaleMoney||0}}</view>
+						<view class="text">营收金额</view>
+					</view>
+					<view class="makes__item makes__item_33">
+						<view class="num font-num Bebas">888</view>
+						<view class="text">访客数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.lastWeekHasPayNum||0}}</view>
+						<view class="text">订单数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.lastWeekSaleGoods||0}}</view>
+						<view class="text">商品数</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="makes__title" style="padding-top: 40rpx">
+			<view class="makes_items makes__item_50">
+				<view class="title">本月销售数据</view>
+				<view class="makes__nav" style="padding: 30rpx 0 40rpx;">
+					<view class="makes__item makes__item_100">
+						<view class="num font-num Bebas">￥{{quantity.curMonthSaleMoney||0}}</view>
+						<view class="text">营收金额</view>
+					</view>
+					<view class="makes__item makes__item_33">
+						<view class="num font-num Bebas">888</view>
+						<view class="text">访客数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.curMonthHasPayNum||0}}</view>
+						<view class="text">订单数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.curMonthSaleGoods||0}}</view>
+						<view class="text">商品数</view>
+					</view>
+				</view>
+			</view>
+			<view class="makes_items makes__item_50">
+				<view class="title">上月销售数据</view>
+				<view class="makes__nav" style="padding: 30rpx 0 40rpx;">
+					<view class="makes__item makes__item_100">
+						<view class="num font-num Bebas">￥{{quantity.lastMonthSaleMoney||0}}</view>
+						<view class="text">营收金额</view>
+					</view>
+					<view class="makes__item makes__item_33">
+						<view class="num font-num Bebas">888</view>
+						<view class="text">访客数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.lastMonthHasPayNum||0}}</view>
+						<view class="text">订单数</view>
+					</view>
+					<view class="makes__item  makes__item_33">
+						<view class="num font-num Bebas">{{quantity.lastMonthSaleGoods||0}}</view>
+						<view class="text">商品数</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="makes__title" style="padding-top: 40rpx;">
+			<view class="makes__nav flex_items flex_items_1" style="padding: 30rpx 0 40rpx;">
+				<view class="makes__item flex_items makes__item_100">
+					<view class="text" style="font-size:14px;color: #333;">店铺营收总金额</view>
+					<view class="num font-num Bebas" style="padding-left: 50rpx;">￥{{quantity.totalSaleMonth||0}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="page__item"  wx:if='{{selectedNav==2}}'>
+		<pagination url='user/getStoreSaleGoodsList' showEmptyNoMore bindload='load'>
+		  <view class='p-l-r'>
+		  	 <view class="goods_title">
+	          <view class="goods_name">产品名</view>
+	          <view class="goods_num">数量</view>
+	          <view class="goods_price">金额</view>
+	        </view>
+		    <view class='log-item' wx:for='{{goodsList}}' wx:key="index">
+		      <view class='goods_it'>
+		        <view class='goods_name'>{{item.goods_name}}</view>
+		        <view class='goods_num'>{{item.totalNum}}</view>
+		      	<view class='goods_price Bebas'>{{item.totalPrice}}</view>
+		      </view>
+		    </view>
+		  </view>
+		</pagination>
+		<!-- <view class="goods">
+	        <view class="goods_title">
+	          <view class="goods_name">产品名</view>
+	          <view class="goods_num">数量</view>
+	          <view class="goods_price">金额</view>
+	        </view>
+	        <view class="goods_lists">
+	          <view class="goods_list" wx:for="{{order.goods}}" wx:key="index">
+	            <view class="goods_it">
+	              <view class="goods_name">{{item.goods_name}}</view>
+	              <view class="goods_num">{{item.quantity}}</view>
+	              <view class="goods_price">{{item.sale_price}}</view>
+	            </view>
+	            <view class="remark">{{item.remark}}</view>
+	          </view>
+	        </view>
+	    </view> -->
+	</view>
+</view>
+

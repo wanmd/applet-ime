@@ -1,0 +1,126 @@
+@import '../../assets/scss/base';
+page {
+  padding-bottom: rpx(120);
+}
+.cover-img {
+  @include wh(72, 72);
+}
+.lbs-tit {
+  font-size: rpx(18);
+  font-family: PingFangSC-Medium, PingFangSC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: rpx(22);
+  @include lineNum(1);
+}
+
+.tool-sm {
+  font-size: rpx(14);
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: rgba(153, 153, 153, 1);
+  line-height: rpx(20);
+  padding: rpx(15) 0;
+}
+.padd_b-16 {
+  padding-bottom: rpx(16);
+}
+.colorGold {
+  color: rgba(236, 189, 117, 1);
+}
+.fs12 {
+  font-size: rpx(12);
+  font-family: PingFangSC-Semibold, PingFangSC;
+  font-weight: 600;
+  color: rgba(204, 204, 204, 1);
+  line-height: rpx(17);
+}
+.fs18 {
+  font-size: rpx(18);
+}
+.fs24 {
+  font-size: rpx(24);
+}
+.ixpir {
+  font-size: rpx(12);
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: rgba(204, 204, 204, 1);
+  line-height: rpx(17);
+  align-self: flex-end;
+}
+.flex_c-jc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.viptit {
+  font-size: rpx(18);
+  font-family: PingFangSC-Medium, PingFangSC;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: rpx(25);
+  padding-bottom: rpx(16);
+}
+.vip-item {
+  background: rgba(250, 250, 250, 1);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: rpx(15);
+  margin-bottom: rpx(16);
+}
+.vip-item--a {
+  border: rpx(0.5) solid rgba(236, 189, 117, 1);
+  background: rgba(236, 189, 117, 0.1);
+}
+.vip-l {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vip-l-tit {
+  font-size: rpx(15);
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: rgba(51, 51, 51, 1);
+  line-height: rpx(21);
+}
+.vip-l-del {
+  font-size: rpx(12);
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: rgba(153, 153, 153, 1);
+  line-height: rpx(17);
+  text-decoration: line-through;
+}
+.flex_ac {
+  justify-content: space-around;
+}
+.btn1 {
+  width: rpx(150);
+  height: rpx(48);
+  line-height: rpx(48);
+  background: rgba(255, 226, 0, 1);
+  border-radius: rpx(8);
+  display: inline-block;
+  text-align: center;
+}
+.tuwensm{
+  width: 100%;
+  height: rpx(150);
+  font-size:rpx(14);
+  font-family:PingFangSC-Light,PingFangSC;
+  font-weight:300;
+  color:rgba(153,153,153,1);
+  line-height:rpx(20);
+  text-align: center;
+}
+.btn2 {
+  text-align: center;
+  width: 100%;
+  height: rpx(50);
+  line-height: rpx(50);
+  background:rgba(255,226,0,1);
+}

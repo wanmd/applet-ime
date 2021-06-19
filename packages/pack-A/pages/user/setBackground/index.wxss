@@ -1,0 +1,6 @@
+/* pages/userInfo/setBackground/index.wxss */
+.image{
+  display:block;
+  width:336rpx;
+  height:336rpx;
+}

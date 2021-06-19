@@ -1,0 +1,53 @@
+<include src='../selectGoods.wxml' />
+<blank margin='0'></blank>
+<view class='p-l-r'>
+  <view class='input-item'>
+    <view class='wrap'>
+      <cell class='cell' title='抽奖总人数' border='{{false}}' arrow='{{false}}'>
+        <view slot='content' class='relative input'>
+          <input placeholder='1-500' class='text-right' type='number' value='{{formData.total}}' data-target='total' bindinput='input1'/>
+          <text class='input-unit middle'>人</text>
+        </view>
+      </cell>
+    </view>
+  </view>
+
+<view class='input-item'>
+    <view class='wrap'>
+      <cell class='cell' title='中奖人数' border='{{false}}' arrow='{{false}}'>
+        <view slot='content' class='relative input'>
+          <input placeholder='{{formData.total?"1-"+formData.total:"1-500"}}' class='text-right' type='number' value='{{formData.number}}' data-target='number' bindinput='input2'/>
+          <text class='input-unit middle'>个</text>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <view class='input-item'>
+    <view class='wrap'>
+      <picker mode='date' start='{{today}}' data-target='start_time' bindchange='input'>
+      <cell class='cell' title='活动开始时间' border='{{false}}'>
+        <view slot='content' class='relative input'>{{formData.start_time}}</view>
+      </cell>
+      </picker>
+    </view>
+  </view>
+
+  <view class='input-item'>
+    <view class='wrap'>
+      <picker mode='date' start='{{tomorrow}}' data-target='end_time' bindchange='input'>
+      <cell class='cell' title='结束时间' border='{{false}}'>
+        <view slot='content' class='relative input'>{{formData.end_time}}</view>
+      </cell>
+      </picker>
+    </view>
+  </view>
+  <view style='margin-top:120rpx;'>
+    <btn style-text='background:#ECBD75;' bindtap='confirm'>发布</btn>
+  </view>
+</view>
+
+
+<view class="por">
+  <view class="rule" bind:tap="show">抽奖活动玩法与规则<view class="inline-block tips">!</view></view>
+</view>
+<tips-model showModel="{{show}}" title="{{title}}" text="{{content}}"></tips-model>

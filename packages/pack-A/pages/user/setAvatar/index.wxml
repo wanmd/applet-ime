@@ -1,0 +1,9 @@
+<view class='p-l-r'>
+  <view class='relative'>
+    <input maxlength='30' style='border-bottom:1px solid #f7f7f7' type='text' value='{{nickname}}' bindinput='input'></input>
+    <view class='absolute middle r-0 color-999999'>{{nickname.length}}/30</view>
+  </view>
+</view>
+<view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
+  <btn bindtap='confirm'>确定</btn>
+</view>

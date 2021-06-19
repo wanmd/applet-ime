@@ -1,0 +1,33 @@
+page{
+  background:rgba(247,247,247,1);
+  padding-bottom: 220rpx;
+}
+
+.numbers{
+  background:#fff;
+  border-radius:16rpx;
+  height: 208rpx;
+  display:flex;
+}
+.numbers .item{
+  flex:1;
+  height:100%;
+  position:relative;
+}
+.numbers .item .wrap{
+  position:absolute;
+  white-space:nowrap;
+  text-align:center;
+}
+.numbers .item .num{
+  color:#ECBD75;
+}
+.numbers .item .num text{
+  font-size:56rpx;
+}
+
+.log-container{
+  background:#fff;
+  border-radius:16rpx;
+  padding:30rpx 50rpx;
+}

@@ -1,0 +1,57 @@
+.mask{
+  height:100%;
+  width:100%;
+  background:rgba(0, 0, 0, 0.6);
+  position:fixed;
+  left:0;
+  top:0;
+  z-index:9;
+}
+
+.modal{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:560rpx;
+  height: 436rpx;
+  background:#fff;
+}
+.modal .wrap{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:72rpx;
+}
+.modal .wrap .icon{
+  display:block;
+  width:140rpx;
+  margin:auto;
+}
+.modal .wrap .content{
+  display:block;
+  text-align:center;
+  color:#333;
+  font-weight:bold;
+  margin-top:40rpx;
+}
+.modal .btn-2{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:64rpx;
+  overflow:hidden;
+  width:452rpx;
+}
+.cancel, .confirm{
+  width:216rpx;
+  line-height:72rpx;
+  background: #FFE200;
+  border-radius:0;
+  float:left;
+}
+.cancel{
+  color:#999;
+  background:rgba(242,242,242,1);
+  margin-right:20rpx;
+}

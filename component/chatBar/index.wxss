@@ -1,0 +1,280 @@
+.bottom-nav {
+    height: 96rpx;
+    display: flex;
+    background: #fff;
+}
+
+.bottom-nav .item {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.bottom-nav .item .wrap {
+    position: absolute;
+    font-size: 24rpx;
+    color: #666666;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.bottom-nav .item .icon {
+    display: block;
+    width: 48rpx;
+    margin: 0rpx auto;
+}
+
+.bottom-nav2 .item .icon {
+    width: 72rpx;
+}
+
+.bottom-nav1 .item:first-of-type .wrap {
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+
+/* 联系TA */
+
+.mark {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+}
+
+.z100 {
+    z-index: 100;
+}
+
+.flex--c {
+    display: flex;
+    flex-direction: column;
+}
+
+.fixed__ {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.link-box {
+    position: fixed;
+    left: 50%;
+    background-color: #fff;
+    width: 560rpx;
+    height: 332rpx;
+    margin-left: -280rpx;
+    z-index: 99;
+}
+
+.link-wrap {
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
+    padding: 48rpx;
+}
+
+.text-align {
+    text-align: center;
+    /*padding: 30rpx;*/
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 160rpx;
+    line-height: 100rpx;
+    background: rgba(255, 255, 255, 1);
+}
+
+.border-b {
+    border-bottom: 1rpx solid #dddddd
+}
+
+.buyer_img {
+    position: relative;
+    width: 96rpx;
+    height: 96rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.buyer_img .vip {
+    position: absolute;
+    right: -6rpx;
+    bottom: -6rpx;
+}
+
+.buyer_img image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.buyer_name {
+    text-align: center;
+    padding-top: 16rpx;
+}
+
+.buyer_user {
+    padding-bottom: 26rpx;
+}
+
+.link-tit {
+    text-align: center;
+    font-size: 48rpx;
+    font-weight: bold;
+    line-height: 56rpx;
+}
+
+
+/* //上拉运动 */
+
+@keyframes sliup_1 {
+    from {
+        opacity: 0;
+        transform: translateY(120%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.sliup_1 {
+    display: block;
+    animation: sliup_1 .35s ease-in both;
+}
+
+@keyframes slidown_1 {
+    from {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(120%);
+    }
+}
+
+.slidown_none {
+    display: none !important;
+}
+
+.slidown_1 {
+    /* // display: none; */
+    animation: slidown_1 .35s ease-in both;
+}
+
+.show_h {
+    display: block;
+    animation: show_h .35s ease-in both;
+}
+
+@keyframes show_h {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.show_l {
+    display: block;
+    animation: show_l .35s ease-in both;
+}
+
+@keyframes show_l {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+/* 公共弹窗 */
+
+.popup_page {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+}
+
+.popup_page .bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 1;
+}
+
+.popup_page .popup_wrap {
+    position: relative;
+    top: 43px;
+    left: 0;
+    overflow-y: auto;
+    z-index: 2;
+    width: 100%;
+    height: calc(100vh);
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_page .popup {
+    width: 340px;
+    height: auto;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 8rpx;
+}
+
+
+/* 公共弹窗 end */
+
+.down-wrap .popup_title {
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #000000;
+    line-height: 38rpx;
+    padding-top: 80rpx;
+    padding-bottom: 72rpx;
+}
+
+.down-wrap .popup_center {
+    padding-bottom: 54rpx;
+}
+
+.down-wrap .popup_center .text {
+    margin-bottom: 42rpx;
+    padding-left: 86rpx;
+    display: flex;
+    align-items: center;
+}
+
+.down-wrap .down-footer {
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: #EEEEEE;
+}

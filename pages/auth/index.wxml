@@ -1,0 +1,36 @@
+
+<view class='page' wx:if="{{!userInfo.nickname}}">
+	<view class='fixed title'>
+		<el-image src='shanghu@2x.png' style='width:98rpx;display:block;margin:auto;'></el-image>
+		<view class="text">
+			<text>您还未授权</text>
+			<text>请先授权再进行操作</text>
+		</view>
+	</view>
+	<view class='fixed xy w100p' style="padding-top: 80rpx;">
+		<el-image src='auth1@2x.png' style='width:420rpx;display:block;margin:auto;'></el-image>
+		<view class="auth-btns flex-around">
+			<button hover-class="none" class='so-btn' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>允许</button>
+			<button hover-class="none" class='rj-btn' bindtap="reject">取消</button>
+		</view>
+	</view>
+	<view class="mt-40 navigator">授权即表明您同意<view class="xieyi"> <navigator hover-class="none" url="/packages/pack-B/pages/apply-merchant/service-agreement/index">《爱迷服务协议》</navigator> <navigator url="/packages/pack-B/pages/apply-merchant/privacy-agreement/index" hover-class="none">《隐私政策》</navigator> </view></view>
+</view>
+
+<view class='page page-yellow' wx:else>
+	<view class='fixed title'>
+		<image src='{{userInfo.avatar}}' style='width:90rpx;height:90rpx;'></image>
+		<view class="text">
+			<text>亲爱的  {{userInfo.nickname}}</text>
+			<text>请您登录后继续解锁吧</text>
+		</view>
+	</view>
+	<view class='fixed xy w100p'>
+		<el-image src='auth2@2x.png' style='width:420rpx;display:block;margin:auto;'></el-image>
+		<view class="auth-btns flex-around">
+			<button hover-class="none" class='so-btn white-btn' open-type="getPhoneNumber" bindgetphonenumber='getPhoneNumber'>立即登录</button>
+			<button hover-class="none" class='rj-btn' bindtap="reject">暂不登录</button>
+		</view>
+	</view>
+</view>
+

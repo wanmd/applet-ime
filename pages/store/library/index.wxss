@@ -1,0 +1,44 @@
+page{
+  height:100%;
+}
+.goods-list{
+  overflow:hidden;
+}
+.goods-list .item{
+  float:left;
+  width:50%;
+  text-align:center;
+  margin-bottom:40rpx;
+  position:relative;
+}
+.goods-list .item:nth-of-type(odd) {
+  padding-right:8rpx;
+}
+.goods-list .item:nth-of-type(even) {
+  padding-left:8rpx;
+}
+
+.cover{
+  width:337rpx;
+  height:337rpx;
+  display:block;
+}
+
+.bottom-nav{
+  display:flex;
+  position:fixed;
+  width:100%;
+  bottom:0;
+  left:0;
+}
+.bottom-nav .item{
+  flex:1;
+  height:80rpx;
+  position:relative;
+}
+
+.delete{
+  position:absolute;
+  right:20rpx;
+  bottom:0rpx;
+}

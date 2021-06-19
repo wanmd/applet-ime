@@ -1,0 +1,298 @@
+<view wx:if='{{order !== null}}' class='p-l-r' style='padding-bottom:200rpx'>
+  <store store='{{order.buyer}}' status="{{order.status}}" is_agent='{{order.is_agent}}'></store>
+  <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
+  <goods wx:for='{{order.goods}}' ismy="{{false}}" goods='{{item}}' note='{{true}}' wx:key="index"></goods>
+  <view class='order-fee-detail'>
+    <!-- <view class='item'>
+      <text class='title w-200 color999'>运费：</text>
+      <text class='content'>￥<text class='f-32'>{{order.delivery_fee * 1}}</text></text>
+    </view> -->
+
+    <view class='item'>
+      <text class='title w-300 color333'>共 {{order.quantity}} 件，合计：</text>
+      <text class='content'>￥<text class='f-32'>{{total_price }}</text></text>
+    </view>
+    <block wx:if="{{order.is_agent==1||order.buyer.isVip==1}}">
+    <!-- <block wx:if="{{order.is_agent==1}}"> -->
+        <view class='item'>
+          <text class='title w-300 color333'>会员/代理优惠合计：</text>
+          <text class='content' wx:if="{{order.is_agent==1}}">￥<text class='f-32'>{{(~~(total_price * 100) - ~~(amount_price * 100))/100}}</text></text>
+          <text class='content' wx:else>￥<text class='f-32'>{{(~~(total_price * 100) - ~~(vip_price * 100))/100}}</text></text>
+        </view>
+        <view class='item'>
+          <text class='title w-300 color333'>会员/代理价合计：</text>
+          <text class='content' wx:if="{{order.is_agent==1}}">￥<text class='f-32'>{{amount_price * 1}}</text></text>
+          <text class='content' wx:else>￥<text class='f-32'>{{vip_price * 1}}</text></text>
+        </view>
+    </block>
+    <view class='item'>
+      <text class='title w-300'>实付：</text>
+      <text class='content color-f61935' wx:if="{{order.is_agent==1}}">￥<text class='f-32'>{{amount_price * 1 + order.delivery_fee * 1}}</text></text>
+      <text class='content color-f61935' wx:elif="{{order.buyer.isVip!=1}}">￥<text class='f-32'>{{amount_price * 1 + order.delivery_fee * 1}}</text></text>
+      <text class='content color-f61935' wx:else>￥<text class='f-32'>{{vip_price}}</text></text>
+    </view>
+  </view>
+  
+  <view class='hr'></view>
+
+  <view class='color-999999 f-24'>
+    <view class='overflow'>
+      <view class='pull-left'>订单号：<text class='m-l-20'>{{order.order_no}}</text></view>
+      <view class='pull-right color-ffe200 f-28' data-content="{{order.order_no}}" catch:tap="copyTxt">复制</view>
+    </view>
+
+    <view class='m-t-20' wx:if='{{order.merchant_confirm_time}}'>创建时间：<text class='m-l-20'>{{order.merchant_confirm_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.pay_time}}'>付款时间：<text class='m-l-20'>{{order.pay_time}}</text></view>
+    <!-- <view class='m-t-20'>付款方式：<text class='m-l-20'>{{order.create_time}}</text></view> -->
+    <view class='m-t-20' wx:if='{{order.deliver_time}}'>
+      <block wx:if="{{order.express_no&&order.express_no!=''}}">发货时间：</block>
+      <block wx:else>消费开始时间：</block>
+      <text class='m-l-20'>{{order.deliver_time}}</text>
+    </view>
+    <view class='overflow m-t-20' wx:if="{{order.express_name&&order.express_name!=''}}">
+      <view class='pull-left'>物流公司：<text class='m-l-20'>{{order.express_name}}</text></view>
+    </view>
+    <view class='overflow m-t-20' wx:if="{{order.express_no&&order.express_no!=''}}">
+      <view class='pull-left'>物流单号：<text class='m-l-20'>{{order.express_no}}</text></view>
+      <view class='pull-right color-ffe200 f-28' data-content="{{order.express_no}}" catch:tap="copyTxt">复制</view>
+    </view>
+    <!-- <view class='overflow m-t-20' wx:if="{{order.verify_no&&order.verify_no!=''}}">
+      <view class='pull-left'>消费条码：<text class='m-l-20'>{{order.verify_no}}</text></view>
+    </view> -->
+    <view class='m-t-20' wx:if='{{order.complete_time}}'>
+      <block wx:if="{{order.express_no&&order.express_no!=''}}">收货时间：</block>
+      <block wx:else>消费完成时间：</block>
+      <text class='m-l-20'>{{order.complete_time}}</text>
+    </view>
+    <!-- <view class='m-t-20'>买家下单时间：<text class='m-l-20'>{{order.create_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.merchant_confirm_time}}'>卖家确认时间：<text class='m-l-20'>{{order.create_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.pay_time}}'>买家支付时间：<text class='m-l-20'>{{order.pay_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.deliver_time}}'>卖家发货时间：<text class='m-l-20'>{{order.deliver_time}}</text></view> -->
+  </view>
+  <block  wx:if='{{order.status === 2}}'>
+    <!-- <block wx:if="{{verify_flag}}"> -->
+    <view class='hr'></view>
+    <view class="hx">
+      <view class="hx_cell" style="padding-bottom: 40rpx;">
+        <view class="label">线上交易 使用流程</view>
+        <view class="hx_liucheng">
+          <view class="hx_liucheng_item">
+            <icon-text-flex class='item-icon' width="35rpx" icon='order/che.png'></icon-text-flex>
+            <view>买家线上购买</view>
+          </view>
+          <view class="hx_liucheng_bor">
+            <icon-text-flex class='item-icon' width="75rpx" icon='order/jiantou.png'></icon-text-flex>
+          </view>
+          <view class="hx_liucheng_item">
+            <icon-text-flex class='item-icon' width="47rpx" icon='order/fahuo.png'></icon-text-flex>
+            <view>商家发货</view>
+          </view>
+          <view class="hx_liucheng_bor">
+            <icon-text-flex class='item-icon' width="75rpx" icon='order/jiantou.png'></icon-text-flex>
+          </view>
+          <view class="hx_liucheng_item">
+            <icon-text-flex class='item-icon' width="35rpx" icon='order/shou.png'></icon-text-flex>
+            <view>买家收货</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class='pay-type'>
+      <view class='pay-type-wrap'>
+        <view class='bank-pay m-t-20' >
+          <view>快递/物流公司名称：</view>
+          <view class='bank-card m-t-20'>
+            <view class='wrap input'>
+              <navigator style="display: block;height: 100%;" url='../../goodsCategory/index' hover-class="none">
+                <input placeholder-class="placeholder-class" disabled placeholder='' type='text' value='{{resultName}}'  bindinput='input1'/>
+              </navigator>
+            </view>
+          </view>
+        </view>
+        <view class='bank-pay m-t-20'>
+          <view>快递/物流单号</view>
+          <view class='bank-card m-t-20'>
+            <view class='wrap input w-560'>
+              <input placeholder-class="placeholder-class" placeholder='' type='text' value='{{result}}'  bindinput='input2'/>
+            </view>
+            <view class='getqr' bindtap='getqr' wx:if="{{order.status === 2}}">扫一扫</view>
+          </view>
+        </view>
+        <view class='contact' hidden>
+          <contact-wx contact='联系买家' userId='{{order.buyer.user_id}}'></contact-wx>
+        </view>
+      </view>
+    </view>
+    <!-- </block> -->
+
+    <!-- <block wx:else> -->
+    <view class='hr'></view>
+    <view class="hx">
+      <view class="hx_cell" style="padding-bottom: 40rpx;">
+        <view class="label">线下交易 使用流程</view>
+        <view class="hx_liucheng">
+          <view class="hx_liucheng_item">
+            <icon-text-flex class='item-icon' width="35rpx" icon='order/che.png'></icon-text-flex>
+            <view>买家线上购买</view>
+          </view>
+          <view class="hx_liucheng_bor">
+            <icon-text-flex class='item-icon' width="75rpx" icon='order/jiantou.png'></icon-text-flex>
+          </view>
+          <view class="hx_liucheng_item">
+            <icon-text-flex class='item-icon' width="35rpx" icon='order/dian.png'></icon-text-flex>
+            <view>买家到线下门店</view>
+          </view>
+          <view class="hx_liucheng_bor">
+            <icon-text-flex class='item-icon' width="75rpx" icon='order/jiantou.png'></icon-text-flex>
+          </view>
+          <view class="hx_liucheng_item">
+            <icon-text-flex class='item-icon' width="35rpx" icon='order/erweima.png'></icon-text-flex>
+            <view>商家扫描条码</view>
+          </view>
+        </view>
+      </view>
+      <view class='hx_dizhi' style="margin-bottom: 70rpx;">
+        <view class="name">{{order.store.nickname}}</view>
+        <view class="dizhi">{{order.store.m_prov + order.store.m_city + order.store.m_dist + order.store.m_street}}</view>
+        <view class="copy color-ffe200" data-content="{{order.store.m_prov + order.store.m_city + order.store.m_dist + order.store.m_street}}" catch:tap="capy">复制</view>
+      </view>
+
+      <view class='hx_dizhi'>
+        <view class="name">客户到店消费核销扫码</view>
+        <view class="dizhi">请商家扫描买家待发货订单详情中相对应的订单条码</view>
+        <view class='bank-card m-t-20'>
+          <view class='wrap input w-560'>
+            <input placeholder-class="placeholder-class" placeholder='' type='text' value='{{verify_no}}' bindinput='input3'/>
+          </view>
+          <icon-text-flex class='saomiao-icon' bindtap='getqr2' width="52rpx" icon='user/saomiao@2x.png'></icon-text-flex>
+          <!-- <view class='getqr' bindtap='getqr' wx:if="{{order.status === 2}}">扫一扫</view> -->
+        </view>
+      </view>
+    </view>
+  </block>
+  <block  wx:if='{{order.status === 3}}'>
+    <view class='hr'></view>
+    <view class="hx">
+      <view class="hx_code">
+        <view class="label">交割码：</view>
+        <view class="code">{{order.verify_no}}</view>
+      </view>
+      <view class="hx_hint">到店与商家交易的凭证，请保密处理</view>
+    </view>
+  </block>
+
+  <view class='contact'>
+    <contact-wx contact='联系买家' userInfo='{{otherUserInfo}}'></contact-wx>
+  </view>
+
+  <view class='bottom-fixed' style='display:flex;z-index:2;'  wx:if='{{(order.status == 1 && isShowTime)||(order.status == 2 && isShowTime)}}'>
+        <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if='{{order.status == 1 && isShowTime}}'>
+          
+          <btn style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);'>
+            <view class="line1">订单将于</view>
+            <view class="line2">{{surplusObj.hou}}：{{surplusObj.min}}：{{surplusObj.sec}}自动取消</view>
+          </btn>
+        </view>
+      <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 2 && isShowTime}}">
+        <btn style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);' >
+          <view class="line2 m-t-b">{{surplusObj.day}}天{{surplusObj.hou}}：{{surplusObj.min}}：{{surplusObj.sec}}后</view>
+          <view class="line1 m-b">未发货/消费将自动退款给买家</view>
+        </btn>
+      </view>
+      <view style='justify-content: center;flex:1' wx:if="{{order.status == 2 && isShowTime}}">
+        <btn bindtap='confirmComplete'>确认发货 / 消费</btn>
+      </view>
+      
+     
+  </view>
+</view>
+<confirm wx:if='{{showCancelConfirm}}' bindcallback='cancelCallback'></confirm>
+
+<view class="flex--c z100 link-box {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}">
+  <view class="link-wrap border-b">
+    <view class="link-tit">微信号： {{userInfo.wechat}}</view>
+    <view class="link-num" data-content="{{userInfo.wechat}}" catch:tap="capy">复制</view>
+  </view>
+  <view class="link-wrap border-b">
+    <view class="link-tit">手机号：{{userInfo.mobile}}</view>
+    <view class="link-num" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">拨号</view>
+  </view>
+  <view class="line10"></view>
+  <view class="text-align" catch:tap="hideMark">取消</view>
+</view>
+<view class="mark {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}" catch:tap="hideMark"></view>
+
+
+
+
+<view wx:if='{{verify_flag}}' bindtap='cancel'>
+  <view style='position:fixed;z-index:15;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' ></view>
+  <view class="SM-body">
+    <view class="SF__title">
+      <view class="buyer_img">
+        <image class="" src="{{order.buyer.avatar}}"></image>
+        <el-image wx:if="{{order.buyer.isVip==1}}" class="vip" src='vip/vip.png' style='width:30rpx;display: inline-block;'></el-image>
+      </view>
+      <view class="buyer_name">{{order.buyer.nickname}}</view>
+    </view>
+    <view class="SF__text">
+      <view class="goods">
+        <view class="goods_title">
+          <view class="goods_name">产品名</view>
+          <view class="goods_num">数量</view>
+          <view class="goods_price">金额</view>
+        </view>
+        <view class="goods_lists">
+          <view class="goods_list" wx:for="{{order.goods}}" wx:key="index">
+            <view class="goods_it">
+              <view class="goods_name">{{item.goods_name}}</view>
+              <view class="goods_num">{{item.quantity}}</view>
+              <view class="goods_price">{{item.sale_price}}</view>
+            </view>
+          </view>
+        </view>
+        
+        <view class="goods_all">
+          <view class="goods_call">
+            <view class="label">共 {{order.quantity}} 件  合计：</view>
+            <view class="price">{{total_price }}</view>
+          </view>
+          <block wx:if="{{order.is_agent==1||order.buyer.isVip==1}}">
+            <view class="goods_call">
+              <view class="label">会员/代理优惠合计：</view>
+              <view class="price" wx:if="{{order.is_agent==1}}">{{(~~(total_price * 100) - ~~(amount_price * 100))/100}}</view>
+              <view class="price" wx:else>{{(~~(total_price * 100) - ~~(vip_price * 100))/100}}</view>
+            </view>
+            <view class="goods_call">
+              <view class="label">会员/代理价合计：</view>
+              <view class="price" wx:if="{{order.is_agent==1}}">{{amount_price * 1}}</view>
+              <view class="price" wx:else>{{vip_price}}</view>
+            </view>
+          </block>
+          <view class="goods_call">
+            <view class="label">实付金额：</view>
+            <view class="price color-f61935" wx:if="{{order.is_agent==1}}">￥{{amount_price * 1 + order.delivery_fee * 1}}</view>
+            <view class="price color-f61935" wx:elif="{{order.buyer.isVip!=1}}">￥{{amount_price * 1 + order.delivery_fee * 1}}</view>
+            <view class="price color-f61935" wx:else>￥{{vip_price * 1}}</view>
+          </view>
+        </view>
+
+      </view>
+      <view class='hr'></view>
+      <view class="goods_hint">
+          <view class="title">请确认此订单买家已到店消费？</view>
+          <view class="p">稍后交割时请买家务必确认收货</view>
+          <view class="p">这样才能收到钱哦，老板！</view>
+
+      </view>
+    </view>
+    
+    <view class="btns">
+      <view class="btn btn-cancel" catchtap='cancel'>取消</view>
+      <view class="btn" catchtap='confirmComplete_qr'>确定</view>
+    </view>
+  </view>
+</view>
+
+

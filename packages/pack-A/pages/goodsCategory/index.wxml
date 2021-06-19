@@ -1,0 +1,59 @@
+<!-- <view class='p-l-r'>
+  <view class='relative' style='padding-right:140rpx'>
+    <input type='text' value='{{cateName}}' placeholder='输入标签分类' bindinput='input'></input>
+    <btn style='z-index:3' style-text='font-size:24rpx;' class='absolute middle r-0' bindtap='addCategory' size='small'>添加</btn>
+  </view>
+</view> -->
+<blank></blank>
+<view class="category">
+  <view class='categrory-wrap'>
+    <!-- 右边字母 -->
+    <view class='list'>
+      <view 
+        class='item {{cityListId==item&&"active"}}' 
+        catchtap='handleLetters' 
+        data-item='{{item}}' 
+        wx:for="{{letter}}" 
+        wx:key="index">
+        {{item}}
+      </view>
+    </view>
+    <view class='p-l-r' wx-if="{{cateItem.length>0}}">
+      <view>常用快递历史</view>
+       <view class='cateItems'>
+         <view class='cateItem'  wx:for='{{cateItem}}' wx:key="index" data-index="{{index}}" bindtap='confirm_'>
+          <text>{{item.name}}</text>
+         </view>
+       </view>
+    </view>
+    <view class='p-l-r'>
+      <view>选择物流公司</view>
+
+      <!-- //左边 -->
+      <scroll-view scroll-y="true" scroll-with-animation  style="height: {{height}}px" scroll-into-view='{{cityListId}}'>
+        <view class='items'>
+          <block wx:for='{{cateList}}' wx:for-item='letterItem'  wx:for-index='ind' wx:key='index'>
+            <view class='area'>
+              <!-- <view class="title"></view> -->
+              <view class='item-list' id='{{letterItem.letter}}'>
+                <view class='item' wx:for='{{letterItem.data}}' wx:key="index" data-ind='{{ind}}' data-index='{{index}}' data-val='{{item.name}}'>
+                  <el-radio value='{{index}}' checked='{{selectedIndex == index}}'  data-ind='{{ind}}' data-index='{{index}}' bind:change='select'>
+                    <view class='wrap'>
+                      <view class='pull-left'>{{item.name}}</view>
+                    </view>
+                  </el-radio>
+                </view>
+              </view>
+            </view>
+            
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    
+  </view>
+</view>
+
+<view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
+  <btn bindtap='confirm'>确定</btn>
+</view>

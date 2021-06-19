@@ -1,0 +1,11 @@
+<!--pages/userInfo/setBackground/index.wxml-->
+<view class='p-l-r'>
+  <view class='relative d-f'>
+    <img wx:if="{{background}}" class='image' mode="aspectFill" src="{{background}}" />
+    <view wx:if="{{background}}" class="fx-1 d-f ai-c jc-c bgc-fff" bindtap="setBackground">更换背景图片</view>
+    <view wx:if="{{!background}}" class="image d-f ai-c jc-c bgc-fff" bindtap="setBackground">上传背景图片</view>
+  </view>
+</view>
+<view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
+  <btn bindtap='confirm'>确定</btn>
+</view>

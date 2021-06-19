@@ -1,0 +1,27 @@
+page{
+  background-color: #fff;
+}
+.vip_info{
+  padding: 34rpx;
+}
+.SF__title{
+  text-align: center;
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(11,11,11,1);
+  line-height:38rpx;
+  padding: 20rpx;
+}
+.SF__text .time{
+  font-weight:bold;
+  text-align: right;
+}
+.hint_title{
+  font-size:26rpx;
+  font-weight:bold;
+  color:rgba(11,11,11,1);
+  line-height:38rpx;
+}
+.SF__text view{
+  margin-bottom: 34rpx;
+}

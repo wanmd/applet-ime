@@ -1,0 +1,150 @@
+page {
+  padding-bottom: 240rpx;
+}
+
+.cover-img {
+  width: 144rpx;
+  height: 144rpx;
+}
+
+.lbs-tit {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFangSC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 44rpx;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.tool-sm {
+  font-size: 28rpx;
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: #999999;
+  line-height: 40rpx;
+  padding: 30rpx 0;
+}
+
+.padd_b-16 {
+  padding-bottom: 32rpx;
+}
+
+.colorGold {
+  color: #ecbd75;
+}
+
+.fs12 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Semibold, PingFangSC;
+  font-weight: 600;
+  color: #cccccc;
+  line-height: 34rpx;
+}
+
+.fs18 {
+  font-size: 36rpx;
+}
+
+.fs24 {
+  font-size: 48rpx;
+}
+
+.ixpir {
+  font-size: 24rpx;
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: #cccccc;
+  line-height: 34rpx;
+  align-self: flex-end;
+}
+
+.flex_c-jc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.viptit {
+  font-size: 36rpx;
+  font-family: PingFangSC-Medium, PingFangSC;
+  font-weight: 500;
+  color: #333333;
+  line-height: 50rpx;
+  padding-bottom: 32rpx;
+}
+
+.vip-item {
+  background: #fafafa;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  margin-bottom: 32rpx;
+}
+
+.vip-item--a {
+  border: 1rpx solid #ecbd75;
+  background: rgba(236, 189, 117, 0.1);
+}
+
+.vip-l {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vip-l-tit {
+  font-size: 30rpx;
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: #333333;
+  line-height: 42rpx;
+}
+
+.vip-l-del {
+  font-size: 24rpx;
+  font-family: PingFangSC-Light, PingFangSC;
+  font-weight: 300;
+  color: #999999;
+  line-height: 34rpx;
+  text-decoration: line-through;
+}
+
+.flex_ac {
+  justify-content: space-around;
+}
+
+.btn1 {
+  width: 300rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #ffe200;
+  border-radius: 16rpx;
+  display: inline-block;
+  text-align: center;
+}
+
+.tuwensm {
+  width: 100%;
+  height: 300rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Light,PingFangSC;
+  font-weight: 300;
+  color: #999999;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.btn2 {
+  text-align: center;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #ffe200;
+}

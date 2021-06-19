@@ -1,0 +1,8 @@
+<view>
+  <view style='{{styleText}}' class='content {{alwayShow&&showEllipsis ? "ellipsis-3" : ""}}' id='content'>
+    <text>{{text}}</text>
+  </view>
+  <view wx:if='{{alwayShow&&showExpand}}' style='margin-top:10rpx;'>
+    <text style='color:#ffd800' bindtap='expandContent'>{{showEllipsis ? '展开' : '收起'}}</text>
+  </view>
+</view>

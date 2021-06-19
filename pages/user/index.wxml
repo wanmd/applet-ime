@@ -1,0 +1,252 @@
+<view style='height:100%;overflow-y:scroll'>
+  <view class='header' wx:if="{{!userInfo.nickname}}">
+    <view class='h-100 relative p-l-r'>
+      <navigator class='user-line flex_align-center' url='/pages/auth/index' hover-class="none">
+        <view class='avatar'>
+          <image class='image' src='../../assets/images/avatar.png'></image>
+        </view>
+        <view style="margin-left: 20rpx;">登陆 / 注册</view>
+      </navigator>
+      <view class='user-info'>
+        <view class='color-333 f-24 m-t-10'>身体和灵魂，总有一个在路上</view>
+      </view>
+      <view class='user-data'>
+        <navigator class='item' url='/pages/auth/index' hover-class="none">
+          <view class='num'>0</view>
+          <view class='title'>获赞</view>
+        </navigator>
+        <navigator class='item' url='/pages/auth/index' hover-class="none">
+          <view class='num'>0</view>
+          <view class='title'>动态</view>
+        </navigator>
+        <navigator class='item' url='/pages/auth/index' hover-class="none">
+          <view class='num'>0</view>
+          <view class='title'>粉丝</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class='header' wx:if="{{userInfo.nickname}}">
+    <view class='h-100 relative p-l-r'>
+      <view class='user-line'>
+        <view catchtap="isAuth_" class='avatar' data-url='/pages/userInfo/index' hover-class="none">
+          <image class='image' src='{{userInfo.avatar}}'></image>
+        </view>
+        <view catchtap="isAuth_" wx:if='{{userType == 2}}' class='store-nav store-nav_r middle' hover-class="none" data-url='/pages/store/index?storeId={{userInfo.user_id}}'>
+          <icon-text icon='ic_shop@2x.png' left='8rpx' width='64rpx'>我的店铺</icon-text>
+        </view>
+        <view catchtap="isAuth_" wx:else class='store-nav  middle' hover-class="none" data-url='/pages/applyMerchant/index'>
+          <icon-text icon='ic_shop@2x.png' left='8rpx' width='64rpx'>成为商家</icon-text>
+        </view>
+        <!-- <view wx:if='{{userInfo.user_type == 2}}' catchtap="getqr" class='getqr-nav middle' hover-class="none">
+          <icon-text-flex icon='user/saomiao@2x.png' width='40rpx' style='padding: 4rpx;'></icon-text-flex>
+        </view> -->
+        <view  catchtap="getqr" class='getqr-nav middle' hover-class="none">
+          <!-- <el-image src='user/saomiao@2x.png' style='width:40rpx;display: inline-block;padding: 4rpx;'></el-image> -->
+          <icon-text-flex icon='user/message@2x.png' width='40rpx' style='padding: 4rpx;'></icon-text-flex>
+        </view>
+
+      </view>
+      <view class='user-info'>
+        <view class='nickname'>{{userInfo.nickname}}</view>
+        <view class='color-333 f-24 m-t-10'>
+          {{userInfo.remark?userInfo.remark:'身体和灵魂，总有一个在路上'}}
+        </view>
+      </view>
+      <view class='user-data'>
+        <view catchtap="isAuth_" class='item' data-url='' hover-class="none">
+          <view class='num'>{{numbers.praise || 0}}</view>
+          <view class='title'>获赞</view>
+        </view>
+        <view catchtap="isAuth_" class='item' data-url='/pages/chatRecord/index' hover-class="none">
+          <view class='num'>{{numbers.chat || 0}}</view>
+          <view class='title'>动态</view>
+        </view>
+        <view catchtap="isAuth_" class='item' data-url='/pages/mailList/index?nav=2' hover-class="none">
+          <view class='num'>{{numbers.fans || 0}}</view>
+          <view class='title'>粉丝</view>
+        </view>
+        <view catchtap="isAuth_" class='item' data-url='/pages/mailList/index?nav=1' hover-class="none">
+          <view class='num'>{{numbers.myFocus || 0}}</view>
+          <view class='title'>关注</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='body'>
+    <view class='my-items__header'>
+      <view class='my-items'>
+        <view class="my-item" bind:tap="isAuth_" data-url='/pages/wallet/index'>
+          <icon-text-flex class='item-icon' width="120rpx" icon='user/my-wallet@2x.png'></icon-text-flex>
+            <view class="item-text">我的钱包</view>
+        </view>
+        <view class="my-item" data-url="../../packages/pack-A/pages/sharing-makes/index" bindtap="isAuth_">
+          <icon-text-flex class='item-icon' width="120rpx" icon='user/sharing-makes@2x.png'></icon-text-flex>
+            <view class="item-text">分享赚</view>
+        </view>
+        <view class="my-item" data-url="/pages/endorsement/index" bindtap="isAuth_">
+          <icon-text-flex class='item-icon' width="120rpx" icon='user/spokesman@2x.png'></icon-text-flex>
+            <view class="item-text">代言人</view>
+        </view>
+
+        <!-- <view class="my-item" bindtap="development_"> -->
+        <view class="my-item" bind:tap="isAuth_" data-url='../../packages/pack-A/pages/vip/index'>
+          <icon-text-flex class='item-icon' style="padding-top: 30rpx;height: 70rpx;" width="53rpx" icon='user/huiyuanzhongxin@2x.png'></icon-text-flex>
+            <view class="item-text">会员中心</view>
+        </view>
+      </view>
+      
+      <view class='order-items'>
+        <view class="d-f jc-sb c-333 lh-32 fz-24 pb-26 mb-40 pl-12 pr-12 borderb-1-solid-F7F7F7">
+          <view>我的订单</view>
+          <view bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=5">全部订单></view>
+        </view>
+        <view class="d-f ai-c jc-c pb-30">
+          <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=1">
+              <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order1@2x.png'>
+                <view class="red-number" wx:if="{{orderCount.waitPayNum>0}}">{{orderCount.waitPayNum > 99 ? "99+" : orderCount.waitPayNum}}</view>
+              </icon-text-flex>
+              <view class="item-text fz-24">待付款</view>
+          </view>
+          <!-- <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=1">
+              <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order6@2x.png'>
+                <view class="red-number">6</view>
+              </icon-text-flex>
+              <view class="item-text fz-24">待成团</view>
+          </view> -->
+          <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=2">
+              <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order2@2x.png'>
+                <view class="red-number" wx:if="{{orderCount.waitSendNum>0}}">{{orderCount.waitSendNum > 99 ? '99+' : orderCount.waitSendNum}}</view>
+              </icon-text-flex>
+              <view class="item-text fz-24">待发货</view>
+          </view>
+          <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=3">
+              <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order3@2x.png'>
+                <view class="red-number" wx:if="{{orderCount.waitReceiveNum>0}}">{{orderCount.waitReceiveNum > 99 ? '99+' : orderCount.waitReceiveNum}}</view>
+              </icon-text-flex>
+              <view class="item-text fz-24">待收货</view>
+          </view>
+          <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=4">
+              <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order4@2x.png'>
+                <!-- <view class="red-number" wx:if="{{orderCount.hasDoneNum>0}}">{{orderCount.hasDoneNum > 99 ? '99+' : orderCount.hasDoneNum}}</view> -->
+                <!-- <view class="red-number">0</view> -->
+              </icon-text-flex>
+              <view class="item-text">售后</view>
+          </view>
+        </view>
+        
+      </view>
+    </view>
+    <view class="line10"></view>
+    <!-- 商户类型 新样式 -->
+    <view class="bgc-fff p-26" wx:if="{{userType == 2}}">
+      <view class="card">
+        <view class="d-f fxd-c jc-c w-25p mb-28" 
+          wx:for="{{shangjiaManageList}}" 
+          wx:key="{{item.text}}" 
+          bindtap="isAuth_"
+          data-url="{{item.url}}"
+        >
+          <view class="d-f jc-c mb-28"><image style="width: 35px;height:35px" src="{{item.image}}" /></view>
+          <view class="d-f jc-c c-000 fz-20">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 个人类型  新样式 -->
+    <view class="bgc-fff p-26" wx:if="{{userType !== 2}}">
+      <view class="card2">
+        <view class="d-f fxd-c jc-c w-20p mb-28" 
+          wx:for="{{personManageList}}" 
+          wx:key="{{item.text}}" 
+          bindtap="isAuth_"
+          data-url="{{item.url}}"
+        >
+          <view class="d-f jc-c mb-28"><image style="width: 35px;height:35px" src="{{item.image}}" /></view>
+          <view class="d-f jc-c c-333 fz-24">{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="p-l-r" wx:if="{{false}}">
+      
+      <view class='nav border-b' bindtap="isAuth_" data-url='/pages/homepage/index?userId={{userInfo.user_id}}'>
+        <icon-text class='wrap' icon='ic_user_zhuye@2x.png'>我的主页</icon-text>
+        <view class="arrow-right"></view>
+      </view>
+      <view class='nav border-b' bindtap="isAuth_" data-url="/pages/mailList/index">
+        <icon-text class='wrap' icon='ic_user_contacts.png'>通讯录</icon-text>
+        <view class="arrow-right"></view>
+      </view>
+      <view class='nav border-b' bindtap="isAuth_" data-url="/pages/browse/index">
+        <icon-text class='wrap' icon='lishijilu@2x.png'>浏览历史</icon-text>
+        <view class="arrow-right"></view>
+      </view>
+      <view class='nav border-b' bindtap="isAuth_" data-url="../../packages/pack-A/pages/offer/index">
+        <icon-text class='wrap' icon='offer/shanghudingdanuanli@2x.png'>下单拿货记录</icon-text>
+        <view class="arrow-right"></view>
+      </view>
+      <view class='nav' bindtap="isAuth_" data-url="../../packages/pack-A/pages/myRenting/index">
+        <icon-text class='wrap' icon='user/zuling.png'>旺旺租赁</icon-text>
+        <view class="arrow-right"></view>
+      </view>
+      <navigator class='nav' url='/pages/collection/index'>
+      <icon-text class='wrap' icon='ic_user_collect@2x.png'>我的收藏</icon-text>
+      </navigator>
+    </view>
+    <view class="line10"></view>
+    <view class="p-l-r">
+      <block wx:if="{{false}}">
+        <!-- 商户类型 -->
+        <!-- userType == 2 -->
+        <view class='nav border-b' bindtap="isAuth_" data-url="../../packages/pack-A/pages/order/index">
+          <icon-text class='wrap' icon='order_complete.png'>订单管理</icon-text>
+          <view class="arrow-right">
+            <view class="red-number" style="top: 0rpx;right: 40rpx;" wx:if="{{orderCount2.waitSendNum>0}}">{{orderCount2.waitSendNum > 99 ? '99+' : orderCount2.waitSendNum}}</view>
+          </view>
+        </view>
+        <view class='nav border-b' bindtap="isAuth_" data-url="../../packages/pack-A/pages/myAskBuy/index">
+          <icon-text class='wrap' icon='user/qiugou.png'>我的求购</icon-text>
+          <view class="arrow-right"></view>
+        </view>
+        <view class='nav border-b' bindtap="isAuth_" data-url="/pages/marketing/index">
+          <icon-text class='wrap' icon='ic_operation.png'>营销管理</icon-text>
+          <view class="arrow-right"></view>
+        </view>
+        <view class='nav border-b' bindtap="isAuth_" data-url="/pages/merchant/index">
+          <icon-text class='wrap' icon='shangjiaguanli@2x.png'>商户管理</icon-text>
+          <view class="arrow-right"></view>
+        </view>
+        <view class='nav' bindtap="isAuth_" data-url="../../packages/pack-A/pages/myRenting/index">
+          <icon-text class='wrap' icon='user/zuling.png'>旺旺租赁</icon-text>
+          <view class="arrow-right"></view>
+        </view>
+      </block>
+    </view>
+    <view class="line10"></view>
+    <view class="p-l-r" wx:for="{{false}}">
+      <view class='nav border-b' data-url="url" bind:tap="toUnivercity">
+        <icon-text class='wrap' icon='univercity@2x.png'>iME课堂</icon-text>
+        <view class="arrow-right"></view>
+      </view>
+      <button hover-class="none" open-type="contact" class='nav border-b'>
+        <icon-text class='wrap' icon='ic_kefu@2x.png'>联系客服</icon-text>
+        <view class="arrow-right"></view>
+      </button>
+      <!-- <web-view class='nav' src="">
+        <icon-text class='wrap' icon='ic_user_collect@2x.png'>新手攻略</icon-text>
+        <view class="arrow-right"></view>
+      </web-view> -->
+    </view>
+  </view>
+</view>
+<view wx:if="{{showBindMobileModel}}" class="mark" catch:tap="close"></view>
+<view class='modal' wx:if="{{showBindMobileModel}}">
+  <view style='text-align:center;min-height:160rpx'>
+    <view class="shengming">根据国家网络金融安全法相关规定，需要您完成手机号码授权验证</view>
+  </view>
+  <view class='bottom'>
+    <view class='item cacel' bindtap='close'>取消</view>
+    <button hover-class="none" class='item confirm' open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>
+      确定
+    </button>
+  </view>
+</view>

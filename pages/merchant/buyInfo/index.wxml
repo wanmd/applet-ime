@@ -1,0 +1,26 @@
+<view class='p-l-r-t'>
+  <view class="card-cell">
+    <view>{{dataInfo.title}}</view>
+    <view>{{dataInfo.page1}}</view>
+    <view>{{dataInfo.page2}}</view>
+    <!-- <text>
+    你好，尊敬友爱的iME商家！
+      为了更好地为商家和消费者搭建和谐的交易体验，敬请完
+      善和规范您店铺的购买须知。
+      此购买须知将作为买卖双方的交易参考规则，敬请描述清
+      晰双方权责和商家服务特色，为您生意兴隆做好规范的标
+      准，从而建立良好的用户购物体验，商家服务和口碑。</text> -->
+  </view>
+  <view class="card-cell p-t-b">
+    <text class="title">购买须知</text>
+    <textarea style='padding-top:30rpx;height:200rpx;' value='{{formData.sendInfo}}' placeholder='请输入商户对产品、服务的购买说明等 1-200字' data-target='sendInfo' bindinput='input'></textarea>
+    <text class="title">发货说明</text>
+    <textarea style='padding-top:30rpx;height:200rpx;' value='{{formData.soldInfo}}' placeholder='请输入您的付款订单发货时效说明 1-200字' data-target='soldInfo' bindinput='input'></textarea>
+    <text class="title">售后服务</text>
+    <textarea style='padding-top:30rpx;height:200rpx;' value='{{formData.buyInfo}}' placeholder='请输入您的售后服务说明退换须知说明  1-200字' data-target='buyInfo' bindinput='input'></textarea>
+  </view>
+</view>
+<view class="hint">说明：购买须知将统一展示在每个发布产品详情页中。</view>
+<view class='p-l-r m-t-b-40' style="padding-bottom: 200rpx;">
+  <btn class='w-100' bindtap='confirm'>保存</btn>
+</view>

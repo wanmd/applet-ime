@@ -1,0 +1,66 @@
+.bar{
+  padding-top:30rpx;
+}
+
+.bar .wrap{
+  background:#fff;
+  display:flex;
+  height:128rpx;
+}
+
+.bar .tab{
+  flex: 1;
+  font-size:24rpx;
+  text-align:center;
+  color:#999;
+  position:relative;
+  height:100%;
+}
+
+.bar .tab.act{
+  color:#ffd800;
+}
+
+.bar .tab .icon{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:55rpx;
+}
+
+.bar .tab .text{
+  position:absolute;
+  bottom:15rpx;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.bar .tab.home .icon{
+  width:56rpx;
+  height:56rpx;
+}
+
+.bar .tab.dynamics .icon{
+  width:58rpx;
+  height:48rpx;
+}
+
+.bar .tab.cart .icon{
+  width:50rpx;
+  height:46rpx;
+}
+
+.bar .tab.user .icon{
+  width:56rpx;
+  height:56rpx;
+}
+
+.publish{
+  width:124rpx;
+  height:124rpx;
+  position:absolute;
+  top:0rpx;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+}

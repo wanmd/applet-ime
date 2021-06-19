@@ -1,0 +1,204 @@
+.vip-header{
+  position: relative;
+  height: 545rpx; 
+}
+.vip_crde{
+  position: absolute;
+  top: 185rpx;
+  left: 50%;
+  margin-left: -308rpx;
+  width:616rpx;
+  height: 358rpx;
+  display:block;
+}
+.vip_crde_img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:616rpx;
+  height: 358rpx;
+  z-index: 1;
+}
+.vip_crde_text{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color:rgba(255,250,205,1);
+  z-index: 2;
+}
+.user_img{
+  text-align: center;
+  padding-top: 30rpx;
+}
+.avatar{
+  width:96rpx;
+  height:96rpx;
+  margin: 0 auto 16rpx;
+  background:rgba(255,255,255,1);
+  border:4rpx solid rgba(255,234,181,1);
+  border-radius:50%;
+  display: block;
+}
+
+.user_id{
+  position: absolute;
+  left: 211rpx;
+  top: 286rpx;
+  color: #FBEBC7;
+}
+.qr_img{
+  position: absolute;
+  left: 469rpx;
+  top: 225rpx;
+  width:106rpx;
+  height:106rpx;
+  padding: 4rpx;
+  border-radius:50%;
+  background-color: #fff;
+}
+.qr_img image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.vip-info{
+  padding-top: 55rpx;
+  padding-bottom: 30rpx;
+  font-size:28rpx;
+  line-height: 32rpx;
+  color:rgba(24,24,24,1);
+  text-align: center;
+}
+.vip-info .t1{
+  font-size:36rpx;
+  font-weight:bold;
+  color:rgba(185,144,73,1);
+  margin-bottom: 30rpx;
+  font-style:italic;
+}
+.vip-buy{
+  text-align: center;
+  padding-bottom: 155rpx;
+}
+.label{
+  margin-bottom: 54rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.but-btn{
+    width:668rpx;
+    height:100rpx;
+    line-height:100rpx;
+    margin: 0 auto;
+    background:linear-gradient(-31deg,rgba(218,175,106,1),rgba(249,216,159,1));
+    border-radius:50rpx;
+    font-size:34rpx;
+    font-weight:500;
+    color:rgba(12,12,12,1);
+    position: relative;
+}
+.hint_price{
+  position: absolute;
+  right: 36rpx;
+  bottom: 24rpx;
+  line-height: 40rpx;
+  font-size:24rpx;
+}
+.but-btn2{
+  background:rgba(226,183,114,1);
+}
+.vip-more {
+  font-size:26rpx;
+  text-align: center;
+  color:rgba(217,217,217,1);
+  margin-top: 120rpx;
+  margin-bottom: 100rpx;
+}
+.unsymbol,
+.symbol{
+  width: 28rpx;
+  height: 28rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 12rpx;
+}
+.unsymbol{
+  border:2px solid #ccc;
+  border-radius: 50rpx;
+  vertical-align: middle;
+}
+
+
+
+
+.SM-body{
+  width: 90%;
+  height: 710rpx;
+  background-color: #fff;
+  position: fixed;
+  top: 50%;
+  margin-top: -355rpx;
+  left: 5%;
+  z-index: 20;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 20rpx;
+}
+.SF__title{
+  font-size: 26rpx;
+  text-align: center;
+  padding-bottom: 30rpx;
+}
+.SF__text{
+  font-size: 21rpx;
+  line-height: 40rpx;
+  height: 470rpx;
+  overflow-y: auto;
+}
+.btns{
+  padding-top: 40rpx;
+}
+.btns .btn{
+  border-radius: 4rpx;
+  text-align: center;
+  line-height: 64rpx;
+  border: 1rpx solid #DCDCDC;
+  color: #000000;
+  font-size: 24rpx;
+}
+.more__list{
+  position: fixed;
+  bottom: 66rpx;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  font-size: 22rpx;
+  color: #9F9C9F;
+  /*padding: 40rpx 0;*/
+}
+.sharing_bg{
+  width: 100%;
+  height: 168rpx;
+}
+
+
+
+
+
+.card-modal {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bargain-btn {
+  background: #f4d5a4;
+  width: 173rpx;
+  height: 58rpx;
+  position: relative;
+  border-radius: 49rpx;
+}

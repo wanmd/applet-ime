@@ -1,0 +1,17 @@
+<view id='container'>
+	<block wx:if='{{pictureSet.length == 1}}'>
+		<image bindtap='previewImage' style='display:block;width:100%;'  mode="widthFix" wx:for='{{pictureSet}}' wx:key='index' src='{{baseUrl}}/{{item}}'
+		 data-index='0' ></image>
+	</block>
+	<block wx:elif='{{pictureSet.length == 2 || pictureSet.length == 4}}'>
+		<view class='images-24' id='images-24'>
+			<image bindtap='previewImage' mode="aspectFill" class='image' wx:for='{{pictureSet}}' wx:key='index' src='{{baseUrl}}/{{item}}' data-index='{{index}}'></image>
+		</view>
+
+	</block>
+	<block wx:else>
+		<view class='images-3' id='images-3'>
+			<image bindtap='previewImage' mode="aspectFill" class='image' wx:for='{{pictureSet}}' wx:key='index' src='{{baseUrl}}/{{item}}' data-index='{{index}}'></image>
+		</view>
+	</block>
+</view>

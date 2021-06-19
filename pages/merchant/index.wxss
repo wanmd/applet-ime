@@ -1,0 +1,129 @@
+/* pages/merchant/index.wxss */
+page{
+  background-color: #fff
+}
+.tips{
+	padding: 30rpx 30rpx 60rpx 30rpx;
+	background-color: #fff;
+	font-size:24rpx;
+	font-family:PingFangSC;
+	font-weight:300;
+	color:rgba(153,153,153,1);
+	line-height:44rpx;
+	background-color: #EFEFF4
+}
+.oprate-btn{
+	margin-right: 8rpx;
+}
+.fs14{
+	font-size: 28rpx;
+	color: #333333;
+}
+.padd_tb-10{
+	padding: 20rpx 0;
+}
+.padd_tb-24{
+	padding: 48rpx 0;
+}
+.bgc-g{
+	background-color: #EFEFF4;
+}
+.line12{
+	width: 100%;
+	height: 24rpx;
+	background-color: #EFEFF4;
+}
+.padd_trbl10{
+	padding: 20rpx 30rpx;
+}
+.padd_trbl24{
+	padding: 48rpx 30rpx;
+}
+.padd_trbl17{
+	padding: 34rpx 30rpx;
+}
+.padd_trbl10 text{
+	font-size: 20rpx;
+	color: #FF0000;
+}
+
+.title{
+	font-size:28rpx;
+	font-family:PingFangSC;
+	font-weight:500;
+	color:rgba(208,2,27,1);
+	line-height:40rpx;
+	padding: 8rpx 34rpx;
+	background-color: #FFE200;
+	margin-left: 120rpx;
+	display: inline-block
+}
+.rz-content{
+	background-color: #FAFAFA;
+	border-radius:16rpx;
+	margin: 0 32rpx 40rpx 32rpx;
+}
+.gold-fs{
+	font-size:28rpx;
+	font-family:PingFangSC;
+	font-weight:500;
+	color:rgba(236,189,117,1);
+	line-height:40rpx;
+}
+.gold-fs .btn{
+	width:118rpx;
+	height:48rpx;
+	background:rgba(238,238,238,1);
+	border:1px solid rgba(170,170,170,1);
+	border-radius:3rpx;
+	font-size:20rpx;
+	font-weight:bold;
+	color:rgba(40,40,40,1);
+	line-height:47rpx;
+	text-align: center;
+}
+.padd_t12-r15-b8-l15{
+	padding: 24rpx 30rpx 16rpx 30rpx
+}
+.mar_lr-10{
+	margin: 0 30rpx
+}
+.closestore{
+	font-size:30rpx;
+	font-family:PingFangSC;
+	font-weight:300;
+	color:rgba(246,25,53,1);
+	line-height:42rpx;
+}
+
+.mask{
+  position:fixed;
+  height:100%;
+  width:100%;
+  z-index:5;
+  left:0;
+  top:0;
+  background:rgba(0, 0, 0, 0.65);
+}
+.m-b-50{
+	margin-bottom: 100rpx;
+}
+
+.card-modal {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.label{
+	width:49px;
+	height:21px;
+	margin-left: 20rpx;
+	text-align: center;
+	background:rgba(255,226,0,1);
+	border-radius:11px;
+	font-size:10px;
+	line-height:21px;
+	color:rgba(28,28,28,1);
+}

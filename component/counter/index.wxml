@@ -1,0 +1,26 @@
+<view class='counter-container'>
+<view class='counter'>
+  <view class='decr-btn' data-offset='{{-1}}' bindtap='change'><image mode='widthFix' class='icon' src='/assets/images/decr.png'></image></view>
+  <view class='number' bindtap='toggle'><text class='xy'>{{quantity}}</text></view>
+  <view class='incr-btn' data-offset='{{1}}' bindtap='change'><image mode='widthFix' class='icon' src='/assets/images/incr.png'></image></view>
+</view>
+</view>
+<block wx:if='{{show}}'>
+<view class='mask'></view>
+<view class='modal'>
+  <view style='text-align:center'>
+    <view style='font-weight:bold;line-height:100rpx;'>修改购买数量</view>
+    <view class='counter-container'>
+      <view class='counter big'>
+        <view class='decr-btn' bindtap='decr'><image mode='widthFix' class='icon' src='/assets/images/decr.png'></image></view>
+        <input class='number' type='number' auto-focus value='{{value}}' />
+        <view class='incr-btn' bindtap='incr'><image mode='widthFix' class='icon' src='/assets/images/incr.png'></image></view>
+      </view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='item cacel' bindtap='toggle'>取消</view>
+    <view class='item confirm' bindtap='confirm'>确定</view>
+  </view>
+</view>
+</block>

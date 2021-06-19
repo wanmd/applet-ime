@@ -1,0 +1,56 @@
+<view class='p-l-r'>
+  <view class='f-32 bold'>支付方式</view>
+  <view class='module'>
+    <view class='title'>微信收款二维码（示例）</view>
+    <view class='body'>
+      <view class='scan-type clear'>
+        <el-image class='pull-left item' src='wxpay-example.png'></el-image>
+        <upload width='100%' height='100%' camera='{{false}}' initFile='{{formData.wx_pay}}' class='pull-right item' data-target='wx_pay' bind:success='input'>
+          <view class='upload-tips xy'>
+            <el-image class='icon' src='ic_add.png'></el-image>
+            <view>添加微信收款码</view>
+          </view>
+        </upload>
+      </view>
+    </view>
+  </view>
+  <view class='module m-t-60'>
+    <view class='title'>支付宝收款二维码（示例）</view>
+    <view class='body'>
+      <view class='scan-type clear'>
+        <el-image class='pull-left item' src='alipay@2x.png'></el-image>
+        <upload width='100%' height='100%' camera='{{false}}' initFile='{{formData.ali_pay}}' class='pull-right item' data-target='ali_pay' bind:success='input'>
+          <view class='upload-tips xy'>
+            <el-image class='icon' src='ic_add.png'></el-image>
+            <view>添加支付宝收款码</view>
+          </view>
+        </upload>
+      </view>
+    </view>
+  </view>
+  <view class='module m-t-60'>
+    <view class='title'>银行转账</view>
+    <view class='body'>
+      <view class='ctr-row'>
+        <label class='label:'>姓名：</label>
+        <input class='input' type='text' placeholder='收款人姓名' value='{{formData.bank_user}}' data-target='bank_user' bindinput='input' />
+      </view>
+      <view class='ctr-row m-t-30'>
+        <label class='label:'>卡号：</label>
+        <input class='input' type='number' placeholder='收款人卡号' value='{{formData.bank_account}}' data-target='bank_account' bindinput='input' />
+      </view>
+      <view class='ctr-row m-t-30'>
+        <label class='label:'>银行：</label>
+        <picker range='{{bankList}}' range-key='name' data-target='bank_name' bindchange='selectBank'>
+          <cell border='{{false}}'>
+            <view slot='content' class='color-999999' wx:if='{{formData.bank_name == ""}}'>选择银行</view>
+            <view slot='content' wx:else>{{formData.bank_name}}</view>
+          </cell>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom-fixed'>
+  <btn bindtap='submit'>保存</btn>
+</view>

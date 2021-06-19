@@ -1,0 +1,36 @@
+<image class='image' mode='aspectFill' src='{{assetsImages}}WechatIMG647.png' style="width:750rpx;height:1483rpx;"></image>
+<view class='page'>
+  <view class='merchant'>
+    <image class='avatar' src='{{store.avatar}}'></image>
+    <view class='f-24 m-t-30'>{{store.nickname}}</view>
+  </view>
+  <view style='margin-top:80rpx'>
+    <view class='text-center' style='font-size:44rpx;'>[ 代理权益 ]</view>
+    <view class='content m-t-50'>
+      <view>
+        <view class='item'>
+          <view class='title'>代理费用</view>
+          <view class='value'>￥ {{rule.fee || 0}}</view>
+        </view>
+        <view class='item'>
+          <view class='title'>代理最低发货数量</view>
+          <view class='value'>{{rule.min_number || 0}}件起发</view>
+        </view>
+        <view class='item'>
+          <view class='title'>售后服务</view>
+          <view class='value'>{{rule.sale_service}}</view>
+        </view>
+      </view>
+      <view class='m-t-60'>
+        <view>商家代理说明：</view>
+        <text class='m-t-30 text-justify f-24'>{{rule.remarks}}</text>
+      </view>
+      <view class="picbg">
+        <img mode="widthFix" thumb="{{false}}" wx:for="{{rule.picture}}" wx:key="index" src="{{item}}" ></img>
+      </view>
+    </view>
+  </view>
+  <view class="apply-btn">
+    <btn style-text='font-size:40rpx;color:#CC0605;font-weight:bold;border-radius:8rpx;background:linear-gradient(to left, rgba(204,174,123,1),rgba(250,224,177,1));' type='primary' bindtap='submit'>立即申请代理</btn>
+  </view>
+</view>

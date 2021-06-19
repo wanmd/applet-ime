@@ -1,0 +1,80 @@
+.images .item {
+    float: left;
+    margin: 18rpx 0rpx 0rpx 18rpx;
+}
+
+.images .item:nth-of-type(3n + 1) {
+    margin-left: 0rpx;
+}
+
+.input {
+    text-align: right;
+    width: 350rpx;
+}
+
+.publish-btn {
+    position: fixed;
+    bottom: 70rpx;
+    width: 400rpx;
+}
+
+.w300 {
+    width: 600rpx;
+}
+
+.w250 {
+    width: 550rpx;
+}
+
+.btn_share {
+    width: 160rpx;
+    background-color: #ffe200;
+    border-radius: 30rpx;
+    font-size: 12px;
+    line-height: 50rpx;
+    height: 50rpx;
+    margin: 0 auto;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.p-t-50 {
+    padding-top: 50rpx;
+    font-size: 32rpx;
+}
+
+.textareaBox {
+    position: relative;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    padding-bottom: 40rpx;
+    padding: 34rpx 50rpx;
+    width: 682rpx;
+    height: 830rpx;
+    border: 4rpx solid #FFE200;
+    border-radius: 16rpx;
+}
+
+.textareaBox .placeholder {
+    color: #ccc;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.textareaBox textarea {
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    font-size: 24rpx;
+    line-height: 32rpx;
+    color: #707070;
+}
+
+.editor {
+    text-align: center;
+    padding-top: 82rpx;
+    padding-bottom: 32rpx;
+}

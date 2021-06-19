@@ -1,0 +1,14 @@
+<view class="navBar" catchtap="changeStatus">
+  <view class="navBar__it{{status == 0?'--a':''}}" data-status="0">营销工具</view>
+  <view class="navBar__it{{status == 1?'--a':''}}" data-status="1">营销统计</view>
+</view>
+<view class='p-l-r' wx:if="{{status==0}}">
+  <view class='item' wx:for='{{navList}}' wx:key="index" data-index='{{index}}' data-url='{{item.url}}' bindtap='navTo'>
+    {{item.name}}
+  </view>
+</view>
+<view class='p-l-r' wx:if="{{status==1}}">
+  <view class='item' wx:for='{{navList1}}' wx:key="index" data-index='{{index}}' data-url='{{item.url}}' bindtap='navTo'>
+    {{item.name}}
+  </view>
+</view>

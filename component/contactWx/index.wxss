@@ -1,0 +1,127 @@
+.color-666{
+  color:#666;
+}
+.pull-left{float:left;}
+.pull-right{float:right;}
+
+
+
+/* 联系TA */
+.mark{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 99;
+}
+.z100{
+  z-index: 100;
+}
+.flex--c{
+  display: flex;
+  flex-direction: column;
+}
+.link-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 350rpx;
+  background-color: #fff;
+}
+.link-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+.text-align{
+  text-align: center;
+  padding: 30rpx;
+}
+.border-b{
+  border-bottom: 1rpx solid #dddddd
+}
+.icon-centent-box{
+  display: flex;
+  justify-content: space-around;
+
+}
+.icon-centent{
+  width: 191rpx;
+  height: 61rpx;
+  border:1px solid rgba(255,226,0,1);
+  border-radius:31rpx;
+  line-height: 61rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: rgba(102,102,102,1);
+}
+
+/* //上拉运动 */
+@keyframes sliup_1 {
+  from {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.sliup_1 {
+  display: block;
+  animation: sliup_1 .35s ease-in both;
+}
+
+@keyframes slidown_1 {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+}
+
+.slidown_none {
+  display: none !important;
+}
+
+.slidown_1 {
+  /* // display: none; */
+  animation: slidown_1 .35s ease-in both;
+}
+
+.show_h {
+  display: block;
+  animation: show_h .35s ease-in both;
+}
+
+@keyframes show_h {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.show_l {
+  display: block;
+  animation: show_l .35s ease-in both;
+}
+
+@keyframes show_l {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}

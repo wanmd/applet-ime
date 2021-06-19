@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+		"tips-model": "/component/tips-model/index"
+	},
+  "navigationBarTitleText": "发布产品抽奖活动"
+}

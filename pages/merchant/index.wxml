@@ -1,0 +1,81 @@
+<view class='p-l-r  fs14'>
+	<!-- <cell height="136rpx" url='./paySet/index' title='店铺名片'></cell> -->
+	<cell height="136rpx" title='店铺名片' bind:tap="getStoreQr"></cell>
+</view>
+<view class="flex-lr flex_align-center padd_trbl24  fs14">
+	<view class="flex-l">开店时间</view>
+	<view class="flex-r">{{begin_time}}</view>
+</view>
+<view class="line12"></view>
+
+<view>
+	<view class="padd_t12-r15-b8-l15  fs14">资质 <view class="title" wx:if="{{0}}">已缴纳保证金</view> </view>
+	<view class="rz-content">
+		<view class="flex-lr flex_align-center padd_trbl17  fs14">
+			<view class="flex-l">企业认证/个人实名认证</view>
+			<view class="flex-r flex_align-center gold-fs">已认证</view>
+		</view>
+
+		<view class="flex-lr flex_align-center padd_trbl17 fs14">
+			<view class="flex-l">保证金计划
+				<!-- <text>（消费者保证金改为）</text> -->
+			</view>
+			<view class="flex-r flex_align-center gold-fs fs14">
+				<!-- 1000元 -->
+				<view class="flex-r flex_align-center gold-fs" catchtap="development_">立即开通</view>
+				<!-- <view class="btn" catchtap="development_">立即开通</view> -->
+			</view>
+		</view>
+		<view class="flex-lr flex_align-center padd_trbl17  fs14">
+			<view class="flex-l">诚信商户</view>
+			<view class="flex-r flex_align-center fs14 gold-fs">
+				<!-- 0元 -->
+				<view class="flex-r flex_align-center gold-fs" catchtap="development_">立即开通</view>
+				<!-- <view class="btn" catchtap="development_">立即开通</view> -->
+			</view>
+		</view>
+</view>
+
+</view>
+<view class="line12"></view>
+<view class="flex-lr flex_align-center mar_lr-10 padd_tb-24  fs14 border-b">
+	<view class="flex-l">店铺到期时间</view>
+	<view class="flex-r flex_align-center fs14">
+		{{annual_expire}}
+		<!-- <text class="label">立即续费</text> -->
+	</view>
+</view>
+<!-- <view class='p-l-r  fs14'>
+	<cell height="136rpx" url='./paySet/index' title='收款设置'></cell>
+</view> -->
+<view class='p-l-r  fs14'>
+	<cell height="136rpx" url='../marketing/agent/index' title='代理设置'></cell>
+</view>
+<view class='p-l-r  fs14'>
+	<cell height="136rpx" url='./buyInfo/index' title='购买须知'></cell>
+</view>
+<view class='p-l-r  fs14 m-b-50'>
+	<cell height="136rpx" url='./storeadd/index' title='店铺地址'></cell>
+</view>
+<!-- <view class="line12"></view> -->
+<!-- <view class="text-center padd_tb-24 closestore" bind:tap="closeStroe">关停店铺</view> -->
+<!-- <view class="tips">
+	<view>1.关闭iME爱迷商户后您的店铺将被释放，所有商品等相关数据不可恢复；</view>
+	<view>2.处理中订单等信息将保留至订单完结；</view>
+	<view>3.六个月内不得再次申请商户；</view>
+	<view>4.关闭店铺将于3个工作日内自动退回消保金至微信零钱；</view>
+	<view>5.平台数据将不做备份与关联；</view>
+	<view>6.最终解释权归iME爱迷平台所有。</view>
+</view> -->
+
+<view class='mask' wx:if='{{showQr}}' bindtap='toggleCardHide'>
+  <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' bindtap='toggleCardHide'></view>
+  <view class='card-modal'>
+    <view wx:if='{{qrcode != ""}}' style='position:relative;background:#fff;'>
+      <canvas id='canvas-modal1' canvas-id="firstCanvas1" style='width:676rpx;height:1000rpx;'></canvas>
+    </view>
+    <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;margin:40rpx auto 0rpx auto;width:500rpx;' bindtap='saveCard1'>
+      保存至相册，打印张贴转发扩粉哦
+    </button>
+  </view>
+</view>

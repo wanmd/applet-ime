@@ -1,0 +1,18 @@
+@keyframes am {
+  from {
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.a{
+  width:100rpx;
+  height:100rpx;
+  background:red;
+}
+.a.ing{
+animation:am 0.5s linear 0s infinite normal;
+}

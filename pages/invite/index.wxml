@@ -1,0 +1,6 @@
+<view class='bc-fff p-l-r m-t-20'>
+  <cell title='邀请微信好友' url='./log/index' border='{{false}}'></cell>
+</view>
+<view class='bc-fff p-l-r m-t-20'>
+  <cell title='推广二维码' url='./poster/index' border='{{false}}'></cell>
+</view>

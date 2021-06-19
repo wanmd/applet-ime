@@ -1,0 +1,50 @@
+<view class=''>
+  <view class='item m-t-20'>
+    <cell arrow='{{false}}' border='{{false}}' title='代理加盟费'>
+      <view slot='content' class='overflow'>
+        <input type='digit' placeholder='0.00' class='pull-left text-right' placeholder-style='color:#999' value='{{formData.fee}}' data-target='fee' bindinput='input' />
+        <text style='line-height:70rpx;' class='pull-left m-l-10'>元</text>
+      </view>
+    </cell>
+  </view>
+  <view class='item m-t-20'>
+    <cell arrow='{{false}}' border='{{false}}' title='代理广告语'>
+      <view slot='content' class='overflow'>
+        <input style='width:500rpx' maxlength="24" type='text' placeholder-style='font-size:24rpx;color:#999' placeholder='如：一件也批发，加盟代理商，拿货更便宜' class='text-right' value='{{formData.slogan}}' data-target='slogan' bindinput='input' />
+      </view>
+    </cell>
+  </view>
+  <view class='item m-t-20'>
+    <cell arrow='{{false}}' border='{{false}}' title='发货规则'>
+      <view slot='content' class='overflow'>
+        <input type='number' placeholder='0.00' class='pull-left text-right' placeholder-style='color:#999' value='{{formData.min_number}}' data-target='min_number' bindinput='input' />
+        <text style='line-height:70rpx;' class='pull-left m-l-10'>件起发</text>
+      </view>
+    </cell>
+  </view>
+  <view class='item m-t-20'>
+    <cell arrow='{{false}}' border='{{false}}' title='售后服务'>
+      <view slot='content' class='overflow'>
+        <input style='width:500rpx' type='text' placeholder-style='font-size:24rpx;color:#999' placeholder='7天退换/15天退换' class='text-right' value='{{formData.sale_service}}' data-target='sale_service' bindinput='input' />
+      </view>
+    </cell>
+  </view>
+  <view class='item m-t-20' style='padding-bottom:20rpx;'>
+    <view style='line-height:80rpx;'>商家代理说明</view>
+    <view class='relative'>
+      <textarea placeholder='代理权益说明、代理服务内容、发货说明、售后说明等' style='height:320rpx;width:100%;background:rgba(242,242,242,1);padding:20rpx 20rpx;' placeholder-style='font-size:24rpx;color:#999' value='{{formData.remarks}}' data-target='remarks' bindinput='input' maxlength="800" ></textarea>
+      <view class='absolute' style='bottom:20rpx;right:20rpx'>{{formData.remarks.length}}/800</view>
+    </view>
+    <view class='images clear m-t-30'>
+      <upload class='item1' wx:for='{{formData.picture}}' wx:key='index' data-index='{{index}}' initFile='{{item}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
+
+      <upload wx:if='{{formData.picture.length < 9}}' class='item1' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-formData.picture.length}}'></upload>
+    </view>
+
+  </view>
+</view>
+<view class='fixed-bottom' style='padding-top:40rpx;'>
+  <view class='m-t-20'>
+    <btn type='primary' bindtap='confirm'>确定</btn>
+  </view>
+</view>

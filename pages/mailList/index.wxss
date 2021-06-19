@@ -1,0 +1,81 @@
+page{
+  height:100%;
+  padding-top:88rpx;
+}
+.top-nav{
+  position:fixed;
+  width:100%;
+  top:0rpx;
+  left:0rpx;
+  z-index:2;
+  background-color: #fff;
+  box-shadow:0px 1px 15px 1px #efeff0;
+}
+.toggle-item{
+  display:flex;
+}
+.toggle-item .item{
+  flex:1;
+  line-height:88rpx;
+  color:#434759;
+  text-align:center;
+}
+.toggle-item .item.current{
+  font-weight:bold;
+  position:relative;
+}
+.toggle-item .item.current::after{
+  content:'';
+  position:absolute;
+  width:32rpx;
+  height:8rpx;
+  background:#FFE200;
+  bottom:6rpx;
+  left:50%;
+  transform:translate(-50%);
+}
+
+.list .item{
+  
+}
+
+.user-info{
+  padding-left:20rpx;
+  width: 600rpx;
+}
+.user_type{
+  background-color: #f4d5a4;
+  font-size: 22rpx;
+  line-height: 28rpx;
+  border-radius: 28rpx;
+  padding: 0 8rpx;
+  margin-left: 10rpx;
+  font-weight: normal;
+  vertical-align: middle;
+}
+.user_vip{
+  width:72rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.title{
+  position: relative;
+}
+.title .vip{
+  position: absolute;
+  left: -30rpx;
+  top: 56rpx;
+}
+.user-info .bold{
+  display: flex;
+  align-items: center;
+}
+.user_name{
+  max-width: 360rpx;
+  display: inline-block;
+  vertical-align: middle;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}

@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* component/notice/index.wxss */
+/* //公告栏 */
+.noticeBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 8rpx 30rpx;
+  font-size: 24rpx;
+  color: #666666;
+  background: #FFE200;
+  width: 100%;
+}
+
+.notice-col {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 40rpx;
+  overflow: hidden;
+  line-height: 40rpx;
+  background: #FFE200;
+}
+
+.notice-icon {
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+  background: url("https://x.jzbull.com/xshop/tonggao.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 8rpx;
+}
+
+.notice-btn {
+  display: inline-block;
+  width: 150rpx;
+  height: 60rpx;
+  text-align: right;
+}
+
+.notice-li {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  transition: .8s all;
+  line-height: 40rpx;
+  text-align: left;
+  height: 40rpx;
+  padding-left: 10rpx;
+}
+
+.notice__it {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  height: 40rpx;
+  overflow: hidden;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #666666;
+}

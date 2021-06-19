@@ -1,0 +1,6 @@
+<view class='component'>
+	<image class='icon ' mode="widthFix" src='/assets/images/{{icon}}' style='width:{{width}}' />
+	<view class='icon-content {{direction}}' style='margin-left:{{left}};line-height:{{offsetHeight}}'>
+		<slot></slot>
+	</view>
+</view>

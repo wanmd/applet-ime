@@ -1,0 +1,49 @@
+.goods-list{
+  overflow:hidden;
+}
+.goods-list .item{
+  margin-bottom:50rpx;
+  position:relative;
+}
+.goods-list .item.odd {
+  float:left;
+}
+.goods-list .item.even {
+  float:right;
+}
+
+.goods-list .item .image{
+  display:block;
+  width:336rpx;
+  height:336rpx;
+}
+
+.goods-name{
+  width:336rpx;
+  color:#333333;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-weight:500;
+  margin-top:20rpx;
+  text-align:center;
+}
+
+.goods-price{
+  color:#ECBD75;
+  font-size:24rpx;
+  text-align:center;
+  margin-top:20rpx;
+}
+
+.goods-price .price{
+  font-weight:bold;
+  font-size:32rpx;
+}
+
+.radio{
+  position:absolute;
+  z-index:2;
+  right:0rpx;
+  top:19rpx;
+}

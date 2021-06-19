@@ -1,0 +1,102 @@
+<view class="wx_page">
+  <view class="wx_header">
+    <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
+    <view style="width: 100%;text-align:center">{{barTitlle}}</view>
+  </view>
+  <view class="wx_center">
+    <view class='p-l-r'>
+      
+      <form>
+        <view wx:if='{{chatType == 2}}' class="p-t-50 border-b">
+          <input type='text' value='{{goods_name}}' data-target='goods_name' bindinput='input' maxlength="50" class='goods_name' placeholder='取个吸引人的产品标题，最多50字'></input>
+        </view>
+        <view class=' {{chatType == 2 ? "m-t-30" : ""}}' style='margin-top:20rpx;padding-bottom:40rpx;'>
+          <textarea value='{{content}}' data-target='content' bindinput='input' style='height:320rpx;padding:0rpx' class='w-100' maxlength='18000' placeholder="{{chatType == 2?'说点什么让你的产品大麦！！...':'说点什么让你的灵魂更有趣...'}}"></textarea>
+          <view class='absolute____' style='right:0;bottom:0;'>{{content.length}}/800</view>
+        </view>
+        <view class='images clear m-t-30'>
+          <upload class='item' wx:for='{{images}}' wx:key='id' data-index='{{index}}' initFile='{{item.file}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
+          <upload wx:if='{{images.length < 9}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-images.length}}'></upload>
+        </view>
+        <view class='m-t-30'>
+          <block wx:if='{{chatType == 2&&share!=0}}'>
+            <cell title='货号/备注' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='text' placeholder='商品货号（仅自己可以见）' placeholder-class='color-ccc' value='{{goods_no}}' data-target='goods_no' bindinput='input' class='input w300'></input>
+            </cell>
+            <cell title='零售价格' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='digit' placeholder='专柜价/消费端零售结算价格' placeholder-class='color-ccc' value='{{sale_price}}' data-target='sale_price' bindinput='input' class='input'></input>
+            </cell>
+            <cell title='会员价格' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='digit' placeholder='会员结算价格' placeholder-class='color-ccc' value='{{vip_price}}' data-target='vip_price' bindinput='input' class='input'></input>
+            </cell>
+            <cell title='代理价格' border='{{false}}' arrow='{{false}}' wx:if="{{isAgent}}">
+              <input slot='content' type='digit' placeholder='代理/合作结算价格' placeholder-class='color-ccc'  value='{{agent_price}}' data-target='agent_price' bindinput='input' class='input'></input>
+            </cell>
+            <!-- <cell title='' border='{{false}}' arrow='{{false}}' wx:if="{{userType==1}}"> -->
+            <cell title='代理价格' border='{{false}}' arrow='{{false}}' wx:else>
+              <view slot='content' class="flex" style="align-items: center;">
+                <navigator url='/pages/applyAgent/index?storeId={{user_id}}' hover-class="none">
+                  <view class="btn_share">
+                    <image class="flex__it image share-icon1 icon" style="width: 30rpx" mode="widthFix" src="/assets/images/DAILI@2x.png"></image>
+                    申请代理
+                  </view>
+                </navigator>
+                <input type='digit' placeholder='设置代理价格，仅代理可见' style="width: 330rpx;" placeholder-class='color-ccc'  value='{{agent_price}}' data-target='agent_price' bindinput='input' class='input'></input>
+              </view>
+            </cell>
+            <cell title='添加到商品库' border='{{false}}' arrow='{{false}}'>
+              <view slot='content' class='relative'>
+                <switch color='#FFE200' checked='{{add}}' data-target='add' bindchange='input'></switch>
+              </view>
+            </cell>
+            <view class='relative'>
+               <cell wx:if="{{category_name!=''}}" border='{{false}}' title='标签分类' content='{{category_name||"无"}}' clear bindtap='toSelectCategory' bind:clear='clearCategory'>
+               </cell>
+               <cell wx:else border='{{false}}' title='标签分类' content='无' bindtap='toSelectCategory'>
+               </cell>
+            </view>
+          </block>
+          <block wx:if='{{chatType != 1&&share==0}}'>
+            <cell title='货号/备注' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='text' placeholder='商品货号（仅自己可以见）' placeholder-class='color-ccc' value='{{goods_no}}' data-target='goods_no' bindinput='input' class='input w300'></input>
+            </cell>
+            <cell title='零售价格' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='digit' placeholder='专柜价/消费端零售结算价格' placeholder-class='color-ccc' value='{{sale_price}}' data-target='sale_price' bindinput='input' class='input'></input>
+            </cell>
+            <cell title='会员价格' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='digit' placeholder='会员结算价格' placeholder-class='color-ccc' value='{{vip_price}}' data-target='vip_price' bindinput='input' class='input'></input>
+            </cell>
+            <cell title='代理价格' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='digit' placeholder='代理/合作结算价格' style="width: 390rpx;" placeholder-class='color-ccc'  value='{{agent_price}}' data-target='agent_price' bindinput='input' class='input'></input>
+            </cell>
+            <cell title='添加到商品库' border='{{false}}' arrow='{{false}}'>
+              <view slot='content' class='relative'>
+                <switch color='#FFE200' checked='{{add}}' data-target='add' bindchange='input'></switch>
+              </view>
+            </cell>
+            <view class='relative'>
+               <cell border='{{false}}' title='标签分类 ' content='{{category_name}}' clear bindtap='toSelectCategory' bind:clear='clearCategory'>
+                </cell>
+            </view>
+          </block>
+          
+          <view class='relative'>
+             <cell border='{{false}}' title='所在位置' content='{{location}}' clear bindtap='selectPostion' bind:clear='clearLocation'>
+              </cell>
+          </view>
+          <!--<cell wx:if='{{chatType == 1}}' border='{{false}}' arrow='{{false}}' title='开启打赏'>
+            <view slot='content' class='relative'>
+              <switch color='#FFE200' checked='{{reward}}' data-target='reward' bindchange='input'></switch>
+            </view>
+          </cell>-->
+        </view>
+      </form>
+    </view>
+    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+      <btn bindtap='submit' round wx-if='{{share=="dp"}}'>发布并同步到我的店铺</btn>
+      <btn bindtap='submit' round wx-if='{{share=="xc"}}'>发布并同步到我的相册</btn>
+      <btn bindtap='submit' round wx-if='{{share==0&&chatId!=0}}'>保存</btn>
+      <btn bindtap='submit' round wx-if='{{share==0&&chatId==0}}'>发布</btn>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+<view class='delivery address-containter'>
+  <el-image class='icon' src='ic_location.png'></el-image>
+  <view style='font-weight:bold;font-size:36rpx;'><text>{{delivery.consignee}}</text><text style='margin-left:20rpx'>{{delivery.mobile}}</text></view>
+  <view style='color:#666;margin-top:10rpx;'>{{delivery.province + delivery.city + delivery.district + delivery.address}}</view>
+  <view class="copy-text" data-content="{{delivery.consignee + ' ，' +  delivery.mobile + ' ，'+ delivery.province + ' ' + delivery.city + ' ' + delivery.district + ' ' + delivery.address }}" catch:tap="capy">复制</view>
+  <!-- <view class='remarks'>{{delivery.remarks}}</view> -->
+</view>

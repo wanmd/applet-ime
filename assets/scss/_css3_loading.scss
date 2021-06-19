@@ -1,0 +1,75 @@
+
+.loading-wrap {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	text-align:center;
+  background-color:#d8d8d8;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.k-letter-holder {
+  padding:32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.k-letter {
+	animation-name:k-loadingF;
+	animation-duration:1.6s;
+	animation-iteration-count:infinite;
+  animation-direction:linear;
+  font-size: 40rpx;
+}
+@keyframes k-loadingF {
+	0% {
+	  opacity:0
+  }
+  100% {
+    opacity:1
+  }
+}
+
+.k-letter-1b {
+	animation-delay:.48s;
+	color:#F44336
+}
+.k-letter-2b {
+	animation-delay:.6s;
+	color:#3F51B5
+}
+.k-letter-3b {
+	animation-delay:.72s;
+	color:#009688
+}
+.k-letter-4b {
+	animation-delay:.84s;
+	color:#4CAF50
+}
+.k-letter-5b {
+	animation-delay:.96s;
+	color:#8BC34A
+}
+.k-letter-6b {
+	animation-delay:1.08s;
+	color:#CDDC39
+}
+.k-letter-7b {
+	animation-delay:1.2s;
+	color:#FF9800
+}
+.k-letter-8b {
+	animation-delay:1.32s;
+	color:#FF5722
+}
+.k-letter-9b {
+	animation-delay:1.44s;
+	color:#795548
+}
+.k-letter-10b {
+	animation-delay:1.56s;
+	color:#607D8B
+}

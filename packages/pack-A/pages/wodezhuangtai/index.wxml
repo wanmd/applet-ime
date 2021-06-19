@@ -1,0 +1,18 @@
+<view class='bg-wrap bg-wrap-btn wodezhuangtai'>
+	<view class='bg-page' wx:show="{{cateList.length>0}}">
+	  	<!-- <view>已添加分类</view> -->
+	  	<view class='items'>
+		    <view class='item' wx:for='{{cateList}}' wx:key='id'>
+		      <el-radio value='{{item}}' checked='{{cateText == item}}' bind:change='select' style="flex: 1;" display="none">
+		        <view class='wrap'>
+		          <view class='item__val'>{{item}}</view>
+		        </view>
+		        <icon-text-flex wx:if="{{cateText == item}}" class='item-icon' width="60rpx" icon='right@2x.png'></icon-text-flex>
+		      </el-radio>
+		    </view>
+	  	</view>
+	</view>
+	<view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;z-index: 99;'>
+	 	<btn bindtap='confirm__' round>确定</btn>
+	</view>
+</view>

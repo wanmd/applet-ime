@@ -1,0 +1,10 @@
+<view class='upload-frame bgc--{{bgcolor}} {{camera ? "camera" : ""}}' style='width:{{width}};height:{{height}}'>
+  <view class='slot'>
+    <slot></slot>
+  </view>
+  <view class='del' bindtap='clear' hidden='{{url === ""}}'></view>
+  <view class='wrap' bindtap='actioncnt' style='background-image:url({{thumb}})'></view>
+  <view class='progress' hidden='{{!uploadIng}}'>
+    <view class='rate'>{{rate}}%</view>
+  </view>
+</view>

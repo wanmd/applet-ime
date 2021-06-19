@@ -1,0 +1,37 @@
+<navigator class='absolute r-0 p-r' style='top:30rpx;' url='./log/index' hover-class="none">明细</navigator>
+<view style='padding-top:100rpx;'>
+  <view class='text-center'>
+    <el-image style='display:block;margin:auto;width:96rpx' src='balance.png'></el-image>
+    <view>余额</view>
+    <view class='f-36 bold m-t-30 Bebas'>￥<text style='font-size:64rpx;'>{{balance}}</text></view>
+  </view>
+  <view style='padding:0rpx 48rpx;margin-top:100rpx;'>
+    <view class='overflow'>
+      <block wx:for='{{amountItems}}' key="index">
+        <view class='amount-item Bebas {{amount == item ? "selected" : ""}}' bindtap='selectAmount' data-amount='{{item}}' wx:key="index">￥{{item}}</view>
+      </block>
+        <view class='amount-item Bebas {{otherAmountFlag !=""  ? "selected" : ""}}' bindtap='selectAmount1'>
+          <view class="text" wx:if="{{otherAmountFlag!='focus'&&otherAmount==''}}">
+            其他金额
+          </view>
+          <view class="text" wx:if="{{otherAmountFlag!='focus'&&otherAmount!=''}}">
+            ￥{{otherAmount}}
+          </view>
+          <input wx:if="{{otherAmountFlag=='focus'}}" focus bindinput="bindinput_" bindblur="bindblur_" placeholder="1万-5万的整数" value="{{otherAmount}}"  style="height: 108rpx;line-height: 108rpx;"/>
+        </view>
+    </view>
+    <view style='width:322rpx;margin:80rpx auto 0rpx auto;'>
+      <button hover-class="none" style='line-height:88rpx;background:#1CAC1B;font-size:32rpx;color:#fff;' bindtap='submit'>提现到微信零钱</button>
+    </view>
+    <view class='m-t-60 m-b-60'>
+      <view class='color-666'>提现说明</view>
+      <view class='color-999999 m-t-20 text-justify'>
+        <view>1、每日可提现1次</view>
+        <view class="m-t-10">2、提现其他金额需大于1万元整，单日上限5万</view>
+        <view class='m-t-10'>3、提现微信平台收取0.6%的费率</view>
+        <view class='m-t-10'>4、提现金额将直接转进您的微信零钱账户，到账时效以微信平台机制为准</view>
+        <view class='m-t-10'>5、若显示提现失败可能是由于商户提现总额已超过微信商户单日提现总额，请联系客服操作更高金额提现。</view>
+      </view>
+    </view>
+  </view>
+</view>

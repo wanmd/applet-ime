@@ -1,0 +1,19 @@
+<view class='p-l-r ' style='padding-top:30rpx'>
+	
+  <view class='select-goods por'>
+    <navigator class='select-btn xy' wx:if='{{goods == null}}' url='/pages/selectGoods/index' hover-class="none">
+      <view class='icon'></view>
+      <view>选择商品</view>
+    </navigator>
+    <view class='h-100 relative' wx:else>
+      <view class='goods-show clear xy'>
+        <view class='price'>￥{{goods.sale_price}}</view>
+        <img class='cover' src='{{goods.cover}}'></img>
+        <view class='content'>
+          <view class='text-justify lineNum2'>{{goods.goods_name}}</view>
+        </view>
+        <navigator class='change-goods' url='/pages/selectGoods/index' hover-class="none">点击更换</navigator>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,197 @@
+@import '../../assets/scss/base';
+page{
+  padding-bottom: rpx(120);
+  background-color: $pageBgColor
+}
+.car-wrap{
+  background-color: $bodyBgColor
+}
+.is_edit {
+  padding: rpx(15);
+  font-size: rpx(14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.car-cell-edit {
+  text-align: right;
+  color: $color333;
+}
+.car-cell-succ {
+  text-align: right;
+  color: $wxGreenColor;
+}
+.user-box {
+  display: flex;
+  align-items: center;
+  padding: rpx(12) rpx(15);
+  .avatar {
+    @include wh(24, 24);
+    border-radius: 50%;
+    margin-right: rpx(8);
+  }
+  .user-info {
+    font-size: rpx(13);
+    font-family: PingFangSC-Medium, PingFangSC;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    line-height: rpx(18);
+  }
+}
+.car-goods-item {
+  padding: rpx(15);
+  display: flex;
+  align-items: center;
+  .cover {
+    @include wh(80, 80);
+    margin: 0 rpx(12);
+  }
+  .goods-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: rpx(80)
+  }
+  .goods-info--t {
+    @include lineNum(2);
+    font-size:rpx(15);
+    font-family:PingFangSC-Light,PingFangSC;
+    font-weight:300;
+    color:rgba(102,102,102,1);
+    line-height:rpx(23);
+  }
+  .goods-info--b {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .price-info{
+      display: flex;
+      color: #ECBD75
+    }
+    .icon-price{
+      font-size:rpx(10);
+      font-family:PingFangSC-Medium,PingFangSC;
+      font-weight:500;
+      line-height:rpx(17);
+      align-self: flex-end;
+    }
+  }
+  .input-area {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .opera {
+    border: 2rpx solid #dbdbdb;
+    width: rpx(24);
+    height: rpx(24);
+    line-height: rpx(22);
+    text-align: center;
+    color: #323233;
+    font-weight: bold;
+    border-radius: none;
+  }
+  .opera-disable {
+    color: #777777;
+    font-weight: normal;
+  }
+  .stock__input {
+    display: inline-block;
+    font-size: rpx(12);
+    color: #333333;
+    height: rpx(24);
+    line-height: rpx(24);
+    width: 100%;
+    text-align: center;
+  }
+  .add-dele {
+    border-top: rpx(0.5) solid #dbdbdb;
+    border-bottom: rpx(0.5) solid #dbdbdb;
+    width: rpx(40);
+    height: rpx(24);
+    padding: 0 10rpx;
+  }
+}
+
+.car-cell--fixed{
+  background-color: $bodyBgColor;
+  width: 100%;
+  height: rpx(48);
+  position: fixed;
+  bottom: rpx(64);
+  display: flex;
+}
+.allselect{
+  display: flex;
+  align-items: center;
+  @include fc(12,#666666);
+  margin-right: rpx(15);
+}
+.checkbox{
+  transform: scale(0.8)
+}
+.car-cell-l {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.car-btn{
+  padding: 0 rpx(20);
+  font-size: rpx(16);
+  text-align: center;
+  line-height: rpx(48);
+  min-width: rpx(88);
+}
+.car-cell__txt{
+  @include fc(12,#666666);
+  display: flex;
+  align-items: center;
+}
+.price{
+  color: #ECBD75
+}
+.car-cell {
+  @include fc(12,#666666);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: rpx(12);
+  padding: rpx(6) 0
+}
+.car-btn--account{
+  background-color: $mainThemeColor;
+  font-size:rpx(16);
+  font-family:PingFangSC-Medium,PingFangSC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.car-btn--delete{
+  background-color: $redColor;
+  font-size:rpx(16);
+  font-family:PingFangSC-Medium,PingFangSC;
+  font-weight:500;
+  color:#fff;
+}
+.slogan{
+  font-size:rpx(12);
+  font-family:PingFangSC-Light,PingFangSC;
+  font-weight:300;
+  columns: #333333;
+  line-height:rpx(17);
+  padding:0 rpx(15);
+  background-color: #FFE200;
+  @include lineNum(1);
+  height: rpx(32);
+  line-height: rpx(32);
+  display: flex;
+  align-items: center;
+}
+.agent-icon{
+  align-self: center;
+  @include wh(18,18);
+  margin-right: rpx(10);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

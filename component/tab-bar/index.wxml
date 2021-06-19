@@ -1,0 +1,28 @@
+<block wx:if='{{scene === "index"}}'>
+<cover-view class='bar'>
+  <cover-view class='wrap'>
+    <block wx:for='{{tabList}}' wx:key='name'>
+    <cover-view class='tab {{item.name}} {{current == index ? "act" : ""}}' wx:if='{{index != 2}}' data-index='{{index}}' bindtap='switchTab'>
+      <cover-image class='icon' src='{{current == index ? item.selectedIconPath : item.iconPath}}'></cover-image>
+      <cover-view class='text'>{{item.text}}</cover-view>
+    </cover-view>
+    <cover-view class='tab' wx:else></cover-view>
+    </block>
+  </cover-view>
+  <cover-image class='publish' src='./images/publish.png' bindtap='publish'></cover-image>
+</cover-view>
+</block>
+<block wx:else>
+<view class='bar'>
+  <view class='wrap'>
+    <block wx:for='{{tabList}}' wx:key='name'>
+    <view class='tab {{item.name}} {{current == index ? "act" : ""}}' wx:if='{{index != 2}}' data-index='{{index}}' bindtap='switchTab'>
+      <image class='icon' src='{{current == index ? item.selectedIconPath : item.iconPath}}'></image>
+      <view class='text'>{{item.text}}</view>
+    </view>
+    <view class='tab' wx:else></view>
+    </block>
+  </view>
+  <image class='publish' src='./images/publish.png' bindtap='publish'></image>
+</view>
+</block>

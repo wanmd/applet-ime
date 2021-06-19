@@ -1,0 +1,6 @@
+<import src="/widgets/lists.wxml" />
+<pagination id='pagination' url='chat/getLeaseList' bind:load='load'query='{{query}}'>
+    <view class='renting-lists' wx:if='{{rentingList !== null}}' style="padding-bottom: 120rpx;padding-top: 0;margin-top: 0;">
+        <template is="renting" data="{{rentingList: rentingList,baseUrl: baseUrl, deleteFlag: true}}" />
+    </view>
+</pagination>

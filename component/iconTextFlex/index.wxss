@@ -1,0 +1,20 @@
+.component{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.icon.left{
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+}
+.icon.vertical{
+  display:block;
+  margin: auto;
+}
+.icon-content.vertical{
+  margin-left: 0rpx !important;
+  text-align: center;
+  margin-top:10rpx;
+}

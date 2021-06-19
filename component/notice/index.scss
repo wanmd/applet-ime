@@ -1,0 +1,59 @@
+/* component/notice/index.wxss */
+@import '../../assets/scss/base';
+
+/* //公告栏 */
+.noticeBox {
+  @include dispFlex;
+  padding: rpx(4) rpx(15);
+  @include fc(12, #666666);
+  background: #FFE200;
+}
+
+.notice-col {
+  @include boxFlex;
+  @include dispFlex;
+  height: rpx(20);
+  overflow: hidden;
+  line-height: rpx(20);
+  background: #FFE200;
+}
+
+.notice-icon {
+  display: inline-block;
+  @include wh(24, 24);
+  // @include norepBg('tonggao.png');
+  background: url('https://x.jzbull.com/xshop/tonggao.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: rpx(4)
+}
+
+.notice-btn {
+  display: inline-block;
+  @include wh(75, 30);
+  // @include norepBg('fabu.png');
+  text-align: right;
+}
+
+.notice-li {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  @include boxFlex;
+  transition: .8s all;
+  line-height: rpx(20);
+  text-align: left;
+  //@include lineNum(1);
+  height: rpx(20);
+  padding-left: rpx(5)
+}
+
+.notice__it {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  height: rpx(20);
+  overflow: hidden;
+  line-height: rpx(20);
+  @include fc(12, #666666)
+}

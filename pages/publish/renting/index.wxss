@@ -1,0 +1,125 @@
+.images .item {
+    float: left;
+    margin: 18rpx 0rpx 0rpx 18rpx;
+}
+
+.images .item:nth-of-type(3n + 1) {
+    margin-left: 0rpx;
+}
+
+.input {
+    text-align: right;
+    width: 350rpx;
+}
+
+.publish-btn {
+    position: fixed;
+    bottom: 70rpx;
+    width: 400rpx;
+}
+
+.w300 {
+    width: 600rpx;
+}
+
+.w275 {
+    width: 550rpx;
+}
+
+.w250 {
+    width: 500rpx;
+}
+
+.w200 {
+    width: 400rpx;
+}
+
+.btn_share {
+    width: 160rpx;
+    background-color: #ffe200;
+    border-radius: 30rpx;
+    font-size: 12px;
+    line-height: 50rpx;
+    height: 50rpx;
+    margin: 0 auto;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.p-t-50 {
+    padding-top: 50rpx;
+    font-size: 32rpx;
+}
+
+textarea {
+    left: 0;
+    top: 0;
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+
+.absolute____ {
+    text-align: right;
+}
+
+.cell {}
+
+.type-btns,
+.picker {
+    line-height: 40rpx;
+    padding: 34rpx 0;
+    display: flex;
+    padding-right: 30rpx;
+    position: relative;
+    font-size: 30rpx;
+}
+
+.type-title,
+.picker-title {
+    flex: 1;
+}
+
+.picker-placeholder {
+    color: #CCCCCC;
+    margin-right: 18rpx;
+}
+
+.picker-val {}
+
+.arr {
+    height: 10px;
+    width: 10px;
+    border: 1px solid #c9c8c8;
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform-origin: center center;
+    transform: translate3d(0, -50%, 0) rotate(-45deg);
+    border-width: 0px 1px 1px 0px;
+}
+
+.type-btn {
+    width: 116rpx;
+    height: 48rpx;
+    opacity: 1;
+    border-radius: 12px;
+    border: 1px solid #CECECE;
+    font-size: 24rpx;
+    line-height: 44rpx;
+    color: #434759;
+    text-align: center;
+    margin-left: 56rpx;
+}
+
+.type-btn-wrap {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.type-btn.active {
+    line-height: 48rpx;
+    background: #FBD49D;
+    border: none;
+    font-size: 28rrpx;
+    color: #434759;
+}

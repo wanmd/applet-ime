@@ -1,0 +1,99 @@
+/* pages/goodsManage/index.wxss */
+
+.relative1_box {
+  /* background: rgba(241, 241, 241, 1); */
+  background-color: #fff;
+}
+
+.search_wrap {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 36rpx 6rpx 48rpx;
+  background: #F7F7F7;
+}
+
+.search_wrap .input {
+  width: 560rpx;
+  height: 58rpx;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 29rpx;
+}
+
+.search_wrap .input input {
+  height: 38rpx;
+  line-height: 38rpx;
+}
+
+.search_wrap .search_btn {
+  /* padding: 0 21rpx; */
+}
+
+#pagination {
+  background: rgba(241, 241, 241, 1);
+}
+
+.top-nav {
+  height: 80rpx;
+  background: #F7F7F7;
+}
+
+.toggle-item {
+  display: flex;
+  padding: 0 20rpx;
+}
+
+.toggle-item .item {
+  flex: 1;
+  line-height: 80rpx;
+  color: #49494D;
+  font-size: 32rpx;
+  text-align: center;
+}
+
+.toggle-item .item.current {
+  font-weight: normal;
+  position: relative;
+  font-size: 32rpx;
+  color: #FFE200;
+}
+
+.toggle-item .item.current::after {
+  content: '';
+  position: absolute;
+  width: 124rpx;
+  height: 6rpx;
+  background: #FFE200;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+.btn {
+  display: inline-block;
+  text-align: center;
+  min-width: 72rpx;
+  line-height: 38rpx;
+  background: rgba(255, 226, 0, 0.2);
+  border: 2rpx solid #FFE200;
+  opacity: 1;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+  color: #3A3A3A;
+  margin-right: 20rpx;
+}
+.delete_btn {
+  display: inline-block;
+  text-align: center;
+  width: 72rpx;
+  line-height: 38rpx;
+  background: rgba(255, 0, 0, 0.2);
+  border: 2rpx solid #FF0000;
+  opacity: 1;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+  color: #3A3A3A;
+}
+.h-100vh {
+  height: 100vh;
+}

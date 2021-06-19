@@ -1,0 +1,59 @@
+<view class='top-nav'>
+  <view class='toggle-item'>
+    <navigator open-type='navigateBack' class='item' url='/pages/order/index' hover-class="none">我发起的订单</navigator>
+    <view class='item current'>我收到的订单</view>
+  </view>
+  <view class='order-status-item'>
+    <view class='item {{query.status == 0 ? "current" : ""}}' data-status='0' bindtap='selectToggle'>
+      <view class='wrap'>
+        <view class='number-notify' wx:if='{{number1 > 0}}'>{{number1}}</view>
+        <el-image class='icon' src='order_wait_pay.png' mode='widthFix'></el-image>
+        <view class='text'>待确认</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 2 ? "current" : ""}}' data-status='2' bindtap='selectToggle'>
+      <view class='wrap'>
+        <view class='number-notify' wx:if='{{number2 > 0}}'>{{number2}}</view>
+        <el-image class='icon' src='delivery.png' mode='widthFix'></el-image>
+        <view class='text'>待发货</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 3 ? "current" : ""}}' data-status='3' bindtap='selectToggle'>
+      <view class='wrap'>
+        <el-image class='icon' src='ic_yfh@2x.png' mode='widthFix'></el-image>
+        <view class='text'>已发货</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 4 ? "current" : ""}}' data-status='4' bindtap='selectToggle'>
+      <view class='wrap'>
+        <el-image class='icon' src='order_complete.png' mode='widthFix'></el-image>
+        <view class='text'>已完成</view>
+      </view>
+    </view>
+  </view>
+</view>
+<pagination id='pagination' url='merchantOrder/list' query='{{query}}' pkName='order_id' bind:load='load'>
+<view class='order-list'>
+  <view class='item p-l-r' wx:for='{{orderList}}' wx:key='order_id' wx:if="{{orderList.length>0}}">
+    <store store='{{item.user}}'></store>
+    <view class='relative'>
+      <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>
+      <goods wx:for='{{item.goods}}' goods='{{item}}' wx:key='chat_id'></goods>
+      <view class='bottom'>
+        <view class='wrap'>
+          <view class='overflow'>
+            <text class='pull-left'>共 {{item.quantity}} 件，合计：</text>
+            <text class='pull-right color-f9bb69'>￥<text class='f-36'>{{item.amount}}</text></text>
+          </view>
+          <view class='overflow m-t-30' wx:if='{{item.status == 0 || item.status == 2}}'>
+            <navigator wx:if='{{item.status == 0 || item.status == 2 }}' class='confirm-btn m-l-20' url='./detail/index?orderId={{item.order_id}}&index={{index}}' hover-class="none">确定</navigator>
+            <button hover-class="none" wx:if='{{item.status == 0}}' class='cancel-btn' data-index='{{index}}' bindtap='cancelOrder'>取消</button>
+          </view>
+        </view>
+      </view>
+      <navigator class='to-order-detail' url='./detail/index?orderId={{item.order_id}}&index={{index}}' hover-class="none"></navigator>
+    </view>
+  </view>
+  <empty wx:if="{{orderList.length==0}}" class='absolute xy' text='订单为空'></empty>
+</view>
+</pagination>

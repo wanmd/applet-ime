@@ -1,0 +1,13 @@
+.code-btn{
+  height:70rpx;
+  line-height:70rpx;
+  padding:0;
+  width:210rpx;
+  font-size:24rpx;
+  color:#FFE200;
+  z-index: 2;
+  text-align: right;
+}
+.disabled{
+  color: #999999;
+}

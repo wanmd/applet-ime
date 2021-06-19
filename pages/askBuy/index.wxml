@@ -1,0 +1,58 @@
+<view class="askBuy">
+	<pagination id='pagination' url='chat/getWantBuyReplyList' bind:load='load' query='{{query}}'>
+    <view class="askBuyList">
+      <view class="user_title">
+        <view class="user-box" data-url="/pages/store/index?storeId={{askBuyData.user_id}}" bind:tap="isAuth_">
+          <image class='avatar' src='{{askBuyData.avatar}}'></image>
+          <view class="user-info">
+            <view class="user-name">{{askBuyData.nickname}}</view>
+            <view class="user-time">{{item.create_time}}</view>
+          </view>
+        </view>
+        <!-- <view class="btn get-user" data-user_id="{{askBuyData.user_id}}" bind:tap="contact">联系TA</view> -->
+      </view>
+      <view class="list-center">
+        <view class="text">{{askBuyData.content}}</view>
+      </view>
+    </view>
+    <view class="img_box" wx:if="{{askBuyData.picture.length>0}}">
+      <picture-set margin='{{4}}' pictureSet='{{askBuyData.picture}}'></picture-set>
+    </view>
+    <view class="comment">
+      <view class='comment-lists' wx:if='{{commentList !== null}}' style="padding-top: 0;margin-top: 0;">
+        <view class="comment-item" wx:for='{{commentList}}' wx:key='index'>
+          <div class="comment-user-img" data-url="/pages/store/index?storeId={{item.user_id}}" bind:tap="isAuth_">
+            <image class='avatar' src='{{item.avatar}}'></image>
+          </div>
+          <div class="comment-center">
+            <div class="comment-user">
+              <div class="comment-user-name">{{item.nickname}}</div>
+              <div class="comment-user-time">{{item.create_time}}</div>
+            </div>
+            <div class="comment-text"> {{item.content}}</div>
+          </div>
+          <div class="comment-btn" data-user_id="{{item.user_id}}" bind:tap="contact">联系TA</div>
+
+        </view>
+      </view>
+    </view>
+  </pagination>
+  <import src="/widgets/templates.wxml" />
+	<template is="linkbox" data="{{userInfo:user, showlink:showlink}}" />
+</view>
+<view class="comment_flex">
+  <view class="input_wrap">
+    <input bindinput="input" auto-focus='{{focus}}' value='{{comment}}' data-target='comment'   placeholder="请输入报价或回复" placeholder-style="color: #d8d8d8;" bindconfirm="fasong" confirm-type="send" />
+  </view>
+  <!-- <view class="fasong" bind:tap="fasong">发送</view> -->
+  <view class="share1">
+    <button hover-class="none" class='share1' open-type='share'>
+      <image mode='widthFix' class='icon' src='/assets/images/ic_share1@2x.png'></image>
+      <view>分享</view>
+    </button>
+  </view>
+  <view class="share2">
+    <image mode='widthFix' class='icon' src='/assets/images/lianxiTA1@2x.png'></image>
+    <view data-user_id="{{askBuyData.user_id}}" bind:tap="contact">联系TA</view>
+  </view>
+</view>

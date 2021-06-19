@@ -1,0 +1,10 @@
+<view class='p-l-r'>
+  <view class='relative' style='padding-right:140rpx'>
+    <input type='text' value='{{cateName}}' placeholder='输入标签分类' bindinput='input'></input>
+    <btn style='z-index:3' style-text='font-size:24rpx;' class='absolute middle r-0' bindtap='update' size='small'>修改</btn>
+  </view>
+</view>
+<view class='blank'></view>
+<view class='p-l-r' style='margin-top:30px'>
+  <btn bindtap='remove' style-text='background:#f61935;color:#fff;line-height:70rpx;font-size:24rpx;'>删除该分类</btn>
+</view>

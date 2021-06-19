@@ -1,0 +1,8 @@
+<view>
+  <!-- <icon-text data-key="call" icon='ic_phone.png' class='color-666 pull-left'>{{contact}}</icon-text> -->
+  <!-- <icon-text data-key="wechat" icon='ic_wechat.png' class='color-666 pull-right'>复制微信</icon-text> -->
+  <view class="icon-centent-box">
+      <view class="icon-centent" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">{{contact}}</view>
+      <view class="icon-centent" data-content="{{userInfo.wechat}}" catch:tap="copy">微信</view>
+  </view>
+</view>

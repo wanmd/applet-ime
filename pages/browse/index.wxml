@@ -1,0 +1,45 @@
+<import src="/widgets/lists.wxml" />
+<view class="page_bar">
+	<view class="navBar toggle-item">
+	    <view class="navBar__it{{currentType == 1?'--a':''}}" data-type='1' bindtap='toggleType'>关注<view class="bot-line" wx:if="{{currentType == 1}}"></view></view>
+	    <view class="navBar__it{{currentType == 2?'--a':''}}" data-type='2' bindtap='toggleType'>旺旺租赁<view class="bot-line" wx:if="{{currentType == 2}}"></view></view>
+	</view>
+	<view class='container'>
+	  <block wx:if='{{currentType==1}}'>
+      <pagination class='relative relative1' id='pagination' pkName='chat_id' url='user/getVisitGoodsList' query='{{query}}' bind:load='load'>
+      <!-- <pagination url='user/getVisitGoodsList' pkName='id' showEmptyNoMore bindload='load'> -->
+          <view class='car-goods-item border-b' wx:for='{{goodsList}}' wx:key="index">
+            <!-- <img class='cover' thumb src='{{it.cover}}' bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}"></img> -->
+            <view class="car-goods-item_">
+              <img class='cover' thumb src='{{item.cover}}' bind:tap="toGoodsDetail" data-chatid="{{item.chat_id}}"></img>
+              <view class="goods-info flex__item" url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none" bind:tap="toGoodsDetail" data-chatid="{{item.chat_id}}">
+                <view class="goods-info--t">{{item.goods_name}}</view>
+                <view class="goods-info--b">
+                  <view class="price-info">
+                    <view class="goods-price" wx:if="{{itemem.isAgent}}">
+                      <view>会员价格：￥{{item.vip_price}}</view>
+                      <view>代理价格：￥{{item.agent_price}}</view>
+                    </view>
+                    <view class="goods-price" wx:else>
+                      <text>零售价格：￥{{item.sale_price}}</text>
+                      <view>会员价格：￥{{item.vip_price}}</view>
+                    </view>
+                  </view>
+                  <view class="time-area">
+                      <text>{{item.create_at}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+      </pagination>
+    </block>
+	  <block wx:if='{{currentType==2}}'>
+      <pagination id='pagination2' url='user/getVisitLeaseList' bind:load='load2'query='{{query2}}'>
+        <view class='renting-lists' wx:if='{{rentingList !== null}}' style="padding-bottom: 120rpx;padding-top: 0;margin-top: 0;">
+          <template is="renting" data="{{rentingList: rentingList,baseUrl: baseUrl,browse: true}}" />
+        </view>
+      </pagination>
+    </block>
+  </view>
+</view>

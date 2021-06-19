@@ -1,0 +1,167 @@
+/* component/shopCarPop/index.wxss */
+@import '../../utils/wxss/index.wxss';
+
+/*add*/
+
+.select-share-type {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.select-share-type .modal {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 128rpx;
+  height: 750rpx;
+  overflow-y: auto;
+  padding-bottom: 100rpx;
+  /*bottom: 0;*/
+  background: #fff;
+  z-index: 9999;
+}
+
+.select-share-type .modal .close {
+  position: absolute;
+  right: 30rpx;
+  width: 48rpx;
+}
+
+.select-share-type .modal .header {
+  line-height: 48rpx;
+  font-size: 32rpx;
+  text-align: center;
+  /* border-bottom: 1px solid #f7f7f7; */
+  position: relative;
+}
+
+.select-share-type .modal .type{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.type .buttonWrap {
+  width: 600rpx;
+  height: 88rpx;
+  /* background: #FFC901; */
+  border-radius: 46rpx 46rpx 46rpx 46rpx;
+  overflow: hidden;
+}
+
+/* .select-share-type .modal .types {
+  display: flex;
+  padding: 50rpx 0rpx 60rpx 0rpx;
+}
+
+.select-share-type .modal .types .item {
+  flex: 1;
+}
+
+.select-share-type .modal .types .item .icon {
+  display: block;
+  width: 88rpx;
+  height: auto;
+  margin: auto;
+}
+
+.select-share-type .modal .types .item .name {
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.select-share-type .modal .types .item .name view {
+  line-height: 22rpx;
+  font-size: 20rpx
+} */
+
+.pic {
+  width: 204rpx;
+  height: 204rpx;
+}
+
+.skuItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 186rpx;
+  height: 60rpx;
+  background: #F9F9F9;
+  border-radius: 12rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Medium;
+  line-height: 32rpx;
+  color: #333333;
+  margin-right: 38rpx;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 686rpx;
+  height: 92rpx;
+  background: #FFE200;
+  border-radius: 46rpx;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  color: #333333;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 176rpx;
+}
+
+.opera {
+  border: 2rpx solid #dbdbdb;
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 44rpx;
+  text-align: center;
+  color: #323233;
+  font-weight: bold;
+  border-radius: none;
+}
+
+.opera-disable {
+  color: #777777;
+  font-weight: normal;
+  /* background-color: #777777; */
+}
+
+.stock__input {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #333333;
+  height: 48rpx;
+  line-height: 48rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.add-dele {
+  border-top: 1rpx solid #dbdbdb;
+  border-bottom: 1rpx solid #dbdbdb;
+  width: 80rpx;
+  height: 48rpx;
+  padding: 0 10rpx;
+}
+.active {
+  background: rgba(255, 226, 0, 0.18);
+  border: 2rpx solid #FFE200;
+}
+
+.bigger {
+  transform: scale(1.2);
+  z-index: 999;
+}

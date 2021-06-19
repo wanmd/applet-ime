@@ -1,0 +1,12 @@
+.log-item{
+  padding:30rpx 0rpx;
+  border-bottom:1px solid #f7f7f7;
+}
+.log-item:last-child{
+  border-bottom:none;
+}
+.amount{
+  float:right;
+  font-size:40rpx;
+  font-weight:bold;
+}

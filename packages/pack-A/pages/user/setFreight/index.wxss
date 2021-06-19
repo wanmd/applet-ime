@@ -1,0 +1,44 @@
+/* packages/pack-A/pages/user/setFreight/index.wxss */
+.class1 {
+  border-radius: 0rpx 60rpx 0rpx 0rpx;
+  width: 418rpx;
+}
+.class2 {
+  background: rgba(255, 226, 0, 0.19);
+  border-radius: 0rpx 40rpx 0rpx 0rpx;
+}
+.content {
+  padding: 62rpx 32rpx 100rpx 32rpx;
+}
+input {
+  width: 152rpx;
+    background: #fff;
+    height: 64rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+.bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 100rpx;
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+  /* left: 162rpx; */
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400rpx;
+  height: 96rpx;
+  background: #FFE200;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  color: #333333;
+}
+button[type=primary], .button-hover[type=primary] {
+  background: #FFE200;
+  color: #333333;
+}

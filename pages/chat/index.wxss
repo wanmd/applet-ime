@@ -1,0 +1,22 @@
+page{
+  padding-bottom:100rpx;
+}
+.avatar{
+  height:80rpx;
+  width:80rpx;
+  display:block;
+  border-radius:50%;
+}
+.user-info{
+  position:absolute;
+  left:100rpx;
+  top:50%;
+  transform:translateY(-50%);
+}
+.bottom-fixed{
+  background:rgba(255,255,255,1);
+  box-shadow:0px 0px 16rpx 0px rgba(0,0,0,0.05);
+}
+.p-t-16{
+  padding-top: 32rpx;
+}

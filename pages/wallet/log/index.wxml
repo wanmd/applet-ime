@@ -1,0 +1,11 @@
+<pagination url='wallet/log' pkName='id' showEmptyNoMore bindload='load'>
+  <view class='p-l-r'>
+    <view class='log-item' wx:for='{{logList}}'>
+      <view class='overflow'>
+        <view class='pull-left'>{{logType[item.type]}}</view>
+        <view class='amount Bebas'>{{item.amount}}</view>
+      </view>
+      <view class='color-999999 f-24'>{{item.add_time}}</view>
+    </view>
+  </view>
+</pagination>

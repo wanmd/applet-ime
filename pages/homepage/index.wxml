@@ -1,0 +1,72 @@
+<view class='header {{user.background ? "" : "default"}}' style='background-image:url({{user.background}})'>
+	<view class='h-100 relative p-l-r'>
+		<view class='relative'>
+			<avatar size='136rpx' vipsize="50rpx" user="{{user}}" src='{{user.avatar}}'></avatar>
+			<navigator wx:if='{{user.user_type == 2}}' url='/pages/store/index?storeId={{userId}}' class='go-store middle' hover-class="none">
+				<icon-text icon='ic_shop@2x.png' left='8rpx' width='64rpx'>TA的店</icon-text>
+			</navigator>
+		</view>
+		<view class='color-fff m-t-20'>
+			<view class='f-36'>
+				{{user.nickname || '--'}}
+				<el-image src='user/{{user.sex==1 ? "man" : "woman"}}.png' style='width:42rpx;height:42rpx;display: inline-block;'></el-image>
+			</view>
+			<view class='f-24 m-t-10'>{{user.remark || '身体和灵魂，总有一个在路上'}}</view>
+			<view class='f-24 m-t-10'>获赞：{{praiseNumber || 0}}</view>
+		</view>
+	</view>
+</view>
+<view class='top-nav'>
+  <view class='toggle-item'>
+    <view wx:for='{{topNavs}}' wx:key="index" class='item {{selectedNav == item.type ? "current" : ""}}' data-type='{{item.type}}' bindtap='toggleType'>{{item.name}}</view>
+  </view>
+</view>
+<view class='body p-l-r {{selectedNav == 1 ? "" : "hide"}}'>
+	<cell height='190rpx' arrow='{{false}}'>
+		<view slot='title'>
+			<view class='f-32' style="margin-top: 10rpx;">个人标签</view>
+			<view class='label' wx:if='{{user.label}}'>
+				<view class='item' wx:for='{{user.label}}' wx:key="index">{{item}}</view>
+			</view>
+			<view class='m-t-30 color-999999 f-24' wx:else>还没给自己贴呢~</view>
+		</view>
+	</cell>
+	<cell height='108rpx' arrow='{{false}}' title='IME号'><text class='color-666' slot='content'>{{user.user_id || ''}}</text></cell>
+	<cell height='108rpx' arrow='{{false}}' title='地区'><text class='color-666' slot='content'>{{user.city || ''}}</text></cell>
+	<cell height='136rpx' title='动态' url='/pages/chatRecord/index?userId={{userId}}'>
+		<view class='thumbs overflow' slot='content'>
+			<img wx:for='{{picture}}' wx:key="index" class='thumb' thumb src='{{item}}'></img>
+		</view>
+	</cell>
+</view>
+<pagination id='pagination2' wx:if='{{selectedNav==2}}' url='user/getMyImageTextList' query='{{query3}}' pkName='chat_id' bind:load='load2'>
+  <view class='body'>
+    <view class='thumbs thumbs_l' wx:if="{{picture2.length}}">
+      <block wx:for='{{picture2}}' wx:key="index">
+          <img wx:for='{{item.picture}}' wx:for-item='chat' wx:for-index='i' slot='content' class='thumb thumb_l' wx:key="{{i}}" wx:if="{{chat}}" ispre="true" picture="{{allPicture}}" thumb src='{{chat}}'></img>
+      </block>
+    </view>
+    <empty wx:else class='absolute xy' style="padding-top: 400rpx;"></empty>
+  </view>
+</pagination>
+<!-- <view class='body {{selectedNav == 2 ? "" : "hide"}}'>
+	<view class='thumbs thumbs_l overflow' slot='content' wx:if="{{picture2.length>0}}">
+		<img  wx:for='{{picture2}}' wx:key="index" class='thumb thumb_l' thumb src='{{item.picture}}'></img>
+	</view>
+  	<empty wx:else class='absolute xy' style="padding-top: 400rpx;"></empty>
+</view> -->
+<view class='fixed-bottom overflow {{selectedNav == 2 ? "hide" : ""}}' style='height:96rpx;'>
+	<view class='flex'>
+		<icon-text-flex class=" flex__it" icon='{{followed ? "ic_dynamics_praised.png" : "ic_guanzhu@2x.png"}}' bindtap='toggleFollow'>{{followed ? '已关注' : '关注TA'}}</icon-text-flex>
+		<view class=' flex__it pull-left' width='' catch:tap="contact" url='/pages/contact/index?userId={{userId}}'>
+			<icon-text-flex icon='lianxiTA1@2x.png'>联系TA</icon-text-flex>
+		</view>
+		<view wx:if='{{user.user_type == 2}}' class='flex_ac flex__it pull-right bold'>
+			<view class="flex-it" wx:if="{{!isAgent}}"><el-image wx:key="index" class='thumb' thumb src='DAILI@2x.png'></el-image></view>
+			<btn bindtap='navTo' class="flex__it" disabled='{{isAgent}}'>{{isAgent ? '已是TA的代理' : '申请代理'}}</btn>
+		</view>
+	</view>
+</view>
+
+<import src="/widgets/templates.wxml"/>
+<template is="linkbox" data="{{userInfo:user, showlink:showlink}}" />

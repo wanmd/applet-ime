@@ -1,0 +1,11 @@
+<pagination url='user/getShareOrderList' pkName='id' showEmptyNoMore bindload='load'>
+  <view class='p-l-r'>
+    <view class='log-item' wx:for='{{logList}}' wx:key="index">
+      <view class='overflow'>
+        <view class='pull-left'>{{item.nickname}}</view>
+        <view class='amount Bebas'>{{item.amount}}</view>
+      </view>
+      <view class='color-999999 f-24'>{{item.pay_time}}</view>
+    </view>
+  </view>
+</pagination>

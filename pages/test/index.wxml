@@ -1,0 +1,4 @@
+<cover-image class='a {{a == 1 ? "ing" : ""}}' src='/assets/images/index/refresh.png' style='line-height:1;display:inline-block;'></cover-image>
+<cover-view class='a {{a == 1 ? "ing" : ""}}' style='background:red'></cover-view>
+<image class='a {{a == 1 ? "ing" : ""}}' src='/assets/images/index/refresh.png'></image>
+<button hover-class="none" bindtap='f'>ssss</button>

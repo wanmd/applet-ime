@@ -1,0 +1,45 @@
+<!--pages/goodsManage/index.wxml-->
+<pagination  class='relative relative1' id='pagination' pkName='chat_id' url='products' query='{{query}}' bind:load='load'>
+  <view class="relative1_box po-sr">
+      <view class="search_wrap jc-sb">
+          <view class="d-f ai-c ">
+              <view class="input mr-38">
+                  <input data-target='goodsName'  bindinput="bindinput_" placeholder="请输入您要搜索的产品或商家" placeholder-style="color: #d8d8d8;" value="{{goodsName}}" bindconfirm="search" confirm-type="search"/>
+              </view>
+              <view class="search_btn" bindtap='search'>搜索</view>
+          </view>
+      </view>
+      <view class='top-nav'>
+          <view class='toggle-item'>
+              <view wx:for='{{topNavs}}' wx:key="index" class='item {{selectedNav == item.type ? "current" : ""}}' data-type='{{item.type}}' bindtap='toggleType'>
+                  {{item.name}}
+              </view>
+          </view>
+      </view>
+      <view class='goods-list bgc-fff {{ goodsList.length ? "pb-50" : ""}}' wx:if='{{goodsList.length}}' style="padding-top: 0;margin-top: 46rpx;">
+          <navigator class='item mb-20 pl-32 pr-60' wx:for='{{goodsList}}' wx:key='index' url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none">
+              <view class='_wrap d-f '>
+                <view class="mr-24 w-144 h-144">
+                  <!-- <img class='w-144 h-144' mode='aspectFill' thumb="{{thumb}}" src='../../assets/images/bg_goods@2x.png'></img> -->
+                  <img class='w-144 h-144' mode='aspectFill' src='{{item.image_urls}}' /> 
+                </view>
+                <view class="d-f fxd-c">
+                  <view class="ellipsis fz-28 c-333 lh-38 mb-14">{{item.name}}</view>
+                  <view class="fz-24 c-333 lh-32 mb-18"><text class="mr-126">{{item.no}}</text><text>库存   {{item.stock}}</text></view>
+                  <view>
+                    <text class="fz-24 c-333 mr-12">￥</text>
+                    <text class="fz-32 c-333 mr-96">{{item.price}}</text>
+                    <text class="btn" data-state="{{item.state}}" data-id="{{item.id}}" catchtap="handleState">{{item.state === 1 ? '下架' : '上架'}}</text>
+                    <text class="btn" catchtap="handleEdit" data-id="{{item.id}}">编辑</text>
+                    <text class="delete_btn" data-id="{{item.id}}" catchtap="handleDelete">删除</text>
+                  </view>
+                </view>
+                  
+              </view>
+          </navigator>
+      </view>
+      <view wx:else class="h-100vh po-sr">
+        <empty  class='absolute xy' text='TA还没放商品呢'></empty>
+      </view>
+  </view>
+</pagination>

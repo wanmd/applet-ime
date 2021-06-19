@@ -1,0 +1,11 @@
+<cover-view class='bar'>
+  <cover-view class='wrap'>
+    <block wx:for='{{tabList}}' wx:key='index'>
+    <cover-view class='tab {{item.name}} {{selectedIndex == index ? "act" : ""}}' data-index='{{index}}' bindtap='switchTab'>
+      <cover-image wx:if='{{index !== 2}}' class='icon' src='{{selectedIndex == index ? item.selectedIconPath : item.iconPath}}'></cover-image>
+      <cover-view class='text' wx:if='{{index !== 2}}'>{{item.text}}</cover-view>
+    </cover-view>
+    </block>
+  </cover-view>
+   <cover-image class='publish' src='./images/publish.png' bindtap='publish'></cover-image>
+</cover-view>

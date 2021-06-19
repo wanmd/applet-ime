@@ -1,0 +1,46 @@
+<avatar style='margin:auto;display:block;width:80rpx;margin-top:10rpx' src='{{bargain.user.avatar}}' size='80rpx'></avatar>
+<view class='text-center f-32 bold m-t-20'>{{bargain.user.nickname}}</view>
+<view class='text-center m-t-30'>亲，快帮我砍一刀，我特别喜欢这个！</view>
+<view class='goods'>
+  <img class='goods-thumb' thumb src='{{chat.cover}}'></img>
+  <view class='goods-name ellipsis-2'>{{chat.goods_name}}</view>
+</view>
+<view class='m-t-30 overflow'>
+  <view class='pull-left f-36 color-fbd49d'>￥<text>{{chat.bargain_price}}</text></view>
+  <view class='pull-right'>原价：<text class='sale-price'>￥{{chat.sale_price}}</text></view>
+</view>
+<view class='m-t-60'>
+  <view class='overflow color-999999 f-24'>
+    <view class='pull-left'>￥{{chat.sale_price}}</view>
+    <view class='pull-right'>￥{{chat.bargain_price}}</view>
+  </view>
+  <view class='progress m-t-10'><view class='speed' style='width:{{bargain.progress}}%'></view></view>
+</view>
+<view class='m-t-30 text-center color-666'>
+  <view>原价{{chat.sale_price}}元，现已砍至 <text class='color-f61935 bold'>{{bargain.current_price}}</text> 元</view>
+  <view class='m-t-20 f-24'>
+    <block wx:if='{{isEnd}}'>已结束</block>
+    <block wx:else>还剩 <text class='color-fbd49d'>{{expireTimeStr}}</text> 结束，快来帮 <text class='color-333'>{{bargain.user.nickname}}</text> 砍价吧</block>
+  </view>
+</view>
+<view style='margin-top:100rpx'>
+  <btn wx:if='{{bargain.self}}' style-text='background:#ECBD75' open-type='share'>分享好友，帮忙砍一刀</btn>
+  <block wx:else>
+    <btn wx:if='{{bargain.isHelp == false}}' style-text='background:#ECBD75' bindtap='bargain'>帮TA砍一刀</btn>
+    <block wx:else>
+      <btn style-text='background:#ECBD75' open-type='share'>分享好友，帮TA砍一刀</btn>
+      <navigator style="margin-top:20rpx" url='/pages/goods/index?chatId={{chat.chat_id}}' hover-class="none">
+        <btn style-text='background:#333333;color:#ECBD75'>我也要砍价</btn>
+      </navigator>
+    </block>
+  </block>
+</view>
+<view style='margin-top:150rpx'>
+  <view class='text-center color-666'>参与砍价好友榜</view>
+  <view class='helper'>
+    <cell arrow='{{false}}' border='{{false}}' wx:for='{{logList}}' wx:key="index">
+      <view slot='title'><avatar size='40rpx' src='{{item.user.avatar}}'><view class='m-l-10 f-24'>{{item.user.nickname}}</view></avatar></view>
+      <view slot='content' class='color-666 f-24'>帮砍 <text class='color-fbd49d'>{{item.amount}}</text> 元</view>
+    </cell>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+/* pages/goodsSku/comp/priceExcel/index.wxss */
+@import '../../../../utils/wxss/index.wxss';
+
+.excel {
+  width: 712rpx;
+  min-height: 100rpx;
+  border: 2rpx solid #DFDFDF;
+  opacity: 1;
+  border-radius: 20rpx;
+  margin-left: 20rpx;
+  padding: 26rpx 22rpx;
+}
+.wrap {
+  overflow-x: auto;
+}
+.row-input {
+  height: 62rpx;
+  background: #F9F9F9;
+  border: 2rpx solid #DFDFDF;
+  opacity: 1;
+  border-radius: 8rpx;
+  margin-right: 14rpx;
+  padding-left: 4rpx;
+}

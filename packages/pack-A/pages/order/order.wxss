@@ -1,0 +1,199 @@
+.top-nav{
+  position:fixed;
+  width:100%;
+  top:0rpx;
+  left:0rpx;
+  z-index:2;
+  background:#fff;
+}
+
+.toggle-item{
+  display:flex;
+}
+.toggle-item .item{
+  flex:1;
+  line-height:88rpx;
+  color:#434759;
+  text-align:center;
+  background:rgba(247,247,247,1);
+}
+.toggle-item .item.current{
+  font-weight:bold;
+  position:relative;
+  background:#fff;
+}
+.toggle-item .item.current::after{
+  content:'';
+  position:absolute;
+  width:32rpx;
+  height:8rpx;
+  background:#FFE200;
+  bottom:6rpx;
+  left:50%;
+  transform:translate(-50%);
+}
+
+
+.p-l-r{
+  padding-left:30rpx !important;
+  padding-right:30rpx !important;
+}
+
+.order-status-item{
+  display:flex;
+}
+.order-status-item .item{
+  flex:1;
+  position:relative;
+  height:166rpx;
+  background:#fff;
+}
+.order-status-item .item.current{
+  /*background:#FFE200;*/
+  border-bottom: 5rpx solid #FFE200;
+}
+.order-status-item .item .wrap{
+  padding-top: 20rpx;
+  /*position: absolute;*/
+  /*left:50%;*/
+  /*top:50%;*/
+  /*transform:translate(-50%,-50%);*/
+}
+
+.order-status-item .item .icon{
+  display:block;
+  width:100rpx;
+  height: 100rpx;
+  margin:auto;
+  box-sizing: border-box;
+}
+.order-status-item .item .text{
+  text-align:center;
+  color:#434759;
+  font-size:26rpx;
+  /*margin-top:20rpx;*/
+}
+.order-list {
+  padding-top:30rpx;
+}
+.order-list .item{
+  background: #fff;
+  margin-top:30rpx;
+  padding-bottom:20rpx;
+}
+.order-list .item:first-of-type{
+  margin-top:0rpx;
+}
+
+.order-list .bottom{
+  overflow:hidden;
+  margin-top:30rpx;
+}
+.order-list .bottom .wrap{
+  float:right;
+}
+
+
+.cancel-btn, .confirm-btn{
+  width:216rpx;
+  line-height:72rpx;
+  background: #FFE200;
+  float:right;
+  border-radius:0;
+  text-align:center;
+  position:relative;
+  z-index:5;
+}
+.cancel-btn{
+  color:#999;
+  background:rgba(242,242,242,1);
+}
+
+
+.order-fee-detail{
+  padding-left:246rpx;
+}
+
+.order-fee-detail .item{
+  overflow:hidden;
+  font-size:24rpx;  
+  line-height:60rpx;
+}
+.order-fee-detail .item .title{
+  float:left;
+  color:#666666;
+}
+.order-fee-detail .item .content{
+  float:right;
+  font-weight:bold;
+}
+
+
+.upload-tips{
+  position:absolute;
+  white-space:nowrap;
+  font-size:24rpx;
+  color:#999;
+  text-align:center;
+}
+.upload-tips .icon{
+  display:block;
+  width:32rpx;
+  margin:0 auto 20rpx auto;
+}
+
+.to-order-detail{
+  position:absolute;
+  height:100%;
+  width:100%;
+  left:0;
+  top:0;
+  z-index:3;
+}
+
+.pinzheng{
+  display:block;
+  width:240rpx;
+  margin:auto;
+}
+
+.number-notify{
+  position: absolute;
+  background: red;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size:24rpx;
+  width: 40rpx;
+  line-height: 40rpx;
+  text-align:center;
+  border-radius: 50%;
+  top: -20rpx;
+  right: -20rpx;
+}
+
+.goods-product__note{
+  /*position:absolute;*/
+  /*left:0prx;*/
+  /*bottom: 0rpx;*/
+  position: relative;
+  width:100%;
+  font-size: 26rpx;
+  line-height: 36rpx;
+}
+.g-p__note_title{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.g-p__note_val{
+  padding-left: 120rpx;
+}
+.color-ffe200{
+  color: #ffe200;
+}
+.yellow{
+  color: #ffe200;
+  font-size: 26rpx;
+}

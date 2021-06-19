@@ -1,0 +1,51 @@
+// Some Mixins
+@mixin wh($w,$h){
+  width: $w * 2 + rpx;
+  height: $h * 2 + rpx;
+}
+@mixin fc($f,$c){
+  font-size: rpx($f);
+  color:     $c;
+}
+
+@mixin boxFlex {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+@mixin boxSiz {
+  box-sizing: border-box;
+}
+@mixin norepBg($url, $size: cover) {
+  background-image: url(furl($url));
+  background-repeat: no-repeat;
+  background-size: $size;
+}
+
+//===== legacy mixin
+@mixin lineNum($num) {
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:$num;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+}
+@mixin borderRadius($radius:5px) {
+  border-radius: $radius;
+}
+@mixin formTranslate($translate:(-50%,-50%)){
+  transform: $translate;
+}
+
+@mixin dispFlexa {
+  display: flex;
+  flex-wrap:wrap
+}
+@mixin dispFlex {
+  display: flex;
+  align-items:center;
+  flex-wrap:wrap
+}

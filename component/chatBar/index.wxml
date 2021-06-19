@@ -1,0 +1,99 @@
+<view class='bottom-nav' wx:if="{{type==1}}">
+  <view class='item' wx:if='{{showDown}}'>
+    <view class='wrap' bindtap='down'>
+      <image mode='widthFix' class='icon' src='/assets/images/xiazai1@2x.png'></image>
+      <text>下载</text>
+    </view>
+  </view>
+  <view class='item' wx:if='{{showCollect}}'>
+    <view class='wrap' bindtap='collect'>
+      <image mode='widthFix' class='icon' src='/assets/images/{{collect_status ? "collected" : "shoucang@2x"}}.png'></image>
+      <text>{{collect_status ? '已收藏' : '收藏'}}</text>
+    </view>
+  </view>
+  <view class='item' wx:if='{{showContact}}'>
+    <view class='wrap' bindtap='contact'>
+      <image mode='widthFix' class='icon' src='/assets/images/lanxita1@2x.png'></image>
+      <text>联系TA</text>
+    </view>
+  </view>
+  <view class='item' wx:if='{{showPraise}}'>
+    <view class='wrap' bindtap='praise'>
+      <image mode='widthFix' class='icon' src='/assets/images/{{praise_status ? "ic_dynamics_praised@2x" : "dianzan1@2x"}}.png'></image>
+      <text>{{praise_status ? '已点赞' : '点赞'}}</text>
+    </view>
+  </view>
+</view>
+<view class='bottom-nav bottom-nav2' wx:else>
+  <view class='item' wx:if='{{showDown}}'>
+    <view class='wrap' bindtap='down'>
+      <!-- <image mode='widthFix' class='icon' src='/assets/images/xiazia@2x.png'></image> -->
+      <image mode='widthFix' class='icon' src='/assets/images/xiazia2@2x.png'></image>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='wrap' bindtap='collect'>
+      <!-- <image mode='widthFix' class='icon' src='/assets/images/gouwuche@2x.png'></image> -->
+      <image mode='widthFix' class='icon' src='/assets/images/{{collect_status ? "good_shoucang_active" : "good_shoucang"}}@2x.png'></image>
+    </view>
+  </view>
+  <view class='item' wx:if='{{showContact}}'>
+    <view class='wrap' bindtap='contact'>
+      <image mode='widthFix' class='icon' src='/assets/images/lianxita3@2x.png'></image>
+    </view>
+  </view>
+</view>
+<view class="flex--c fixed__ z100 {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}">
+  <view class="link-box" style="bottom: 560rpx;" data-content="{{userInfo.wechat}}" catch:tap="copy">
+    <view class="link-wrap">
+      <view class="buyer_user">
+        <view class="buyer_img">
+          <image class="" src="{{userInfo.avatar}}"></image>
+          <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
+        </view>
+        <view class="buyer_name">{{userInfo.nickname}}</view>
+      </view>
+      <view class="link-tit">
+        <el-image class="icon" src='ic_contact_wechat@2x.png' style='width:42rpx;display: inline-block;'></el-image>
+        <text>{{userInfo.wechat}}</text>
+      </view>
+      <!-- <view class="link-num" data-content="{{userInfo.wechat}}" catch:tap="copy">复制</view> -->
+    </view>
+  </view>
+  <view class="link-box" style="bottom: 210rpx;" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">
+    <view class="link-wrap">
+      <view class="buyer_user">
+        <view class="buyer_img">
+          <image class="" src="{{userInfo.avatar}}"></image>
+          <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
+        </view>
+        <view class="buyer_name">{{userInfo.nickname}}</view>
+      </view>
+      <view class="link-tit">
+        <el-image class="icon" src='ic_contact_phone@2x.png' style='width:42rpx;display: inline-block;'></el-image>
+        <text>{{userInfo.mobile}}</text>
+      </view>
+      <!-- <view class="link-num" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">拨号</view> -->
+    </view>
+  </view>
+  <view class="text-align" catch:tap="hideMark">取消</view>
+</view>
+<view class="mark {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}" catch:tap="hideMark"></view>
+
+<view class="down-wrap popup_page" wx:if='{{downOk}}'>
+  <view class="bg"></view>
+  <view class="popup_wrap">
+    <view class="popup">
+      <view class="popup_title">去朋友圈分享</view>
+      <view class="popup_center">
+        <view class="text">
+        <el-image class="icon" src='duihao@2x.png' style='width:37rpx;margin-right: 37rpx;display: inline-block;'></el-image>
+          产品文本已复制</view>
+        <view class="text">
+        <el-image class="icon" src='duihao@2x.png' style='width:37rpx;margin-right: 37rpx;display: inline-block;'></el-image>
+          产品图片已下载至手机相册</view>
+      </view>
+      <view class="down-footer" catch:tap="downOkHide">我知道了</view>
+    </view>
+  </view>
+</view>

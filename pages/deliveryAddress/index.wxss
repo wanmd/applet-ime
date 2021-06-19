@@ -1,0 +1,12 @@
+/* pages/deliveryAddress/index.wxss */
+.flex-lr{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.color-FF0000{
+	color: #FF0000;
+}
+.m-r{
+	margin-right: 20rpx;
+}

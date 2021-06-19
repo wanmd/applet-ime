@@ -1,0 +1,47 @@
+.giga-button {}
+
+.giga-button[size=mini] {}
+.giga-button:not([size='mini']) {
+  width: auto;
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 26px;
+  border-radius: 100px;
+  background-color: #FFEAEA;
+  border: 1px solid #FF6C1E;
+  color: #FF6C1E;
+}
+
+.giga-button[type='primary'] {
+  color: #FFFFFF;
+  background-color: #FF6C1E;
+}
+.giga-button[type=warn] {
+  color: #FF6C1E;
+  background: #FFEAEA;
+}
+
+.giga-button[disabled] {
+  border-color: transparent;
+}
+.giga-button[disabled]:not([type]) {
+  background-color: transparent;
+}
+.giga-button[disabled][type='primary'] {
+  background-color: transparent;
+}
+.giga-button[disabled][type=warn] {
+  background-color: transparent;
+}
+
+.giga-button[loading][type='primary'] {}
+.giga-button[loading][type=warn] {}
+
+
+.giga-button.button-hover[type='primary'] {
+  background-color: #FF6C1E;
+}
+
+
+
+

@@ -1,0 +1,31 @@
+@import '../redenvelope.wxss';
+page{
+  background:#fff;
+}
+.input-item{
+  padding:0rpx 0rpx;
+}
+.por{
+	position: relative;
+}
+.rule{
+	/* position: absolute;
+	right: 0;
+  top: 0; */
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 30rpx
+}
+.inline-block{
+  display: inline-block
+}
+.tips{
+  background-color: #FFE200;
+  width: 34rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+	margin-left: 10rpx;
+}

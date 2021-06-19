@@ -1,0 +1,7 @@
+<block wx:if="{{ispre}}">
+	<image style='height:{{height}};width:{{width}}' src='{{imgSrc}}' data-picture='{{picture}}' data-index="0" mode='{{mode}}' lazy-load='{{lazy}}' bindtap='previewImage'></image>
+</block>
+<block wx:else>
+	<image style='height:{{height}};width:{{width}}' src='{{imgSrc}}' mode='{{mode}}' lazy-load='{{lazy}}'></image>
+</block>
+

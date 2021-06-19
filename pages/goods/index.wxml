@@ -1,0 +1,343 @@
+<view>
+  <view class="bgc-fff pb-100">
+    <!-- 商品图片 -->
+    <swiper indicator-dots indicator-color='rgba(255,255,255,0.3)' indicator-active-color='#ffffff' style='height:750rpx' bindchange='swiperChange'>
+      <swiper-item class="swiper-item" wx:for='{{chat.picture}}' wx:key="index">
+        <image style='width:100%;' mode='widthFix' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
+      </swiper-item>
+    </swiper>
+    <!-- <view class="good_name" bind:longpress="longpress" data-content="{{chat.goods_name}}">{{chat.goods_name}}</view> -->
+    <view class="goods_header plr-40 mt-20">
+      <view class="d-f jc-sb mb-20 ai-c">
+        <view>￥<text class="fz-48 c-262626 mr-24">3,451</text><text class="c-828282 fz-28 td-l">￥4,588</text></view>
+        <!-- 分享按钮 -->
+        <view class='right-btn'>
+          <view wx:if='{{chat.chat_type == 4}}' style='width:88rpx;height:88rpx;border-radius:50%;overflow: hidden; display:block;'>
+            <el-image src='product-red-share.png'></el-image>
+          </view>
+            <view class="Shareicon" bindtap='toggleSelectShareType'>
+              <el-image class='icon w173' src='iconbg@2x.png'>
+              </el-image>
+              <view class="text">
+                <view class="t__1 {{chat.fina_sale_price.length > 5 ? 't__11' : ''}}">￥{{chat.fina_sale_price}}</view>
+                <view class="t__2">分享赚收益</view>
+              </view>
+          </view>
+          <!-- <el-image class='icon wh44' src='fenxiang3@2x.png' bindtap='toggleSelectShareType'></el-image> -->
+          <!-- <el-image class='icon wh44' src='share1.png' bindtap='toggleSelectShareType'></el-image> -->
+        </view>
+      </view>
+      <view class="good_name_new mb-20" bind:longpress="longpress" data-content="{{chat.goods_name}}">{{chat.goods_name}}</view>
+      <view class="labels d-f">
+        <view class="label" wx:for="{{chat.labels}}" wx:key="index">{{item.name}}</view>
+      </view>
+      <cell height="90rpx">
+        <view slot='title'>发货</view>
+        <view slot='content'>包邮/5件内8元</view>
+      </cell>
+      <cell height="90rpx">
+        <view slot='title'>服务</view>
+        <view slot='content'>7天无理由/特殊商品不退换/</view>
+      </cell>
+    </view>
+   
+    
+
+    <!-- <view class='text-center f-36 m-t-40'>
+      <view wx:if='{{chat.chat_type == 5}}'>
+        <text class='color-fbd49d bold Bebas f-s-24'>￥
+          <text>{{chat.bargain_price}}</text>
+        </text><text class='color-999999 m-l-30' style='text-decoration:line-through;font-size:32rpx'>
+          <text class="do-fs">￥</text>{{chat.price}}
+        </text>
+      </view>
+      <view wx:else>
+        <block wx:if="{{chat.isAgent}}">
+          <text class=' bold Bebas f-s-24'>
+            <text class="do-fs color-999999">代理价:</text>
+            <text class="do-fs color-fbd49d">￥</text>
+            <text class="color-fbd49d" selectable="{{true}}">{{chat.agent_price}}</text>
+          </text>
+          <text class='color-333333 ml-10'>
+            <text class="color-999999 f-s-14 Bebas" style="text-decoration:line-through;" selectable="{{true}}">￥{{chat.sale_price}}</text>
+          </text>
+        </block>
+        <block wx:else>
+          <text class=' bold Bebas f-s-24'>
+            <text class="do-fs color-fbd49d">￥</text>
+            <text class="color-fbd49d" selectable="{{true}}">{{chat.sale_price}}</text>
+          </text>
+        </block>
+      </view>
+    </view> -->
+    
+    <view class='p-l-r text-justify m-t-60 c-999 fz-28 lh-46'>
+      <text selectable="{{true}}">{{chat.content}}</text>
+    </view>
+    
+    <view data-url='../applyAgent/index?storeId={{chat.user.user_id}}&storeName={{chat.user.nickname}}' catchtap="isAuth_" hover-class="none">
+      <view class="link-CWDL">
+        <image class='image' src='/assets/images/DAILI@2x.png'  style="width:35rpx;height:35rpx;"></image>
+        <!-- <el-image class='icon' width= "35rpx" height="31rpx" src='DAILI@2x.png'></el-image> -->
+        <text>成为代理商 一件代发 拿货更便宜 兼职赚大钱</text>
+        <image class='jiantou' src='/assets/images/jiantou.png' style="width:12rpx;height:22rpx;"></image>
+      </view>
+    </view>
+
+     <view class='p-l-r text-justify color-333333 m-t-60'>
+      <view wx:for='{{chat.picture}}' wx:key="index">
+        <image style='width:100%;' mode='widthFix' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
+      </view>
+    </view>
+    <view class='p-l-r text-justify color-333333 m-t-60' wx:if="{{storeCommonParam}}">
+      <!-- <view class="hint_cell" wx:if="{{storeCommonParam.allContent}}">
+        <view class="hint_title">购买须知</view>
+        <view class="hint_text">{{storeCommonParam.allContent}}</view>
+      </view>
+      <view class="hint_cell" wx:if="{{storeCommonParam.page1}}">
+        <view class="hint_title">发货说明</view>
+        <view class="hint_text">{{storeCommonParam.page1}}</view>
+      </view>
+      <view class="hint_cell" wx:if="{{storeCommonParam.page2}}">
+        <view class="hint_title">售后说明</view>
+        <view class="hint_text">{{storeCommonParam.page2}}</view>
+      </view> -->
+
+      <view class="hint_cell" wx:if="{{storeCommonParam.send_info}}">
+        <view class="hint_title">发货说明</view>
+        <view class="hint_text">{{storeCommonParam.send_info}}</view>
+      </view>
+      <view class="hint_cell" wx:if="{{storeCommonParam.sold_info}}">
+        <view class="hint_title">售后服务</view>
+        <view class="hint_text">{{storeCommonParam.sold_info}}</view>
+      </view>
+      <view class="hint_cell" wx:if="{{storeCommonParam.buy_info}}">
+        <view class="hint_title">购买须知</view>
+        <view class="hint_text">{{storeCommonParam.buy_info}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='bottom-fixed' style='background:rgba(247,247,247,1)'>
+  <view class='store-nav p-l-r'>
+    <view class='relative'>
+      <avatar user="{{chat.user}}" src='{{chat.user.avatar}}' noPreviewImg="2" wx:if="{{!userInfo.nickname||!userInfo.isAuth}}">
+        <view class='user-info'>
+          <view class='f-26'>{{chat.user.nickname}}</view>
+          <view class='symbols'>
+            <!-- <symbol wx:if="{{chat.user.isAuth}}">{{chat.user.merchantType==1?'企业认证':'个人认证'}}</symbol> -->
+            <symbol wx:if="{{chat.user.isAuth}}">商户认证</symbol>
+            <!-- <symbol class='symbol f-20'>企业认证</symbol> -->
+            <!-- <symbol class='symbol f-20'>消保金</symbol> -->
+          </view>
+        </view>
+      </avatar>
+      <avatar user="{{chat.user}}" src='{{chat.user.avatar}}' userId='{{chat.user.user_id}}' wx:else>
+        <view class='user-info'>
+          <view class='f-26'>{{chat.user.nickname}}</view>
+          <view class='symbols'>
+            <!-- <symbol wx:if="{{chat.user.isAuth}}">{{chat.user.merchantType==1?'企业认证':'个人认证'}}</symbol> -->
+            <symbol wx:if="{{chat.user.isAuth}}">商户认证</symbol>
+            <!-- <symbol class='symbol f-20'>企业认证</symbol> -->
+            <!-- <symbol class='symbol f-20'>消保金</symbol> -->
+          </view>
+        </view>
+      </avatar>
+      <!-- <navigator class='to-store middle' url='/pages/store/index?storeId={{chat.user.user_id}}'>进店逛逛</navigator> -->
+      <view class='store-nav1' data-url='/pages/store/index?storeId={{chat.user.user_id}}' catchtap="isAuth_" hover-class="none">
+        <icon-text icon='ic_shop@2x.png' left='8rpx' width='64rpx'>TA的店</icon-text>
+      </view>
+    </view>
+  </view>
+  <!-- 底部选择tab -->
+  <!-- <view class='bottom-nav m-t-20 bc-fff padd_r-450"'> -->
+  <view class='bottom-nav m-t-20 bc-fff {{padd_r270 ? "padd_r-400" : "padd_r-475"}}'>
+    <chat-bar urls='{{chat.picture}}' chatId='{{chatId}}' userId='{{chat.user.user_id}}' content='{{chat.content}}' exclude='{{["praise"]}}' collectStatus='{{chat.collectStatus}}' type="2"></chat-bar>
+    
+    
+      
+
+    
+<!--    <btn class='add-cart middle' formType="submit" style-text='width:260rpx;background-color:#fbd49d;text-align:right;padding-right:25rpx;' bindtap='{{chat.bargain == 1?"goOnBargain":"toBargain"}}' > <icon class="kj-icon" /> {{chat.bargain == 1?'继续砍价':'免费砍价'}}</btn> -->
+    
+
+    <block wx:if="{{chat.chat_type==5}}">
+          <btn wx:if="{{chat.bargain == 1}}" round class='add-cart middle' style-text='width:336rpx;background-color:#fbd49d;text-align:right;padding-right:60rpx;margin-right:29rpx;' bindtap='goOnBargain' >
+            <image class='image' mode='aspectFill' src='/assets/images/bargain-share.png' style="width:80rpx;height:80rpx;"></image>
+            继续砍价</btn>
+          <form bindsubmit="toBargain" report-submit report-submit-timeout='2000' wx:else>
+            <view class="add-cart middle">
+                <view style="display: block;line-height: 96rpx;font-size: 32rpx;border-radius: 48rpx;width:336rpx;background-color:#fbd49d;text-align:right;padding-right:60rpx;margin-right:29rpx;" formType="submit">
+                <image class='image' mode='aspectFill' src='/assets/images/bargain-share.png' style="width:80rpx;height:80rpx;"></image>
+                免费砍价</view>  
+            </view>
+          </form>
+    </block>
+    <block wx:else>
+        <view wx:if="{{shareUserId==''||shareUserId==0}}" class="buy_btn2" bindtap='handleShowPop'>
+          <!-- <btn class='add-cart1 middle' style-text='width:139rpx;height: 88rpx;line-height: 88rpx;color: #fff;background:linear-gradient(270deg,rgba(255,186,0,1),rgba(255,225,3,1));border-radius:42px 0px 0px 42px;' bindtap='addCart' >+购物车</btn>
+          <btn class='now-buy1 middle' style-text='width:160rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,174,0,1),rgba(255,132,0,1));' bindtap='nowBuy'>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.price}}</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">立即购买</view>
+          </btn>
+          <btn class='now-buy2 middle' style-text='width:158rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,115,1,1),rgba(255,84,0,1));border-radius:0px 42px 42px 0px;' bindtap='nowBuy2'>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.vip_price}}</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">会员购买</view>
+          </btn> -->
+
+          <btn class='add-cart1 middle' style-text='width:139rpx;height: 88rpx;line-height: 88rpx;color: #fff;background:linear-gradient(270deg,rgba(255,186,0,1),rgba(255,225,3,1));border-radius:42px 0px 0px 42px;'>+购物车</btn>
+          <btn class='now-buy1 middle' style-text='width:160rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,174,0,1),rgba(255,132,0,1));'>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.price}}</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">立即购买</view>
+          </btn>
+          <btn class='now-buy2 middle' style-text='width:158rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,115,1,1),rgba(255,84,0,1));border-radius:0px 42px 42px 0px;'>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.vip_price}}</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">会员购买</view>
+          </btn>
+        </view>
+        <view wx:else class="buy_btn2">
+          <btn class='now-buy middle' style-text='border-radius: 39rpx;width:336rpx;color: #fff;height:78rpx;line-height:78rpx;background:linear-gradient(90deg,rgba(254,201,0,1),rgba(255,149,3,1));' bindtap='nowBuy'>立即购买</btn>
+        </view>
+    </block>
+  </view>
+</view>
+
+<view class="select-share-type {{cartPop ? 'cartPop_none':'cartPop_show'}}" wx:if="{{goodsProductFlag}}">
+  <view class="select-share-type" catchtap='unnowBuy'></view>
+  <view class="modal">
+    <view class="goods-products">
+      <view class="goods-product">
+        <view class="goods-product__img">
+            <image style='width:100%;height:100%;' mode='aspectFill' src='{{ALIYUN_URL}}/{{chat.picture[0]}}'></image>
+        </view>
+        <view class="goods-product__text">
+          <view class="g-product__title">{{chat.goods_name}}</view>
+          <block wx:if='{{userInfo.isVip == 1 && buyBtnType=="nowBuy2"}}'>
+            <block wx:if='{{chat.isAgent}}'>
+              <view class="g-product__price1">会员价：<text>¥{{chat.vip_price}}</text></view>
+              <view class="g-product__price2">代理价：<text>¥{{chat.agent_price}}</text></view>
+            </block>
+            <block wx:else>
+              <view class="g-product__price1">零售价：<text>¥{{chat.sale_price}}</text></view>
+              <view class="g-product__price2">会员价：<text>¥{{chat.vip_price}}</text></view>
+            </block>
+          </block>
+          <block wx:else>
+            <block wx:if='{{chat.isAgent}}'>
+              <view class="g-product__price1">零售价：<text>¥{{chat.sale_price}}</text></view>
+              <view class="g-product__price2">代理价：<text>¥{{chat.agent_price}}</text></view>
+            </block>
+            <block wx:else>
+              <view class="g-product__price2">零售价：<text>¥{{chat.sale_price}}</text></view>
+            </block>
+          </block>
+          
+          <view class="input-area">
+            <button hover-class="none" class="opera {{productNum==1? ' opera-disable': ''}}" hover-class="{{productNum==1? 'none': 'button-hover'}}" data-pindex="{{index}}" data-cindex="{{idx}}" data-flag="-" catchtap="operaTap">
+              -
+            </button>
+            <view class="add-dele texta-c">
+              <input class="stock__input" type="number" value="{{productNum}}" bindblur="upNumber" catchtap="emptytap" />
+            </view>
+            <button hover-class="none" class="opera" hover-class="none" data-flag="+" catchtap="operaTap">
+              +
+            </button>
+          </view>
+        </view>
+      </view>
+      <view class="goods-product__note">
+        <view class="g-p__note_title">购买备注:</view>
+        <view class="g-p__note_val">
+          <input placeholder-class="placeholder-class" placeholder='请输入要购买的产品型号和规格说明' type='text' value="{{hintVal}}" bindinput='input' maxlength="20"/>
+        </view>
+      </view>
+    </view>
+    <view class="goods-remark"></view>
+    <view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
+      <btn style-text="background-image: linear-gradient(90deg, #fae34b 0%, #ffcd00 100%);" bindtap='confirm__1' round wx:if="{{buyBtnType=='addCart'}}">确定</btn>
+      <btn style-text="background-image: linear-gradient(90deg, #fae34b 0%, #ffcd00 100%);" bindtap='confirm__2' round wx:if="{{buyBtnType=='nowBuy'}}">确定</btn>
+      <btn style-text="background-image: linear-gradient(90deg, #fae34b 0%, #ffcd00 100%);" bindtap='confirm__3' round wx:if="{{buyBtnType=='nowBuy2'}}">确定</btn>
+    </view>
+  </view>
+</view>
+<view class="select-share-type {{showSelectShareType==0?'slidown_none':''}} {{showSelectShareType==1 ?'sliup_1': ''}} {{showSelectShareType==2 ?'slidown_1': ''}}" bindtap='toggleSelectShareType'>
+  <view class="modal">
+    <view class='header'>
+      选择分享方式
+      <el-image class='close middle' src='close.png' catchtap='toggleSelectShareType'></el-image>
+    </view>
+    <view class='header_top'>
+          <icon-text class="Shareicon icon icon-iconbg" icon='iconbg@2x.png' left='8rpx' width='173rpx'>
+            <el-image class='icon w173' src='iconbg@2x.png' style="width:173rpx;height:58rpx"></el-image>
+            <!-- <img class="icon" src='iconbg@2x.png' width='173rpx'></img> -->
+            <view class="text" style="margin-top: -26rpx;">
+              <view class="t__1">￥{{chat.fina_sale_price}}</view>
+              <view class="t__2">分享赚收益</view>
+            </view>
+          </icon-text>
+      <text>分享好物给好友，TA从你分享的链接购物消费，你最高可获得成交金额5%的奖励金哦。</text>
+      <!-- <el-image class='close middle' src='close.png' bindtap='toggleSelectShareType'></el-image> -->
+    </view>
+    <view class='types' style="padding-bottom: 0;">
+      <navigator wx:if='{{userType == 2}}' class='item' hover-class="none" url='/pages/publish/chat/index?type=2&chatId={{chatId}}&share=dp'>
+        <el-image class='icon' src='shanghu@2x.png'></el-image>
+        <view class='name'>
+          <view>一键转发到</view>
+          <view>我的 iME 店铺</view>
+        </view>
+      </navigator>
+      <navigator wx:else class='item' hover-class="none" url='/pages/applyMerchant/index'>
+        <el-image class='icon' src='zhaunfadianpu-NO@2x.png'></el-image>
+        <view class='name'>
+          <view>一键转发到</view>
+          <view>我的 iME 店铺</view>
+        </view>
+      </navigator>
+      <navigator class='item' hover-class="none" url='/pages/publish/chat/index?type=1&chatId={{chatId}}&share=xc'>
+        <el-image class='icon' src='xiangce@2x.png'></el-image>
+        <view class='name'>
+          <view>一键转发到</view>
+          <view>我的 iME 相册</view>
+        </view>
+      </navigator>
+    </view>
+    <view class='types'>
+      <button hover-class="none" class='item' open-type='share'>
+        <el-image class='icon' src='share_ic_wechat@2x.png'></el-image>
+        <view class='name'>微信</view>
+      </button>
+      <view class='item' catch:tap='getStoreQr'>
+        <el-image class='icon' src='share_ic_qrcode@2x.png'></el-image>
+        <view class='name'>店铺卡</view>
+      </view>
+      <view class='item' catch:tap='toggleCard'>
+        <el-image class='icon' src='share_ic_card@2x.png'></el-image>
+        <view class='name'>产品卡</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:if='{{storeQr}}' bindtap='toggleCardHide'>
+  <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' ></view>
+  <view class='card-modal'  wx:if='{{storeQr != ""}}'>
+    <view style='position:relative;background:#FFE200;'>
+      <canvas id='canvas-modal1' canvas-id="firstCanvas1" style='width:676rpx;height:1000rpx;'></canvas>
+      <!-- <image style='height:300rpx;width:300rpx;' class='absolute xy' src='data:image/png;base64,{{qrcode}}'></image> -->
+    </view>
+    <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;margin:40rpx auto 0rpx auto;width:500rpx;' bindtap='saveCard1'>
+      保存至相册，打印张贴转发扩粉哦
+    </button>
+  </view>
+</view>
+<view wx:if='{{showCard}}' bindtap='toggleCardHide'>
+  <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' ></view>
+  <view class='card-modal'>
+    <canvas id='canvas-modal' canvas-id="firstCanvas" style='width:676rpx;height:1000rpx;'></canvas>
+    <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;width:560rpx;margin:40rpx auto 0rpx auto;' bindtap='saveCard'>
+      保存至相册，好物分享
+    </button>
+  </view>
+</view>
+
+<!-- 购物车弹框 -->
+<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" />

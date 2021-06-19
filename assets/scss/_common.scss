@@ -1,0 +1,371 @@
+@charset "UTF-8";
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+/* 重写 checkbox 样式 */
+/* 未选中的 背景样式 */
+switch .wx-checkbox-input{
+  border-radius: 50%;/* 圆角 */
+  width: 46rpx; /* 背景的宽 */
+  height: 46rpx; /* 背景的高 */
+  border: 1rpx solid #dbdbdb;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+switch .wx-checkbox-input.wx-checkbox-input-checked{
+  border: 1rpx solid #FFE200;
+  background: #FFE200;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+switch .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-radius: 50%;/* 圆角 */
+  width: 46rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 46rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 46rpx;
+  text-align: center;
+  font-size:24rpx; /* 对勾大小 30rpx */
+  color:#333; /* 对勾颜色 白色 */
+  background: transparent;
+  transform:translate(-50%, -50%) scale(0.8);
+  -webkit-transform:translate(-50%, -50%) scale(0.8);
+}
+image{
+  max-width: 100%;
+  vertical-align: middle
+}
+textarea{
+  width: 100%;
+  font-size: rpx(14);
+  color: #9B9B9B;
+  overflow: hidden
+}
+button{
+  box-sizing: content-box;
+  overflow: visible;
+  padding:0;
+  background-color: transparent;
+  @include borderRadius(0)
+}
+button::after{
+	content: none
+}
+.buttun-hover{
+  background-color: transparent !important;
+}
+input{
+  @include fc(14,#333333);
+  min-height: rpx(20);
+  overflow: hidden
+}
+.disNone{
+  display: none !important;
+  //transition: all 0.5s ease;
+}
+.disBlock{
+  display: block !important;
+}
+.clr:after{
+  display: block;
+  clear: both;
+  content: ' ';
+  height: 0;
+  overflow: hidden;
+}
+.zIndex99{
+  z-index: 99;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.hide {
+	display: none;
+}
+.flex{
+  display: flex
+}
+.flex_ac{
+	display: flex;
+	align-items: center
+}
+.flex-lr{
+  display: flex;
+  justify-content: space-between;
+}
+.flex_ac-jb{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex_ac--c{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.flex_jc{
+	display: flex;
+	justify-content: center;
+}
+.flex_column{
+	flex-direction: column;
+}
+.flex__it{
+	flex: 1;
+}
+.flex-jc-ac{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.align-self-start{
+	align-self: flex-start;
+}
+.mar_l-15{
+  margin-left: rpx(15)
+}
+.mar_r-15{
+  margin-right: rpx(15)
+}
+.padd_trbl{
+  padding: rpx(15)
+}
+.mar_t-16{
+	margin-top: rpx(16);
+}
+.text-align{
+	text-align: center
+}
+/* 联系TA */
+.mark{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 99;
+}
+.z100{
+  z-index: 100;
+}
+.flex--c{
+  display: flex;
+  flex-direction: column;
+}
+.link-box{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 350rpx;
+  background-color: #fff;
+}
+.link-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+.text-align{
+  text-align: center;
+}
+
+
+/* //上拉运动 */
+@keyframes sliup_1 {
+  from {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.sliup_1 {
+  display: block;
+  animation: sliup_1 .35s ease-in both;
+}
+
+@keyframes slidown_1 {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(120%);
+  }
+}
+
+.slidown_none{
+  display: none !important
+}
+
+.slidown_1 {
+  /* // display: none; */
+  animation: slidown_1 .35s ease-in both;
+}
+.show_h {
+  display: block;
+  animation: show_h .35s ease-in both;
+}
+@keyframes show_h {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.show_l {
+  display: block;
+  animation: show_l .35s ease-in both;
+}
+@keyframes show_l {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none
+  }
+}
+.do-fs{
+	font-size: 30rpx
+}
+.f-26{
+	font-size: 26rpx
+}
+.f-20{
+	font-size: 20rpx
+}
+.store-nav1{
+  position:absolute;
+  right:0rpx;
+  background-color: #FFE200;
+  padding: 10rpx;
+  top: 0;
+  font-size: 26rpx;
+  border-radius: 60rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.swiper-item{
+	display: flex;
+	align-items: center;
+}
+
+
+
+//导航栏
+.navBar {
+  background: #ffffff;
+  @include dispFlex;
+  padding: 0 rpx(7);
+  border-bottom: rpx(.5) solid #dbdbdb
+}
+.navBar__it, .navBar__it--a {
+  position: relative;
+  @include boxFlex;
+  @include fc(15, #333333);
+  text-align: center;
+  padding: rpx(11) 0
+}
+.navBar__it--a {
+  color: #333333
+}
+.navBar__it--a:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  content: '';
+  width: 60rpx;
+  height: rpx(4);
+  background: $mainThemeColor;
+  transform: translateX(-50%)
+}
+.fixed50{
+  position: fixed;
+  bottom: 0;
+  height: rpx(50);
+  left: 0;
+  right: 0;
+}
+.color333{
+  color: #333333 !important
+}
+.color666{
+  color: #666666 !important
+}
+.color999{
+  color: #999999 !important
+}
+.lineNum1{
+  @include lineNum(1)
+}
+.lineNum2{
+  @include lineNum(2)
+}
+// 底部加载更多
+.loadmore {
+  padding: 40rpx 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #888888;
+}
+
+.loadmore-btn {
+  font-size: 28rpx;
+  color: #888888;
+}
+
+.loadmore-row {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.order-btn__t {
+  position: relative;
+  height: 44rpx;
+  line-height: 44rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+}
+
+.order-btn__t::after {
+  display: block;
+  content: ' ';
+  width: 44rpx;
+  height: 2rpx;
+  background: #FFFFFF;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  -webkit-transform: translate(50%, 0);
+  -moz-transform: translate(50%, 0);
+  -ms-transform: translate(50%, 0);
+  -o-transform: translate(50%, 0);
+  transform: translate(50%, 0);
+}
+
+.order-btn__b {
+  font-size: 28rpx;
+  color: #DBDBDB;
+  height: 44rpx;
+  line-height: 44rpx;
+}
+.order-scroll{
+  position: absolute;
+  right: rpx(15);
+  top: -1000%;
+}
+.padd_tb-10{
+  padding: 20rpx 0
+}

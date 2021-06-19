@@ -1,0 +1,104 @@
+<view class='top-nav'>
+  <!-- <view class='toggle-item'>
+    <view class='item current' id='abc'>我发起的订单</view>
+    <navigator wx:if='{{userType == 2}}' class='item' url='/pages/order/merchant/index' hover-class="none">我收到的订单</navigator>
+  </view> -->
+
+  <view class='order-status-item'>
+    <view class='item {{query.status == 5 ? "current" : ""}}' data-status='5' bindtap='selectToggle'>
+      <view class='wrap'>
+        <!-- <view class='number-notify' wx:if='{{number1 > 0}}'>{{number1}}</view> -->
+        <icon-text-flex class='item-icon' width="100rpx" icon='user/quanbu1@2x.png'>
+        </icon-text-flex>
+        <view class='text'>全部</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 1 ? "current" : ""}}' data-status='1' bindtap='selectToggle'>
+      <view class='wrap'>
+        <!-- <view class='number-notify' wx:if='{{number1 > 0}}'>{{number1}}</view> -->
+        <!-- <el-image class='icon' src='user/my-order1@2x.png' mode='widthFix'></el-image> -->
+        <icon-text-flex class='item-icon' width="100rpx" icon='user/my-order1@2x.png'>
+          <view class="red-number" wx:if="{{orderCount.waitPayNum>0}}">{{orderCount.waitPayNum > 99 ? '99+' : orderCount.waitPayNum}}</view>
+        </icon-text-flex>
+        <view class='text'>待付款</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 2 ? "current" : ""}}' data-status='2' bindtap='selectToggle'>
+      <view class='wrap'>
+        <!-- <el-image class='icon' src='user/my-order2@2x.png' mode='widthFix'></el-image> -->
+        <icon-text-flex class='item-icon' width="100rpx" icon='user/my-order2@2x.png'>
+          <view class="red-number" wx:if="{{orderCount.waitSendNum>0}}">{{orderCount.waitSendNum > 99 ? '99+' : orderCount.waitSendNum}}</view>
+        </icon-text-flex>
+        <view class='text'>待发货</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 3 ? "current" : ""}}' data-status='3' bindtap='selectToggle'>
+      <view class='wrap'>
+        <!-- <el-image class='icon' src='user/my-order5@2x.png' mode='widthFix'></el-image> -->
+        <icon-text-flex class='item-icon' width="100rpx" icon='user/my-order5@2x.png'>
+          <view class="red-number" wx:if="{{orderCount.waitReceiveNum>0}}">{{orderCount.waitReceiveNum > 99 ? '99+' : orderCount.waitReceiveNum}}</view>
+        </icon-text-flex>
+        <view class='text'>已发货</view>
+      </view>
+    </view>
+    <view class='item {{query.status == 4 ? "current" : ""}}' data-status='4' bindtap='selectToggle'>
+      <view class='wrap'>
+        <icon-text-flex class='item-icon' width="100rpx" icon='user/my-order4@2x.png'>
+        </icon-text-flex>
+        <view class='text'>已完成</view>
+      </view>
+    </view>
+  </view>
+</view>
+<navigator class="order_data" url='./quantity/index' hover-class="none">
+<!-- <view class="order_data"> -->
+  <view class="order_data_item">
+    <view class="order_data_item_text">{{timeDate.year}}</view>
+    <view class="order_data_item_hint">{{timeDate.month}}月{{timeDate.day}}日</view>
+  </view>
+  <view class="order_data_item">
+    <view class="order_data_item_text">已付款订单数</view>
+    <view class="order_data_item_hint">{{sellerCount.hasPayNum}}</view>
+  </view>
+  <view class="order_data_item">
+    <view class="order_data_item_text">商品数</view>
+    <view class="order_data_item_hint">{{sellerCount.chatGoodsNum}}</view>
+  </view>
+  <view class="order_data_item">
+    <view class="order_data_item_text">营收金额</view>
+    <view class="order_data_item_hint">{{sellerCount.totalIncome}}</view>
+  </view>
+  <view class="order_data_item">
+    <view class="order_data_item_text">昨日营收</view>
+    <view class="order_data_item_hint">{{sellerCount.yesterdayTotalIncome}}</view>
+  </view>
+  <view class="arrow-right"></view>
+</navigator>
+<pagination id='pagination' url='order/list' query='{{query}}' pkName='order_id' bind:load='load'>
+<view class='order-list' wx:if="{{orderList.length>0}}">
+  <view class='item p-l-r' wx:for='{{orderList}}' wx:key='order_id'>
+    <store store='{{item.buyer}}' status='{{item.status}}' is_agent='{{item.is_agent}}'></store>
+    <view class='relative'>
+      <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>
+      <goods wx:for='{{item.goods}}' ismy="{{false}}" goods='{{item}}' wx:key='chat_id'></goods>
+      <view class='bottom'>
+        <view class='wrap'>
+          <view class='overflow'>
+            <text class='pull-left'>共 {{item.quantity}} 件，合计：</text>
+            <text class='pull-right color-f9bb69'>￥<text class='f-36'>{{item.amount}}</text></text>
+          </view>
+          <!-- <view class='overflow m-t-30' wx:if='{{item.status == 0 || item.status == 1 || item.status == 3}}'> -->
+            <!-- <navigator wx:if='{{item.status == 1}}' class='confirm-btn m-l-20' url='./detail/index?orderId={{item.order_id}}&index={{index}}' hover-class="none">确定</navigator> -->
+            <!-- <button hover-class="none" class='cancel-btn' wx:if='{{item.status == 0 || item.status == 1}}' data-index='{{index}}' bindtap='cancelOrder'>取消</button> -->
+            <!-- <button hover-class="none" wx:if='{{item.status == 2 || item.status == 3}}' data-index='{{index}}' bindtap='confirmComplete' class='confirm-btn'>确认收货</button> -->
+          <!-- </view> -->
+        </view>
+      </view>
+      <navigator wx:if='{{item.status != 0}}' class='to-order-detail' url='./detail/index?orderId={{item.order_id}}&index={{index}}' hover-class="none"></navigator>
+    </view>
+  </view>
+</view>
+<empty wx:if="{{orderList.length==0}}" class='absolute xy' text='订单为空'></empty>
+
+</pagination>
+<confirm wx:if='{{showCancelConfirm}}' bindcallback='cancelCallback'></confirm>

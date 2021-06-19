@@ -1,0 +1,20 @@
+<navigator class='goods' url='/pages/goods/index?chatId={{goods.chat_id}}' wx:key='chat_id' hover-class="none">
+  <view class='wrap'>
+    <img class='cover' thumb src='{{goods.cover}}'></img>
+    <view class='body'>
+      <view class='goods-name color-666'>{{goods.goods_name}}</view>
+      <view class='goods-no' wx:if="{{ismy}}">
+        <text class='pull-left color-666'>货号/备注</text>
+        <text class='pull-right bold'>{{goods.goods_no}}</text>
+      </view>
+      <view class='goods-qty'>
+        <text class='pull-left color-666'>数量</text>
+        <text class='pull-right bold'>{{goods.quantity}}</text>
+      </view>
+      <view class="goods-product__note">
+        <view class="g-p__note_title color-666">购买备注:</view>
+        <view class="g-p__note_val">{{goods.remark||''}}</view>
+      </view>
+    </view>
+  </view>
+</navigator>

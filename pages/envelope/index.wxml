@@ -1,0 +1,43 @@
+<view>
+  <image mode='widthFix' class='block w-100' src='/assets/images/gaizi.png'></image>
+</view>
+<view class=''>
+  <image class='avatar' src='/assets/images/logo_ime_r@2x.png'></image>
+  <view class='text-center'>
+    <text class='nickname'>iME官方</text>
+  </view>
+  <view class='text-center'>
+    <text class='fs22 mt4'>好生意 用iME</text>
+  </view>
+</view>
+<view class='amount-part'>
+  <block wx:if='{{money > 0}}'>
+    <view class='color-fbd49d amount Bebas'>{{money}} <text class="unit">元</text> </view>
+    <view class='color-fbd49d fs22'>已存入钱包余额，可直接提现</view>
+  </block>
+  <block wx:else>
+    <view class='text-center'>差点手气，没中奖</view>
+  </block>
+</view>
+<view class="totle_hasget">
+  <!-- <view class="hasget_tit" >已领取</view> -->
+  <view class="get-list">
+    <view class="list-pic" wx:for="{{list}}" wx:key="index">
+      <image class="user-pic" src="{{item.avatar}}" />
+    </view>
+    <view class="flex__it">10000+人领取</view>
+  </view>
+</view>
+
+<navigator url="/pages/endorsement/index" class='part-1 padd_trbl bgch' hover-class="none">
+  <view>
+    <image class='block' mode='aspectFill' src='{{assetsImages}}auth3@2x.png' style="width:712rpx;height:466rpx;"></image>
+    <!-- <el-image src='auth3@2x.png' class='block'></el-image> -->
+  </view>
+  <view style='width:400rpx;margin:auto;'>
+    <view style='margin-top:96rpx;'>
+      <btn style-text='border:1px solid #333333;font-weight:bold;'>邀请好友赚代言费</btn>
+      <btn style-text='border:1px solid #333333;font-weight:bold;background:#333333;margin-top:40rpx;color:#FFE200'>分享小程序码赚代言费 </btn>
+    </view>
+  </view>
+</navigator>

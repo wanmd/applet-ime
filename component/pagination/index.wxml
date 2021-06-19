@@ -1,0 +1,12 @@
+<scroll-view class='page-container animated fadeIn' scroll-y lower-threshold='100rpx' bindscrolltolower='load'>
+  <view>
+    <slot></slot>
+  </view>
+  <view class='load-show'>
+    <block wx:if='{{isMore == true}}'>
+      <block wx:if='{{isSendIng == true}}'>正在加载...</block>
+      <block wx:else><text bindtap='load'>查看更多数据</text></block>
+    </block>
+    <block wx:else><text wx:if='{{showEmptyNoMore}}' class='no-more'>没有更多数据了</text></block>
+  </view>
+</scroll-view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "delete" : "../delete/index"
+  }
+}

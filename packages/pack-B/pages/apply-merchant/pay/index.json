@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+		"tips-model": "/component/tips-model/index"
+	},
+  "navigationBarTitleText": "认证付款"
+}

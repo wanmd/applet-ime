@@ -1,0 +1,33 @@
+<view class="wx_page">
+  <view class="wx_header">
+    <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
+    <view style="width: 100%;text-align:center">{{barTitlle}}</view>
+  </view>
+  <view class="wx_center">
+    <view class='p-l-r'>
+      
+      <form>
+        <!-- <view class="p-t-50 border-b">
+          <input type='text' value='{{goods_name}}' data-target='goods_name' bindinput='input' maxlength="50" class='goods_name' placeholder='请输入你需求的产品名称、数量、规格等信息 ...'></input>
+        </view> -->
+        <view class='' style='margin-top:20rpx;padding-bottom:40rpx;'>
+          <textarea value='{{content}}' data-target='content' bindinput='input' style='height:320rpx;padding:0rpx' class='w-100' maxlength='18000' placeholder="请输入你需求的产品名称、数量、规格等信息 ..."></textarea>
+          <view class='absolute____' style='right:0;bottom:0;'>{{content.length}}/800</view>
+        </view>
+        <view class='images clear m-t-30'>
+          <upload class='item' wx:for='{{images}}' wx:key='id' data-index='{{index}}' initFile='{{item.file}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
+          <upload wx:if='{{images.length < 9}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-images.length}}'></upload>
+        </view>
+        <view class='m-t-30'>
+          <view class='relative'>
+             <cell border='{{false}}' title='所在位置' content='{{location}}' clear bindtap='selectPostion' bind:clear='clearLocation'>
+              </cell>
+          </view>
+        </view>
+      </form>
+    </view>
+    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+      <btn bindtap='submit' round>发布</btn>
+    </view>
+  </view>
+</view>

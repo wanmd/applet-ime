@@ -1,0 +1,16 @@
+.symbol{
+  display:inline-block;
+  position:relative;
+  padding-left:35rpx;
+  color:#999999;
+  font-size:24rpx;
+  line-height:30rpx;
+}
+.icon{
+  position:absolute;
+  width:28rpx;
+  height:28rpx;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+}

@@ -1,0 +1,344 @@
+<view class="page {{selectedNav!=1 ? 'bg_fff': ''}}">
+    <view class='fixed w-100' style='left:0;top:0;z-index:2;height: {{topHeight + 100}}px;background-image:url({{backgroundIamge}})'>
+        <view bindtap="handleBack" class="backnav fz-24 bgc-fff c-929292 fixed w-96 ta-c" style='top:{{navTop}}px;line-height:{{navHeight}}rpx;border-radius: 0 20px 20px 0;'>返回</view>
+        <view class='p-l-r relative padd_tb-10 mb-20' style="margin-top:{{topHeight}}px">
+            <avatar size='80rpx' src='{{user.avatar}}' user="{{user}}" userId='{{storeId}}'>
+                <view class='m-l-20'>
+                    <view class='bold'>
+                        <text class="nickname ellipsis1">{{user.nickname}}</text>
+                        <symbol class="symbol" styleName="{{'color: #000;'}}" wx:if="{{user.isAuth}}">
+                            {{user.merchantType==1?'企业认证':'个人认证'}}
+                        </symbol>
+                    </view>
+                    <view class="remark ellipsis1 p-t-10">{{user.remark}}</view>
+                </view>
+            </avatar>
+            <!-- <view class='absolute middle r-0 overflow'>
+                <block wx:if='{{isSelf == true}}'>
+                    <view class='pull-left' wx:if='{{goodsList.length > 0}}' bindtap='toggleEdit'>{{editting ? '完成' : '管理'}}</view>
+                </block>
+                <button hover-class="none" class='pull-left m-l-30' open-type='share'><el-image style='display:block;width:36rpx;' src='ic_share@2x.png'></el-image></button>
+            </view> -->
+            <view class='absolute middle r-46 overflow' wx:if='{{isSelf == true}}'>
+                <image class="w-52 h-52" src="../../assets/images/index/IYOU@2x.png" />
+            </view>
+        </view>
+        <view class='top-nav'>
+            <view class='toggle-item'>
+                <view wx:for='{{topNavs}}' wx:key="index" class='item {{selectedNav == item.type ? "current" : ""}}' data-type='{{item.type}}' bindtap='toggleType'>
+                    {{item.name}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style="margin-top:{{topHeight + 10}}px" wx:if='{{selectedNav==1}}'>
+        <pagination  class='relative relative1' id='pagination' pkName='chat_id' url='store/goods' query='{{query}}' bind:load='load'>
+        <view class="relative1_box">
+            <view class="search_wrap jc-sb">
+                <view class="d-f ai-c">
+                    <view class="input">
+                        <input data-target='goodsName'  bindinput="bindinput_" placeholder="请输入产品关键词" placeholder-style="color: #d8d8d8;" value="{{goodsName}}" bindconfirm="search" confirm-type="search"/>
+                    </view>
+                    <view class="search_btn" bindtap='search'>搜索</view>
+                </view>
+            </view>
+            <view class='goods-list' wx:if='{{goodsList !== null}}' style="padding-bottom: 120rpx;padding-top: 0;margin-top: 0;">
+                <navigator class='item' wx:for='{{goodsList}}' wx:key='index' url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none">
+                    <view class='_wrap'>
+                        <img class='cover' mode='aspectFill' thumb="{{thumb}}" src='{{item.cover}}'></img>
+                        <block wx:if='{{editting == false}}'>
+                            <view class='m-t-30 ellipsis1'>{{item.goods_name}}</view>
+                            <view class='m-tb-20 f-20 color-fbd49d'>
+                                ￥
+                                <text class='f-32 bold'>{{item.sale_price}}</text>
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <view class='cover_text'>
+                                <text class='p-tb-30 color-f9696c' data-index='{{index}}' catchtap='deleteChat'>
+                                    删除
+                                </text>
+                                <text class='p-tb-30 color-999999 m-l-30' wx:if='{{item.chat_type == 2}}' data-index='{{index}}' catchtap='edit'>
+                                    编辑
+                                </text>
+                            </view>
+                        </block>
+                    </view>
+                </navigator>
+            </view>
+            <empty wx:else class='absolute xy' text='TA还没放商品呢'></empty>
+        </view>
+        </pagination>
+    </view>
+    <view style="margin-top:{{topHeight + 10}}px" wx:if='{{selectedNav==2}}'>
+        <pagination id='pagination2' url='user/getNewChatList' query='{{query2}}' pkName='chat_id' bind:load='load1'>
+            <view class='date-block' wx:for='{{chatList}}' wx:key='index'>
+                <view class='record-item' wx:for='{{item.list}}' wx:for-item='chat' wx:for-index='i' wx:key='index'>
+                    <view class='date' wx:if='{{i == 0}}'>
+                        <text class='d'>{{item.d}}</text>
+                        <text class='f-24'>{{item.m}}月</text>
+                    </view>
+                    <view class='body'>
+                        <img class='cover cover1' wx:if="{{chat.cover}}" ispre="true" picture="{{chat.picture}}" thumb src='{{chat.cover}}'></img>
+                        <view class="flex-column">
+                            <navigator class="a" url='/pages/goods/index?chatId={{chat.chat_id}}' hover-class="none">
+                                <view class='title ellipsis-2' data-type="{{chat.chat_type}}" data-chatid="{{chat.chat_id}}">
+                                    {{chat.goods_name?chat.goods_name:chat.content}}
+                                </view>
+                                <view class='a' wx:if='{{isAgent == 1}}'>
+                                    <view class='price1'>
+                                        零售价:
+                                        <text>￥ {{chat.sale_price}}</text>
+                                    </view>
+                                    <view class='price2'>
+                                        代理价:
+                                        <text>￥ {{chat.agent_price}}</text>
+                                    </view>
+                                </view>
+                                <view class='a' wx:else>
+                                    <view class='price1'>
+                                        零售价:
+                                        <text>￥ {{chat.sale_price}}</text>
+                                    </view>
+                                    <view class='price2'>
+                                        会员价:
+                                        <text>￥ {{chat.vip_price}}</text>
+                                    </view>
+                                </view>
+                            </navigator>
+                            <!-- <el-image wx:if="{{!isSelf}}" class='delete' src='ic_del_g.png' data-index='{{index}}' data-i='{{i}}' catchtap='deleteChat'></el-image> -->
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </pagination>
+    </view>
+    <!-- <pagination id='pagination3' class='relative' wx:if='{{selectedNav==3&&userInfo&&userInfo.user_type == 2}}' url='chat/getQuoteList' query='{{query3}}' bind:load='load3'> -->
+    <view style="margin-top:{{topHeight + 10}}px" wx:if='{{selectedNav==3}}'>
+        <pagination id='pagination3' class='relative' url='chat/getQuoteList' query='{{query3}}' bind:load='load3'>
+            <view class="relative1_box">
+                <view class="search_wrap jc-sb">
+                    <view class="d-f ai-c">
+                        <view class="input">
+                            <input data-target='goodsName'  bindinput="bindinput_" placeholder="请输入产品关键词" placeholder-style="color: #d8d8d8;" value="{{goodsName}}" bindconfirm="search" confirm-type="search"/>
+                        </view>
+                        <view class="search_btn" bindtap='search'>搜索</view>
+                    </view>
+                    <view bindtap="handleChangeShowType"><image class="w-46 h-48" src="../../assets/images/index/changeView@2x.png" /></view>
+                </view>
+                <view class="offer-header" wx:if="{{showType == 0}}">
+                    <view class="th th1">日期</view>
+                    <view class="th th2">产品信息+报价</view>
+                    <view class="th th3">商家</view>
+                    <view class="th th4">操作</view>
+                </view> 
+                <view class="offer-header" wx:if="{{showType == 1}}">
+                    <view class="th th1">日期</view>
+                    <view class="th th2">产品主图</view>
+                    <view class="th th3">产品名</view>
+                    <view class="th th3">报价</view>
+                    <view class="th th4">操作</view>
+                </view> 
+                <!-- <view class='goods-list' wx:if='{{goodsList !== null}}' style="padding-bottom: 120rpx;padding-top: 0;margin-top: 0;"> -->
+                <!-- <navigator class='item' wx:for='{{goodsList}}' wx:key='index' url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none"> -->
+                <view class='offer-list' wx:if='{{offerList !== null}}' style="padding-bottom: 120rpx;padding-top: 0;margin-top: 0;">
+                    <view class='item' wx:for='{{offerList}}' wx:key='chat_id'>
+                        <!-- 日期 -->
+                        <view class="td td1">
+                            <view>
+                                <view>{{item.update_time[0]}}</view>
+                                <view>{{item.update_time[1]}}</view>    
+                            </view>
+                        </view>
+                        <!-- 产品信息+报价 -->
+                        <view wx:if="{{showType == '0'}}" class="td td2" data-copy_name="{{item.content}}" catchtap="copyName"><view>{{item.content}}</view></view>
+                        <!-- 商家名称 -->
+                        <view wx:if="{{showType == '0'}}" class="td td3">
+                            <view>
+                                <view class="nickname">{{item.store_nickname}}</view>
+                            </view>
+                        </view>
+                        <!-- 产品主图 -->
+                        <view wx:if="{{showType == '1'}}" class="td td2" data-copy_name="{{item.content}}" catchtap="copyName">
+                            <image mode="aspectFit" class="w-130 h-130" src="{{backgroundIamge}}" />
+                        </view>
+                        <!-- 产品名 -->
+                        <view wx:if="{{showType == '1'}}" class="td td3">
+                            <view>
+                                <view class="nickname">兰蔻 小黑瓶兰蔻 小黑瓶兰蔻 小黑瓶30字 </view>
+                            </view>
+                        </view>
+                        <!-- 报价 -->
+                        <view wx:if="{{showType == '1'}}" class="td td3">
+                            <view>
+                                <view class="nickname">399.00</view>
+                            </view>
+                        </view>
+                        <!-- 操作 -->
+                        <view class="td td4">
+                            <view>
+                                <view class="btn btn1" data-id="{{item.id}}" data-chat_id="{{item.chat_id}}" catch:tap="quoteBuy">+下单</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <!-- </navigator> -->
+                <!-- </view> -->
+                <!-- <empty wx:else class='absolute xy' text='TA还没放商品呢'></empty> -->
+            </view>
+        </pagination>
+    </view>
+    <view style="margin-top:{{topHeight + 10}}px" wx:if='{{selectedNav==4}}'>
+        <pagination id='pagination4' url='chat/record' query='{{query4}}' pkName='chat_id' bind:load='load2'>
+            <view class='body'>
+                <view class='thumbs thumbs_l' wx:if="{{picture2.length}}">
+                    <block wx:for='{{picture2}}' wx:key="index">
+                        <navigator class="imageBox" url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none">
+                            <img slot='content' class='thumb thumb_l' thumb src='{{item.cover}}'></img>
+                            <view class="image_num">{{item.picture.length}}</view>
+                        </navigator>
+                    </block>
+                </view>
+                <empty wx:else class='absolute xy' style="padding-top: 400rpx;"></empty>
+            </view>
+        </pagination>
+    </view>
+    <view class='bottom-nav' style='padding-top:20rpx;padding-bottom:20rpx;' wx:if='{{selectedNav==1}}'>
+        <block wx:if='{{isSelf}}'>
+            <navigator class='item' url='/pages/goodsCategoryManage/index?storeId={{storeId}}' hover-class="none">
+                <icon-text class='absolute xy wh48' direction='vertical' icon='ic_fenlei_set@2x.png'>
+                    分类管理
+                </icon-text>
+            </navigator>
+            <!-- 
+                <navigator class='item' url='./library/index'>
+                    <icon-text class='absolute xy wh48' direction='vertical' icon='goods-library.png'>商品库</icon-text>
+                </navigator> 
+            -->
+            <!-- 把原来的管理搬到这里 -->
+            <view class='item' bindtap="toggleEdit">
+                <icon-text class='absolute xy wh48' direction='vertical' icon='ic_productmanagement@2x.png'>
+                    {{editting ? '完成管理' : '产品管理'}}
+                </icon-text>
+            </view>
+        </block>
+        <block wx:else>
+            <navigator class='item' url='/pages/selectGoodsCategory/index?categoryId={{query.category}}&storeId={{query.storeId}}' hover-class="none">
+                <icon-text class='absolute xy wh48' direction='vertical' icon='felei@2x.png'>
+                    分类
+                </icon-text>
+            </navigator>
+            <view class='item' catch:tap="contact" url='/pages/contact/index?userId={{query.storeId}}'>
+                <icon-text class='absolute xy wh48' direction='vertical' icon='lianxiTA@2x.png'>
+                    联系TA
+                </icon-text>
+            </view>
+        </block>
+        <view class='item' bindtap='toggleSelectShareType'>
+            <icon-text dir class='absolute xy wh48' direction='vertical' icon='ic_share1@2x.png'>
+                分享
+            </icon-text>
+        </view>
+        <view class='item' bindtap='getAgent' wx:if="{{!isSelf}}">
+            <icon-text dir class='absolute xy wh48' direction='vertical' icon='DAILI@2x.png'>
+                代理申请
+            </icon-text>
+        </view>
+    </view>
+    <!-- <view class='bottom-nav' style='padding-top:20rpx;padding-bottom:20rpx;' wx:if='{{selectedNav==3&&userInfo.user_type == 2}}'> -->
+    <view class='bottom-nav' style='padding-top:20rpx;padding-bottom:20rpx;' wx:if='{{selectedNav==3}}'>
+       <block wx:if='{{isSelf}}'>
+            <navigator class='item' url='/pages/publish/offer/index?type=editor' hover-class="none">
+            <!-- <view class='item' bindtap="toggleEdit"> -->
+                <icon-text class='absolute xy wh48' direction='vertical' icon='ic_productmanagement@2x.png'>
+                    编辑报价
+                </icon-text>
+            </navigator>
+            <!-- <view class='item' bindtap="toggleEdit">
+                <icon-text class='absolute xy wh48' direction='vertical' icon='ic_productmanagement@2x.png'>
+                    刷新报价
+                </icon-text>
+            </view> -->
+        </block>
+       <block wx:if='{{!isSelf}}'>
+            <view class='item' catch:tap="contact" url='/pages/contact/index?userId={{query.storeId}}'>
+                <icon-text class='absolute xy wh48' direction='vertical' icon='lianxiTA@2x.png'>
+                    联系TA
+                </icon-text>
+            </view>
+        </block>
+        <view class='item' bindtap='toggleSelectShareType'>
+            <icon-text dir class='absolute xy wh48' direction='vertical' icon='ic_share1@2x.png'>
+                分享
+            </icon-text>
+        </view>
+       <block wx:if='{{!isSelf}}'>
+            <view class='item' bindtap='getAgent' wx:if="{{!isSelf}}">
+                <icon-text dir class='absolute xy wh48' direction='vertical' icon='DAILI@2x.png'>
+                    代理申请
+                </icon-text>
+            </view>
+       </block>
+    </view>
+    <!-- <view class="apply_store popup_page" wx:if='{{selectedNav == 3&&userInfo&&userInfo.user_type != 2}}'> -->
+    <view class="apply_store popup_page" wx:if='{{false}}'>
+        <view class="bg"></view>
+        <view class="popup_wrap">
+            <view class="popup">
+                <view class="title_image">
+                    <el-image style="width:100%;height:204px" class='icon' src='offer/appStror@2x.png'></el-image>
+                </view>
+                <view class="title">
+                    <view class="text">全球一手货源  一键找货  一件代发</view>
+                    <view class="text">申请iME商家  批发价拿货  自用省钱  分享赚钱</view>
+                    <view class="text">没货源也能开店赚钱  副业躺赚</view>
+                </view>
+                <view class="hint">iME商家专属 32大特权功能</view>
+                <view class="popup_center">
+                    <view class="center_bg">
+                        <el-image style="width:100%;"  class='icon' src='offer/appStror_bg.png'></el-image>
+                    </view>
+                </view>
+                <view class="btns">
+                    <view class="btn" bindtap="appStror">立即申请iME商家开启商家特权</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="select-share-type {{showSelectShareType==0?'slidown_none':''}} {{showSelectShareType==1 ?'sliup_1': ''}} {{showSelectShareType==2 ?'slidown_1': ''}}" catch:tap='toggleSelectShareType'>
+        <view class="modal">
+            <view class='header'>
+                选择分享方式
+                <el-image class='close middle' src='close.png' catch:tap='toggleSelectShareType'></el-image>
+            </view>
+            <view class='types'>
+                <button hover-class="none" class='item' open-type='share'>
+                    <el-image class='icon' src='share_ic_wechat@2x.png'></el-image>
+                    <view class='name'>微信</view>
+                </button>
+                <view class='item' catch:tap='getStoreQr'>
+                    <el-image class='icon' src='share_ic_qrcode@2x.png'></el-image>
+                    <view class='name'>我的店铺卡</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='mask' wx:if='{{showQr}}' bindtap='toggleCardHide'>
+        <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' bindtap='toggleCardHide'></view>
+        <view class='card-modal'>
+            <view wx:if='{{qrcode != ""}}' style='position:relative;background:#fff;'>
+                <canvas id='canvas-modal1' canvas-id="firstCanvas1" style='width:676rpx;height:1000rpx;'></canvas>
+            </view>
+            <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;margin:40rpx auto 0rpx auto;width:500rpx;' bindtap='saveCard1'>
+                保存至相册，打印张贴转发扩粉哦
+            </button>
+        </view>
+    </view>
+    <cover-view class='right-return'>
+        <cover-view class='cover-image appStror-logs' wx:if='{{userInfo.user_type != 2}}' bindtap="appStror">
+            <cover-image src='{{assetsImages}}index/appStror.png'></cover-image>
+        </cover-view>
+    </cover-view>
+    <import src="/widgets/templates.wxml" />
+    <template is="linkbox" data="{{userInfo:user, showlink:showlink}}" />
+</view>

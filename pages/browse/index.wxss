@@ -1,0 +1,97 @@
+.car-goods-item {
+    padding: 30rpx;
+}
+
+.car-goods-item_ {
+    display: flex;
+    align-items: center;
+    /*padding-bottom: 28rpx;*/
+}
+
+.car-goods-item .cover {
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 24rpx;
+}
+
+.car-goods-item .goods-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 160rpx;
+    width: 500rpx;
+}
+
+.car-goods-item .goods-info--t {
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-size: 30rpx;
+    font-family: PingFangSC-Light, PingFangSC;
+    font-weight: 300;
+    color: #666666;
+    line-height: 46rpx;
+}
+
+.car-goods-item .goods-info--b {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.car-goods-item .goods-info--b .price-info {
+    display: flex;
+    color: #ECBD75;
+}
+
+.car-goods-item .goods-info--b .icon-price {
+    font-size: 20rpx;
+    font-family: PingFangSC-Medium, PingFangSC;
+    font-weight: 500;
+    line-height: 34rpx;
+    align-self: flex-end;
+}
+
+.time-area {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: rgba(153, 153, 153, 1);
+}
+
+.goods-price {
+    font-size: 24rpx;
+    line-height: 30rpx;
+    font-weight: normal;
+    color: rgba(51, 51, 51, 1);
+}
+
+.page_bar .navBar {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 9;
+}
+
+.page_bar .container {
+    padding-top: 43px;
+}
+
+page {
+    /* background: rgba(247, 247, 247, 1); */
+    padding-bottom: 128rpx;
+    height: 100%;
+    height: calc(100vh - 80px);
+}
+
+.container {
+    height: calc(100vh - 88rpx);
+    overflow-y: hidden;
+}
+
+@import '../../utils/wxss/renting-list.wxss';

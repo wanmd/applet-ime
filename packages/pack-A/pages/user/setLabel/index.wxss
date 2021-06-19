@@ -1,0 +1,26 @@
+.label{
+  margin-top:30rpx;
+}
+
+.label .item{
+  float:left;
+  line-height:48rpx;
+  padding:0rpx 20rpx;
+  font-size:24rpx;
+  background:#FFE200;
+  margin-left:20rpx;
+  margin-top:20rpx;
+  position:relative;
+  border-radius: 16rpx;
+}
+
+.label .item .cancel{
+  position:absolute;
+  right:-16rpx;
+  top:-16rpx;
+  color:rgba(0,0,0,1);
+}
+
+.label .item:first-child{
+  margin-left:0rpx;
+}

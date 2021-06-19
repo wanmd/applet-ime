@@ -1,0 +1,63 @@
+<view class='vip-page'>
+  <view class="vip-header">
+    <!-- <el-image src=vip/vip_header.png' style='width:100%;display:block;margin:auto;'></el-image> -->
+    <image src='{{assetsImages}}vip/vip_header.png' style='width:100%;height:503rpx;display:block;margin:auto;'></image>
+    <view class="vip_crde" bindtap='showCord'>
+      <image class='vip_crde_img' src='{{assetsImages}}vip/vip_crde.png'></image>
+      <!-- <el-image class="vip_crde_img" src=vip/vip_crde.png'></el-image> -->
+      <view class="vip_crde_text">
+        <view class="user_img">
+          <image class='avatar' src='{{userInfo.avatar}}'></image>
+          <text>{{userInfo.nickname}}</text>
+        </view>
+        <text class="user_id">NO’{{userInfo.user_id}}</text>
+        <viwe class="qr_img">
+          <image src='{{qrcode}}'></image>
+        </viwe>
+      </view>
+    </view>
+  </view>
+  <view class="vip-info">
+    <view class="t1">每天不管在哪里您都是会员价！</view>
+    <view>快来激活IME年度会员</view>
+    <view>尊享全平台商家购物会员价超值优惠！</view>
+  </view>
+  <image src='{{assetsImages}}vip/vip_info.png' style='width:616rpx;height: 676rpx;display:block;margin:auto;'></image>
+  <!-- <el-image src=vip/vip_info.png' style='width:616rpx;display:block;margin:auto;'></el-image> -->
+ 
+  <view class="vip-more">
+    <!-- <el-image src=vip/vip_more.png' style='width:450rpx;display:inline-block;margin:auto;margin-bottom: 66rpx;'></el-image> -->
+    <image src='{{assetsImages}}vip/vip_more.png' style='width:450rpx;height: 239rpx;display:inline-block;margin:auto;margin-bottom: 66rpx;'></image>
+    <view>更多VIP会员特权 敬请期待</view>
+  </view>
+</view>
+
+ <view class="vip-buy">
+  <view class="label" bind:tap="selectOne" wx:if="{{userInfo.isVip==0}}">
+      <!-- <switch type="checkbox" class="checkbox checkbox2" checked="{{vipInfo}}" catchchange="selectOne" /> -->
+      <image class='symbol' wx:if="{{vipInfo}}" src='/assets/images/symbol.png'></image>
+      <text class="unsymbol"  wx:else></text>
+      <label>
+        <text>开通即表示您同意并接受</text>
+        <text catch:tap="showInfo">《会员服务协议》</text>
+      </label>
+  </view>
+  <view class="but-btn" wx:if="{{userInfo.isVip==0}}" bind:tap="buyVip">
+    {{price}}元/年 立即开通iME会员
+    <text class="hint_price">0.2元/天</text>
+  </view>
+  <view class="but-btn but-btn2" bind:tap="buyVip" wx:else>立即续费iME会员</view>
+</view>
+
+<view wx:if='{{storeQr}}' catch:tap='toggleCardHide'>
+  <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' catch:tap='toggleCardHide'></view>
+  <view class='card-modal'  wx:if='{{storeQr != ""}}'>
+    <view style='position:relative;'>
+      <canvas id='canvas-vipcrde' canvas-id="vipcrde" style='width:676rpx;height:393rpx;'></canvas>
+      <!-- <image style='height:300rpx;width:300rpx;' class='absolute xy' src='data:image/png;base64,{{qrcode}}'></image> -->
+    </view>
+    <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;margin:40rpx auto 0rpx auto;width:500rpx;' catch:tap='saveCard1'>
+      保存你的会员金卡至相册
+    </button>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "选择商品",
+  "usingComponents": {
+    "goods-list" : "/component/goodsList/index"
+  }
+}

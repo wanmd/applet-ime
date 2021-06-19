@@ -1,0 +1,207 @@
+page {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.askBuyList {
+    padding: 0 32rpx 44rpx;
+}
+
+.user_title {
+    padding: 18rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+.user_title .user-box {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.user_title .user-box .avatar {
+    width: 80rpx;
+    height: 80rpx;
+    overflow: hidden;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.user_title .user-box .user-info {
+    margin-left: 32rpx;
+    align-items: center;
+}
+
+.user-info .user-name {
+    font-size: 24rpx;
+    color: #434759;
+}
+
+.user-info .user-time {
+    font-size: 24rpx;
+    color: #C4C4C4;
+}
+
+.user_title .get-user {
+    width: 116rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    background: #FFE200;
+    border-radius: 22rpx;
+    font-size: 24rpx;
+    text-align: center;
+    color: #434759;
+}
+
+.list-center {}
+
+.list-center .img_box {
+    width: 100%;
+    /* width: 248rpx; */
+    /* height: 144rpx; */
+    /* margin-right: 30rpx; */
+    flex-shrink: 0;
+    /* overflow: hidden; */
+}
+
+.list-center .text {
+    line-height: 42rpx;
+    font-size: 30rpx;
+    color: #434759;
+}
+
+.comment-text {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    color: #333333;
+    width: 100%;
+}
+
+.comment {
+    border-top: 1px solid #E6E6E6;
+}
+
+.comment_flex {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* height: 98rpx; */
+    border-top: 1px solid #E6E6E6;
+    display: flex;
+    padding: 14rpx 30rpx;
+    z-index: 9;
+    background-color: #fff;
+}
+
+.input_wrap {
+    width: 450rpx;
+    height: 100%;
+    /* line-height: 40rpx; */
+    background: #F6F6F6;
+    border-radius: 36rpx;
+    padding-right: 16rpx;
+    padding-left: 46rpx;
+    /* margin-right: 54rpx; */
+    margin-right: 27rpx;
+    flex-shrink: 0;
+}
+
+.fasong {
+    line-height: 72rpx;
+}
+
+.share1,
+.share2 {
+    flex: 1;
+    text-align: center;
+    font-size: 22rpx;
+    line-height: 30rpx;
+    color: #666666;
+}
+
+.share1 .icon,
+.share2 .icon {
+    width: 36rpx;
+    height: 36rpx;
+    display: block;
+    margin: 0 auto 12rpx;
+}
+
+.askBuy {
+    /* padding-bottom: 100rpx; */
+    height: calc(100vh - 100rpx);
+    overflow-y: auto;
+}
+
+.comment {
+    padding-top: 54rpx;
+}
+
+.comment-item {
+    padding: 0 40rpx 10rpx 32rpx;
+    display: flex;
+    min-height: 60rpx;
+    position: relative;
+}
+
+.comment-user-img {
+    width: 58rpx;
+    height: 58rpx;
+    flex-shrink: 0;
+    margin-right: 32rpx;
+}
+
+.comment-user-img .avatar {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.comment-center {
+    flex: 1;
+    padding-top: 12rpx;
+}
+
+.comment-user {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 14rpx;
+}
+
+.comment-user-name {
+    font-size: 12px;
+    line-height: 16px;
+    color: #333333;
+    margin-right: 32rpx;
+    max-width: 220rpx;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.comment-user-time {
+    font-size: 10px;
+    line-height: 14px;
+    color: #999999;
+}
+
+.comment-btn {
+    position: absolute;
+    right: 40rpx;
+    top: 12rpx;
+    width: 96rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border: 1px solid #FFE200;
+    border-radius: 22rpx;
+    font-size: 20rpx;
+    color: #434759;
+    text-align: center;
+}

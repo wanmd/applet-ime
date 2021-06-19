@@ -1,0 +1,6 @@
+<view class='component' style='padding-left:{{direction == "left" ? width : "0px"}};'>
+	<el-image class='icon {{direction}}' src='{{icon}}' style=';width:{{width}}'></el-image>
+	<view class='icon-content {{direction}}' style='margin-left:{{left}};line-height:{{offsetHeight}}'>
+		<slot></slot>
+	</view>
+</view>

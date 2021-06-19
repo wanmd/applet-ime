@@ -1,0 +1,47 @@
+<view class='bc-fff p-l-r'>
+  <cell height="120rpx" arrow='{{true}}'>
+    <view slot='title'>头像</view>
+    <view class="content" slot='content'>
+         <upload class='item pull-left' bgcolor="white" width='96rpx' height='96rpx' camera='{{false}}' data-target='avatar' data-form='form1'  bindsuccess='input' bind:clear='clearPic1' style="opacity: 0;z-index: 2;">
+            <view class='wrap'>
+            </view>
+          </upload>
+          <image style='height:96rpx;width:96rpx;border-radius:50%;' src='{{userInfo.avatar}}'></image>
+    </view>
+  </cell>
+  <cell height="120rpx" url='../../packages/pack-A/pages/user/setNickname/index'>
+    <view slot='title'>用户名</view>
+    <view class="user-content" slot='content'>{{userInfo.nickname}}</view>
+  </cell>
+  <cell height="120rpx" url='../../packages/pack-A/pages/user/setRemark/index'>
+    <view slot='title'>备注/签名</view>
+    <view class="user-content" slot='content'>{{userInfo.remark}}</view>
+  </cell>
+  <cell height="120rpx"  url='../../packages/pack-A/pages/user/setBackground/index'>
+    <view slot='title'>背景设置</view>
+  </cell>
+  <cell height="120rpx"  url='../../packages/pack-A/pages/user/setMobile/index'>
+    <view slot='title'>手机号</view>
+    <view slot='content'>{{userInfo.mobile}}</view>
+  </cell>
+  <cell height="120rpx"  url='../../packages/pack-A/pages/user/setWechat/index'>
+    <view slot='title'>微信号</view>
+    <view slot='content'>{{userInfo.wechat}}</view>
+  </cell>
+  <cell height="120rpx"  url='../../packages/pack-A/pages/user/setQrCode/index'>
+    <view slot='title'>微信二维码</view>
+  </cell>
+</view>
+<view class='bc-fff p-l-r m-t-20'>
+  <cell height="120rpx"  url='../../packages/pack-A/pages/user/setLabel/index'>
+    <view slot='title'>标签</view>
+    <view slot='content' wx:if='{{userInfo.label}}' class='label'>
+      <view class='item' wx:for='{{userInfo.label}}' wx:key="index">{{item}}</view>
+    </view>
+  </cell>
+</view>
+<!-- <view class='bc-fff p-l-r m-t-20'>
+  <cell height="120rpx"  url='/pages/deliveryAddress/index'>
+    <view slot='title'>收货地址</view>
+  </cell>
+</view> -->

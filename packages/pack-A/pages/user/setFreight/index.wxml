@@ -1,0 +1,43 @@
+<!--packages/pack-A/pages/user/setFreight/index.wxml-->
+<view class="bgc-fff h-100vh">
+  <view class="header d-f ai-fe">
+    <view class=" d-f ai-c jc-c h-108 class1 fz-36 c-F4F4F bgc-FFE200  ov-h ">快递物流运费设置</view>
+    <view class=" d-f fx-1 ai-c jc-c h-86 class2 fz-30 c-333 bgc-FFE200 ">外卖配送费设置</view>
+  </view>
+  <view class="wrap">
+    <form catchsubmit="formSubmit">
+      <view class="content">
+        <view class="ml-24 c-333 fz-30 lh-44 mb-36">设置打包费用（包装/快递/物流费用）</view>
+        <view class="ml-138 mb-40">
+          <radio-group bindchange="radioChange" name="type">
+            <label class="radio mr-108" wx:for="{{option1}}">
+              <radio color="#FFE200" value="{{item.value}}" checked="{{ fee.type === item.value}}"/>{{item.label}}
+            </label>
+          </radio-group>
+        </view>
+        <block wx:if="{{fee.type === 1}}">
+          <view class="bgc-F9F9F9 p-26 lh-44 h-240">
+            <view class="mb-16">包邮说明： </view>
+            <view>新疆 西藏 边与地区不发货，敬请谅解</view>
+          </view>
+        </block>
+        <block wx:if="{{fee.type === 2}}">
+          <view class="d-f ai-c pl-28 mb-32 bgc-F9F9F9 bdrs-12 h-108" >
+            运费<input type="number" value="{{fee.config.defaultNumber}}" name="defaultNumber" />件以内<input type="number" value="{{fee.config.defaultNumber}}" name="defaultPrice" />元
+          </view>
+          <view class="d-f ai-c pl-28 mb-32  bgc-F9F9F9 bdrs-12 h-108">
+            每增加<input type="number" value="{{fee.config.createNumber}}" name="createNumber" />件，运费增加 <input type="number" value="{{fee.config.createPrice}}" name="createPrice" />元
+          </view>
+          <view class="bgc-F9F9F9 p-26 lh-44 h-240">
+            <view class="mb-16">快递/物流说明：</view>
+            <view>新疆 西藏 边与地区不发货，敬请谅解</view>
+          </view>
+        </block>
+      </view>
+      <view class="bottom">
+        <button type="primary" class="btn" formType="submit">保存</button>
+      </view>
+    </form>
+  </view>
+  
+</view>

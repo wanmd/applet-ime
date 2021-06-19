@@ -1,0 +1,1 @@
+<button hover-class="none" open-type='{{openType}}' formType='{{formType}}' class='btn {{size}}' style='border-radius:{{borderRadius}};{{styleText}}' disabled='{{disabled}}'><slot></slot></button>

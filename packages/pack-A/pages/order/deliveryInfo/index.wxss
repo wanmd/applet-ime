@@ -1,0 +1,32 @@
+page{
+  font-size:28rpx;
+  color:#333;
+}
+.delivery{
+  position:relative;
+  padding:30rpx 0rpx 30rpx 60rpx;
+}
+
+.icon{
+  position:absolute;
+  left:0rpx;
+  top: 55rpx;
+  width:48rpx;
+}
+.remarks{
+  color:#FFE200;
+  margin-top:16rpx;
+}
+
+.address-containter{
+  padding-bottom: 30rpx !important;
+  border-bottom: 1rpx solid #efefef;
+background-size:64px 5px;
+}
+.copy-text{
+  position: absolute;
+  right: 30rpx;
+  top: 40rpx;
+  color: #FFE200;
+  z-index: 9;
+}

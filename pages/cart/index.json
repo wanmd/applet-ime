@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tab-bar": "/component/tab-bar/index",
+    "counter" : "/component/counter/index",
+    "empty"   : "/component/empty/index"
+  },
+	"navigationBarTitleText": "购物车",
+	"enablePullDownRefresh": true
+}

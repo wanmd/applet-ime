@@ -1,0 +1,18 @@
+.btn{
+  background:#FFE200;
+  font-size:32rpx;
+}
+.btn::before,.btn::after{
+  content:none;
+}
+
+.btn.small{
+  display:inline-block;
+  padding:12rpx 32rpx;
+}
+
+.btn.block{
+  display:block;
+  width:100%;
+  line-height:96rpx;
+}

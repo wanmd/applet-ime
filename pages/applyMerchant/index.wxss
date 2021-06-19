@@ -1,0 +1,99 @@
+page{
+  padding-bottom:120rpx;
+  background:#FFE40C;
+}
+
+.content2{
+  width:556rpx;
+  margin:60rpx auto 0rpx auto;
+  border:1px solid #FFE40C;
+  border-radius:8rpx;
+  padding:60rpx 50rpx 40rpx 60rpx;
+}
+.content2 .item{
+  overflow:hidden;
+  line-height:70rpx;
+}
+.content2 .item .title{
+  float:left;
+}
+.content2 .item .value{
+  float:right;
+}
+
+.user{
+  text-align:center;
+}
+
+.user .avatar{
+  display:block;
+  width:130rpx;
+  height:130rpx;
+  margin:auto;
+  border-radius:50%;
+}
+
+.youshi-items{
+  margin-top:30rpx;
+  padding:0rpx 45rpx;
+}
+.youshi-items .item{
+  padding-left:74rpx;
+  position:relative;
+  margin-top:60rpx;
+}
+.youshi-items .item .icon{
+  position:absolute;
+  left:0;
+  top:0;
+  width:64rpx;
+  height:64rpx;
+}
+.youshi-items .item .name{
+  color:#090909;
+  font-size:32rpx;
+}
+.youshi-items .item .content{
+  color:#535353;
+  font-size:24rpx;
+  text-align:justify;
+  margin-top:23rpx;
+}
+.por{
+  position: relative;
+}
+.user{
+  position: absolute;
+  top: 540rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+}
+.beMerchant{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  font-size:36rpx;
+  color: #333333;
+  font-weight:bold;
+  background:#FFE40C;
+}
+.newuser{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.newuser,
+.newuser swiper{
+  width: 100%;
+  height: 529rpx;
+}
+.newuser image{
+  width: 100%;
+  height: 446rpx;
+
+}

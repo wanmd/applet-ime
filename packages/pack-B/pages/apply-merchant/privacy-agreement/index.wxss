@@ -1,0 +1,18 @@
+page{
+  padding: 20rpx 30rpx;
+}
+.protocol-title{
+  font-size: 40rpx;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.protocol-spc{
+  font-size: 30rpx;
+  color: #333333;
+}
+.protocol-content{
+  font-size: 30rpx;
+  color: #666666;
+}

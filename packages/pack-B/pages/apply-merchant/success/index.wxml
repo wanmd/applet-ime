@@ -1,0 +1,12 @@
+<view class='fixed w-100 xy'>
+  <el-image src='ic_success@2x.png' style='display:block;width:84rpx;height:84rpx;margin:auto;'></el-image>
+  <view class='f-36 bold text-center m-t-40'>商家代理设置完成！</view>
+  <view class='text-center m-t-40'>
+  	<view>完成后可在我的-商户设置-代理设置</view>
+  	<view>更新、完善商家代理信息。</view>
+  	<view>立即发布第一个产品激活店铺吧！</view>
+  </view>
+  <navigator style='width:70%;margin:100rpx auto 0rpx auto;' open-type='redirect' url='/pages/publish/type/index?url=index' hover-class="none">
+      <btn>立即发布</btn>
+  </navigator>
+</view>

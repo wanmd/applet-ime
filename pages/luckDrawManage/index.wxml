@@ -1,0 +1,21 @@
+<pagination id='pagination' url='luck/viewList' showEmptyNoMore query='{{query}}' pkName='id' bind:load='load'>
+  <view class='bc-fff p-l-r' wx:for='{{chatList}}' wx:key='chat_id'>
+    <navigator class='record-item m-t-20' url='/pages/luckDraw/index?chatId={{item.chat_id}}&result=2' hover-class="none">
+      <img class='cover' thumb src='{{item.cover}}'></img>
+      <view class='body'>
+        <view class='title ellipsis'>{{item.goods_name}}</view>
+        <view class='f-24 m-t-10'>
+          <text>设置总数：{{item.total}}</text>
+          <text>，中奖数：{{item.number}}</text>
+        </view>
+        <view class='f-24 m-t-10 overflow'>
+          <view class='pull-left'>
+            <text>参与人数：{{item.join_number}}</text>
+            <text>，中奖人数：{{item.prize_number}}</text>
+          </view>
+        </view>
+        <view class='f-24 m-t-10'>结束时间：{{item.end_time}}</view>
+      </view>
+    </navigator>
+  </view>
+</pagination>

@@ -1,0 +1,51 @@
+/* pages/goodsCategoryManageNew/edit.wxss */
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 28rpx;
+  height: 82rpx;
+  line-height: 38rpx;
+  color: #333333;
+  border: 1rpx solid #333333;
+  margin-bottom: 22rpx;
+}
+.focus {
+  border: 1rpx solid #FFE200;
+}
+.add {
+  color: #FFE200;
+  border: 1rpx solid #FFE200;
+}
+.delete{
+  position: absolute;
+  right: -10rpx;
+  top: -8rpx;
+  width: 22rpx;
+  height: 22rpx;
+  z-index: 9;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 28rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400rpx;
+  height: 96rpx;
+  background: #FFE200;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  color: #333333;
+  margin-bottom: 54rpx;
+}

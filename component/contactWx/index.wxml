@@ -1,0 +1,21 @@
+<view url='/pages/contact/index?userId={{userId}}' class='body' bind:tap="contact">
+  <!-- <icon-text data-key="call" icon='ic_phone.png' class='color-666 pull-left'>{{contact}}</icon-text> -->
+  <!-- <icon-text data-key="wechat" icon='ic_wechat.png' class='color-666 pull-right'>复制微信</icon-text> -->
+  <view class="icon-centent-box">
+      <view class="icon-centent">{{contact}}</view>
+      <view class="icon-centent">微信</view>
+  </view>
+</view>
+<view class="flex--c z100 link-box {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}">
+  <view class="link-wrap border-b">
+    <view class="link-tit">微信号： {{userInfo.wechat}}</view>
+    <view class="link-num" data-content="{{userInfo.wechat}}" catch:tap="copy">复制</view>
+  </view>
+  <view class="link-wrap border-b">
+    <view class="link-tit">手机号：{{userInfo.mobile}}</view>
+    <view class="link-num" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">拨号</view>
+  </view>
+  <view class="line10"></view>
+  <view class="text-align" catch:tap="hideMark">取消</view>
+</view>
+  <view class="mark {{showlink==0||showlink==2?'slidown_none':''}}" catch:tap="hideMark"></view>

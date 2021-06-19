@@ -1,0 +1,8 @@
+{
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "upload": "/component/upload/index",
+        "uploadVideo": "/component/uploadVideo/index",
+        "priceExcel": "./comp/priceExcel/index"
+    }
+}

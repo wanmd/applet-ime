@@ -1,0 +1,41 @@
+<view>
+  <image mode='widthFix' class='block w-100' src='/assets/images/gaizi.png'></image>
+</view>
+<view class=''>
+  <image class='avatar' src='{{chat.user.avatar}}'></image>
+  <view class='text-center'>
+    <text class='nickname'>{{chat.user.nickname}}</text>
+  </view>
+</view>
+<view class='amount-part'>
+  <block wx:if='{{amount > 0}}'>
+    <view class='color-fbd49d amount'>{{amount}}<text class='f-28 m-l-10'>元</text></view>
+    <view class='f-24 m-t-20'>已存入零钱</view>
+  </block>
+  <block wx:else>
+    <view class='text-center'>您来晚了，红包派完了...</view>
+  </block>
+  
+</view>
+<view class='receive-user p-l-r m-t-40'>
+  <view class='color-ccc f-24'>已领取</view>
+  <view class='relative' id='user-container'>
+    <view class='user-avatar'>
+      <image class='item' wx:for='{{receiveUserList}}' src='{{item.avatar}}' style='width:{{avatarWidth}}px;height:{{avatarWidth}}px'></image>
+    </view>
+    <view class='receive-count' id='receive-count' wx:if='{{quantity > 10}}'>...{{quantity > 10000 ? quantity + '+' : quantity}}人领取</view>
+  </view>
+</view>
+<view class='p-l-r m-t-60'>
+  <expand-text content='{{chat.content}}'></expand-text>
+  <view class='m-t-40' wx:if='{{chat.picture}}'>
+    <picture-set pictureSet='{{chat.picture}}'></picture-set>
+  </view>
+</view>
+<view class='p-l-r m-t-20 color-999999 f-24 overflow'>
+  <view class='pull-left location' wx:if='{{chat.location}}'><image class='icon' src='/assets/images/location.png'></image>{{chat.location}}</view>
+  <view class='pull-left'>{{chat.create_time}}</view>
+</view>
+<view class='bottom-fixed p-l-r'>
+  <chat-bar urls='{{chat.picture}}' chatId='{{chatId}}' userId='{{chat.user_id}}' collectStatus='{{chat.collectStatus}}'></chat-bar>
+</view>

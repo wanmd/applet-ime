@@ -1,0 +1,55 @@
+<!--pages/productCategory/index.wxml-->
+<view>
+  <view class="header">请正确的选择类目，若所选类目与实际产品不符可能会被处罚</view>
+  <view class="wrap">
+    <view class="mlr-40 pb-38 borderb-1-solid-E4E4E4 d-f jc-c">
+      <view class="c-333 fz-30 lh-44 pos-r w-100 ta-c">
+        选择产品品类
+        <text class="fz-40 c-8E8E8E pos-a r-0 t-0">x</text>
+      </view>
+    </view>
+    <view class="d-f jc-c mt-28 mb-68 c-6A6A6A fz-20">完善品类信息提高分销推广效果</view>
+    <view class="list mlr-80 d-f jc-fs fxw-w">
+      <view 
+        class="itemCategory mb-60 d-f jc-c ai-c fxd-c w25p"  
+        wx:for="{{categoryList}}" 
+        wx:key="id" 
+        data-id="{{item.id}}"
+        data-name="{{item.name}}"
+        data-url="{{item.url}}"
+        bindtap="handleSelect"
+      >
+        <img src="{{item.url}}" class="w-79 h-79 mb-16" />
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 购物车弹框 -->
+<view class="select-share-type sliup_1" bindtap='toggleSelectShareType' wx:if="{{show}}">
+  <view class="modal">
+    <view class='header_top pos-r'>
+      <view class="d-f jc-c ai-c">
+        <img src="{{parent.url}}" class="w-79 h-79 mb-16" />
+        <text>{{parent.name}}</text>
+      </view>
+      <view class="close" bindtap="handleClose">x</view>
+    </view>
+    <view class="content mlr-40 d-f jc-fs fxw-w">
+      <view 
+        class="contentItem {{item.active ? 'active' : ''}}" 
+        wx:for="{{categoryList_2}}" 
+        wx:key="id" 
+        data-index="{{index}}"
+        data-item="{{item}}"
+        bindtap="handleSelectProductCategory"
+      >
+        {{item.name}}
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="save" bindtap="handleSave">保存</view>
+    </view>
+  </view>
+</view>

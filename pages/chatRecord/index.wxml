@@ -1,0 +1,30 @@
+<image class='bc' mode='aspectFill' src='{{userInfo.background ? userInfo.background : assetsImages+"5b1be11b90ce3.png"}}'></image>
+<view class='p-l-r' style='transform:translateY(-40%);'>
+<view class='overflow'>
+  <avatar class='pull-right' src='{{userInfo.avatar}}' size="120rpx"></avatar>
+</view>
+<view class='text-right m-t-10'>{{userInfo.remark || '灵魂和肉体，总有一个在路上~'}}</view>
+</view>
+<view class='m-t-30'>
+  <pagination id='pagination' url='chat/record' query='{{query}}' pkName='chat_id' bind:load='load'>
+    <view class='date-block' wx:for='{{chatList}}' wx:key='index'>
+      <view class='record-item' wx:for='{{item.list}}' wx:for-item='chat' wx:for-index='i' wx:key='chat_id'>
+        <view class='date' wx:if='{{i == 0}}'><text class='d'>{{item.d}}</text><text class='f-24'>{{item.m}}月</text></view>
+        <view class='body'>
+          <img class='cover' wx:if="{{chat.cover}}" ispre="true" picture="{{chat.picture}}" thumb src='{{chat.cover}}'></img>
+          <view class="flex-column">
+            <view class='title ellipsis-2' data-type="{{chat.chat_type}}" data-chatid="{{chat.chat_id}}" catchtap="toDetail">{{chat.goods_name?chat.goods_name:chat.content}}</view>
+            <view class='a'>
+              <view class='label' wx:if='{{chat.chat_type == 3 || chat.chat_type == 4}}'>红包</view>
+              <view class='label' wx:elif='{{chat.chat_type == 5}}'>砍价</view>
+              <view class='label' wx:elif='{{chat.chat_type == 6}}'>抽奖</view>
+              <el-image wx:if='{{isSelf == true}}' class='delete' src='ic_del_g.png' data-index='{{index}}' data-i='{{i}}' catchtap='deleteChat'></el-image>
+            </view>
+          </view>
+          
+        </view>
+
+      </view>
+    </view>
+  </pagination>
+</view>

@@ -1,0 +1,49 @@
+.ctr-row{
+  height:108rpx;
+  border-bottom:1px solid rgba(247,247,247,1);
+}
+
+
+page{
+  background:rgba(247,247,247,1);
+}
+.p-l-r-t{
+	padding: 32rpx 32rpx 10rpx;
+}
+.m-t-b-40{
+	margin-top: 40rpx;
+	margin-bottom: 40rpx;
+}
+.getdeliver{
+	display: inline-block;
+	float: right;
+	text-align: right;
+	margin-top: -36px;
+	padding-right: 20rpx;
+	color: green;
+}
+
+.card-cell{
+	background-color: #fff;
+	margin-bottom: 18rpx;
+	padding: 12rpx 26rpx;
+	border-radius: 32rpx;
+}
+.p-t-b{
+	padding-top: 32rpx;
+	padding-bottom: 32rpx;
+}
+.card-cell text{
+	font-size: 26rpx;
+	line-height: 30rpx;
+}
+.card-cell .title{
+	font-size: 30rpx;
+	line-height: 44rpx;
+}
+.hint{
+	font-size: 24rpx;
+	line-height:44rpx;
+	color:rgba(236,189,117,1);
+	text-align: center;
+}

@@ -1,0 +1,50 @@
+@import './order.wxss';
+page{
+  background:rgba(247,247,247,1);
+  height:100%;
+  padding-top:184rpx;
+}
+.order_data{
+	display: flex;
+	padding: 10rpx 30rpx;
+  position: relative;
+}
+.order_data_item{
+	flex: 1;
+	line-height: 40rpx;
+	text-align: center;
+}
+.order_data_item_text{
+	font-size: 20rpx;
+	color: #797979;
+}
+.order_data_item_hint{
+	font-size: 22rpx;
+	color: #212121;
+}
+.bottom-fixed{
+	padding: 10rpx 0;
+}
+.red-number{
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #f00;
+}
+.item-icon{
+  margin: 0 auto;
+  text-align: center;
+  justify-content:  center;
+  align-items:  center;
+}
+.wrap{
+  justify-content:  center;
+  align-items:  center;
+}

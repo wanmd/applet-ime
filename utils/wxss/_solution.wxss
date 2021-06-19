@@ -1,0 +1,69 @@
+/* 单行文本省略 */
+.tov-e-ok {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.roll_none ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+.triangle {
+  border-bottom: 12rpx rgb(45, 45, 45) solid;
+  border-left: 10rpx transparent solid;
+  border-right: 10rpx transparent solid;
+}
+.bg-ff9100-ff6600{
+  background: linear-gradient(90deg,#ff9100 0%,#ff6600 100%);
+
+}
+/* 极细边框 */
+.bdrs-thin {
+  width: 200%;
+  height: 200%;
+  border-width: 1px;
+  border-style: solid;
+  transform: scale(0.5, 0.5);
+  transform-origin: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  .bdrs-thin {
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+  .bdrs-thin {
+    width: 300%;
+    height: 300%;
+    -webkit-transform: scale(0.33, 0.33);
+    transform: scale(0.33, 0.33);
+  }
+}
+
+/* 富文本 */
+.rich-p{
+  word-break: break-all;
+}
+.rich-ul{
+  width: 80% !important;
+  word-break: break-all;
+}
+.rich-li{
+  word-break: break-all;
+}
+.rich-li .rich-p{
+  word-break: break-all;
+}
+.rich-img{
+  width: 100%;
+  vertical-align: top;
+}

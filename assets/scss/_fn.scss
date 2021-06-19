@@ -1,0 +1,7 @@
+@function rpx($rpx){
+  @return $rpx * 2 + rpx;
+}
+// Some Functions
+@function furl($uri){
+  @return $baseResUrl + "/" + $uri;
+}

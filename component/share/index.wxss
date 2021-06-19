@@ -1,0 +1,13 @@
+.pull-left{float:left !important;}
+.pull-right{float:right !important;}
+.color-999999{color:rgb(153,153,153)} /*灰色*/
+
+#logs .item{
+  padding:20rpx 0rpx;
+  overflow:hidden;
+  border-bottom:1px solid #eeeeee;
+}
+
+#logs .item:last-of-type{
+  border-bottom:none;
+}

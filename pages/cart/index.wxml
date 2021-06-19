@@ -1,0 +1,226 @@
+<!-- <view class="{{userInfo&&userInfo.user_type == 2 ?'page_bar':''}}"> -->
+<view class="page_bar">
+  <!-- <view class="navBar toggle-item" wx-if="{{userInfo&&userInfo.user_type == 2}}"> -->
+  <view class="navBar toggle-item">
+      <view class="navBar__it{{currentType == 1?'--a':''}}" data-type='1' bindtap='toggleType'>购物车<view class="bot-line" wx:if="{{currentType == 1}}"></view></view>
+      <view class="navBar__it{{currentType == 2?'--a':''}}" data-type='2' bindtap='toggleType'>拿货单<view class="bot-line" wx:if="{{currentType == 2}}"></view></view>
+  </view>
+  <view class='container'>
+      <block wx:if='{{currentType == 1}}'>
+        <view class="car-wrap">
+          <view class="is_edit border-b" wx:if="{{cartList.length>0}}">
+            <view class="{{isEdit?'car-cell-succ':'car-cell-edit'}}" bindtap='switchState'>
+              {{isEdit?'完成':'管理'}}
+            </view>
+          </view>
+          <block wx:if="{{cartList.length>0}}" wx:for="{{cartList}}" wx:key="index">
+            <view class="car-item" wx:if="{{userType !=2 }}">
+              <view class="user-box">
+                <image class='avatar' src='{{item.store.avatar}}'></image>
+                <view class="user-info">{{item.store.nickname}}</view>
+                <text class="isAgent__hint" wx:if="{{item.isAgent}}">已按代理价结算</text>
+              </view>
+            </view>
+            <navigator url='../applyAgent/index?storeId={{item.store_id}}' hover-class="none"  class="slogan" wx:if="{{!item.isAgent && item.store_agent_rule.slogan && item.store_agent_rule.slogan!=''}}">
+              <view class="link-CWDL">
+                <image class='image' src='/assets/images/DAILI@2x.png'  style="width:35rpx;height:35rpx;"></image>
+                <text>{{item.store_agent_rule.slogan}}</text>
+                <image class='jiantou' src='/assets/images/jiantou.png' style="width:12rpx;height:22rpx;"></image>
+              </view>
+            </navigator>
+
+            <view class="car-goods-item border-b" wx:for="{{item.cart}}" wx:for-index='idx' wx:for-item="it" wx:key='id' >
+              <view class="car-goods-item_">
+                <switch type="checkbox" class="checkbox" checked="{{it.checked}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchchange="selectOne" />
+                
+                <img class='cover' thumb src='{{it.cover}}' bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}"></img>
+                <view class="goods-info flex__it" url='/pages/goods/index?chatId={{it.chat_id}}' hover-class="none" bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}">
+                  <view class="goods-info--t">{{it.goods_name}}</view>
+                  <view class="goods-info--b">
+                    <view class="price-info">
+                      <view class="goods-price" wx:if="{{item.isAgent}}">
+                        <view>
+                          <text class="text">零售价</text>
+                          <text class='text-through'>{{it.sale_price}}</text>
+                        </view>
+                        <view>
+                          <text class="text">代理价</text>
+                          <text>{{it.agent_price}}</text>
+                        </view>
+                      </view>
+                      <view class="goods-price" wx:elif="{{userInfo.isVip == 1}}">
+                        <view>
+                          <text class="text">零售价</text>
+                          <text class='text-through'>{{it.sale_price}}</text>
+                        </view>
+                        <view>
+                          <text class="text">会员价</text>
+                          <text>{{it.vip_price}}</text>
+                        </view>
+                      </view>
+                      <view class="goods-price" wx:else>
+                        <view catch:tap="gotoVip" style="display: flex;align-items: center;">
+                          <el-image class="user_vip" src='vip/vip_label@2x.png' style="width:60rpx;margin-right: 10rpx;"></el-image>
+                          <!-- <text class="text">vip_label@2x.png</text> -->
+                          <text>{{it.vip_price}}</text>
+                        </view>
+                        <view>
+                          <text class="text">零售价</text>
+                          <text>{{it.sale_price}}</text>
+                        </view>
+                      </view>
+                    </view>
+                    <view class="input-area">
+                      <button hover-class="none" class="opera {{it.quantity==1? ' opera-disable': ''}}" data-remark="{{it.remark}}" hover-class="{{it.quantity==1? 'none': 'button-hover'}}" data-pindex="{{index}}" data-cindex="{{idx}}" data-flag="-" catchtap="operaTap">
+                        -
+                      </button>
+                      <view class="add-dele texta-c">
+                        <input class="stock__input" type="number" value="{{it.quantity}}" data-remark="{{it.remark}}" data-pindex="{{index}}" data-cindex="{{idx}}" bindblur="upNumber" catchtap="emptytap" />
+                      </view>
+                      <button hover-class="none" class="opera" data-pindex="{{index}}" data-remark="{{it.remark}}" data-cindex="{{idx}}" hover-class="none" data-flag="+" catchtap="operaTap">
+                        +
+                      </button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="goods-product__note">
+                <view class="g-p__note_title">购买备注:</view>
+                <view class="g-p__note_val">
+                  <input placeholder-class="placeholder-class" value="{{it.remark}}"  disabled="{{!isEdit}}" data-remark="{{it.remark}}" data-cindex="{{idx}}"  data-pindex="{{index}}" data-cindex="{{idx}}"  placeholder='请输入要购买的产品型号和规格说明' type='text' bindblur="changeRemark"/>
+                </view>
+              </view>
+            </view>
+
+            <view class="line10"></view>
+          </block>
+
+          <empty wx:if="{{cartList.length==0}}" class='fixed xy'></empty>
+        
+          <!-- 合计，结算 -->
+          <view class="car-cell--fixed" style="z-index:10" wx:if="{{cartList.length>0}}">
+
+            <label class="allselect">
+              <switch checked="{{allSelect}}" class="checkbox" type="checkbox" bindchange="allSelect" />
+              全选
+            </label>
+            <view class="car-cell flex__it">
+
+              <view class="car-cell-l" wx:if="{{!isEdit}}">
+                <view class="car-cell__txt">
+                  合计(不含运费)：
+                  <view style="display:inline-block" class="price">¥{{totalMoney}}</view>
+                </view>
+              </view>
+              <view class="car-cell-l" wx:else>
+              </view>
+            </view>
+            <view class="car-btn {{isEdit?'car-btn--delete':'car-btn--account'}}" bindtap="{{isEdit ?'deleteGoods':'toPay'}}">
+              {{isEdit?'删除':'去结算'}}
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if='{{currentType == 2}}'>
+        <view class="car-wrap car2-wrap">
+          <block wx:if="{{takeGoodsList.length>0}}" wx:for="{{takeGoodsList}}" wx:key="index">
+            <view class="car-item">
+              <view class="user-box user_l_r">
+                <view class="user__">
+                  <!-- <switch type="checkbox" class="checkbox" checked="{{it.checked}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchchange="selectOne" /> -->
+                  <image class='avatar' src='{{item.avatar}}'></image>
+                  <view class="user-info">{{item.nickname}}</view>
+                </view>
+                <view class="btns">
+                  <view class="btn btn1" catchtap="complaints">投诉</view>
+                  <view class="btn btn2" data-user_id="{{item.store_id}}" catchtap="contact">联系TA</view>
+                </view>
+              </view>
+            </view>
+            <navigator url='../applyAgent/index?storeId={{item.store_id}}' hover-class="none"  class="slogan" wx:if="{{item.slogan && item.slogan!=''}}">
+              <view class="link-CWDL">
+                <image class='image' src='/assets/images/DAILI@2x.png'  style="width:35rpx;height:35rpx;"></image>
+                <text>{{item.slogan}}</text>
+                <image class='jiantou' src='/assets/images/jiantou.png' style="width:12rpx;height:22rpx;"></image>
+              </view>
+            </navigator>
+            <view class="cart2_header">
+              <view class="th th0"></view>
+              <view class="th th1">产品名</view>
+              <view class="th th2">数量</view>
+            </view>
+            <view class="car-goods-item car-goods-item2" wx:for="{{item.goods}}" wx:for-index='idx' wx:for-item="it" wx:key='id' >
+              <view class="cart2_item">
+                <view class="cart2_center">
+                  <view class="td td0">
+                    <view>
+                      <switch type="checkbox" class="checkbox" checked="{{it.checked}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchchange="selectOne2" />
+                    </view>
+                  </view>
+                  <view class="td td1">{{it.content}}</view>
+                  <view class="td td2">
+                    <view class="input-area">
+                      <button hover-class="none" class="opera {{it.quantity==1? ' opera-disable': ''}}" hover-class="{{it.quantity==1? 'none': 'button-hover'}}" data-pindex="{{index}}" data-cindex="{{idx}}" data-flag="-" catchtap="operaTap">
+                        -
+                      </button>
+                      <view class="add-dele texta-c">
+                        <input class="stock__input" type="number" value="{{it.num}}" data-pindex="{{index}}" data-cindex="{{idx}}" bindblur="upNumber" catchtap="emptytap" />
+                      </view>
+                      <button hover-class="none" class="opera" data-pindex="{{index}}" data-cindex="{{idx}}" hover-class="none" data-flag="+" catchtap="operaTap">
+                        +
+                      </button> 
+                    </view>
+                  </view>
+                </view>
+                <view class="cart2_btns">
+                  <view class="btn btn3" data-id="{{it.id}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchtap="cancel">取消</view>
+                  <view class="btn btn4" data-id="{{it.id}}" data-copy_name="{{it.content}}" catchtap="copyName">复制</view>
+                  <view class="btn btn5 active" data-id="{{it.id}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchtap="takeQuote">已拿货</view>
+                  <!-- <view class="btn btn5 {{it.is_take==1 ? 'active' : ''}}" data-is_take="{{it.is_take}}" data-id="{{it.id}}" catchtap="takeQuote">{{it.is_take==1 ? '已拿货':'未拿货'}}</view> -->
+                </view>
+              </view>              
+            </view>
+            <view class="all_checkbox">
+                <view class="checkboxBox">
+                  <switch type="checkbox" class="checkbox" checked="{{item.checked}}" data-pindex="{{index}}" catchchange="selectOne21" />
+                  <text>全选</text>
+                </view>
+                <view class="text"catchtap="takeQuoteAll" data-pindex="{{index}}">一键拿货</view>
+            </view>
+            <!-- <view class="settlement">
+              <view class="settlement_line">
+                <view class="settlement_text">下单产品总数：</view>
+                <view class="settlement_price">51</view>
+              </view>
+              <view class="settlement_line">
+                <view class="settlement_text">下单总金额(参考)：</view>
+                <view class="settlement_price">3,100</view>
+              </view>
+              <view></view>
+            </view> -->
+
+            <view class="line10"></view>
+          </block>
+
+          <empty type="cart" text="拿货单空空如也..." wx:if="{{takeGoodsList.length==0}}" class='fixed xy'></empty>
+        
+          <!-- 合计，结算 -->
+          <!-- <view class="car-cell--fixed" style="z-index:10" wx:if="{{cartList.length>0}}">
+            <view class="car-cell flex__it">
+
+              <view class="car-cell-l" wx:if="{{!isEdit}}">
+                <view class="car-cell__txt car-cell__txt2">
+                  合计(不含运费)：
+                  <view style="display:inline-block" class="price">¥{{totalMoney}}</view>
+                </view>
+              </view>
+              <view class="car-cell-l" wx:else>
+              </view>
+            </view>
+          </view> -->
+        </view>
+      </block>
+      <import src="/widgets/templates.wxml" />
+      <template is="linkbox" data="{{userInfo:user, showlink:showlink}}" />
+    </view>
+</view>

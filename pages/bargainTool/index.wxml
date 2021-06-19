@@ -1,0 +1,68 @@
+<view class="padd_trbl">
+  <view class="flex padd_b-16 border-b">
+    <view class="flex-l">
+      <image mode="widthFix" src="{{defaultimg||appData.defaultImglogo}}" class="cover-img mar_r-15" />
+    </view>
+    <view class="flex-r flex_c-jc flex__it">
+      <view class="lbs-tit">砍价</view>
+      <view class="flex-lr ">
+        <view class="flex-l">
+          <text class="fs18 colorGold">￥</text>
+          <text class="fs24 colorGold">45.00</text>
+          <text class="fs12">/月</text>
+        </view>
+        <view class="flex-l ixpir">{{annual_expire}}到期</view>
+      </view>
+    </view>
+  </view>
+  <view class="tool-sm">
+    砍价是商家让利产品底价，打造爆款产品的有效营销工具，衍生出来的一种营销模式，商家通过iME平台发布砍价活动，买家分享砍价详情连接、产品卡给好友，参加活动的好友通过打开产品详情页帮忙砍价，和相互传播帮忙砍价，最终以底价成功购买商品。
+  </view>
+</view>
+<view class="line10"></view>
+<view class="vip-list padd_trbl" bind:tap="selectItem">
+  <view class="viptit">VIP套餐</view>
+  <view class="vip-item vip-item--{{current_active==1?'a':''}}" data-index="1">
+    <view class="vip-l">
+      <view class="vip-l-tit">3个月</view>
+      <view class="vip-l-del">135/3月</view>
+    </view>
+    <view class="vip-r colorGold">
+      <text class="fs18 ">￥</text>
+      <text class="fs24">128</text>
+    </view>
+  </view>
+  <view class="vip-item vip-item--{{current_active==2?'a':''}}" data-index="2">
+    <view class="vip-l">
+      <view class="vip-l-tit">6个月</view>
+      <view class="vip-l-del">270/6月</view>
+    </view>
+    <view class="vip-r colorGold">
+      <text class="fs18 ">￥</text>
+      <text class="fs24">218</text>
+    </view>
+  </view>
+  <view class="vip-item vip-item--{{current_active==3?'a':''}}" data-index="3">
+    <view class="vip-l">
+      <view class="vip-l-tit">12个月</view>
+      <view class="vip-l-del">540/3月</view>
+    </view>
+    <view class="vip-r colorGold">
+      <text class="fs18 ">￥</text>
+      <text class="fs24">448</text>
+    </view>
+  </view>
+</view>
+<!-- <view class="flex_ac">
+    <button hover-class="none" class="btn1" bind:tap="tobuy">立即续费</button>
+    <navigator hover-class="none" class="btn1" url="/pages/bargainManage/index" >查看砍价活动</navigator>
+</view> -->
+  
+<view class="line10"></view>
+<view class="padd_trbl">
+  <view class="tuwensm">图文说明</view>
+</view>
+
+<view class="fixed50">
+  <view class="btn2" hover-class="none" bind:tap="tobuy">立即续费</view>
+</view>

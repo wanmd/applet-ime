@@ -1,0 +1,50 @@
+page{
+  padding-left:92rpx;
+  padding-right:92rpx;
+}
+
+.goods{
+  margin-top:100rpx;
+  position:relative;
+}
+.goods-thumb{
+  display:block;
+  width: 144rpx;
+  height:144rpx;
+}
+.goods-name{
+  position:absolute;
+  width:100%;
+  padding-left:168rpx;
+  text-align:justify;
+  top:8rpx;
+}
+
+.sale-price{
+  color:#999;
+  text-decoration:line-through;
+}
+
+.progress{
+  height:10rpx;
+  border-radius:5rpx;
+  background:#E6E6E6;
+  position:relative;
+}
+.progress .speed{
+  position:absolute;
+  height:100%;
+  border-radius:5rpx;
+  left:0;
+  top:0;
+  background:#ECBD75;
+}
+
+
+.helper{
+  margin-top:30rpx;
+}
+
+.helper .item{
+  overflow:hidden;
+}

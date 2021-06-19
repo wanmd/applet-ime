@@ -1,0 +1,31 @@
+<view class='top-nav'>
+  <view class='toggle-item'>
+    <view wx:for='{{topNavs}}' wx:key="index" class='item {{selectedNav == item.type ? "current" : ""}}' data-type='{{item.type}}' bindtap='toggleType'>{{item.name}}</view>
+  </view>
+</view>
+<pagination id='pagination' url='{{urls[selectedNav - 1]}}' pkName='id' bind:load='load'>
+  <view class='list' wx:if='{{userList !== null}}'>
+    <view class='item p-l-r' wx:for='{{userList}}' wx:key="index">
+      <cell height='140rpx' url='/pages/homepage/index?userId={{selectedNav == 2 ? item.follow_user_id : item.user_id}}'>
+        <view class="title" slot='title'>
+          <avatar size='80rpx' src='{{item.user.avatar}}'>
+          <el-image wx:if="{{item.isVip}}" class="vip" src='vip/vip.png' style='width:30rpx;display: inline-block;'></el-image>
+            <view class='user-info'>
+              <view class='bold f-32'>
+                <text class="user_name">{{item.user.nickname}}</text>
+                <text class="user_type" wx:if="{{item.user.user_type==2}}">商家认证</text>
+                <el-image wx:if="{{item.isVip}}" class="user_vip" src='vip/vip_label@2x.png'></el-image>
+              </view>
+              <view class='f-24 color-999'>
+                <text>动态：{{item.user.chat_number}}</text>
+                <text class='m-l-30'>产品：{{item.user.goods_number}}</text>
+              </view>
+            </view>
+          </avatar>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <empty wx:else class='absolute xy'></empty>
+</pagination>
+

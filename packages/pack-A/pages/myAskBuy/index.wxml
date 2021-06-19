@@ -1,0 +1,19 @@
+<pagination id='pagination' url='chat/getMyWantBuyList' showEmptyNoMore  bind:load='load' query='{{query}}'>
+  
+    <view class='list-center' wx:for='{{askBuyList}}' wx:key="index">
+      <view class="list-a"  data-url='/pages/askBuy/index?id={{item.chat_id}}' catchtap="isAuth_">
+        <view class="img_box" wx-if="{{item.picture.length>0}}">
+          <!-- <picture-set margin='{{1}}' pictureSet='{{[item.picture[0]]}}'></picture-set> -->
+          <image class='icon' mode="aspectFill" src='{{baseUrl}}/{{[item.picture[0]]}}'></image>
+        </view>
+        <view class="list-aa">
+          <view class="text">{{item.content}}</view>
+          <view class="list-b">
+            <view class="list-time" >{{item.create_time}}</view>
+            <view data-chat_id="{{item.chat_id}}" class="btn-delete" bind:tap="deleteBtn">删除</view>
+          </view>
+        </view>
+      </view>
+      
+    </view>
+</pagination>

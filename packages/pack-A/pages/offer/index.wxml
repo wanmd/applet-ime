@@ -1,0 +1,27 @@
+<pagination class='relative relative1' id='pagination' pkName='chat_id' url='chat/getMyTakeGoodsList' query='{{query}}' bind:load='load'>
+    <view class="offer_header">
+      <view class="th th1">商户</view>
+      <view class="th th2">产品名</view>
+      <view class="th th3">数量</view>
+      <view class="th th4">时间</view>
+    </view>
+    <view class='offer_list' wx:for='{{goodsList}}' wx:key="index">
+      <view class="td td1">
+        <view>
+          <avatar center size="24px" src='{{item.avatar}}' userId='{{item.store_id}}'>
+            <view class="nickname">{{item.nickname}}</view>
+          </avatar>
+        </view>
+      </view>
+      <view class="td td2">
+        <view>{{item.content}}{{item.content}}</view>
+      </view>
+      <view class="td td3">
+        <view>{{item.num}}</view>
+      </view>
+      <view class="td td4">
+        <view>{{item.create_time}}</view>
+      </view>
+
+    </view>
+</pagination>

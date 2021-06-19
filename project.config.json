@@ -1,0 +1,738 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": false,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.8.3",
+  "appid": "wxde0ae16dacfdfd37",
+  "projectname": "yihuo",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 1,
+          "name": "营销管理",
+          "pathName": "pages/marketing/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "商品详情",
+          "pathName": "pages/goods/index",
+          "query": "chatId=5155",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "砍价管理",
+          "pathName": "pages/bargainManage/index",
+          "query": "chatId=901047",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "我的主页",
+          "pathName": "pages/homepage/index",
+          "query": "userId=901056",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "我的店铺",
+          "pathName": "pages/store/index",
+          "query": "storeId=901059",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "设置砍价",
+          "pathName": "pages/bargainTool/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "店铺设置",
+          "pathName": "pages/merchant/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "我的",
+          "pathName": "pages/user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/selectGoodsCategory/index",
+          "pathName": "pages/selectGoodsCategory/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 11,
+          "name": "分享首页",
+          "pathName": "pages/index/index",
+          "query": "inviter=901033",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "企业认证",
+          "pathName": "packages/pack-B/pages/apply-merchant/business/index",
+          "query": "step=3",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "营销管理",
+          "pathName": "pages/marketing/index",
+          "query": "userId= 901033",
+          "scene": null
+        },
+        {
+          "id": 13,
+          "name": "认证付款",
+          "pathName": "pages/applyMerchant/pay/index",
+          "query": "data={order_no:2019092456515052901032,amount:1000,fee:288}&type=business",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "购物车",
+          "pathName": "pages/cart/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 14,
+          "name": "个人商店认证",
+          "pathName": "packages/pack-B/pages/apply-merchant/personData/index",
+          "query": "step=4",
+          "scene": null
+        },
+        {
+          "id": 16,
+          "name": "支付成功",
+          "pathName": "packages/pack-B/pages/apply-merchant/success/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 17,
+          "name": "红包打开详情页",
+          "pathName": "pages/luckDraw/index",
+          "query": "chatId=1&result=''",
+          "scene": null
+        },
+        {
+          "id": 18,
+          "name": "官方红包",
+          "pathName": "pages/envelope/index",
+          "query": "amount=1.00",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "代理设置规则",
+          "pathName": "pages/marketing/agent/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 20,
+          "name": "订单详情",
+          "pathName": "pages/order/merchant/detail/index",
+          "query": "orderId=23&index=1",
+          "scene": null
+        },
+        {
+          "id": 22,
+          "name": "我的-动态",
+          "pathName": "pages/chatRecord/index",
+          "query": "userId= 901032",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "申请商家引导",
+          "pathName": "pages/applyMerchant/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 24,
+          "name": "分享",
+          "pathName": "pages/index/index",
+          "query": "scene=%3Ffrom%3Dg%26chatId%3D901095%26fromUserId%3D901032",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "砍价管理",
+          "pathName": "pages/bargainTool/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 25,
+          "name": "代言人",
+          "pathName": "pages/endorsement/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 25,
+          "name": "分享商品详情页",
+          "pathName": "pages/index/index",
+          "query": "scene=%3Ffrom%3Dg%26ci%3D901047%26fromUserId%3D901038",
+          "scene": null
+        },
+        {
+          "id": 28,
+          "name": "分享砍价详情选择地址",
+          "pathName": "pages/deliveryAddress/index",
+          "query": "target=select",
+          "scene": null
+        },
+        {
+          "id": 28,
+          "name": "分享砍价详情",
+          "pathName": "pages/index/index",
+          "query": "fromUserId=901038&path=pages%2Fbargain%2Findex%3Fid%3D901030",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "动态列表",
+          "pathName": "pages/dynamics/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 30,
+          "name": "动态转发商品类",
+          "pathName": "pages/index/index",
+          "query": "scene=%3Ffrom%3Dg%26ci%3D72%26fromUserId%3D3",
+          "scene": null
+        },
+        {
+          "id": 31,
+          "name": "动态分享图文",
+          "pathName": "pages/index/index",
+          "query": "scene=%3Ffrom%3Dchat%26ci%3D17%26fromUserId%3D3",
+          "scene": null
+        },
+        {
+          "id": 32,
+          "name": "个人红包",
+          "pathName": "pages/luckDraw/index",
+          "query": "chatId=80&result=1",
+          "scene": null
+        },
+        {
+          "id": 32,
+          "name": "首页分享",
+          "pathName": "pages/index/index",
+          "query": "scene=%3Ffrom%3Drenting%26%26ci%3D2313%26id%3D9%3Dg%26fi%3D903440%26sharer%3D903440%26dst%3Dshare%26fromUserId%3D903440chatId=2313&shareUserId=903440",
+          "scene": null
+        },
+        {
+          "id": 34,
+          "name": "代言人转发",
+          "pathName": "pages/index/index",
+          "query": "scene=%3Ff%3Di%26iv%3D901030",
+          "scene": null
+        },
+        {
+          "id": 35,
+          "name": "店铺转发",
+          "pathName": "pages/index/index",
+          "query": "path=pages%2Fstore%2Findex%3FstoreId%3D3&fromUserId=3",
+          "scene": null
+        },
+        {
+          "id": 36,
+          "name": "相册分享",
+          "pathName": "pages/index/index",
+          "query": "path=pages%2FchatRecord%2Findex%3FuserId%3D3&fromUserId=3",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "首页转发",
+          "pathName": "pages/index/index",
+          "query": "inviter=901037",
+          "scene": null
+        },
+        {
+          "id": 37,
+          "name": "我的订单",
+          "pathName": "packages/pack-A/pages/order_user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 38,
+          "name": "卖家订单-详情",
+          "pathName": "packages/pack-A/pages/order/detail/index",
+          "query": "orderId=3&index=0",
+          "scene": null
+        },
+        {
+          "id": 39,
+          "name": "卖家订单",
+          "pathName": "packages/pack-A/pages/order/index",
+          "query": "cartIds=48",
+          "scene": null
+        },
+        {
+          "id": 40,
+          "name": "买家订单",
+          "pathName": "packages/pack-A/pages/order_user/index",
+          "query": "status=1",
+          "scene": null
+        },
+        {
+          "id": 41,
+          "name": "买家订单-详情",
+          "pathName": "packages/pack-A/pages/order_user/detail/index",
+          "query": "orderId=106&index=0",
+          "scene": null
+        },
+        {
+          "id": 42,
+          "name": "我的店铺",
+          "pathName": "pages/store/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 43,
+          "name": "动态",
+          "pathName": "pages/dynamics/index",
+          "query": "id=2290",
+          "scene": null
+        },
+        {
+          "id": 44,
+          "name": "提交订单",
+          "pathName": "packages/pack-A/pages/checkout/index",
+          "query": "chatId=2189&goodsNum=1&remark=哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈&type=2&shareUserId=",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人信息",
+          "pathName": "pages/userInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "收货地址管理",
+          "pathName": "pages/deliveryAddress/index",
+          "query": "target=select",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单详情",
+          "pathName": "packages/pack-A/pages/order_user/detail/index",
+          "query": "orderId=64&index=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分享赚",
+          "pathName": "packages/pack-A/pages/sharing-makes/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分享赚列表",
+          "pathName": "packages/pack-A/pages/sharing-makes/sharingList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 50,
+          "name": "登陆",
+          "pathName": "pages/auth/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "添加地址",
+          "pathName": "pages/deliveryAddress/add/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人认证",
+          "pathName": "packages/pack-B/pages/apply-merchant/personData/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 53,
+          "name": "个人收款设置",
+          "pathName": "packages/pack-B/pages/apply-merchant/pay/index",
+          "query": "step=4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "入驻申请",
+          "pathName": "pages/applyMerchantType/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/envelope/index",
+          "pathName": "pages/envelope/index",
+          "query": "amount=0.02",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "选择物流地址",
+          "pathName": "packages/pack-A/pages/goodsCategory/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "通讯录",
+          "pathName": "pages/mailList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/store/library/index",
+          "pathName": "pages/store/library/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 60,
+          "name": "vip",
+          "pathName": "packages/pack-A/pages/vip/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "浏览记录",
+          "pathName": "pages/browse/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "动态详情",
+          "pathName": "pages/goods/index",
+          "query": "chatId=2193",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "购买需知",
+          "pathName": "pages/merchant/buyInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 64,
+          "name": "商家扫码核销落地页",
+          "pathName": "packages/pack-A/pages/order/detail/index",
+          "query": "q=https%3A%2F%2Fdev.kingwish.com.cn%2Fapi%2Findex%3Fverify_no%3D23591%26order_id%3D103%26order_no%3D202007255150535290339300%26store_id%3D901056%26id%3D103&scancode_time=1595694160",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商铺分类",
+          "pathName": "pages/goodsCategory/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 66,
+          "name": "vip 协议",
+          "pathName": "packages/pack-A/pages/vip/info/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "选择产品分类",
+          "pathName": "pages/selectGoodsCategory/index",
+          "query": "categoryId=&storeId=901056",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的钱包",
+          "pathName": "pages/wallet/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "店铺数据",
+          "pathName": "packages/pack-A/pages/order/quantity/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 70,
+          "name": "公开报价",
+          "pathName": "pages/publish/offer/index",
+          "query": "type=editor",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "下单拿货记录",
+          "pathName": "packages/pack-A/pages/offer/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "选择发布类型",
+          "pathName": "pages/publish/type/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 72,
+          "name": "发布求购",
+          "pathName": "pages/publish/askBuy/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 73,
+          "name": "租赁详情",
+          "pathName": "pages/renting/index",
+          "query": "chatId=2308&id=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的求购",
+          "pathName": "packages/pack-A/pages/myAskBuy/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 75,
+          "name": "发布租赁",
+          "pathName": "pages/publish/renting/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 76,
+          "name": "旺旺租赁",
+          "pathName": "packages/pack-A/pages/myRenting/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "求购详情",
+          "pathName": "pages/askBuy/index",
+          "query": "id=4185",
+          "scene": null
+        },
+        {
+          "id": 78,
+          "name": "pages/dynamics/index",
+          "pathName": "pages/dynamics/index",
+          "query": "id=4185",
+          "scene": null
+        },
+        {
+          "id": 79,
+          "name": "产品发布(新)",
+          "pathName": "pages/publish/newChat/index",
+          "query": "type=2&chatId=0",
+          "scene": null
+        },
+        {
+          "id": 80,
+          "name": "产品品类设置（二级新）",
+          "pathName": "pages/goodsCategoryManageNew/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "设置分类",
+          "pathName": "pages/goodsCategoryManageNew/edit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "产品管理",
+          "pathName": "pages/goodsManage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "成为商家",
+          "pathName": "pages/applyMerchant/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "入驻申请",
+          "pathName": "pages/applyMerchantType/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "货号/私密备注",
+          "pathName": "packages/pack-A/pages/goodsRemark/index",
+          "query": "userId=901056",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "店铺商品列表",
+          "pathName": "packages/pack-A/pages/shopGoodsList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 87,
+          "name": "运费模板",
+          "pathName": "packages/pack-A/pages/user/setFreight/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "设置背景图片",
+          "pathName": "packages/pack-A/pages/user/setBackground/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "微信二维码",
+          "pathName": "packages/pack-A/pages/user/setQrCode/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "店铺分类",
+          "pathName": "pages/storeCategory/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分类设置-标签",
+          "pathName": "pages/goodsLabel/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分类设置-产品品类",
+          "pathName": "pages/productCategory/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "产品多规格设置",
+          "pathName": "pages/goodsSku/index",
+          "query": "type=2&chatId=0",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商品详情(新)",
+          "pathName": "pages/goods/index",
+          "query": "chatId=2343",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

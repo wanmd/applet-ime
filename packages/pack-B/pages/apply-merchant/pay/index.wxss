@@ -1,0 +1,185 @@
+/* pages/applyMerchant/pay/index.wxss */
+.ischeck{
+  padding: 50rpx;
+  color: chocolate;
+  text-align: center;
+  font-size: 36rpx;
+}
+.reject{
+  color: red;
+  padding: 50rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.ispass{
+  color: greenyellow;
+  padding: 20rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+.flex-start{
+  display: flex;
+  align-items: center
+}
+.inline-block{
+  display: inline-block
+}
+.tips{
+  background-color: #FFE200;
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+}
+.pay-wrap{
+  padding: 0 96rpx
+
+}
+.pay-box{
+  background-color: #F2F2F2;
+  border-radius:16rpx;
+  padding: 18rpx 30rpx;
+}
+.tui{
+  color: #333333;
+  font-size: 20rpx;
+}
+.pay-info,.pay-info1{
+  padding: 18rpx 0 16rpx 0;
+  font-size:28rpx;
+  font-family:PingFangSC-Light,PingFangSC;
+  font-weight:300;
+  line-height:40rpx;
+  display: flex;
+  justify-content: space-between
+}
+.pay-info .item-l{
+  color: #333333;
+}
+.pay-info1 .item-l{
+  color: #999999;
+}
+.item-r{
+  font-size:28rpx;
+  font-family:PingFangSC-Medium,PingFangSC;
+  font-weight:500;
+  color:rgba(236,189,117,1);
+  line-height:50rpx;
+}
+.pay-tit{
+  margin-top: 42rpx;
+  margin-bottom: 24rpx;
+  line-height:33rpx;
+  font-size:33rpx;
+  text-align: center;
+  font-family:PingFangSC-Medium,PingFangSC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+  /*line-height:66rpx;*/
+}
+.line-through{
+  text-decoration: line-through
+}
+.fs34{
+  font-size: 34rpx;
+}
+
+.mask{
+  position:fixed;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  background:rgba(0, 0, 0, 0.6);
+  z-index:10;
+}
+
+.modal{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;
+  width:80%;
+  border-radius:20rpx;
+  z-index: 99;
+}
+.shengming{
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  text-align: center;
+  padding-top: 60rpx;
+}
+.shengming text{
+  display: block;
+}
+
+
+.bottom{
+  display:flex;
+  margin-top:30rpx;
+}
+.bottom .item{
+  flex:1;
+  line-height:80rpx;
+  text-align:center;
+}
+.bottom .item.cacel{
+  border-top:1px solid #f7f7f7;
+}
+.bottom .item.confirm{
+  background:#ffd800;
+  border-top:1px solid #ffd800;
+  color:#fff;
+}
+.pay-tit2{
+  width:361rpx;
+  height:63rpx;
+  line-height:63rpx;
+  margin: 0 auto;
+  text-align: center;
+  background:rgba(255,237,215,.83);
+  border-radius:13rpx;
+  font-size:33rpx;
+  font-weight:bold;
+  margin-top: 78rpx;
+  margin-bottom: 50rpx;
+}
+.guanggao_text{
+  margin-top: 100rpx;
+  text-align: center;
+  font-size:26rpx;
+  font-weight:bold;
+  color: #040000;
+  line-height:35rpx;
+}
+
+
+.btn{
+  background:#FFE200;
+  font-size:42rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.btn::before,.btn::after{
+  content:none;
+}
+
+.btn.small{
+  display:inline-block;
+  padding:12rpx 32rpx;
+}
+
+.btn.block{
+  display:block;
+  width:100%;
+  line-height:96rpx;
+}

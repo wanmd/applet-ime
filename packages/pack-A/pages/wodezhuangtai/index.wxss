@@ -1,0 +1,37 @@
+/* pages/wodezhuangtai/index.wxss */
+.items{
+	padding: 20rpx;
+}
+.items .item{
+	height: 95rpx;
+	line-height: 95rpx;
+	font-size: 32rpx;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	align-items: center;
+	color:232323;
+}
+
+.items .item .item__val{
+	padding-left: 30rpx;
+}
+.items .item {
+	position: relative;
+}
+.items .item .radio{
+	opacity: 0;
+}
+.items .item .item-icon{
+	position: absolute;
+	right: 0;
+	top: 30rpx;
+}
+.bg-wrap-btn {
+	padding-bottom: 180rpx;
+	height: 100vh;
+	box-sizing: border-box;
+}
+.bg-wrap-btn .bg-page{
+	height: 100%;
+	overflow: auto;
+}

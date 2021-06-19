@@ -1,0 +1,71 @@
+<view class="wx_page">
+  <view class="wx_header">
+    <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
+    <view style="width: 100%;text-align:center">{{barTitlle}}</view>
+  </view>
+  <view class="wx_center">
+    <view class='p-l-r'>
+      
+      <form>
+        <view class="cell">
+          <view class="type-btns">
+              <view class="type-title">租赁类型</view>
+              <!-- <view class="type-placeholder">请选择租赁分类 </view> -->
+              <view class="type-btn-wrap">
+                <view class="type-btn {{lease_type==1?'active':''}}" data-type="1" bind:tap="setType">求租</view>
+                <view class="type-btn {{lease_type==2?'active':''}}" data-type="2" bind:tap="setType">招租</view>
+              </view>
+              <!-- <view class='arr'></view> -->
+            </view>
+          <!-- <picker bindchange="input" data-target="lease_type" value="{{lease_type}}" range="{{rentingArr}}">
+            <view class="picker">
+              <view class="picker-title">租赁类型</view>
+              <view class="picker-placeholder">请选择租赁分类 </view>
+              <view class="picker-val">{{rentingArr[lease_type]}} </view>
+              <view class='arr'></view>
+            </view>
+          </picker> -->
+        </view>
+        <view class='' style='margin-top:20rpx;padding-bottom:40rpx;'>
+          <textarea value='{{content}}' data-target='content' bindinput='input' style='height:320rpx;padding:0rpx' placeholder-style="color:#ccc;font-size: 30rpx;" class='w-100' maxlength='18000' placeholder="{{placeholder}}"></textarea>
+          <view class='absolute____' style='right:0;bottom:0;'>{{content.length}}/800</view>
+        </view>
+        <view class='images clear m-t-30'>
+          <upload class='item' wx:for='{{images}}' wx:key='id' data-index='{{index}}' initFile='{{item.file}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
+          <upload wx:if='{{images.length < 9}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-images.length}}'></upload>
+        </view>
+        <view class='m-t-30'>
+          <view class='relative'>
+             <cell border='{{false}}' title='所在位置' content='{{location}}' clear bindtap='selectPostion' bind:clear='clearLocation'>
+              </cell>
+          </view>
+          <cell title='场地名称' border='{{false}}' arrow='{{false}}'>
+            <input slot='content' type='text' placeholder='请填写需要{{lease_type==2?"出租":"求租"}}的小区/市场/写字楼' placeholder-class='color-ccc' value='{{title}}' data-target='title' bindinput='input' class='input w275'></input>
+          </cell>
+          <cell title='楼层' border='{{false}}' arrow='{{false}}'>
+            <input slot='content' type='text' placeholder='楼层编号' placeholder-class='color-ccc' value='{{floor}}' data-target='floor' bindinput='input' class='input w275'></input>
+          </cell>
+          <block wx:if="{{lease_type==2}}">
+            <cell title='房号' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='text' placeholder='房源具体房号/门牌号' placeholder-class='color-ccc' value='{{room_number}}' data-target='room_number' bindinput='input' class='input w275'></input>
+            </cell>
+            <cell title='招租面积/房屋户型' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='text' placeholder='请输入招租的场地面积/户型' placeholder-class='color-ccc' value='{{supply_area}}' data-target='supply_area' bindinput='input' class='input w200'></input>
+            </cell>
+          </block>
+          <block wx:else>
+            <cell title='求租面积/房屋户型' border='{{false}}' arrow='{{false}}'>
+              <input slot='content' type='text' placeholder='请输入求租的场地面积/户型' placeholder-class='color-ccc' value='{{demand_area}}' data-target='demand_area' bindinput='input' class='input w200'></input>
+            </cell>
+          </block>
+          <cell title='联系手机' border='{{false}}' arrow='{{false}}'>
+            <input slot='content' type='text' placeholder='请输入联系人手机号码' placeholder-class='color-ccc' value='{{mobile}}' data-target='mobile' bindinput='input' class='input w275'></input>
+          </cell>
+        </view>
+      </form>
+    </view>
+    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+      <btn bindtap='submit' round>发布</btn>
+    </view>
+  </view>
+</view>

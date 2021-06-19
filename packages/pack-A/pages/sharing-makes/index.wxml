@@ -1,0 +1,87 @@
+<view>
+	<view class="bg">
+        <!-- <image class='sharing_bg' src='../../../../assets/images/sharing_bg.png'></image> -->
+        <image class='sharing_bg' src='{{assetsImages}}sharing_bg.png'></image>
+	</view>
+	<view class="makes__nav flex_items" style="padding: 40rpx 100rpx 74rpx;">
+		<!-- <view class="makes__item">
+			<view class="num">{{shareInfo.acctCustomerNum||-1}}</view>
+			<view class="text">累计代言</view>
+		</view> -->
+		<view class="makes__item">
+        	<image class='avatar position_img' src='../../../../assets/images/leijikehuicon@2x.png'></image>
+			<view class="num font-num Bebas">{{shareInfo.acctCustomerNum||0}}</view>
+			<view class="text">我的客户</view>
+		</view>
+		<view class="makes__item">
+        	<image class='avatar position_img' src='../../../../assets/images/leijidanliangicon@2x.png'></image>
+			<view class="num font-num Bebas">{{shareInfo.acctOrderNum||0}}</view>
+			<view class="text">累计单量</view>
+		</view>
+	</view>
+	<view class="makes__price_wrap">
+		<view class="makes__price font-num Bebas"><i>¥</i>{{shareInfo.acctHasSettleNum}}</view>
+		<view class="makes__hint">已结算分享赚佣金</view>
+		<view class="makes__hint1">已结算分享赚佣金已自动转入钱包
+        	<image class='avatar' src='../../../../assets/images/yiwen@2x.png' bindtap="SMShow"></image>
+		</view>
+		<view class="makes__price_nav flex_items">
+			<view class="makes__item">
+				<view class="num font-num Bebas">￥{{shareInfo.acctOrderPriceNum||0}}</view>
+				<view class="text">分享赚累计成交金额</view>
+			</view>
+			<view class="makes__item">
+				<view class="num font-num Bebas">￥{{shareInfo.acctWaitSettleNum||0}}</view>
+				<view class="text">待结算分享赚佣金</view>
+			</view>
+		</view>
+	</view>
+	<view class="makes__list_taps">
+		<!-- <view class="makes__taps flex_items">
+			<view class="makes__tap {{tapIndex == index ? 'active' : '' }}" wx:for="{{tapList}}" wx:key="index">{{item}}</view>
+		</view> -->
+		<view class="makes__lists_w">
+			<view class="makes__lists {{tapIndex == index ? 'active' : '' }}" wx:for="{{tapList}}" wx:key="index">
+				<view class="makes__list">
+					<view class="makes__item">
+						<view class="num font-num Bebas">￥{{shareInfo.todayHasSettleNum||0}}</view>
+						<view class="text">今天</view>
+					</view>
+					<view class="makes__item">
+						<view class="num font-num Bebas">￥{{shareInfo.yesterdayHasSettleNum||0}}</view>
+						<view class="text">昨天</view>
+					</view>
+					<view class="makes__item">
+						<view class="num font-num Bebas">￥{{shareInfo.currWeekHasSettleNum||0}}</view>
+						<view class="text">本周</view>
+					</view>
+				</view>
+				<view class="makes__list">
+					<view class="makes__item">
+						<view class="num font-num Bebas">￥{{shareInfo.currMonthHasSettleNum||0}}</view>
+						<view class="text">本月</view>
+					</view>
+					<view class="makes__item">
+						<view class="num font-num Bebas">￥{{shareInfo.lastMonthHasSettleNum||0}}</view>
+						<view class="text">上月</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+    <navigator class='more__list' url='./sharingList/index' hover-class="none">分享明细</navigator>
+	<!-- <view>分享明细</view> -->
+</view>
+
+<view wx:if='{{SMFlag}}' bindtap='SMHide'>
+  <view style='position:fixed;z-index:15;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' ></view>
+  <view class="SM-body">
+  	<view class="SF__title">佣金说明</view>
+  	<view class="SF__text">
+  		1、分享赚佣金以通过用户分享并经他人成交作为奖励的机制， 旨在鼓励分享、友好宣传优质商家产品为目的； 2、分享赚佣金结算以买家确认收货，并使用15日后作为一个 佣金完结周期；若买家确认订单后，且在确认收货后15日内， 发生退款等事宜，则分享赚佣金失效；若超过15日后发生退 货等事宜，以卖家和买家协商为准，佣金进入已结算并生效； 3、分享赚已结算的佣金将自动转入分享人的钱包中； 4、分享赚佣金进入钱包后提现将由平台审核后直接转进您的 微信零钱账户，到账时效以微信平台机制为准； 5、任何以机器人软件、刷奖软件/脚本、木马植入或其它任 何自动程序方式、不正当手段等参与分享赚佣金及IME平台 活动的，一经发现，平台将对账号进行封号，并保留采取法 律措施的权力；
+  	</view>
+    <view class="btns">
+      <view class="btn" catchtap='SMHide'>确定</view>
+    </view>
+  </view>
+</view>

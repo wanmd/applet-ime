@@ -1,0 +1,43 @@
+<!--
+  Template Name: renting
+  Template Params:
+    show: boolean, 是否显示
+-->
+<template name="renting">
+<view class='list list_type{{item.type}}' wx:for='{{rentingList}}' wx:key='index'>
+    <view class="list-center" data-url='/pages/renting/index?chatId={{item.chat_id}}&id={{browse ? item.chat_lease_id : item.id}}' bind:tap="isAuth_">
+        <view class="img_box" wx:if="{{item.picture.length>0}}">
+            <image class='icon' mode="aspectFill" src='{{baseUrl}}/{{[item.picture[0]]}}'></image>
+        </view>
+        <view class="img_box bg{{item.type}}" wx:else>
+            <image class='icon-none' mode="aspectFill" src='/assets/images/renting/renting_list{{item.type}}.png'></image>
+            <view> {{item.type==1?'iME求租':'iME招租'}}</view>
+        </view>
+        <view class="text">
+            <view class="line_ title">
+                <view class="type-label type-label1">求租</view>
+                <view class="type-label type-label2">招租</view>
+                <view class="name ellipsis">{{item.content}}</view>
+            </view>
+            <view class="line_">
+                <view class="name ellipsis">
+                    <text>楼层：</text>
+                    <text>{{item.floor}}</text>
+                </view>
+                <view class="name ellipsis" wx:if="{{item.type==2}}">
+                    <text>房号：</text>
+                    <text>{{item.room_number}}</text>
+                </view>
+            </view>
+            <view class="line_">
+                <view class="name ellipsis">
+                    <text>面积：</text>
+                    <text wx:if="{{item.type==2}}">{{item.supply_area}}</text>
+                    <text wx:else>{{item.demand_area}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{deleteFlag}}" data-id="{{item.id}}" data-chat_id="{{item.chat_id}}" class="btn-delete" catch:tap="deleteBtn">删除</view>
+</view>
+</template>

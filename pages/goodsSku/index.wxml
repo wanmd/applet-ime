@@ -1,0 +1,52 @@
+<!--pages/goodsSku/index.wxml-->
+<view class="pb-200">
+  <view class="goods_skuItem" wx:for="{{goods_skuList}}" wx:key="title">
+    <view class="goods_skuItem_header d-f jc-sb ai-c mb-36">
+      <image data-item="{{item}}" data-index="{{index}}" bindtap="handleEdit_goods_skuItem" src="../../assets/images/index/editSku@2x.png" class="w-33 h-33" />
+      <text  class="c-333 fz-30">{{item.title}}</text>
+      <text bindtap="handleDelete_goods_skuItem" data-title="{{item.title}}" class="c-333 fz-24">删除</text>
+    </view>
+    <view class="d-f jc-sb fxw-w">
+      <view class="d-f ai-c w-284 h-70 bgc-F9F9F9 mb-18" wx:for="{{item.skuList}}" wx:key="{{item.name}}" wx:for-item="skuItem">
+        {{skuItem.name}}
+      </view>
+    </view>
+  </view>
+  <view class="addSku" bindtap="handleShowSkuModal">+添加商品规格</view>
+  <!-- <priceExcel wx:if="{{goods_skuList.length}}" skuList="{{goods_skuList}}"></priceExcel> -->
+  <!-- <priceExcel wx:if="{{goods_skuList.length}}" skuList="{{goods_skuList}}" id="priceExcel"></priceExcel> -->
+  <priceExcel wx:if="{{goods_skuList.length}}" skuList="{{goods_skuList}}" id="priceExcel"></priceExcel>
+  <view class="bottomwrap" wx:if="{{goods_skuList.length}}">
+    <view class="save" bindtap="handleSaveExcel">保存</view>
+  </view>
+</view>
+
+<!-- 规格设置弹框 -->
+<view class="modal" wx:if="{{show}}">
+  <view class="wrap">
+    <view class="header d-f jc-c mb-30">
+      <input class="" placeholder="请输入规格标题" value="{{skuTitle}}" bindinput="handleTitleInput" />
+      <view class="close" bindtap="handleCancel">x</view>
+    </view>
+    <view class="content">
+      <view class="d-f fxw-w jc-sb">
+        <input 
+          class="skuInput w-284 mb-18" 
+          placeholder="请输入规格分类" 
+          wx:for="{{skuList}}"
+          wx:key="id" 
+          data-index="{{index}}"
+          value="{{item.name}}"
+          bindinput="handleInput"
+        >
+          <text class="delete" bindtap="handleDeleteSku" data-index="{{index}}">x</text>
+        </input>
+      </view>
+      <view class="btn" bindtap="handleAdd">+添加具体规格8字以内</view>
+    </view>
+    <view class="bottom d-f jc-sb">
+      <view class="d-f ai-c jc-c bdrs-20 c-333 fz-32 fx-1 h-80 bgc-F9F9F9 mr-34" bindtap="handleCancel">取消</view>
+      <view class="d-f ai-c jc-c bdrs-20 c-333 fz-32 fx-1 h-80 bgc-FFE200" bindtap="handleSave">保存</view>
+    </view>
+  </view>
+</view>

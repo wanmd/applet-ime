@@ -1,0 +1,15 @@
+<view class='cell'>
+  <view class='wrap flex_start {{border ? "border" : ""}}' style='height:{{height}}'>
+    <view class='title middle'>
+      {{title}}
+      <slot name='title'></slot>
+    </view>
+    <view class='flex__it content middle {{arrow ? "arrow" : ""}} {{clear ? "clear" : ""}}'>
+      {{content}}
+      <slot name='content'></slot>
+      <delete wx:if='{{clear && content !== ""}}' class='delete middle' catchtap='clear'></delete>
+    </view>
+    <view wx:if='{{arrow}}' class='arr'></view>
+    <navigator class='url' wx:if='{{url !== ""}}' url='{{url}}' hover-class="none" ></navigator>
+  </view>
+</view>

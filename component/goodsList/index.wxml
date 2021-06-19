@@ -1,0 +1,12 @@
+<pagination class='page-container' id='pagination' url='store/library' query='{{query}}' bind:load='load'>
+  <view class='goods-list'>
+    <view class='item {{index % 2 != 0 ? "even" : "odd"}}' wx:for='{{list}}' wx:key='id'>
+      <view class='radio'>
+        <el-radio checked='{{selectIndex == index}}' value='{{index}}' bind:change='select'></el-radio>
+      </view>
+      <img class='image' mode="aspectFill" src='{{item.cover}}'></img>
+      <view class='goods-name'>{{item.goods_name}}</view>
+      <view class='goods-price'>￥<text class='price'>{{item.sale_price}}</text></view>
+    </view>
+  </view>
+</pagination>

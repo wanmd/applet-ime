@@ -1,0 +1,26 @@
+<view class='p-l-r'>
+  <avatar src='{{userInfo.avatar}}' size='80rpx'>
+    <view class='m-l-20'>{{userInfo.nickname}}</view>
+  </avatar>
+  <block wx:if='{{userInfo.mobile == "" && userInfo.wechat == ""}}'>
+    <view class='m-t-40 color-999999'>这家伙很懒哦-.-</view>
+  </block>
+  <block wx:else>
+    <view class='m-t-40' wx:if='{{userInfo.mobile != ""}}'>
+      <icon-text icon='contact/ic_contact_phone@2x.png' width='48rpx;' bindtap='call'>
+        <view>
+          <text style='font-size:40rpx;font-weight:bold;'>{{userInfo.mobile}}</text>
+          <text class='color-6e9cfe m-l-30' data-content='{{userInfo.mobile}}'>拨号</text>
+        </view>
+      </icon-text>
+    </view>
+    <view class='m-t-40' wx:if='{{userInfo.wechat != ""}}'>
+      <icon-text icon='contact/ic_contact_wechat@2x.png' width='48rpx;'>
+        <view style='line-height:40rpx;'>
+          <text style='font-size:40rpx;font-weight:bold;'>{{userInfo.wechat}}</text>
+          <text class='color-6e9cfe m-l-30' data-content='{{userInfo.wechat}}' catchtap='copy'>复制</text>
+        </view>
+      </icon-text>
+    </view>
+  </block>
+</view>

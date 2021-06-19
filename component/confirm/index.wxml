@@ -1,0 +1,12 @@
+<view class='mask'>
+  <view class='modal'>
+    <view class='wrap'>
+      <el-image class='icon' src='delete-goods.png'></el-image>
+      <view class='content'>忍心丢下心仪商品？</view>
+    </view>
+    <view class='btn-2'>
+      <button hover-class="none" class='cancel' data-value='{{0}}' bindtap='callback'>果断放弃</button>
+      <button hover-class="none" class='confirm' data-value='{{1}}' bindtap='callback'>我再想想</button>
+    </view>
+  </view>
+</view>

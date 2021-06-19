@@ -1,0 +1,7 @@
+<view class="model" bind:tap="confim" wx:if="{{show&&text}}"></view>
+<view class="popul animated fadeIn" wx:if="{{show}}">
+  <view class="popul-tit mar_tb-10">{{title}}:</view>
+  <view class="popul-content" wx:for='{{text}}' wx:key='index'>{{item}}</view>
+  <view class="websit-tit">{{end_title}}</view>
+  <button hover-class="none" class="comfim-btn" bind:tap="confim">确认</button>
+</view>

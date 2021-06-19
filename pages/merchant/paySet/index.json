@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "upload": "/component/upload/index"
+  },
+  "navigationBarTitleText": "收款设置"
+}

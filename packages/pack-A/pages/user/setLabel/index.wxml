@@ -1,0 +1,17 @@
+<view class='p-l-r'>
+  <view class='relative' style='padding-right:140rpx'>
+    <input type='text' maxlength='4' value='{{labelName}}' placeholder='输入标签' bindinput='input'></input>
+    <btn style='z-index:3' class='absolute middle r-0' bindtap='add' size='small'>添加</btn>
+  </view>
+</view>
+<blank></blank>
+<view class='p-l-r'>
+  <view class='f-32'>我的标签</view>
+      <view class='label clear' wx:if='{{label}}'>
+        <view class='item' wx:for='{{label}}' wx:key="index">{{item}}<icon size='32rpx' class='cancel' type='cancel' color='rgba(0,0,0,1)' data-index='{{index}}' bindtap='delete'></icon></view>
+      </view>
+</view>
+<view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
+  <view class='color-999999 f-24 text-center'>标签上限5个，每个标签限4字以内</view>
+  <view class='m-t-60'><btn bindtap='confirm'>确定</btn></view>
+</view>

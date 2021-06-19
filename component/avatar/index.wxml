@@ -1,0 +1,8 @@
+<view class='page' bindtap='navTo'>
+  <view class='container' style='width:{{size}};height:{{size}};{{center?"margin: 0 auto":""}}'>
+    <image class='avatar' mode='widthFix' src='{{src}}'  bindtap='previewImg'></image>
+    <!-- <el-image wx:if="{{user&&user.isVip}}" class="vip" src='vip/vip.png' style='width:30rpx;display: inline-block;'></el-image> -->
+    <el-image wx:if="{{user&&user.isVip==1}}" class="vip" src='vip/vip.png' style='width:{{vipsize}};display: inline-block;'></el-image>
+  </view>
+  <view class='slot {{block?"slot2":""}}' style='left:{{size}}'><slot></slot></view>
+</view>

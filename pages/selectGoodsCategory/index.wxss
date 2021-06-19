@@ -1,0 +1,19 @@
+.items .item .wrap{
+  line-height:78rpx;
+  overflow:hidden;
+  padding-left:20rpx;
+}
+.items .item {
+	position: relative;
+}
+.items .item:after{
+  	content: ' ';
+	position: absolute;
+	bottom: 0;
+	left: 40rpx;
+	width:646rpx;
+	height:1px;
+	background:rgba(238,238,238,1);
+	/*background: #f00;*/
+	z-index: 2;
+}

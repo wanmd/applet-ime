@@ -1,0 +1,14 @@
+<view class="noticeBox" wx:if="{{text!=''}}">
+		<!-- <icon class="notice-icon"></icon> -->
+		<view class="notice-col">
+				<view class="notice-tit"><icon class="{{iconName}}" /></view>
+				<view class="notice-li">
+						<view bindtap="noticeItemTap" class="notice__it" style="{{orientation}}:{{marqueeDistance2}}px;font-size: {{size*2}}rpx;">
+								<text>{{text}}</text>
+								<text wx:if="{{marquee2copy_status}}" style="margin-left:{{marquee2_margin}}px;">
+										{{text}}
+								</text>
+						</view>
+				</view>
+		</view>
+</view>

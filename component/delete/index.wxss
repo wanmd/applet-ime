@@ -1,0 +1,17 @@
+.delete{
+  background:red;
+  width:30rpx;
+  height:30rpx;
+  border-radius:50%;
+  position:relative;
+}
+.delete::before{
+  content:'';
+  height:1px;
+  width:60%;
+  background:#ffffff;
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate3d(-50%,-50%,0);
+}

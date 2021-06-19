@@ -1,0 +1,21 @@
+.record-item{
+  position:relative;
+  margin-top:20rpx;
+}
+
+.date-block .record-item:first-child{
+  margin-top:0rpx;
+}
+
+.body{
+  position:absolute;
+  width: 100%;
+  padding-left: 200rpx;
+  top: 0rpx;
+  left: 0rpx;
+}
+.cover{
+  display:block;
+  width:180rpx;
+  height:180rpx;
+}

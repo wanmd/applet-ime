@@ -1,0 +1,23 @@
+<view class='fixed w-100 xy'>
+  <view>
+    <image src="{{assetsImages}}qiyeicon@2x.png" style="width: 108rpx;height: 115rpx;margin: 0 auto 70rpx;display: block;"></image>
+    <navigator style='width:336rpx;margin:auto;' url='../../packages/pack-B/pages/apply-merchant/business/index' hover-class="none">
+      <btn>企业店铺入驻申请</btn>
+    </navigator>
+    <view class='text-center m-t-30'>
+      <view class='color-666'>适合公司/企业开店</view>
+      <view class='color-999999 m-t-10 f-24'>提供申请人主体营业执照等资料即可开店</view>
+    </view>
+  </view>
+  <view style='margin-top:100rpx'>
+    <image src="{{assetsImages}}gerenicon@2x.png" style="width: 97rpx;height: 78rpx;margin: 0 auto 70rpx;display: block;"></image>
+    <view style='width:336rpx;margin:auto;'>
+      <btn style-text='background:#333333;color:#FFE200;' bindtap='dodo'>个人店铺入驻申请</btn>
+    </view>
+    <view class='text-center m-t-30'>
+      <view class='color-666'>适合个人身份入驻</view>
+      <!-- <view class='color-999999 m-t-10 f-24'><text style="color:#333333">粉丝人数达{{number}}人</text>，转发即可自动获取粉丝关注！</view> -->
+      <view class='color-999999 m-t-10 f-24'>提供申请人身份证验证即可开店</view>
+    </view>
+  </view>
+</view>

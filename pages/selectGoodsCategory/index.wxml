@@ -1,0 +1,21 @@
+<view class='p-l-r'>
+  <view>选择分类</view>
+  <view class='items m-t-30'>
+    <view class='item'>
+      <el-radio value='0' checked='{{selectedId == 0}}' bind:change='select'>
+        <view class='wrap'>
+          <view class='pull-left'>全部</view>
+        </view>
+      </el-radio>
+    </view>
+    <view class='item' wx:for='{{cateList}}' wx:key='id'>
+      <el-radio value='{{item.id}}' checked='{{selectedId == item.id}}' bind:change='select'>
+        <view class='wrap'>
+          <view class='pull-left'>{{item.name}}</view>
+          <view class='pull-right color-999999' style="margin-right: 30rpx;">{{item.count}}</view>
+        </view>
+        <view class="arrow-right"></view>
+      </el-radio>
+    </view>
+  </view>
+</view>

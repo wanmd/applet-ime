@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "goods": "../orderGoods/index",
+    "store": "../store/index",
+    "deliveryInfo": "../deliveryInfo/index",
+    "confirm": "/component/confirm/index",
+    "upload": "/component/upload/index",
+    "contact-wx": "/component/contactWX2/index"
+  }
+}

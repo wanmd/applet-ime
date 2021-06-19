@@ -1,0 +1,114 @@
+<form bindsubmit='confirm' report-submit report-submit-timeout='2000'>
+<view wx:if='{{order !== null}}' class='p-l-r' style='padding-bottom:200rpx'>
+  <store store='{{order.store}}'></store>
+  <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
+  <goods wx:for='{{order.goods}}' goods='{{item}}' note="{{true}}" wx:key='chat_id'></goods>
+  <view class='hr' style='margin-top:0rpx;'></view>
+  <view class='order-fee-detail'>
+    <view class='item'>
+      <text class='title'>运费：</text>
+      <view class='content overflow'>
+        <block wx:if='{{order.status == 0}}'>
+          <text class=' pull-left'>￥</text>
+          <input bindinput='input' class='pull-left text-center' style='width:120rpx;height:48rpx;border:1px solid #E6E6E6' type='digit' />
+        </block>
+        <block wx:else>
+          <text class='color-f9bb69 f-36'>￥{{order.delivery_fee}}</text>
+        </block>
+      </view>
+    </view>
+    <view class='item'>
+      <text class='title'>共 {{order.quantity}} 件，合计：</text>
+      <view class='content'>
+        <text class=' pull-left'>￥</text>
+        <!-- <text class='f-32'>{{order.amount}}</text> -->
+        <input  bindinput='input1' class='pull-left text-center' style='width:120rpx;height:48rpx;border:1px solid #E6E6E6' type='digit' value="{{order.amount}}" />
+      </view>
+    </view>
+
+    <view class='item'>
+      <text class='title'>总计：</text>
+      <view class='content color-f61935'>
+        <block wx:if='{{order.status == 0}}'>
+          ￥<text class='f-36'>{{order.amount * 1 + (deliveryFee || 0)}}</text>
+        </block>
+        <block wx:else>
+          ￥<text class='f-36'>{{order.amount * 1 + order.delivery_fee * 1}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='hr'></view>
+
+  <view class='color-999999 f-24'>
+    <view class='overflow'>
+      <view class='pull-left'>订单号：<text class='m-l-20'>{{order.order_no}}</text></view>
+      <view class='pull-right color-ffd800 f-28'>复制</view>
+    </view>
+    <view class='m-t-20'>买家下单时间：<text class='m-l-20'>{{order.create_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.merchant_confirm_time}}'>卖家确认时间：<text class='m-l-20'>{{order.create_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.pay_time}}'>买家支付时间：<text class='m-l-20'>{{order.pay_time}}</text></view>
+    <view class='m-t-20' wx:if='{{order.deliver_time}}'>卖家发货时间：<text class='m-l-20'>{{order.deliver_time}}</text></view>
+  </view>
+
+  <view class='hr'></view>
+  <block wx:if='{{order.pay_order !== ""}}'>
+    <view>
+      <view class='f-32 bold'>买家付款凭证</view>
+      <img class='pinzheng' ispre="true" mode='widthFix' src='{{order.pay_order}}'></img>
+    </view>
+    <view class='hr'></view>
+  </block>
+
+  <block wx:if='{{order.deliver_order !== ""}}'>
+    <view>
+      <view class='f-32 bold'>卖家发货凭证</view>
+      <img class='pinzheng' ispre="true" mode='widthFix' src='{{order.deliver_order}}'></img>
+    </view>
+    <view class='hr'></view>
+  </block>
+
+  <view wx:if='{{order.status == 2}}'>
+    <view class='f-32 bold'>卖家发货凭证</view>
+    <view class="tips">
+        为了打造良好的营商环境和个人、企业信用，请诚信经营、及时发货，积极构建法制和谐社会。若有交易纠纷，平台将根据审核结果给予责任方处罚。
+      </view>
+    <view class='m-t-60 border-b padd_b-40'>
+      <upload camera='{{false}}' style='display:block;width:218rpx;margin:auto;' bindsuccess='upload'>
+        <view class='upload-tips xy'>
+          <el-image class='icon' src='ic_add.png'></el-image>
+          <view>点击上传</view>
+        </view>
+      </upload>
+    </view>
+  </view>
+
+  <view class='pay-type'>
+    <view class='pay-type-wrap'>
+      <view class='contact'>
+        <contact-wx contact='联系买家' userId='{{order.user_id}}'></contact-wx>
+      </view>
+    </view>
+  </view>
+  <view class='bottom-fixed' style='display:flex'>
+    <block wx:if='{{order.status == 0}}'>
+      <view style='flex:1'>
+        <btn style-text='background:rgba(242,242,242,1);color:#999999' bindtap='cancelOrder'>取消</btn>
+      </view>
+      <view style='flex:1'>
+        <button hover-class="none" class='el-btn f-32'  form-type='submit' style='border-radius:0' bindtap='confirm'>确定</button>
+      </view>
+    </block>
+    <block wx:elif='{{order.status == 2}}'>
+      <view style='flex:1'>
+        <button hover-class="none" class='el-btn f-32' style='border-radius:0' bindtap='confirmDeliver'>确定已发货</button>
+      </view>
+    </block>
+    <block wx:elif='{{order.status == 4}}'>
+      <view style='flex:1'>
+        <btn style-text='background:rgba(242,242,242,1);color:#999999' bindtap='confirm'>订单已完成</btn>
+      </view>
+    </block>
+  </view>
+</view>
+</form>

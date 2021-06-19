@@ -1,0 +1,35 @@
+<!--packages/pack-A/pages/goodsRemark/index.wxml-->
+<view class="bgc-fff p-44 pb-100">
+  <view class="header h-82 d-f jc-sb ai-c mb-48">
+    <view class="inputWrap d-f ai-c"><input bindinput="handleInput" value="{{remark}}" placeholder-class="fz-28" placeholder="输入货号/私密备注/来源1-18字"/></view>
+    <view class="ok" bindtap="confirm">确定</view>
+  </view>
+  <view class="selectRemarks">
+    <view class="title">产品备注</view>
+    <view class="d-f jc-fs fxw-w">
+      <view class="remarkItem" wx:for="{{productRemarks}}" wx:key="id">
+        <image data-remark="{{item.remark}}" class="w-34 h-34 delete" src="../../../../assets/images/index/delete@2x.png" bindtap="handleDelete"/>
+        {{item.remark}}
+      </view>
+    </view>
+  </view>
+  <view class="usedRemarks">
+    <view class="title">常用产品备注</view>
+    <view class="d-f jc-sb fxw-w">
+      <view class="remarkItem" wx:for="{{usedRemarkList}}" wx:key="id" data-item="{{item}}" bindtap="handleClick">
+        {{item.remark}}
+      </view>
+    </view>
+  </view>
+  <view class="historyRemarks">
+    <view class="title">产品备注历史</view>
+    <view class="d-f jc-sb fxw-w">
+      <view class="remarkItem" wx:for="{{historyRemarkList}}" wx:key="id" data-item="{{item}}" bindtap="handleClick">
+        {{item.remark}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bottom">
+  <view class="save" bindtap="handleSave">保存</view>
+</view>

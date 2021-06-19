@@ -1,0 +1,33 @@
+.page {
+    position: relative;
+}
+
+.container {
+    position: relative;
+}
+
+.avatar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.slot {
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slot2 {
+    position: static;
+    white-space: initial;
+    transform: translateY(0);
+}
+
+.container .vip {
+    position: absolute;
+    right: 0;
+    bottom: -6rpx;
+}

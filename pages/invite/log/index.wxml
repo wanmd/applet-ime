@@ -1,0 +1,41 @@
+<el-image src='5b1be11b90ce3.jpg' class='block w-100'></el-image>
+<view class='p-l-r m-t-60'>
+  <view>
+    <view>活动规则</view>
+    <view class='color-999999 f-24 m-t-20 text-justify'>
+      <view>1、分享给好友或群，邀请好友注册</view>
+      <view class='m-t-10'>2、好友注册成功 并成功发布</view>
+      <view class='m-t-10'>3、每邀请一个好友立即奖励现金1元红包 如果你的好友有1万...那你马上变身万元户</view>
+    </view>
+  </view>
+  <view class='m-t-60 numbers'>
+    <view class='item'>
+      <view class='wrap xy'>
+        <view class='num'><text>{{numbers.number || 0}}</text>人</view>
+        <view class='f-24 m-t-10'>邀请好友数</view>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='wrap xy'>
+        <view class='num'><text>{{numbers.amount || 0}}</text>元</view>
+        <view class='f-24 m-t-10'>邀请奖金</view>
+      </view>
+    </view>
+  </view>
+  <view class='m-t-60 log-container'>
+    <view class='text-center'>邀请记录</view>
+    <view class='m-t-20'>
+      <pagination url='invite/myInvite' pkName='user_id' bindload='load'>
+        <cell arrow='{{false}}' border='{{false}}' wx:for='{{logList}}'>
+          <view slot='title'>
+            <avatar size='40rpx' src='{{item.avatar}}'><view class='f-24 m-l-20'>{{item.nickname}}</view></avatar>
+          </view>
+          <view slot='content' class='color-999999 f-24'>{{item.register_time}}</view>
+        </cell>
+      </pagination>
+    </view>
+  </view>
+</view>
+<view class='fixed-bottom p-l-r' style='padding-bottom:60rpx;padding-top:40rpx;background:rgba(247,247,247,1);'>
+<button hover-class="none" class='el-btn f-32' open-type='share'>立即邀好友得奖金</button>
+</view>

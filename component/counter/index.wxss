@@ -1,0 +1,92 @@
+.counter-container{
+  font-size:0;
+}
+.counter{
+  display:inline-block;
+  overflow:hidden;
+  font-size:28rpx;
+}
+.counter .number{
+  min-height:0px;
+  float:left;
+  height:48rpx;
+  width:96rpx;
+  padding:0rpx;
+  border:1px solid #E6E6E6;
+  border-width:1px 0px 1px 0px;
+  text-align:center;
+  color:#666666;
+  font-size:24rpx;
+  position:relative;
+}
+.xy{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+}
+
+.counter .decr-btn, .counter .incr-btn{
+  float:left;
+  height:48rpx;
+  width:48rpx;
+  border:1px solid #E6E6E6;
+  position:relative;
+}
+.counter .icon{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:20rpx;
+}
+
+.counter.big .number, .counter.big .decr-btn, .counter.big .incr-btn {
+  height:70rpx;
+  width:70rpx;
+}
+.counter.big .number{
+  width:140rpx;
+}
+.counter.big .icon{
+  width:32rpx;
+}
+
+.mask{
+  position:fixed;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  background:rgba(0, 0, 0, 0.6);
+  z-index:10;
+}
+
+.modal{
+  position:fixed;
+  z-index:11;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#fff;
+  width:70%;
+  border-radius:20rpx;
+}
+
+.bottom{
+  display:flex;
+  margin-top:30rpx;
+}
+.bottom .item{
+  flex:1;
+  line-height:80rpx;
+  text-align:center;
+}
+.bottom .item.cacel{
+  border-top:1px solid #f7f7f7;
+}
+.bottom .item.confirm{
+  background:#ffd800;
+  border-top:1px solid #ffd800;
+  color:#fff;
+}

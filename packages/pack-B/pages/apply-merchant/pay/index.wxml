@@ -1,0 +1,40 @@
+
+<image src="{{assetsImages}}fukuanyei2.png" style="width: 100%;height: 355rpx;"></image>
+<view class="pay-wrap" style="padding-bottom: 220rpx;">
+  <view class="pay-tit">商家VIP</view>
+  <image src="{{assetsImages}}chaozhi.png" style="width: 244rpx;height: 285rpx;display:block;margin: 0 auto;"></image>
+  <view class="pay-tit2">商家VIP特权功能</view>
+  <image src="{{assetsImages}}goonghneng.png" style="width: 590rpx;height: 306rpx;display:block;margin: 0 auto;"></image>
+  <!-- <view class="guanggao_text">
+    <view>免费赠送三个月流量工具！</view>
+    <view>实体店、网店、代理、副业一站式轻松卖货</view>
+    <view>一键招商代理，宝宝们和团队拓展必备利器!</view>
+  </view> -->
+  <view style='position: fixed;bottom: 40rpx;width: 558rpx;background-color: transparent;'>
+      <view class='btn block' style='border-radius: 50rpx' catch:tap="pay">
+        支付<text class="Bebas">{{total}} </text>元
+          <text style="margin-left: 20rpx;font-size: 24rpx;font-weight: 400;text-decoration: line-through">原价598元</text>
+      </view>
+  </view>
+</view>
+<view wx:if="{{modalFlag}}" class="mark" catch:tap="close"></view>
+<view class='modal' wx:if="{{modalFlag}}">
+  <view style='text-align:center;min-height:160rpx'>
+    <view class="shengming">
+      <view style="width: 56rpx;height: 56rpx;margin: -10rpx auto 20rpx;">
+        <el-image class='icon' src='ic_success@2x.png' mode='widthFix'></el-image>
+      </view>
+      <view style="font-size:32rpx;color:#000;margin-bottom: 10rpx;font-weight: bold;">支付完成！</view>
+      <text>恭喜您成为iME商户！ </text>
+      <text>现在去完善代理设置，快速分销产品吧！ </text>
+      <text>将您的产品大麦特卖吧！</text>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view class='item cacel' bindtap='cancel'>稍后设置</view>
+    <view class='item confirm' bindtap='confirm2'>
+      立即去代理设置
+    </view>
+  </view>
+</view>
+<tips-model showModel="{{show}}" title="{{title}}" text="{{content}}"></tips-model>

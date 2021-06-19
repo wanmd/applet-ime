@@ -1,0 +1,7 @@
+{
+  "navigationStyle":"custom",
+  "navigationBarTitleText": "公开报价",
+  "usingComponents": {
+    "upload" : "/component/upload/index" 
+  }
+}

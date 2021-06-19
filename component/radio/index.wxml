@@ -1,0 +1,4 @@
+<view class='container' bindtap='change'>
+  <view class='radio {{checked ? "checked" : ""}}' style="display: {{display}};opacity: {{opacity}}"></view>
+  <slot></slot>
+</view>

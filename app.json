@@ -1,0 +1,187 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/dynamics/index",
+    "pages/chatRecord/index",
+    "pages/bargainManage/index",
+    "pages/goods/index",
+    "pages/askBuy/index",
+    "pages/renting/index",
+    "pages/bindMobile/index",
+    "pages/selectGoodsCategory/index",
+    "pages/luckDrawManage/index",
+    "pages/luckDraw/index",
+    "pages/envelope/index",
+    "pages/luckDraw/checkout/index",
+    "pages/publish/type/index",
+    "pages/endorsement/index",
+    "pages/bargain/index",
+    "pages/cart/index",
+    "pages/invite/poster/index",
+    "pages/invite/log/index",
+    "pages/invite/index",
+    "pages/store/index",
+    "pages/store/library/index",
+    "pages/goodsCategoryManage/index",
+    "pages/goodsCategoryManage/edit",
+    "pages/wallet/log/index",
+    "pages/wallet/index",
+    "pages/applyAgent/index",
+    "pages/marketing/index",
+    "pages/marketing/agent/index",
+    "pages/redenvelopeLog/index",
+    "pages/userInfo/index",
+    "pages/applyMerchant/index",
+    "pages/applyMerchantType/index",
+    "pages/homepage/index",
+    "pages/merchant/paySet/index",
+    "pages/mailList/index",
+    "pages/merchant/index",
+    "pages/merchant/storeadd/index",
+    "pages/merchant/buyInfo/index",
+    "pages/user/index",
+    "pages/browse/index",
+    "pages/chat/index",
+    "pages/redenvelope/index",
+    "pages/publish/bargain/index",
+    "pages/bargainTool/index",
+    "pages/lotteryTool/index",
+    "pages/area/selectCity/index",
+    "pages/publish/offer/index",
+    "pages/publish/chat/index",
+    "pages/publish/luckDraw/index",
+    "pages/publish/askBuy/index",
+    "pages/publish/renting/index",
+    "pages/goodsCategory/index",
+    "pages/deliveryAddress/index",
+    "pages/deliveryAddress/add/index",
+    "pages/collection/index",
+    "pages/auth/index",
+    "pages/contact/index",
+    "pages/test/index",
+    "pages/webview/webview",
+    "pages/storeCategory/index",
+    "pages/storeCategory/edit",
+    "pages/goodsManage/index",
+    "pages/publish/newChat/index",
+    "pages/goodsLabel/index",
+    "pages/productCategory/index",
+    "pages/goodsSku/index"
+  ],
+  "subPackages": [
+    {
+      "root": "packages/pack-A/",
+      "pages": [
+        "pages/project/circle-friends",
+        "pages/user/merchant/index",
+        "pages/user/setBackground/index",
+        "pages/user/setLabel/index",
+        "pages/user/setMobile/index",
+        "pages/user/setRemark/index",
+        "pages/user/setWechat/index",
+        "pages/user/setNickname/index",
+        "pages/user/setAvatar/index",
+        "pages/sharing-makes/index",
+        "pages/sharing-makes/sharingList/index",
+        "pages/wodezhuangtai/index",
+        "pages/redList/index",
+        "pages/checkout/index",
+        "pages/myAskBuy/index",
+        "pages/myRenting/index",
+        "pages/order_user/index",
+        "pages/order_user/merchant/detail/index",
+        "pages/order_user/merchant/index",
+        "pages/order_user/detail/index",
+        "pages/offer/index",
+        "pages/order/index",
+        "pages/order/detail/index",
+        "pages/order/merchant/detail/index",
+        "pages/order/merchant/index",
+        "pages/order/quantity/index",
+        "pages/goodsCategory/index",
+        "pages/lookList/index",
+        "pages/vip/index",
+        "pages/vip/info/index",
+        "pages/user/userManageMent/index",
+        "pages/user/setFreight/index",
+        "pages/goodsRemark/index",
+        "pages/shopGoodsList/index",
+        "pages/user/setQrCode/index"
+      ]
+    },
+    {
+      "root": "packages/pack-B/",
+      "pages": [
+        "pages/apply-merchant/business/index",
+        "pages/apply-merchant/data/index",
+        "pages/apply-merchant/pay/index",
+        "pages/apply-merchant/personData/index",
+        "pages/apply-merchant/service-agreement/index",
+        "pages/apply-merchant/protocol/index",
+        "pages/apply-merchant/success/index"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "iME爱迷",
+    "backgroundColor": "#eeeeee",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/dynamics/index",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "expand-text": "/component/expandText/index",
+    "cell": "/component/cell/index",
+    "delete": "/component/delete/index",
+    "btn": "/component/btn/index",
+    "el-radio": "/component/radio/index",
+    "el-checkbox": "/component/checkbox/index",
+    "el-image": "/component/el-image/index",
+    "blank": "/component/blank/index",
+    "pagination": "/component/pagination/index",
+    "img": "/component/img/index",
+    "picture-set": "/component/pictureSet/index",
+    "chat-bar": "/component/chatBar/index",
+    "symbol": "/component/symbol/index",
+    "icon-text": "/component/iconText/index",
+    "icon-text-flex": "/component/iconTextFlex/index",
+    "avatar": "/component/avatar/index",
+    "empty": "/component/empty/index",
+    "notice": "/component/notice/index",
+    "shopCarPop": "/component/shopCarPop/index"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    },
+    "scope.writePhotosAlbum": {
+      "desc": "保存图片到用户相册"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

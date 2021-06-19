@@ -1,0 +1,24 @@
+<view class='p-l-r'>
+  <view class='relative' style='padding-right:140rpx'>
+    <input type='text' value='{{cateName}}' placeholder='输入标签分类' bindinput='input'></input>
+    <btn style='z-index:3' style-text='font-size:24rpx;' class='absolute middle r-0' bindtap='addCategory' size='small'>添加</btn>
+  </view>
+</view>
+<blank></blank>
+<view class='p-l-r'>
+  <view>已添加分类</view>
+  <view class='items'>
+    <view class='item' wx:for='{{cateList}}' wx:key='id'>
+      <el-radio value='{{index}}' checked='{{selectedIndex == index}}' bind:change='select'>
+        <view class='wrap'>
+          <view class='pull-left'>{{item.name}}</view>
+          <view class='pull-right color-999999' style="margin-right: 30rpx;">{{item.count}}</view>
+        </view>
+        <view class="arrow-right"></view>
+      </el-radio>
+    </view>
+  </view>
+</view>
+<view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
+  <btn bindtap='confirm'>确定</btn>
+</view>

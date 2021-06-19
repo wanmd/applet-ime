@@ -1,0 +1,19 @@
+@import './_var.wxss';
+@import './_emmet.wxss';
+@import './_emmetExt.wxss';
+@import './_font.wxss';
+@import './_reset.wxss';
+@import './_layout.wxss';
+@import './_merge.wxss';
+@import './_theme.wxss';
+@import './_solution.wxss';
+@import './_button.wxss';
+
+page {
+  /* vant 样式变量 */
+  background: #f8f8f8;
+  --button-primary-background-color: #ff6c1e;
+  --button-primary-color: #fff;
+  --button-primary-border-color: #ff6c1e;
+  --checkbox-checked-icon-color: #ff6c1e;
+}

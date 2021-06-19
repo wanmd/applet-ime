@@ -1,0 +1,13 @@
+<view>
+  <view style='position:relative'>
+    <view style='font-size:32rpx;'>参与分摊记录</view>
+    <navigator style='absolute middle color-6e9cfe f-24' style='position:absolute;color:#6e9cfe;top:50%;transform:translate3d(0,-50%,0);font-size:24rpx;right:0rpx;' url=''>查看更多></navigator>
+  </view>
+  <!--显示十条 -->
+  <view id='logs' style='margin-top:10rpx;'>
+    <navigator class='item' url='' wx:for='{{logs}}' hover-class="none">
+      <view class='pull-left color-999999'>{{item.add_time}}</view>
+      <view class='pull-right'>分摊金额：{{item.amount}}元</view>
+    </navigator>
+  </view>
+</view>

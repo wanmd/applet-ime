@@ -1,0 +1,156 @@
+/* Visual Formatting */
+.t-0 {
+    top: 0;
+}
+.t-16rpx {
+    top: 16rpx;
+}
+.t-24 {
+    top: 24rpx;
+}
+.t-20p {
+    top: 20%;
+}
+.t-35p {
+    top: 35%;
+}
+.t-50p {
+    top: 50%;
+}
+.r-0 {
+    right: 0;
+}
+.r-20 {
+    right: 20rpx;
+}
+.r-30 {
+    right: 30rpx;
+}
+.r-46 {
+    right: 46rpx;
+}
+.r-110 {
+    right: 110rpx;
+}
+.b-0 {
+    bottom: 0;
+}
+.b-20 {
+    bottom: 20rpx;
+}
+.l-0 {
+    left: 0;
+}
+.l-20 {
+    left: 20rpx;
+}
+.l-24 {
+    left: 24rpx;
+}
+.l-30 {
+    left: 30rpx;
+}
+.l-50p {
+    left: 50%;
+}
+.z-1 {
+    z-index: 1;
+}
+.z-9 {
+    z-index: 9;
+}
+.z-11 {
+    z-index: 11;
+}
+.z-21 {
+    z-index: 21;
+}
+.z-31 {
+    z-index: 31;
+}
+.z-41 {
+    z-index: 41;
+}
+.z-51 {
+    z-index: 51;
+}
+.z-1000 {
+    z-index: 1000;
+}
+
+/* Box Sizing */
+.h-100p {
+    height: 100%;
+}
+.h-100vh {
+    height: 100vh;
+}
+.h-100vw {
+    height: 100vw;
+}
+.w-100p {
+    width: 100%;
+}
+.w-100vw {
+    width: 100vw;
+}
+.mih-100vh {
+    min-height: 100vh;
+}
+
+/* Font */
+.fz-0 {
+    font-size: 0;
+}
+
+/* Others */
+.f-1 {
+    flex: 1;
+}
+
+/* Background */
+.bgsz-100p-a {
+    background-size: 100% auto;
+}
+.bgsz-100p-100p {
+    background-size: 100% 100%;
+}
+.bgsz-a-100p {
+    background-size: auto 100%;
+}
+.bgp-0p-50p {
+    background-position: 50% 50%;
+}
+.bgp-50p-50p {
+    background-position: 50% 50%;
+}
+.bgp-50p-100p {
+    background-position: 50% 100%;
+}
+.bgp-100p-50p {
+    background-position: 100% 50%;
+}
+.bgp-50p-0p {
+    background-position: 50% 0%;
+}
+
+/* Border */
+.bdw-0 { border-width: 0; }
+.bdbw-1 { border-bottom-width: 1rpx; }
+.bdrs-50p {
+    border-radius: 50%;
+}
+.bdrs-1000 {
+    border-radius: 1000rpx;
+}
+.bdtlrs-1000 {
+    border-top-left-radius: 1000rpx;
+}
+.bdblrs-1000 {
+    border-bottom-left-radius: 1000rpx;
+}
+
+/* Color */
+.op-0 {
+    opacity: 0;
+}

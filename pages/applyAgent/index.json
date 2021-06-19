@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "send-code": "/component/sendcode/index"
+  },
+  "navigationBarTitleText": "申请代理"
+}

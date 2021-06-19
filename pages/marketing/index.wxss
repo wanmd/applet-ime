@@ -1,0 +1,11 @@
+page{
+  background:rgba(247,247,247,1);
+}
+
+.item{
+  background:#fff;
+  line-height: 110rpx;
+  text-align:center;
+  font-size:32rpx;
+  margin-top:24rpx;
+}

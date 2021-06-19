@@ -1,0 +1,11 @@
+<view>
+  <block wx:if="{{type=='cart'}}" >
+    <el-image src='cart@2x.png' style='width:120rpx;display:block;margin:auto;'></el-image>
+    <view class='text' style="color: #E6E6E6;">{{text}}</view>
+  </block>
+  <block wx:else>
+    <el-image src='sad.png' style='width:120rpx;display:block;margin:auto;'></el-image>
+    <view class='text'>{{text}}</view>
+  </block>
+  <slot></slot>
+</view>

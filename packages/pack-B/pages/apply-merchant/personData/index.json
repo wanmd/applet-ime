@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "upload": "/component/upload/index",
+    "send-code": "/component/sendcode/index"
+  },
+  "navigationBarTitleText": "个人认证"
+}

@@ -1,0 +1,20 @@
+<view class='p-l-r' style='padding-bottom:170rpx;'>
+  <view class='flex-lr' wx:for='{{addressList}}' wx:key="index">
+    <cell arrow='{{false}}' height='160rpx' data-index='{{index}}' bindtap='select' class="flex__it">
+      <view slot='title'>
+        <view class='f-36 bold'>
+          {{item.consignee}}
+          <text class=''>{{item.mobile}}</text>
+        </view>
+        <view class='color-666 m-t-10'>{{item.province + item.city + item.district + item.address }}</view>
+      </view>
+    </cell>
+     <view class='color-FF0000 m-r' bindtap='deleteItem'  data-id='{{item.id}}'>删除</view>
+     <navigator class='color-ffd800' url='/pages/deliveryAddress/add/index?id={{item.id}}' hover-class="none">编辑</navigator>
+  </view>
+</view>
+<view class='p-l-r w-100' style='position:fixed;left:0;bottom:68rpx;'>
+  <navigator url='/pages/deliveryAddress/add/index' hover-class="none">
+    <btn class='w-100' style-text='background:#ECBD75'>添加新地址</btn>
+  </navigator>
+</view>

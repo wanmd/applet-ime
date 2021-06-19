@@ -1,0 +1,1 @@
+<button hover-class="none" type='button' class="out-class code-btn {{wait?'disabled':''}}" hover-class="none" bindtap='sendCode'>{{tips}}</button>

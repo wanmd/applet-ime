@@ -1,0 +1,1 @@
+<button hover-class="none" class='el-btn' open-type='getPhoneNumber' bindgetphonenumber='callback'>需要获取您的手机号</button>

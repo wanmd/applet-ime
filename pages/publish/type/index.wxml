@@ -1,0 +1,74 @@
+<div class="guanggao newuser">
+  <swiper indicator-dots="false" style="height: 228rpx;" autoplay="true" interval="3000" duration="500" circular="true">
+    <block wx:for="{{indexBannerList}}" wx:key="*this">
+      <swiper-item data-url='guide' data-index='{{index}}' bindtap='urlTo'>
+        <image src="{{baseUrl + item.url}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>	
+  <!-- <image style="width:664rpx;" class='icon' mode="widthFix" data-url='url' bindtap='urlTo' src='{{assetsImages}}heiban212%402x.png'></image> -->
+</div>
+<view class='panel'>
+  <view class='title'>请选择发布类型</view>
+  <view class='items'>
+    <!-- <view class='items-2'> -->
+    <view class='items-3 line1'>
+      <view class='item pull-left' style='margin:auto;' data-url='/pages/publish/chat/index?type=1' data-type='1' bindtap='navTo'>
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/text-image.png'></image>
+        </view>
+        <view>图文</view>
+      </view>
+      <view class='item pull-left' data-url='/pages/publish/newChat/index?type=2' bindtap='navTo'>
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/product.png'></image>
+        </view>
+        <view>产品</view>
+      </view>
+      <view class='item qiugou pull-left' data-url='/pages/publish/askBuy/index' bindtap='navTo'>
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/qiugou.png'></image>
+        </view>
+        <view>求购</view>
+      </view>
+    </view>
+    <view class='items-3 line2'>
+      <view class='item pull-left' data-url='/pages/publish/bargain/index' bindtap='navTo'>
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/bargain.png'></image>
+        </view>
+        <view>砍价</view>
+      </view>
+      <view class='item pull-left' data-url='/pages/publish/offer/index' bindtap='navTo'>
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/offer.png'></image>
+        </view>
+        <view>报价</view>
+      </view>
+      <view class='item pull-left' data-url='/pages/publish/renting/index' bindtap='navTo'>
+        <!-- <view class='item pull-left' data-url='/pages/publish/renting/index' data-type='1' bindtap='navTo'> -->
+        <!-- <view class='item pull-left' data-url='/pages/publish/luckDraw/index' bindtap='navToing'> -->
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/zuling.png'></image>
+        </view>
+        <view>旺旺租赁</view>
+      </view>
+    </view>
+    <!-- <view class='items-1 line3'>
+      <view class='item pull-left' data-url='/pages/publish/luckDraw/index' bindtap='navTo'>
+        <view class="imgBox">
+          <image mode='widthFix' src='/assets/images/publish/luckdraw.png'></image>
+        </view>
+        <view>抽奖</view>
+      </view>
+    </view> -->
+  </view>
+  <view class='bottom-close'>
+    <navigator class='back center' open-type="switchTab" url="../../index/index" hover-class="none" wx:if="url">
+      <image mode='widthFix' class='w-100' src='/assets/images/close.png'></image>
+    </navigator>
+    <navigator class='back center' open-type='navigateBack' hover-class="none" wx:else>
+      <image mode='widthFix' class='w-100' src='/assets/images/close.png'></image>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+@import './order.wxss';
+page{
+  background:rgba(247,247,247,1);
+  height:100%;
+  padding-top:184rpx;
+}
+.red-number{
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #f00;
+}
+.item-icon{
+  margin: 0 auto;
+  text-align: center;
+  justify-content:  center;
+  align-items:  center;
+}
+.wrap{
+  justify-content:  center;
+  align-items:  center;
+}

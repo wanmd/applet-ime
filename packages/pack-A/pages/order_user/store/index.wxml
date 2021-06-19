@@ -1,0 +1,14 @@
+<view class="store-wrap">
+    <avatar size='80rpx' src='{{store.avatar}}' userId='{{store.user_id}}'>
+	<!-- <navigator class='user-line' hover-class="none"> -->
+	  <!-- <image class='avatar' src='{{store.avatar}}'></image> -->
+	  <view class='user-info'>{{store.nickname}}</view>
+	  <!-- <view class='user-type1'>我的代理</view> -->
+	</avatar>
+	<view class='user-type' wx:if="{{is_agent==1}}">我的商家</view>
+	<view class='order-store' wx:if="{{status==-1||status==-2}}">发货超时已退款</view>
+	<view class='order-store' wx:if="{{status==1}}">等待买家付款</view>
+	<view class='order-store' wx:if="{{status==2}}">买家已付款</view>
+	<view class='order-store' wx:if="{{status==3}}">卖家已发货</view>
+	<view class='order-store' wx:if="{{status==4}}">交易成功</view>
+</view>

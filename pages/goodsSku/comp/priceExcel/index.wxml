@@ -1,0 +1,28 @@
+<!--pages/goodsSku/comp/priceExcel/index.wxml-->
+<view>
+  <view class="desc d-f jc-c c-9B9B9B fz-20 mb-68">零售价＞拼单价＞公开报价（会员价）＞代理价>成本价</view>
+  <view class="excel">
+    <view class="excel-header ta-c c-333 fz-30 mb-20">规格-价格设定</view>
+    <view class="wrap">
+      <view class="theader whs-nw">
+        <view class="d-ib ta-l w-120 fz-20 c-707070 mr-14" wx:for="{{headerLsit}}" wx:key="id">{{item.name}}</view>
+      </view>
+      <view class="tcontent whs-nw">
+        <view class="row" wx:for="{{data}}" wx:key="index">
+          <!-- sku名称-->
+          <view class="row-header ta-c c-000 fz-20 mtb-10">{{item.name}}</view>
+          <!-- sku每行 -->
+          <view class="row-inputWrap">
+            <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="salePrice" value="{{item.salePrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
+            <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="groupPrice" value="{{item.groupPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
+            <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="memberPrice" value="{{item.memberPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
+            <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="agentPrice" value="{{item.agentPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
+            <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="costPrice" value="{{item.costPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
+            <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="stock" value="{{item.stock}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
+            <upload data-index="{{index}}" bind:success="hanldeSuccess" width="120rpx" height="62rpx" class="row-input d-ib w-120" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

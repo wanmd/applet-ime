@@ -1,0 +1,46 @@
+<view class='p-l-r bc-fff address-containter'>
+  <cell border='{{false}}' url='/pages/deliveryAddress/index?target=select'>
+    <view slot='title'>
+      <block wx:if='{{address == null}}'>
+      <view class='f-32 bold'>请选择收货地址</view>
+      </block>
+      <block wx:else>
+        <view class='bold'>{{address.consignee}}<text class='m-l-20'>{{address.mobile}}</text></view>
+        <view class='f-24 color-666 m-t-10'>{{address.province + address.city + address.district + address.address}}</view>
+      </block>
+    </view>
+  </cell>
+</view>
+<view class='cart-list'>
+  <view class='item'>
+    <view class='p-l-r'>
+      <navigator class='user-line' hover-class="none">
+        <image class='avatar' src='{{store.avatar}}'></image>
+        <view class='user-info'>{{store.nickname}}</view>
+      </navigator>
+    </view>
+    <view class='goods-list p-l-r'>
+      <view class='goods'>
+        <view class='relative'>
+          <view url='/pages/goods/index?chatId={{item.chat_id}}'>
+            <img class='cover' thumb src='{{chat.cover}}'></img>
+          </view>
+          <view class='content'>
+            <view class='goods-name' url='/pages/goods/index?chatId={{item.chat_id}}'>{{chat.goods_name}}</view>
+            <view class='goods-price f-24' style='text-decoration:line-through'>￥<text class='num'>{{chat.sale_price}}</text></view>
+            <view class='counter'>x 1</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='p-l-r'>
+      <view class='order-remark'>
+        <text class='title'>订单备注</text>
+        <input placeholder='请备注购买信息或先与商家协商一致' type='text' bindinput='input' />
+      </view>
+    </view>
+  </view>
+</view>
+<view class='cart-bottom'>
+  <btn bindtap='confirm'>确定</btn>
+</view>

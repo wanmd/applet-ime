@@ -1,0 +1,141 @@
+<view class='p-l-r bc-fff address-containter'>
+  <cell height='120rpx' border='{{false}}' url='/pages/deliveryAddress/index?target=select' wx:if='{{address == null}}'>
+    <block>
+      <view slot='title' class="address_item1">
+        <view class='f-32'>请添加收货地址</view>
+        <icon-text catchtap='ai__addressShow' class='ai__address' width="150rpx" icon='ai__address@2x.png'></icon-text>
+      </view>
+    </block>
+  </cell>
+  <cell height='120rpx' wx:else border='{{false}}' arrow="{{false}}">
+    <!-- <block wx:else> -->
+      <view slot='title' class="address_item2">
+        <icon-text class='item-icon' width="35rpx" icon='location.png'></icon-text>
+        <navigator hover-class="none" url='/pages/deliveryAddress/index?target=select'>
+            <view class='fs-18'>{{address.consignee}}<text class='m-l-20'>{{address.mobile}}</text></view>
+            <view class='f-24 color-666 m-t-10 padd_b-10'>{{address.province + address.city + address.district + address.address}}</view>
+        </navigator>
+        <icon-text catchtap='ai__addressShow' class='ai__address' width="150rpx" icon='ai__address@2x.png'></icon-text>
+      </view>
+    <!-- </block> -->
+  </cell>
+</view>
+<!-- <view class='p-l-r bc-fff address-containter'>
+  <cell height='120rpx' border='{{false}}' arrow="{{false}}">
+      <view slot='title' class="address_item2">
+        <icon-text class='item-icon' width="35rpx" icon='location.png'></icon-text>
+        <view class='fs-18'>{{address.consignee}}<text class='m-l-20'>{{address.mobile}}</text></view>
+        <view class='f-24 color-666 m-t-10 padd_b-10'>{{address.province + address.city + address.district + address.address}}</view>
+        <icon-text bindtap='ai__addressShow' class='ai__address' width="150rpx" icon='ai__address@2x.png'></icon-text>
+      </view>
+  </cell>
+</view> -->
+    <!-- </block> -->
+  <!-- <el-image></el-image> -->
+<view class='cart-list'>
+  <!-- <view class="car-item" wx:if="{{userType !=2 }}">
+    <view class="user-box">
+      <image class='avatar' src='{{item.store.avatar}}'></image>
+      <view class="user-info">{{item.store.nickname}}</view>
+    </view>
+    <view class="user-status">零售价结算</view>
+  </view> -->
+  <view class='item' wx:for='{{cartList}}' wx:key='id'>
+    <view class='p-l-r car-item'>
+      <navigator class='user-line user-box' hover-class="none">
+        <image class='avatar' src='{{item.store.avatar}}'></image>
+        <view class='user-info'>{{item.store.nickname}}</view>
+        <view class="user-status user-status1" wx:if="{{item.isAgent}}">我的商家</view>
+      </navigator>
+      <view class="user-status" wx:if="{{item.isAgent}}">代理价结算</view>
+      <view class="user-status" wx:else>零售价结算</view>
+    </view>
+    <view class='goods-list p-l-r'>
+      <view class='goods' wx:for='{{item.cart}}' wx:for-index='idx' wx:for-item="it" wx:key='id'>
+        <view class='relative'>
+          <navigator url='/pages/goods/index?chatId={{it.chat_id}}' hover-class="none">
+            <img class='cover' thumb src='{{it.cover}}'></img>
+          </navigator>
+          <view class='content'>
+            <navigator class='goods-name' url='/pages/goods/index?chatId={{it.chat_id}}'>{{it.goods_name}}</navigator>
+            <view class="goodsNum">
+              <text>数量</text>
+              <view class='num'>{{it.quantity}}</view>
+            </view>
+            <block wx:if="{{item.isAgent}}">
+              <view class='goods-price1'>
+                <text>零售价</text>
+                <view class="line-through"><text class='num'>￥{{it.sale_price}}</text></view>
+              </view>
+              <view class='goods-price'>
+                <text>代理价</text>
+                <view><text class='num'>￥{{it.agent_price}}</text></view>
+              </view>
+            </block>
+
+            <block wx:else>
+            
+              <view class='goods-price' wx:if="{{userInfo.isVip != 1}}">
+                <text>零售价</text>
+                <view><text class='num'>￥{{it.sale_price}}</text></view>
+              </view>
+              <block wx:else>
+                <view class='goods-price1'>
+                  <text>零售价</text>
+                  <view class="line-through"><text class='num'>￥{{it.sale_price}}</text></view>
+                </view>
+                <view class='goods-price'>
+                  <text>会员价</text>
+                  <view><text class='num'>￥{{it.vip_price}}</text></view>
+                </view>
+              </block>
+
+            </block>
+          </view>
+        </view>
+        <view class='order-remark'>
+          <text class='title'>购买备注：</text>
+          <text class="color-EAB96D">{{it.remark}}</text>
+          <!-- <input placeholder-class="placeholder-class" value="" placeholder='请备注购买信息或先与商家协商一致' type='text' data-index='{{index}}' bindinput='input' /> -->
+        </view>
+      </view>
+    </view>
+    <view class='p-l-r'>
+      <!-- <view class='order-remark'> -->
+        <!-- <text class='title'>订单备注:</text> -->
+        <!-- <input placeholder-class="placeholder-class" placeholder='请备注购买信息或先与商家协商一致' type='text' data-index='{{index}}' bindinput='input' /> -->
+
+        <!-- <textarea placeholder='请备注购买信息或先与商家协商一致' style='height:320rpx;width:100%;padding:10rpx 20rpx;' placeholder-style='font-size:24rpx;color:#999' value='{{formData.remarks}}' data-index='{{index}}' bindinput='input'></textarea> -->
+      <!-- </view> -->
+    </view>
+  </view>
+</view>
+<view class='cart-bottom p-l'>
+  <view class='wrap'>
+    <view class='wrap__1 {{user__isAgent||userInfo.isVip==1 ? "" : "line-96"}}'>
+      <text class="hj">共 {{goodsCount}} 件，合计：</text>
+      <text class='{{user__isAgent||userInfo.isVip==1 ? "color-333333" : "color-f9696c"}} flex__1'>￥<text class='{{user__isAgent||userInfo.isVip==1 ? "f-28" : "f-36"}}'>{{amount}}</text></text>
+    </view>
+    <view class='wrap__2' wx:if="{{user__isAgent}}">
+      <text class="hj">代理价合计：</text>
+      <text class='flex__1 color-f9696c'>￥<text class='f-36'>{{isAgent__amount}}</text></text>
+    </view>
+    <view class='wrap__2' wx:elif="{{userInfo.isVip== 1}}">
+      <text class="hj">会员价合计：</text>
+      <text class='flex__1 color-f9696c'>￥<text class='f-36'>{{isVip__amount}}</text></text>
+    </view>
+  </view>
+  <btn class='absolute middle r-0' style-text='width:300rpx' bindtap='confirm'>提交订单</btn>
+</view>
+<view wx:if='{{ai__addressFlag}}'>
+  <view style='position:absolute;z-index:15;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' catchtap='ai__addressHide'></view>
+  <view class="ai__address-body">
+    <textarea placeholder='请输入地址识别, 例如: 省市区(县)+详细地址（不包括楼、单元、室等等）+电话+姓名' style='height:320rpx;width:100%;padding:10rpx 20rpx;color: #333;' placeholder-style='font-size:24rpx;color:#999' value='{{addressAI}}' auto-focus="{{true}}" data-index='{{index}}' bindinput='textarea'></textarea>
+    <view class="btns">
+      <view class="btn" catchtap='ai__addressHide'>取消</view>
+      <view class="btn" catchtap='get__address'>立即识别</view>
+    </view>
+  </view>
+</view>
+
+

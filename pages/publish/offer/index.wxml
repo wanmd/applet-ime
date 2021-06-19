@@ -1,0 +1,32 @@
+<view class="wx_page">
+  <view class="wx_header">
+    <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
+    <view style="width: 100%;text-align:center">{{barTitlle}}</view>
+  </view>
+  <view class="wx_center">
+    <view class='p-l-r'>
+      
+      <form>
+        <!-- <view class="text">请将报价粘贴在此处，一行一产品报价，包含产品名称和价格，价格后面不能有其他字符。添加成功后会显示成功数。</view> -->
+        <view class="text">
+          <view>请将最新报价粘贴在此处，一行一产品报价，包含产品名称和价格，价格后面不能有其他文字或字符。</view>
+          <view>发布新报价请首先一键清空上次的全部报价。</view>
+        </view>
+        <!-- <view wx:if='{{chatType == 2}}' class="p-t-50 border-b">
+          <input type='text' value='{{goods_name}}' data-target='goods_name' bindinput='input' maxlength="50" class='goods_name' placeholder='取个吸引人的产品标题，最多50字'></input>
+        </view> -->
+        <view class='relative textareaBox'>
+          <text class="placeholder" bind:tap="toFocus" wx-if="{{!focus}}">{{placeholder}}</text>
+          <textarea wx-if="{{ focus}}" value='{{content}}' auto-focus="{{true}}" focus="{{toFocus}}" bindconfirm="unFocus" bindblur="unFocus" data-target='content' bindinput='input' class='w-100' maxlength='18000' placeholder=""></textarea>
+        </view>
+        <view class="text">公开报价发布成功后，商家用户可通过动态-今日报价页面搜索展示产品公开报价信息；商家用户和本店代理也可在店铺-公开报价类目展示公开报价。</view>
+        
+      </form>
+    </view>
+    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+      <btn bindtap='submit' round>{{type=='editor'?'保存':"发布公开报价"}}</btn>
+      <view class="editor" bind:tap="getEditor" wx-if="{{type!='editor'}}">查看最后公开报价</view>
+      <view class="editor" bind:tap="removeList" wx-if="{{type=='editor'}}">一键清空上次全部报价</view>
+    </view>
+  </view>
+</view>

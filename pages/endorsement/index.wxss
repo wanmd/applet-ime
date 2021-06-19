@@ -1,0 +1,58 @@
+page{
+  background:rgba(247,247,247,1);
+}
+.part-1{
+  background:#FFE200;
+  padding:100rpx 0rpx 60rpx 0rpx;
+}
+.part-2{
+  background:#fff;
+  transform:translateY(-20rpx);
+  border-radius:32rpx 32rpx 0rpx 0rpx;
+}
+
+.module{
+  text-align:center;
+  border-top:1px solid #F7F7F7;
+  padding:30rpx 0rpx;
+}
+.module .data{
+  display:flex;
+}
+.module .data .item{
+  flex:1;
+}
+.module .data .item .num{
+  font-size:48rpx;
+}
+.module .data .item .num text{
+  font-size:28rpx;
+}
+.module .data .item .name{
+  font-size:24rpx;
+  margin-top:20rpx;
+}
+
+.logs .log{
+  margin-top:50rpx;
+  position:relative;
+}
+.logs .log .amount{
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:24rpx;
+}
+
+.modal{
+  position:fixed;
+  z-index:10;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+#canvas-modal{
+  
+}

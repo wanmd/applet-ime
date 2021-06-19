@@ -1,0 +1,13 @@
+<pagination class='relative' id='pagination' pkName='id' url='store/library' query='{{query}}' bind:load='load'>
+  <view class='goods-list p-l-r' wx:if='{{goodsList !== null}}'>
+    <view class='item' wx:for='{{goodsList}}' wx:key='{{chat_id}}' url='/pages/goods/index?chatId={{item.id}}'>
+      <img class='cover' thumb src='{{item.cover}}'></img>
+      <block wx:if='{{editting == false}}'>
+        <view class='m-t-30 ellipsis'>{{item.goods_name}}</view>
+        <view class='m-t-20 f-24 color-fbd49d'>￥<text class='f-32 bold'>{{item.sale_price}}</text></view>
+      </block>
+      <text class='color-f9696c delete' data-index='{{index}}' catchtap='deleteChat'>删除</text>
+    </view>
+  </view>
+  <empty wx:else class='absolute xy' text='TA还没放商品呢'></empty>
+</pagination>

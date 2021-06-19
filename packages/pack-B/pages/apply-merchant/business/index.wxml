@@ -1,0 +1,271 @@
+<view class="flex_ac-jb business-step ">
+  <view class="flex_ac--c flex__it {{step==1?'is_active':'no_active'}}">
+    <view class="step fs18">step1</view>
+    <view class="fs12">认证资料填写</view>
+  </view>
+  <view class="flex_ac--c flex__it hide {{step==3?'is_active':'no_active'}}">
+    <view class="step  fs18">step2</view>
+    <view class="fs12">个人收款设置</view>
+  </view>
+  <view class="flex_ac--c flex__it {{step==4?'is_active':'no_active'}}">
+    <view class="step fs18">step2</view>
+    <view class="fs12">个人代理设置</view>
+  </view>
+</view>
+<!-- 基本信息设置 -->
+<block wx:if="{{step == 1}}">
+  <view class="animated fadeIn step1">
+    <view class='module-title p-l-32 mar_t-16'>商家法人身份证信息</view>
+    <!-- <view class='p-l-32 f-24 color-999999 m-t-20'>请确保提交的身份证照片清晰展示照片和文字信息，包含正反两面</view> -->
+    <view class='p-l-32 p-r-32'>
+      <view class='cell-wrap'>
+        <cell height='108rpx' title='法人/股东' arrow='{{false}}' border='{{false}}'>
+          <input slot='content' type='text' class='w280 text-right' placeholder-class="placeholder-class" placeholder='法人/股东姓名' data-target='operName' data-form='form1' bindinput='input' />
+        </cell>
+      </view>
+      <view class='cell-wrap'>
+        <cell height='108rpx' title='法人身份证号/股东身份证号' arrow='{{false}}' border='{{false}}'>
+          <input slot='content' type='idcard' placeholder-class="placeholder-class" class='text-right w250' placeholder='法人/股东身份证号' data-target='idcard' data-form='form1' bindinput='input' />
+        </cell>
+      </view>
+    </view>
+    <!-- <view class='p-l-32 p-r-32 m-t-30 padd_b-10'>
+      <view>身份证证件照正反面</view>
+      <view class='idcard-upload clear m-t-30'>
+        <upload class='item pull-left' bgcolor="white" width='336rpx' height='336rpx' camera='{{false}}' data-target='idcardImg1' data-form='form1'  bindsuccess='input' bind:clear='clearPic1'>
+          <view class='wrap'>
+            <el-image class='el-image' src='id_z@2x.png'></el-image>
+            <view class='m-t-30'>
+              请上传
+              <text class='color-6e9cfe'>人像面</text>
+            </view>
+          </view>
+        </upload>
+        <upload class='item pull-right' bgcolor="white" width='336rpx' height='336rpx' camera='{{false}}' data-target='idcardImg2' data-form='form1'  bindsuccess='input' bind:clear='clearPic1'>
+          <view class='wrap'>
+            <el-image class='el-image' src='id_f@2x.png'></el-image>
+            <view class='m-t-30'>
+              请上传
+              <text class='color-6e9cfe'>国徽面</text>
+            </view>
+          </view>
+        </upload>
+      </view>
+    </view> -->
+    <view class="line12"></view>
+    <view class='m-t-40'>
+      <view class='module-title p-l-32'>营业执照（三证合一）</view>
+      <view class='p-l-32 f-24 color-999999 m-t-20'>提交营业执照资料需字迹清晰，证照完整</view>
+      <view class='p-l-32 p-r-32'>
+        <view class='cell-wrap'>
+          <cell height='108rpx' title='公司名称' arrow='{{false}}' border='{{false}}'>
+            <input slot='content' type='text' class='w280 text-right' placeholder-class="placeholder-class" placeholder='请填写您的公司名称' data-target='merchantName' data-form='form1' bindinput='input' />
+          </cell>
+        </view>
+        <view class='cell-wrap'>
+          <cell height='108rpx' title='公司地址' arrow='{{false}}' border='{{false}}'>
+            <input slot='content' type='text' class='w280 text-right' placeholder-class="placeholder-class" placeholder='省-市-区/县-详细地址' data-target='address' data-form='form1' bindinput='input' />
+          </cell>
+        </view>
+        <view class='cell-wrap'>
+          <cell height='108rpx' title='社会信用代码' arrow='{{false}}' border='{{false}}'>
+            <input slot='content' type='text' class='w250 text-right' placeholder-class="placeholder-class" placeholder='请输入公司社会信用代码' data-target='licenseCode' data-form='form1' bindinput='input' />
+          </cell>
+        </view>
+      </view>
+      <view class='p-l-32 p-r-32 m-t-30 padd_b-10'>
+        <view>企业工商营业执照</view>
+        <view class='zhizhao clear m-t-30'>
+          <el-image class='item pull-left' src='zhizhao.png' width='336rpx' height='460rpx'></el-image>
+          <upload class='item pull-right upload upload_color' width='336rpx' height='460rpx' camera='{{false}}' bgcolor="item_1" data-target='licenseImg' data-form='form1'  bindsuccess='input' bind:clear='clearPic1'>
+            <view class='wrap xy'>
+              <el-image src='ic_add.png' class='icon' height='32rpx' width='32rpx'></el-image>
+              <view class='m-t-20'>点击上传</view>
+            </view>
+            <view class='absolute center' style='color:#1890FF;bottom:60rpx;'>多证合一营业执照</view>
+          </upload>
+        </view>
+      </view>
+    </view>
+    <view class="line12"></view>
+    <!-- <view class='m-t-40 padd_b-10'>
+      <view class='module-title p-l-32'>营业执照（三证合一）</view>
+      <view class='p-l-32 p-r-32 m-t-30'>
+        <view>商家店铺真实环境照片</view>
+        <view class='store clear m-t-30'>
+          <el-image class='item pull-left' src='store-z.png' width='336rpx' height='224rpx'></el-image>
+          <upload class='item pull-right upload' width='336rpx' height='224rpx' camera='{{false}}' data-target='storeImg' data-form='form1'  bindsuccess='input' bind:clear='clearPic1'>
+            <view class='wrap xy'>
+              <el-image src='ic_add.png' class='icon' height='32rpx' width='32rpx'></el-image>
+              <view class='m-t-20'>点击上传</view>
+              <view class='m-t-30' style='color:#1890FF;'>店铺门面照片</view>
+            </view>
+          </upload>
+        </view>
+        <view class='store clear m-t-30'>
+          <el-image class='item pull-left' src='store-f.png' width='336rpx' height='224rpx'></el-image>
+          <upload class='item pull-right upload' width='336rpx' height='224rpx' camera='{{false}}' data-target='storeInnerImg' data-form='form1' bindsuccess='input' bind:clear='clearPic1'>
+            <view class='wrap xy'>
+              <el-image src='ic_add.png' class='icon' height='32rpx' width='32rpx'></el-image>
+              <view class='m-t-20'>点击上传</view>
+              <view class='m-t-30' style='color:#1890FF;'>店铺内环境照片</view>
+            </view>
+          </upload>
+        </view>
+      </view>
+    </view> -->
+    <!-- <block wx:if="{{0}}">
+    <view class="line12"></view>
+    <view class="m-t-40 padd_b-10">
+      <view class='module-title p-l-32'>商家行业分类选择</view>
+      <view class="cate-select">
+        <view class="cate-item {{selectItem==index?'sellect-item':''}}" wx:for="{{cateItem}}" wx:key="index" data-index="{{index}}" bind:tap="selectItem">
+          {{item.title}}
+        </view>
+      </view>
+    </view>
+    </block>  -->
+    <view class="line12"></view>
+    <view class='p-l-32 p-r-32 m-t-40'>
+      <!-- <view style='background:#F7F7F7;border-radius:16rpx;padding:20rpx 30rpx;'> -->
+        <view class='cell-wrap cell-t-b{'>
+        <input placeholder='请输入您的手机号码' type='number' data-target='mobile' data-form='form1' bindinput='input' />
+        </view>
+        <view class='cell-wrap cell-t-b{'>
+          <view class='relative'>
+            <input placeholder='短信验证码' placeholder-class="placeholder-class" type='number' data-target='smsCode' data-form='form1' bindinput='input' />
+            <send-code class='absolute middle r-0 zIndex99' mobile='{{mobile}}' url="{{getCodeUrl}}" checkMobile='{{true}}'></send-code>
+          </view>
+        </view>
+      <!-- </view> -->
+      <view class="flex_align-center mar_tb-10 tips">
+        <switch checked bindchange="switch1Change" checked="{{form1.is_agree}}" class="mar_r-10" type='checkbox' />
+        我已阅读并同意
+        <view class="tips1" catchtap="look">《iME爱迷平台合作协议》</view>
+      </view>
+    </view>
+    <view class='fixed-bottom'>
+      <btn type='primary' bindtap='submit1'>提  交</btn>
+    </view>
+  </view>
+</block>
+<!-- 付款信息提交 -->
+<block wx:elif="{{step == 3}}">
+  <view class="animated fadeIn step2">
+    <view class='module-title p-l-32 mar_t-16'>支付方式</view>
+    <view class='p-l-r'>
+      <view class='module'>
+        <view class='title'>微信收款二维码（示例）</view>
+        <view class='body'>
+          <view class='scan-type clear'>
+            <el-image class='pull-left item' src='wxpay-example.png'></el-image>
+            <upload width='100%' height='100%' camera='{{false}}' initFile='{{form2.wx_pay}}' class='pull-right item' data-target='wx_pay' data-form='form2' bind:success='input' bind:clear='clearPic1'>
+              <view class='upload-tips xy'>
+                <el-image class='icon' src='ic_add.png'></el-image>
+                <view>添加微信收款码</view>
+              </view>
+            </upload>
+          </view>
+        </view>
+      </view>
+      <view class='module m-t-60'>
+        <view class='title'>支付宝收款二维码（示例）</view>
+        <view class='body'>
+          <view class='scan-type clear'>
+            <el-image class='pull-left item' src='alipay@2x.png'></el-image>
+            <upload width='100%' height='100%' camera='{{false}}' initFile='{{form2.ali_pay}}' class='pull-right item' data-target='ali_pay' data-form='form2' bind:success='input' bind:clear='clearPic1'>
+              <view class='upload-tips xy'>
+                <el-image class='icon' src='ic_add.png'></el-image>
+                <view>添加支付宝收款码</view>
+              </view>
+            </upload>
+          </view>
+        </view>
+      </view>
+      <view class='module m-t-60'>
+        <view class='title'>银行转账</view>
+        <view class='body'>
+          <view class='ctr-row'>
+            <label class='label:'>姓名：</label>
+            <input class='input' type='text' placeholder='收款人姓名' value='{{form2.bank_user}}' data-target='bank_user' data-form='form2' bindinput='input' />
+          </view>
+          <view class='ctr-row m-t-30'>
+            <label class='label:'>卡号：</label>
+            <input class='input' type='number' placeholder='收款人卡号' value='{{form2.bank_account}}' data-target='bank_account' data-form='form2' bindinput='input' />
+          </view>
+          <view class='ctr-row m-t-30'>
+            <label class='label:'>银行：</label>
+            <picker range='{{bankList}}' range-key='name' data-target='bank_name' bindchange='selectBank'>
+              <cell border='{{false}}'>
+                <view slot='content' class='color-999999' wx:if='{{form2.bank_name == ""}}'>
+                  选择银行
+                </view>
+                <view slot='content' wx:else>{{form2.bank_name}}</view>
+              </cell>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='bottom-fixed flex-lr'>
+      <!-- <btn class="flex__it" styleText="background:#F2F2F2" data-step="step1" bindtap='laststep'>
+        上一步
+      </btn> -->
+      <btn class="flex__it" bindtap='submit2'>提  交</btn>
+    </view>
+  </view>
+</block>
+<!-- 代理设置信息 -->
+<block wx:elif="{{step == 4}}">
+  <view class="animated fadeIn step3">
+    <view class='p-l-r'>
+      <view class='item m-t-20'>
+        <cell arrow='{{false}}' border='{{false}}' title='代理加盟费'>
+          <view slot='content' class='overflow'>
+            <input type='digit' placeholder='0.00' class='w250 pull-left text-right' placeholder-style='color:#999' value='{{form3.fee}}' data-target='fee' data-form='form3' bindinput='input' />
+            <text style='line-height:70rpx;' class='pull-left m-l-10'>元</text>
+          </view>
+        </cell>
+      </view>
+      <view class='color-fbd49d m-t-10 f-24'>为了商家能够快速推广代理/招商服务，平台将自动代收10%的商家代理招商费作为代言人完成的奖励金。</view>
+      <view class='item m-t-20'>
+        <cell arrow='{{false}}' border='{{false}}' title='代理广告语'>
+          <view slot='content' class='overflow'>
+            <input style='width:500rpx' type='text' placeholder-style='font-size:24rpx;color:#999' placeholder='如：一件也批发，加盟代理商，拿货更便宜' class='w250 text-right' value='{{form3.slogan}}' data-target='slogan' data-form='form3' bindinput='input' />
+          </view>
+        </cell>
+      </view>
+      <view class='item m-t-20'>
+        <cell arrow='{{false}}' border='{{false}}' title='发货规则'>
+          <view slot='content' class='overflow'>
+            <input type='number' placeholder='0.00' class='pull-left text-right' placeholder-style='color:#999' value='{{form3.min_number}}' data-target='min_number' data-form='form3' bindinput='input' />
+            <text style='line-height:70rpx;' class='pull-left m-l-10'>件起发</text>
+          </view>
+        </cell>
+      </view>
+      <view class='item m-t-20'>
+        <cell arrow='{{false}}' border='{{false}}' title='售后服务'>
+          <view slot='content' class='overflow'>
+            <input style='width:500rpx' type='text' placeholder-style='font-size:24rpx;color:#999' placeholder='7天退换/15天退换' class='w280 text-right' value='{{form3.sale_service}}' data-target='sale_service' data-form='form3' bindinput='input' />
+          </view>
+        </cell>
+      </view>
+      <view class='item m-t-20' style='padding-bottom:20rpx;'>
+        <view style='line-height:80rpx;'>商家代理说明</view>
+        <view class='relative'>
+          <textarea maxlength="800" placeholder='代理权益说明、代理服务内容、发货说明、售后说明等' style='height:320rpx;width:100%;background:rgba(242,242,242,1);padding:20rpx 20rpx;' placeholder-style='font-size:24rpx;color:#999' value='{{form3.remarks}}' data-target='remarks' data-form='form3' bindinput='input'></textarea>
+          <view class='absolute' style='bottom:20rpx;right:20rpx'>{{length}}/800</view>
+        </view>
+        <view class='images clear m-t-30'>
+          <upload class='item' wx:for='{{form3.picture}}' wx:key='index' data-index='{{index}}' initFile='{{item}}' bind:success='uploadPic' bind:clear='clearPic'></upload>
+          <upload wx:if='{{form3.picture.length < 9}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-form3.picture.length}}'></upload>
+        </view>
+      </view>
+    </view>
+    <view class='fixed-bottom' style='padding-top:40rpx;'>
+      <view class='m-t-20 flex-lr'>
+        <btn class="flex__it" type='primary' bindtap='confirm'>确定</btn>
+      </view>
+    </view>
+  </view>
+</block>

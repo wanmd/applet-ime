@@ -1,0 +1,117 @@
+.renting-lists .list {
+    padding: 30rpx 36rpx;
+    border-bottom: 2px solid #F7F7F7;
+    position: relative;
+}
+
+.renting-lists .line_ {
+    display: flex;
+    margin-bottom: 16rpx;
+    line-height: 36rpx;
+    font-size: 26rpx;
+}
+
+.renting-lists .line_.title {
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+
+.renting-lists .line_ .name {
+    flex: 1;
+}
+
+.renting-lists .list .list-center .text {
+    flex: 1;
+    height: 144rpx;
+    max-height: 144rpx;
+    overflow: inherit;
+    position: relative;
+}
+
+.renting-lists .list .btn-delete {
+    position: absolute;
+    right: 30rpx;
+    bottom: 30rpx;
+    z-index: 8;
+    font-size: 28rpx;
+}
+
+.renting-lists .type-label {
+    font-size: 24rpx;
+    width: 72rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 3px;
+    display: none;
+    text-align: center;
+    margin-right: 24rpx;
+}
+
+.renting-lists .type-label1 {
+    color: #333333;
+    background: #FBD49D;
+}
+
+.renting-lists .type-label2 {
+    background: #313131;
+    color: #FBD49D;
+}
+
+.renting-lists .list .type-label1 {
+    display: block;
+}
+
+.renting-lists .list .type-label2 {
+    display: none;
+}
+
+.renting-lists .list.list_type2 .type-label1 {
+    display: none;
+}
+
+.renting-lists .list.list_type2 .type-label2 {
+    display: block;
+}
+
+.list-center {
+    display: flex;
+}
+
+.list-center .text {
+    max-height: 126rpx;
+    line-height: 42rpx;
+    font-size: 30rpx;
+    color: #434759;
+}
+
+.list-center .img_box {
+    width: 144rpx;
+    height: 144rpx;
+    margin-right: 30rpx;
+    flex-shrink: 0;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+}
+
+.renting-lists .list .img_box.bg1 {
+    background-color: #FBD49D;
+    color: #313131;
+}
+
+.renting-lists .list .img_box.bg2 {
+    background-color: #313131;
+    color: #FBD49D;
+}
+
+.list-center .icon {
+    width: 100%;
+    height: 100%;
+}
+
+.list-center .icon-none {
+    width: 56rpx;
+    height: 56rpx;
+    margin: 28rpx auto 8rpx;
+}

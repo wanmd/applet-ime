@@ -1,0 +1,26 @@
+<!--pages/goodsSku/comp/priceExcel/index.wxml-->
+<view>
+  <!-- <view class="desc d-f jc-c c-9B9B9B fz-20 mb-68">零售价＞拼单价＞公开报价（会员价）＞代理价>成本价</view> -->
+  <view class="excel">
+    <!-- <view class="excel-header ta-c c-333 fz-30 mb-20">规格-价格设定</view> -->
+    <view class="wrap">
+      <view class="theader whs-nw">
+        <view class="d-ib ta-l {{index === 1 ? 'w-200': 'w-120' }} fz-20 c-707070 mr-14" wx:for="{{headerLsit}}" wx:key="id">{{item.name}}</view>
+      </view>
+      <view class="tcontent whs-nw">
+        <view class="row" wx:for="{{data}}">
+          <!-- sku每行 -->
+          <view class="row-inputWrap">
+            <img class="cover" src="{{item.url}}" />
+            <input class="d-ib w-200 mr-14 pl-4" disabled value="{{item.name}}" />
+            <input class="d-ib w-120 mr-14 pl-4" disabled value="{{item.salePrice}}" />
+            <input class="d-ib w-120 mr-14 pl-4" disabled value="{{item.groupPrice}}" />
+            <input class="d-ib w-120 mr-14 pl-4" disabled value="{{item.memberPrice}}" />
+            <input class="d-ib w-120 mr-14 pl-4" disabled value="{{item.agentPrice}}" />
+            <input class="d-ib w-120 mr-14 pl-4" disabled value="{{item.costPrice}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

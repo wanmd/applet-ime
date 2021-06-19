@@ -1,0 +1,72 @@
+<view class="por">
+  <view class="newuser" wx:if="{{applyLists.length>0}}">
+    <swiper indicator-dots="{{swiperOpt.indicatorDots}}"
+      autoplay="{{swiperOpt.autoplay}}" interval="{{swiperOpt.interval}}" duration="{{swiperOpt.duration}}" circular="true">
+      <block wx:for="{{applyLists}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{assetsImages + item.imgUrl}}" style="height:{{item.height}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <image class='w-100' mode='widthFix' src='{{assetsImages}}applybg.png'></image>
+  <view class='user'>
+    <image class='avatar' src='{{userInfo.avatar}}'></image>
+    <view class='f-24 m-t-30'>{{userInfo.nickname}}</view>
+  </view>
+</view>
+
+<view url='/pages/applyMerchantType/index' hover-class="none" class="beMerchant" bindtap="nav">申请入驻</view>
+<!-- <view class='user'>
+  <image class='avatar' src='{{userInfo.avatar}}'></image>
+  <view class='f-24 m-t-30'>{{userInfo.nickname}}</view>
+</view> -->
+<!-- <view class='text-center f-24 bold' style='margin-top:50rpx;'>成为iME商家，解锁超级营销工具功能</view>
+<navigator style='width:418rpx;margin:40rpx auto 0rpx auto' url='/pages/applyMerchantType/index'>
+  <button class='el-btn'>我要成为商家</button>
+</navigator>
+<view style='font-size:40rpx;text-align:center;color:#FFE200;font-weight:bold;margin-top:70rpx;'>[ iME商家  特权服务 ]</view>
+<view class='youshi-items'>
+  <view class='item' wx:for='{{youshiList}}'>
+    <el-image src='apply/{{item.icon}}' class='icon'></el-image>
+    <view>
+      <view class='name'>{{item.name}}</view>
+      <view class='content'><text>{{item.content}}</text></view>
+    </view>
+  </view>
+</view>
+<view style='font-size:40rpx;text-align:center;color:#FFE200;font-weight:bold;margin-top:70rpx;'>[ iME商家权益解决方案 ]</view>
+<view class='content2'>
+  <view class='item'>
+    <view class='title'>商家认证标识</view>
+    <view class='value'>免费</view>
+  </view>
+  <view class='item'>
+    <view class='title'>店铺</view>
+    <view class='value'>免费</view>
+  </view>
+  <view class='item'>
+    <view class='title'>发布产品</view>
+    <view class='value'>免费</view>
+  </view>
+  <view class='item'>
+    <view class='title'>拓客拉新工具</view>
+    <view class='value'>免费</view>
+  </view>
+  <view class='item'>
+    <view class='title'>LBS红包功能</view>
+    <view class='value'>免费</view>
+  </view>
+  <view class='item'>
+    <view class='title'>产品红包</view>
+    <view class='value'>赠送三个月</view>
+  </view>
+  <view class='item'>
+    <view class='title'>砍价功能</view>
+    <view class='value'>赠送三个月</view>
+  </view>
+  <view class='item'>
+    <view class='title'>代理功能</view>
+    <view class='value'>赠送三个月</view>
+  </view>
+</view> -->

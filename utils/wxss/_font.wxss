@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Bebas';
+  src: url('https://hyzmj.oss-cn-shenzhen.aliyuncs.com/image/v2/Bebas.ttf') format('truetype'); /*IE*/
+}
+
+.ff-Bebas {
+  font-family: Bebas;
+}
+
+.icon-you {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  border-top: 3rpx solid #FF6C1E;
+  border-right: 3rpx solid #FF6C1E;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

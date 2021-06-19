@@ -1,0 +1,21 @@
+.container{
+  position:relative;
+  padding-left:40rpx;
+  min-height:38rpx;
+}
+.radio{
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:38rpx;
+  height:38rpx;
+  box-sizing:border-box;
+  border:1px solid #CCCCCC;
+  background:#fff;
+  border-radius:50%;
+}
+.radio.checked{
+  background:#FFE200;
+  border:none;
+}

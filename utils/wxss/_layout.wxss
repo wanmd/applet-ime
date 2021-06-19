@@ -1,0 +1,75 @@
+/* 定位 */
+/* 固定定位 */
+.pos-f-trl {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.pos-f-rbl {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.pos-f-trbl {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.pos-a-trbl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.pos-f-center { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* 弹性 */
+.d-f-r-c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.d-f-r-s {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.d-f-r-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.d-f-s-c {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.d-f-r-c-c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.d-f-r-c-s {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.d-f-c-s-c {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.d-f-c-c-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

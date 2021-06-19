@@ -1,0 +1,28 @@
+<view class='p-l-r bc-fff'>
+  <!-- <view class='relative'>
+    <input class='ctr-row' placeholder='收货人' type='text' value='{{formData.consignee}}' data-target='consignee' bindinput='input' />
+  </view>
+  <input class='ctr-row' placeholder='手机号' type='number' value='{{formData.mobile}}' data-target='mobile' bindinput='input' /> -->
+  <view>
+    <picker mode='region' data-target='area' bindchange='input'>
+      <cell border='{{false}}' height='108rpx'>
+        <view slot='title'>
+          <view wx:if='{{formData.m_prov === ""}}' class='color-999999'>省/市/区</view>
+          <view wx:else>{{formData.m_prov + '/' + formData.m_city + '/' + formData.m_dist}}</view>
+        </view>
+      </cell>
+    </picker>
+    <textarea style='padding-top:30rpx;height:200rpx;' value='{{formData.m_street}}' placeholder='详细地址：如道路、门牌号、小区、楼栋号、单元室等' data-target='m_street' bindinput='input'></textarea>
+  </view>
+</view>
+<view class='p-l-r bc-fff m-t-40'>
+  <cell border='{{false}}' arrow='{{false}}' height='108rpx'>
+    <!-- <view slot='title'> -->
+      <!-- <el-checkbox data-target='is_default' checked='{{formData.is_default == 1}}' bind:change='input'><text class='m-l-20'>设为默认地址</text></el-checkbox> -->
+    <!-- </view> -->
+  </cell>
+</view>
+  <button hover-class="none" class='getdeliver' bindtap='getWXdeliver'>一键获取微信地址</button>
+<view class='p-l-r m-t-60'>
+  <btn class='w-100' bindtap='confirm'>确定</btn>
+</view>

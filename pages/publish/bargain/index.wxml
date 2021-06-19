@@ -1,0 +1,76 @@
+<include src='../selectGoods.wxml' />
+<blank margin='0'></blank>
+<view class='p-l-r'>
+  <view class='input-item'>
+    <view class='wrap'>
+      <cell class='cell' title='商家发布砍价活动的产品数量' border='{{false}}' arrow='{{false}}'>
+        <view slot='content' class='relative input'>
+          <input placeholder='0' class='text-right' type='number' value='{{formData.stock?formData.stock:""}}' data-target='stock' bindinput='input1'/>
+          <text class='input-unit middle'>个</text>
+        </view>
+      </cell>
+    </view>
+  </view>
+
+  <view class='input-item'>
+    <view class='wrap'>
+      <cell class='cell' title='砍价底价' border='{{false}}' arrow='{{false}}'>
+        <view slot='content' class='relative input'>
+          <input placeholder='0.00' class='text-right' type='digit' value='{{formData.bargain_price?formData.bargain_price:""}}' data-target='bargain_price' bindblur='input2'/>
+          <text class='input-unit middle'>元</text>
+        </view>
+      </cell>
+    </view>
+  </view>
+  <!--<view class='input-item'>
+    <view class='wrap'>
+      <cell class='cell' title='参与砍价人数' border='{{false}}' arrow='{{false}}'>
+        <view slot='content' class='relative input'>
+          <input placeholder='0' class='text-right' type='number' data-target='quantity' bindinput='input'/>
+          <text class='input-unit middle'>人</text>
+        </view>
+      </cell>
+    </view>
+  </view>-->
+
+  <view class='input-item'>
+    <view class='wrap'>
+      <picker mode='date' start='{{today}}' data-target='start_time' bindchange='input'>
+      <cell class='cell' title='活动开始时间' border='{{false}}'>
+        <view slot='content' class='relative input'>{{formData.start_time}}</view>
+      </cell>
+      </picker>
+    </view>
+  </view>
+
+  <view class='input-item'>
+    <view class='wrap'>
+      <picker mode='date' start='{{tomorrow}}' data-target='end_time' bindchange='input'>
+      <cell class='cell' title='结束时间' border='{{false}}'>
+        <view slot='content' class='relative input'>{{formData.end_time}}</view>
+      </cell>
+      </picker>
+    </view>
+  </view>
+
+  <view class='input-item'>
+    <view class='wrap'>
+      <cell class='cell' title='砍价有效期' border='{{false}}' arrow='{{false}}'>
+        <view slot='content' class='relative input' style='padding-right:70rpx;'>
+          <input placeholder='0' class='text-right' type='digit' value='{{formData.expire}}' data-target='expire' bindinput='input'/>
+          <text class='input-unit middle'>小时</text>
+        </view>
+      </cell>
+    </view>
+  </view>
+
+  <view style='margin-top:120rpx;'>
+    <btn style-text='background:#ECBD75;' bindtap='confirm'>发布</btn>
+  </view>
+
+</view>
+
+<view class="por">
+  <view class="rule" bind:tap="show">抽奖活动玩法与规则<view class="inline-block tips">!</view></view>
+</view>
+<tips-model showModel="{{show}}" title="{{title}}" text="{{content}}"></tips-model>

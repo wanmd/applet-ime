@@ -1,0 +1,111 @@
+<view class='part-1'>
+  <view style='margin:auto;'>
+    <image class='block' mode='aspectFill' src='{{assetsImages}}auth3@2x.png' style="width:712rpx;height:466rpx;"></image>
+  </view>
+  <view style='width:400rpx;margin:auto;'>
+    <view style='margin-top:96rpx;'>
+      <btn style-text='border:1px solid #333333;font-weight:bold;' open-type='share'>邀请好友赚代言费</btn>
+      <btn style-text='border:1px solid #333333;font-weight:bold;background:#333333;margin-top:40rpx;color:#FFE200' bindtap='toggleShowPoster'>分享代言卡赚代言费 </btn>
+    </view>
+  </view>
+</view>
+<view class='part-2'>
+  <view class='text-center' style='padding:80rpx 0rpx;'>
+    <view class='bold Bebas'>
+      <text class='f-36'>￥</text>
+      <text style='font-size:60rpx;'>{{numbers.amount}}</text>
+    </view>
+    <view class='m-t-40 color-666'>您已累计获得的代言费奖励金额，已计入余额</view>
+  </view>
+  <!-- <view class='module'>
+    <view class='data'>
+      <view class='item'>
+        <view class='num'>{{numbers.number_1}}</view>
+        <view class='name'>邀请好友数</view>
+      </view>
+      <view class='item'>
+        <view class='num Bebas'><text>￥</text>{{numbers.amount_1}}</view>
+        <view class='name'>邀请代言费</view>
+      </view>
+    </view>
+    <view class='m-t-50 color-666 f-24'>成功邀请用户，奖励代言人奖励金1元</view>
+  </view> -->
+  <view class='module'>
+    <view class='data'>
+      <view class='item'>
+        <view class='num'>{{numbers.invite_vip_num}}</view>
+        <view class='name'>邀请会员数</view>
+      </view>
+      <view class='item'>
+        <view class='num Bebas'><text>￥</text>{{numbers.invite_vip_amount}}</view>
+        <view class='name'>邀请代言费</view>
+      </view>
+    </view>
+    <view class='m-t-50 color-666 f-24'>成功邀请会员，奖励49元/人</view>
+  </view>
+  <view class='module'>
+    <view class='data'>
+      <view class='item'>
+        <view class='num'>{{numbers.number_2}}</view>
+        <view class='name'>邀请商家数</view>
+      </view>
+      <view class='item'>
+        <view class='num Bebas'><text>￥</text>{{numbers.amount_2}}</view>
+        <view class='name'>邀请代言费</view>
+      </view>
+    </view>
+    <view class='m-t-50 color-666 f-24'>成功邀请商家，奖励198元/人</view>
+  </view>
+  <view class='module'>
+    <view class='data'>
+      <view class='item'>
+        <view class='num'>{{numbers.number_3}}</view>
+        <view class='name'>邀请代理数</view>
+      </view>
+      <view class='item'>
+        <view class='num' style='font-size:40rpx'>商家代理费x10%</view>
+        <view class='name'>邀请代言费</view>
+      </view>
+    </view>
+    <view class='m-t-50 color-666 f-24'>商家代理费金额不同奖励金不同</view>
+  </view>
+</view>
+<view class='m-t-40 p-l-r'>
+  <view class='f-32 text-center'>如何获得代言人奖励金</view>
+  <view class='f-24 color-666 text-justify m-t-30' style='line-height:40rpx;'>
+    <view>1、通过分享“邀请好友”到好友、群，或者通过分享您的代言卡等到朋友圈，成功完成邀请好友注册的，即可获的代言奖励金！</view>
+    <view>2、代言成功邀请用户，奖励代言人1元现金！</view>
+    <view>3、代言成功邀请会员，奖励49元现金！</view>
+    <view>4、代言成功邀请商家，奖励198元现金！</view>
+    <view>5、代言成功邀请的用户若购买了商家代理再次奖励10%的代理佣金！</view>
+    <view>6、分享好物成交后返5%的佣金！</view>
+    <view>7、代言奖励金自动计入余额，本页面数据仅做成功代言记录展示；</view>
+  </view>
+</view>
+<view style='padding:0rpx 32rpx;margin-top:40rpx'>
+  <view style='background:#fff;padding:50rpx 40rpx;'>
+    <view class='f-32 text-center'>代言奖励记录</view>
+    <pagination url='invite/myInvite' pkName='id' bindload='load'>
+      <view wx:if='{{logList}}' class='logs'>
+        <view wx:for='{{logList}}' class='log' wx:key="index">
+          <avatar src='{{item.user.avatar}}' size='48rpx'>
+            <view style='padding-left:15rpx;'>
+              <view class='f-24'>{{item.user.nickname}}</view>
+              <view class='color-666 f-24'>{{item.add_time}}</view>
+            </view>
+          </avatar>
+          <view class='amount Bebas'>{{item.amount}}元</view>
+        </view>
+      </view>
+    </pagination>
+    
+  </view>
+</view>
+
+<block wx:if='{{showPoster}}'>
+  <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' bindtap='toggleShowPoster'></view>
+  <view class='modal'>
+    <canvas id='canvas-modal' canvas-id="firstCanvas" style='width:676rpx;height:840rpx;'></canvas>
+    <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;width:560rpx;margin:40rpx auto 0rpx auto;border-radius:16rpx;' bindtap='save'>保存至相册，码上代言赚钱</button>
+  </view>
+</block>

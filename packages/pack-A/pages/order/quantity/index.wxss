@@ -1,0 +1,394 @@
+page{
+	height: 100%;
+}
+.page{
+	padding-top: 80rpx;
+	height: 100%;
+	box-sizing: border-box;
+}
+.page__item{
+	height: 100%;
+}
+.flex_items{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.makes__item{
+	position: relative;
+}
+.font-num{
+	font-weight: bold;
+}
+.makes__item .position_img{
+	width: 52rpx;
+	height: 52rpx;
+	position: absolute;
+	left: -80%;
+	top: 30rpx;
+}
+.makes__item .num{
+	font-size:42rpx;
+	font-family:Bebas;
+	font-weight:bold;
+	line-height:65rpx;
+	color: #313133;
+}
+.makes__item .text{
+	font-size: 22rpx;
+	color: #9F9C9F;
+}
+.makes__nav{
+	padding-top: 30rpx;
+	padding-bottom: 150rpx;
+}
+.makes__nav .num{
+	font-size: 36rpx;
+	position: relative;
+}
+.makes_items .makes__nav .num{
+	font-size: 30rpx;
+}
+
+.icon{
+	width:16rpx;
+	height:16rpx;
+	background:rgba(166,125,241,1);
+	border-radius:50%;
+	position: absolute;
+	top: 50%;
+	margin-top: -8rpx;
+	left: -20rpx;
+}
+.icon-color1{
+	background:rgba(166,125,241,1);
+}
+.icon-color2{
+	background:rgba(120,204,241,1);
+}
+.icon-color3{
+	background:rgba(236,186,134,1);
+}
+.icon-FF006F{
+	background:#FF006F;
+}
+.icon-FF8800{
+	background:#FF8800;
+}
+.icon-00B9FF{
+	background:#00B9FF;
+}
+.icon-88FF00{
+	background:#88FF00;
+}
+.icon-FF0000{
+	background:#FF0000;
+}
+.icon-AB00FF{
+	background:#AB00FF;
+}
+.icon-C40155{
+	background:#C40155;
+}
+.icon-944F00{
+	background:#944F00;
+}
+.icon-006B94{
+	background:#006B94;
+}
+.icon-478401{
+	background:#478401;
+}
+.icon-B70101{
+	background:#B70101;
+}
+.icon-5C008A{
+	background:#5C008A;
+}
+.makes__price{
+	color: #E9BA77;
+	font-size: 58rpx;
+	padding-bottom: 40rpx;
+}
+.makes__price i{
+	font-size: 43rpx;
+	margin-right: 10rpx;
+}
+.makes__hint{
+	font-size: 22rpx;
+	color: #9F9C9F;
+	margin-bottom: 18rpx;
+}
+.makes__hint1{
+	font-size: 20rpx;
+	color: #F4D5A4;
+	margin-bottom: 50rpx;
+}
+.makes__price_nav{
+	padding-bottom: 50rpx;
+	justify-content: space-between;
+	/*justify-content: center;*/
+}
+.makes__price_nav .makes__item .num{
+	color: #313133;
+	font-size: 32rpx;
+}
+.makes__lists_w .makes__item .num{
+	color: #858585;
+	font-size: 32rpx;
+}
+.makes__lists_w .makes__item .num{
+	color: #858585;
+	font-size: 32rpx;
+}
+.makes__lists{
+	padding: 20rpx;
+	display: none;
+}
+.makes__lists.active{
+	display: block;
+}
+.makes__list{
+	display: flex;
+	justify-content: space-between;
+	padding: 20rpx 0;
+}
+.makes__item{
+	text-align: center;
+}
+.makes__nav,
+.makes__price_nav,
+.makes__price_wrap,
+.makes__list_taps{
+	width: 544rpx;
+	margin: 0 auto;
+	text-align: center;
+}
+.makes__taps{
+	width: 100%;
+	height: 66rpx;
+	line-height: 66rpx;
+	border-radius: 33rpx;
+	border: 1rpx solid #F4D5A4;
+	display: flex;
+	overflow: hidden;
+}
+.makes__tap{
+	flex: 1;
+	text-align: center;
+	border-right: 1rpx solid #F4D5A4;
+}
+.makes__tap:last-child{
+	border-width: 0;
+}
+.makes__tap.active{
+	background-color: #F4D5A4;
+}
+
+.SM-body{
+  width: 90%;
+  height: 710rpx;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  margin-top: -355rpx;
+  left: 5%;
+  z-index: 20;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 20rpx;
+}
+.SF__title{
+	font-size: 26rpx;
+	text-align: center;
+	padding-bottom: 30rpx;
+}
+.SF__text{
+	font-size: 21rpx;
+	line-height: 40rpx;
+}
+.btns{
+	padding-top: 40rpx;
+}
+.btns .btn{
+	border-radius: 4rpx;
+	text-align: center;
+	line-height: 64rpx;
+	border: 1rpx solid #DCDCDC;
+	color: #000000;
+	font-size: 24rpx;
+}
+.more__list{
+	position: fixed;
+	bottom: 66rpx;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	font-size: 22rpx;
+	color: #9F9C9F;
+	/*padding: 40rpx 0;*/
+}
+.sharing_bg{
+	width: 100%;
+	height: 168rpx;
+}
+.avatar{
+	width: 24rpx;
+	height: 24rpx;
+}
+
+
+.top-nav{
+  height: 80rpx;
+}
+.toggle-item{
+  display:flex;
+  padding: 0 20rpx;
+}
+.toggle-item .item{
+  flex:1;
+  line-height: 80rpx;
+  color:#49494D;
+  font-size: 32rpx;
+  text-align:center;
+}
+.toggle-item .item.current{
+  font-weight: normal;
+  position:relative;
+  font-size: 32rpx;
+  color:#333;
+}
+.toggle-item .item.current::after{
+  content:'';
+  position:absolute;
+  width: 226rpx;
+  height:6rpx;
+  background:#AB00FF;
+  bottom: 0;
+  left:50%;
+  transform:translate(-50%);
+}
+.title{
+	text-align: center;
+	font-size:32rpx;
+	line-height:29rpx;
+	color:#333;
+}
+
+.makes__item_100{
+	display: 100%;
+}
+.makes__item_50{
+	width: 50%;
+	display: inline-block;
+	margin-top: 12rpx;
+}
+.makes__item_50 .makes__nav{
+	width: 100%;
+	align-items: center;
+}
+.makes__item_33{
+	width: 33%;
+	display: inline-block;
+	margin-top: 12rpx;
+}
+.makes__item_33 .makes__nav{
+	width: 100%;
+	align-items: center;
+}
+.flex_items_1{
+	justify-content: center;
+	align-items: center;
+}
+.border-top{
+	border-top: 1rpx solid rgba(229,229,229,1);
+}
+
+.makes__title_90{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.goods_title{
+  padding-top: 50rpx;
+}
+.goods_it,
+.goods_title{
+  display: flex;
+}
+.goods_it{
+	padding: 10rpx 0;
+}
+
+.goods_name{
+  min-width: 390rpx;
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-size: 24rpx;
+}
+.goods_num{
+}
+.goods_num,
+.goods_price{
+  min-width: 120rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.goods_price{
+}
+/*.goods{
+	padding: 0 30rpx;
+}
+.goods_it,
+.goods_title{
+  display: flex;
+}
+.goods_title{
+  color: #666666;
+  font-size: 20rpx;
+  line-height:24rpx;
+  margin-bottom: 16rpx;
+}
+.goods_it{
+  color: #141414;
+}
+.remark{
+  color: #666666;
+  text-align: right;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-size: 20rpx;
+}
+.goods_name{
+  width: 390rpx;
+  text-align: left;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-size: 24rpx;
+}
+.goods_num{
+  text-align: center;
+}
+.goods_num,
+.goods_price{
+  width: 80rpx;
+  font-size: 24rpx;
+}
+.goods_price{
+  text-align: right;
+}*/
+

@@ -1,0 +1,17 @@
+<view class='p-l-r p-t-16'>
+  <avatar src='{{chat.user.avatar}}' userId='{{chat.user.user_id}}'>
+    <view style='padding-left:10rpx;'>
+      <view class="f-28">{{chat.user.nickname}}</view>
+      <view class="color-999999 f-24">{{chat.create_time}}</view>
+    </view>
+  </avatar>
+  <view class='m-t-30'>
+    <expand-text alwayShow="{{alwayShow}}" content='{{chat.content}}'></expand-text>
+  </view>
+</view>
+<view class='m-t-30'>
+  <picture-set margin='{{4}}' pictureSet='{{chat.picture}}'></picture-set>
+</view>
+<view class='bottom-fixed'>
+  <chat-bar exclude='{{["down"]}}' chatId='{{chatId}}' userId='{{chat.user_id}}' collectStatus='{{chat.collectStatus}}' praiseStatus='{{chat.praiseStatus}}'></chat-bar>
+</view>

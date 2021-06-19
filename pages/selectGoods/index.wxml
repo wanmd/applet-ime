@@ -1,0 +1,12 @@
+<view class='p-l-r search'>
+  <view class='wrap'>
+    <input placeholder='' confirm-type='search' bindinput='input' />
+    <view class='search-btn' bindtap='search'>搜索</view>
+  </view>
+</view>
+<view class='p-l-r h-100' style='padding-top:110rpx;padding-bottom:148rpx;'>
+  <goods-list id='goodsList' query='{{query}}' bind:select='select'></goods-list>
+</view>
+<view class='bottom p-l-r'>
+  <btn disabled='{{goods === null}}' bindtap='confirm'>确定</btn>
+</view>

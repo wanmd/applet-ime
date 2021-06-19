@@ -1,0 +1,44 @@
+
+.items{
+  margin-top:88rpx;
+}
+.items-3{
+  width:524rpx;
+  overflow:hidden;
+  margin:80rpx auto 0 auto;
+}
+
+.items-3 .item{
+  width:120rpx;
+  margin-left:82rpx;
+}
+.items-3 .item:first-of-type{
+  margin-left:0rpx;
+}
+
+.item{
+  width:88rpx;
+  text-align:center;
+  color:#434759;
+  white-space:nowrap;
+}
+
+.item image{
+  width:88rpx;
+  display:block;
+  margin:0rpx auto 20rpx auto;
+}
+
+.bottom-close{
+  height:180rpx;
+  position:relative;
+  margin-top:46rpx;
+}
+.bottom-close .back{
+  position:absolute;
+  width:48rpx;
+  top:46rpx;
+}
+.m-t-40{
+  margin-top: 40px;
+}

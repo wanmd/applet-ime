@@ -1,0 +1,13 @@
+.ellipsis-3{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content{
+  line-height:48rpx;
+  text-align:justify;
+  font-size:32rpx;
+}

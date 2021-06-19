@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "upload": "/component/upload/index"
+  },
+  "navigationBarTitleText": "个人信息"
+}
