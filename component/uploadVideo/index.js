@@ -76,20 +76,27 @@ Component({
     /**
      * 图片  视频 选择框
      */
-    actioncnt() {
-      let _this = this;
-      wx.showActionSheet({
-        itemList: ['视频'],
-        success: function(res) {
-          if(res.tapIndex == 0) {
-            _this.chooseVideo()
-          }
-        },
-        fail: function(res) {
-          console.log(res.errMsg)
-        }
-      })
-    },
+    // actioncnt() {
+    //   let _this = this;
+    //   wx.showActionSheet({
+    //     itemList: ['拍摄', '从手机相册选择'],
+    //     success: function(res) {
+    //       if(res.tapIndex == 0) {
+    //         _this.initVideo()
+    //         _this.setData({
+    //           tapIndex: 0
+    //         })
+    //       }
+    //       if(res.tapIndex == 1) {
+    //         _this.chooseVideo()
+    //       }
+    //     },
+    //     fail: function(res) {
+    //       console.log(res.errMsg)
+    //     }
+    //   })
+    // },
+
     /**
      * 选择视频
      */
@@ -112,7 +119,7 @@ Component({
           var thumbTempFilePath=res.tempFiles[0].thumbTempFilePath;//封面图片
 
           if (duration >= 15) {
-            errorToast("视频长度需在15秒中以内");
+            errorToast("视频长度需在15秒钟以内");
             return
           }
           
@@ -134,8 +141,10 @@ Component({
             },
             success: function(res) {
               const jsonData =  JSON.parse(res.data);
+              console.log(jsonData);
               if (jsonData.code == 200) {
                 let file = jsonData.data.fileName;
+                console.log(file);
                 _this.setData({ 
                   uploadIng : false,
                   thumb: thumbTempFilePath
@@ -198,6 +207,5 @@ Component({
         }
       }
     }
-
   }
 })

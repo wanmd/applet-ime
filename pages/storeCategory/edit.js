@@ -60,7 +60,7 @@ Page({
   handleAddFirstLevel () {
     let { treeData, level2_treeData } = this.data;
 
-    if (treeData[treeData.length -1].id < 0) {
+    if (treeData.length > 0 && treeData[treeData.length -1].id < 0) {
       toast('请先完成的上一个一级分类设置');
       return
     }

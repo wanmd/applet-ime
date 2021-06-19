@@ -1,3 +1,5 @@
+@import '../../utils//wxss/index.wxss';
+
 .upload-frame {
     /* border-radius:16rpx; */
     position: relative;
@@ -74,4 +76,31 @@
     top: 50%;
     transform: translate3d(-50%, -50%, 0);
     color: #ffffff;
+}
+
+.cameraWrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #ccc;
+}
+.video {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    top: 40%;
+    left: 0;
+    height: 300rpx;
+    z-index: 1000;
+}
+.buttons {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 240rpx;
+    z-index: 1000;
 }

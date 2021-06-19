@@ -118,10 +118,18 @@ wx.Page({
     * 上传视频 目前后台限制最大100M, 以后如果视频太大可以选择视频的时候进行压缩
     */
    uploadVideo_(e) {
+       console.log('uploadVideo_uploadVideo_uploadVideo_uploadVideo_');
+       console.log(e);
         let d = new Date();
         let file = e.detail.value;
         this.setData({
             videoUrl: file
+        })
+    },
+
+    uploadTakevideo(videoSrc) {
+        this.setData({
+            videoUrl: videoSrc
         })
     },
 

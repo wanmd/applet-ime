@@ -25,8 +25,9 @@
         <view class=" mb-32 pb-10 borderb-1-solid-EFEFE">
           <view class="c-707070 mb-10">添加产品视频,最多1个，且15秒以内</view>
           <view class='images clear m-t-30'>
-            <uploadVideo class='item' initFile='{{item.file}}' bind:success='uploadVideo_' bind:clear='clearVideo'></uploadVideo>
+            <uploadVideo class='item' initFile='{{item.file}}' bind:success='uploadVideo_' bind:takevideo='uploadTakevideo' bind:clear='clearVideo'></uploadVideo>
             <!-- <uploadVideo wx:if='{{videoUrl}}' class='item' bind:success='uploadVideo' bind:clear='clearVideo' only></uploadVideo> -->
+            <!-- <video wx:if='{{videoUrl}}' class='item' src="{{videoUrl}}"></video> -->
           </view>
         </view>
         <view class='m-t-30'>
@@ -79,7 +80,7 @@
             </cell>
             <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
               <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
-                value='{{sourceChatId}}' data-target='sourceChatId' bindinput='input' class='input w300'>
+                value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
             </cell>
             <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
@@ -150,7 +151,7 @@
             </cell>
             <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
               <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
-                value='{{sourceChatId}}' data-target='sourceChatId' bindinput='input' class='input w300'>
+                value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
             </cell>
             <cell title='运费设置' border='{{false}}' arrow='{{true}}'>

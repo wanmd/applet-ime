@@ -1,6 +1,6 @@
 <!--pages/productCategory/index.wxml-->
 <view>
-  <view class="header">请正确的选择类目，若所选类目与实际产品不符可能会被处罚</view>
+  <view class="header">请选择正确的类目，若所选类目与产品不符可能会影响产品曝光率</view>
   <view class="wrap">
     <view class="mlr-40 pb-38 borderb-1-solid-E4E4E4 d-f jc-c">
       <view class="c-333 fz-30 lh-44 pos-r w-100 ta-c">

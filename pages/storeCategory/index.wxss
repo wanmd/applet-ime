@@ -44,10 +44,12 @@ page {
   margin-bottom: 24rpx;
 }
 .edit {
+  width: 400rpx;
+  background-color: transparent;
   text-align: center;
   font-size: 30rpx;
   line-height: 44rpx;
   color: #333333;
   padding: 20rpx;
-  margin-bottom: 44rpx;
+  margin-bottom: 100rpx;
 }
