@@ -26,6 +26,9 @@ wx.Page({
 
         quoteList: [],
         quoteListKeyword: '',
+        query: {
+            keyword: '',
+        },
         query2: {
             keyword: '',
             type: 1
@@ -89,6 +92,11 @@ wx.Page({
         console.log(e.currentTarget.dataset)
         let url = e.currentTarget.dataset.url
         wx.navigateTo({ url: `/pages/webview/webview?url=${url}` });
+    },
+    handleChangeKeyword(e) {
+        this.setData({
+            'query.keyword': e.detail.value
+        })
     },
     load(e, last = 0) {
         let rows = e.detail.list
@@ -206,6 +214,13 @@ wx.Page({
         let update = {}
         update[target] = e.detail.value
         this.setData(update)
+    },
+    search() {
+        let query = this.data.query;
+        this.setData({ query: query, quoteList: [] })
+        this.paginationInit();
+        // let pagination2 = this.selectComponent('#pagination2')
+        // pagination2.initLoad()
     },
     search2() {
         let query2 = this.data.query2;
@@ -840,9 +855,14 @@ wx.Page({
 
     handleScan() {
         // 允许从相机和相册扫码
+        const _this = this;
         wx.scanCode({
             success (res) {
+                toast(res.result)
             console.log(res)
+                _this.setData({
+                    'query.keyword': res.result
+                })
             }
         })
     },

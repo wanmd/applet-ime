@@ -21,17 +21,17 @@
 		</view>
 		<view class="d-f ai-c h-98 bgc-F7F7F7 pl-42 pr-26">
 			<view class="d-f ai-c pos-r bgc-fff bdrs-20 w-490 h-54 pl-76">
-				<input type="text" placeholder="搜索您需要的商家或产品" />
+				<input type="text" value="{{query.keyword}}" bindinput="handleChangeKeyword" placeholder="搜索您需要的商家或产品" />
 				<image class="pos-a t-16 l-24 w-26 h-26" src="../../assets/images/index/search.png"/>
 			</view>
-			<text class="fz-30 c-333 ml-34 mr-54">搜索</text>
+			<text class="fz-30 c-333 ml-34 mr-54" bindtap="search">搜索</text>
 			<!-- 扫码 -->
 			<image bindtap="handleScan" class="w-42 h-42" src="../../assets/images/index/saoyisao.png"/>
 		</view>
 	</view>
 	<view class='container' style="margin-top: {{navTop + nav_button_height+49}}px;margin-bottom:150rpx">
 	  	<block wx:if='{{loadFlag1}}'>
-			<pagination id='pagination1' url='chat/dynamics' pkName='chat_id' bind:load='load' class="{{currentType == 1 ? 'show' : 'hide'}}">
+			<pagination id='pagination1' url='chat/dynamics' pkName='chat_id' query='{{query}}' bind:load='load' class="{{currentType == 1 ? 'show' : 'hide'}}">
 				<!-- <view class="newuser" wx:if="{{indexBannerList.length>0}}">
   					<swiper indicator-dots="false" style="height: 228rpx;" autoplay="true" interval="3000" duration="500" circular="true">
 						<block wx:for="{{indexBannerList}}" wx:key="*this">

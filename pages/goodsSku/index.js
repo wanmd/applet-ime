@@ -17,14 +17,18 @@ Page({
     goods_skuList: [],
     skuTitle: '',
     // 单个规格数组
-    skuList: []
+    skuList: [],
+    hasChanged: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log(!!options.isEdit);
+    // this.setData({
+    //   isEdit: !!options.isEdit
+    // })
   },
 
   /**
@@ -40,9 +44,12 @@ Page({
   onShow: function () {
     // console.log(app.globalData.skuData);
     
-    // this.setData({
-    //   goods_skuList: app.globalData.skuData ? app.globalData.skuData.goods_skuList : this.data.goods_skuList
-    // })
+    this.setData({
+      // 规格数据
+      goods_skuList: app.globalData.skuData ? app.globalData.skuData.goods_skuList : this.data.goods_skuList,
+      // sku表格数据
+      excel_skuList: app.globalData.skuData ? app.globalData.skuData.excel_skuList : this.data.excel_skuList,
+    })
   },
 
   handleShowSkuModal() {
@@ -82,7 +89,8 @@ Page({
         index: length + 1,
         id: null,
         name: ''
-      }]]
+      }]],
+      hasChanged: true,
     })
   },
 
@@ -93,7 +101,7 @@ Page({
       skuList: []
     })
   },
-
+  // 保存规格
   handleSave() {
     const { skuTitle, skuList, isEdit } = this.data;
     if (!skuTitle) {
@@ -105,6 +113,7 @@ Page({
       return
     }
     if(!isEdit) { // 新增
+      debugger
       this.setData({
         show: false,
         skuTitle: '',
@@ -113,9 +122,11 @@ Page({
           id: skuTitle,
           title: skuTitle,
           skuList
-        }]]
+        }]],
+        hasChanged: true,
       })
     } else { // 编辑  需要替换
+      debugger
       const { goods_skuList, editIndex, skuTitle, skuList } = this.data;
       goods_skuList[editIndex] = {
         id: skuTitle,
@@ -128,7 +139,8 @@ Page({
         skuTitle: '',
         skuList: [],
         goods_skuList,
-        editIndex: null
+        editIndex: null,
+        hasChanged: true,
       })
     }
     
@@ -141,7 +153,8 @@ Page({
       isEdit: true,
       editIndex: index,
       skuTitle: item.title,
-      skuList: item.skuList
+      skuList: item.skuList,
+      hasChanged: true,
     })
   },
   // 删除商品规格
@@ -155,7 +168,8 @@ Page({
         success: function(res) {
             if (res.confirm) {
               _this.setData({
-                goods_skuList: goods_skuList.filter(item => item.title !== title)
+                goods_skuList: goods_skuList.filter(item => item.title !== title),
+                hasChanged: true,
               })
             }
         }
@@ -199,11 +213,11 @@ Page({
         flag = false;
         break
       }
-      if (!url) {
-        toast("请上传图片");
-        flag = false;
-        break
-      }
+      // if (!url) {
+      //   toast("请上传图片");
+      //   flag = false;
+      //   break
+      // }
       if (!((salePrice-groupPrice >= 0) && (groupPrice-memberPrice >= 0) && (memberPrice - agentPrice >= 0) && (agentPrice - costPrice >= 0))) {
         toast("零售价＞拼单价＞公开报价（会员价）＞代理价>成本价");
         flag = false;

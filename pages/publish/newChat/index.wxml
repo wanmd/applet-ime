@@ -119,7 +119,8 @@
               </view>
             </cell>
             <priceExcel mode="read" wx:if="{{goods_skuList}}" skuList="{{goods_skuList}}" />
-            <view class="addSku" bindtap="handleAddSku">+添加商品规格</view>
+            <view class="addSku" bindtap="handleAddSku" wx:if="{{!goods_skuList.length}}">+添加商品规格</view>
+            <view class="addSku" bindtap="handleEditSku" wx:if="{{goods_skuList.length}}">+编辑商品规格</view>
             <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
               <view 
                 slot='content' 

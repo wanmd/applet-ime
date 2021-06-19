@@ -502,6 +502,9 @@
 .pl-40 {
   padding-left: 40rpx;
 }
+.pl-60 {
+  padding-left: 60rpx;
+}
 .pl-76 {
   padding-left: 76rpx;
 }
@@ -952,6 +955,9 @@
 .h-98 {
   height: 98rpx;
 }
+.h-100rpx {
+  height: 100rpx;
+}
 .h-107 {
   height: 107rpx;
 }
@@ -1210,6 +1216,9 @@
 }
 .c-828282 {
   color: #828282;
+}
+.c-9A9A9A {
+  color: #9A9A9A;
 }
 /* Background */
 .bgc-f5 {

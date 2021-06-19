@@ -13,10 +13,12 @@
     </view>
   </view>
   <view class="addSku" bindtap="handleShowSkuModal">+添加商品规格</view>
-  <!-- <priceExcel wx:if="{{goods_skuList.length}}" skuList="{{goods_skuList}}"></priceExcel> -->
   <!-- <priceExcel wx:if="{{goods_skuList.length}}" skuList="{{goods_skuList}}" id="priceExcel"></priceExcel> -->
-  <priceExcel wx:if="{{goods_skuList.length}}" skuList="{{goods_skuList}}" id="priceExcel"></priceExcel>
-  <view class="bottomwrap" wx:if="{{goods_skuList.length}}">
+  <!-- <view class="bottomwrap" wx:if="{{goods_skuList.length}}">
+    <view class="save" bindtap="handleSaveExcel">保存</view>
+  </view> -->
+  <priceExcel skuList="{{goods_skuList}}" excel_skuList="{{excel_skuList}}" id="priceExcel" hasChanged="{{hasChanged}}"></priceExcel>
+  <view class="bottomwrap">
     <view class="save" bindtap="handleSaveExcel">保存</view>
   </view>
 </view>

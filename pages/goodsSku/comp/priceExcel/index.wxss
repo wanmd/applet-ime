@@ -22,3 +22,38 @@
   margin-right: 14rpx;
   padding-left: 4rpx;
 }
+
+.modalWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  
+}
+.modal {
+  margin-top: 30%;
+  margin-left: 50rpx;
+  width: 652rpx;
+  /* height: 752rpx; */
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding-top: 38rpx;
+}
+.cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 60rpx;
+  margin-right: 60rpx;
+  border-bottom: 1rpx solid #DFDFDF;
+  padding: 22rpx 0;
+}
+.bd-1 {
+  border: 1rpx solid #E8E8E8;
+}
+.bbn {
+  border-bottom: none;
+}

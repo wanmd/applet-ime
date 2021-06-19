@@ -161,12 +161,12 @@ wx.Page({
 
      // 允许从相机和相册扫码
      handleScan() {
+        const _this = this;
         // 允许从相机和相册扫码
         wx.scanCode({
             success (res) {
-                console.log(res)
-                this.setData({
-                    no: res.data
+                _this.setData({
+                    no: res.result
                 })
             }
         })
@@ -228,6 +228,14 @@ wx.Page({
         wx.navigateTo({
           url: '/pages/goodsSku/index',
         })
+    },
+
+    handleEditSku() {
+        wx.navigateTo({
+            url: '/pages/goodsSku/index?isEdit=' + 1,
+        })
+        //数据挂在app
+        app.globalData.skuData.isEdit = true 
     },
 
     submit() {

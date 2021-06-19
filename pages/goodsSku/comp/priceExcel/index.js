@@ -20,22 +20,38 @@
 // ]
 let app = getApp()
 
-console.log(app.globalData.goods_skuList);
+console.log(app.globalData);
 
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
+    show_excel: {
+      type: Boolean,
+      value: false,
+    },
     skuList:{
+      type: Array,
+      value: []
+    },
+    // isEdit: {
+    //   type: Boolean,
+    //   value: false
+    // },
+    hasChanged: {
+      type: Boolean,
+      value: false
+    },
+    excel_skuList: {
       type: Array,
       value: []
     }
   },
 
   observers: {
-    skuList(val, old) {
-      if (val.length && val !== old) {
+    skuList(val) {
+      if (val.length && val) {
         this.initData()
       }
     }
@@ -75,48 +91,19 @@ Component({
         name: '图片'
       },
     ],
-    read_headerLsit: [
-      {
-        id: 0,
-        name: '缩略图'
-      },
-      {
-        id: 1,
-        name: '规格名'
-      },
-      {
-        id: 2,
-        name: '零售价'
-      },
-      {
-        id: 3,
-        name: '拼单价'
-      },
-      {
-        id: 4,
-        name: '会员价'
-      },
-      {
-        id: 5,
-        name: '代理价'
-      },
-      {
-        id: 6,
-        name: '成本价'
-      },
-      
-    ],
-    data: [],
+    excel_skuList: [],
     rowItem: {
-      agentPrice: "50",
+      agentPrice: "60",
       bargainPrice: "",
-      costPrice: "40",
-      groupPrice: "80",
-      memberPrice: "60",
+      costPrice: "50",
+      groupPrice: "90",
+      memberPrice: "80",
       salePrice: "100",
       stock: "100",
-      "url": "",
+      url: "",
     },
+    // 批量设置弹框
+    showBatch: false
   },
 
   // lifetimes : {
@@ -136,54 +123,80 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    initData() {
-      const skuList = this.data.skuList.map(item => {
-        item.skuList.forEach(vitem => vitem.title = item.title);
-        return item
-      });
-      console.log(skuList);
-      
-      const list = skuList.map(item => item.skuList);
-      console.log(list);
-      let allArr = this.cartesianProductOf(...list);
-      console.log(allArr);
-      const newArr = allArr.map(item => {
-        var obj = {}
-        obj = {
-          index:'',
-          name: ''
+    async initData() {
+      // console.log(app.globalData.skuData.isEdit);
+      const isEdit = (app.globalData.skuData && app.globalData.skuData.isEdit) || false;
+      if (isEdit) { // 编辑
+        if (!this.data.hasChanged) {
+          debugger
+          this.setData({
+            excel_skuList: this.data.excel_skuList
+          })
+        } else {
+          debugger
+          this.propsData();
+          //this.mockData();
         }
-        item.forEach((it, index) => {
-          obj.index = it.index
-          obj.name = index === 0 ? it.name : `${obj.name}-${it.name}`;
-          obj.title = index === 0 ? it.title : `${obj.title}-${it.title}`;
+        
+      } else {// 新增
+        debugger
+        this.propsData();
+        //this.mockData();
+      }
+      
+    },
+    // 组件数据  真实
+    async propsData() {
+      setTimeout(() => {
+        const skuList = this.data.skuList.map(item => {
+          item.skuList.forEach(vitem => vitem.title = item.title);
+          return item
+        });
+        debugger
+        
+        const list = skuList.map(item => item.skuList);
+        let allArr = this.cartesianProductOf(...list);
+        const newArr = allArr.map(item => {
+          var obj = {}
           obj = {
-            ...obj,
-            ...this.data.rowItem
+            index:'',
+            name: ''
           }
+          item.forEach((it, index) => {
+            obj.index = it.index
+            obj.name = index === 0 ? it.name : `${obj.name}-${it.name}`;
+            obj.title = index === 0 ? it.title : `${obj.title}-${it.title}`;
+            obj = {
+              ...obj,
+              ...this.data.rowItem
+            }
+          })
+          return obj
         })
-        return obj
+        console.log(newArr);
+        this.setData({
+          excel_skuList: newArr
+        })
+      },0)
+      
+    },
+    // 假数据  调试部分功能时使用
+    mockData() {
+      const tempArr = [
+        {index: 1, name: "黄色-64g"},
+        // {index: 1, name: "黄色-128g"},
+        // {index: 1, name: "蓝色-64g"},
+        // {index: 1, name: "蓝色-128g"},
+      ]
+      const newArr = tempArr.map(item =>{
+        item = {
+          ...item,
+          ...this.data.rowItem
+        }
+        return item
       })
       console.log(newArr);
-
-      // const tempArr = [
-      //   {index: 1, name: "黄色-64g"},
-      //   {index: 1, name: "黄色-128g"},
-      //   {index: 1, name: "蓝色-64g"},
-      //   {index: 1, name: "蓝色-128g"},
-      // ]
-      // const newArr = tempArr.map(item =>{
-      //   item = {
-      //     ...item,
-      //     ...this.data.rowItem
-      //   }
-      //   return item
-      // })
-      // console.log(newArr);
-
-      this.setData({
-        data: newArr
-      })
+      return newArr
     },
     // 动态计算sku
     cartesianProductOf() {
@@ -197,28 +210,51 @@ Component({
           return ret;
       }, [[]]);
     },
+    // 批量设置
+    batchPrice() {
+      this.setData({
+        showBatch: true
+      })
+    },
+    handleCancel() {
+      this.setData({
+        showBatch: false
+      })
+    },
+    formSubmit(e) {
+      this.setData({
+        data: this.data.excel_skuList.map(item => {
+          item = {
+            ...item,
+            ...e.detail.value
+          }
+          return item
+        }),
+        showBatch: false
+      })
+    },
     handleInput(e) {
       const { index, name } = e.currentTarget.dataset;
       const { value } = e.detail;
       let update = {};
       switch(name) {
         case 'salePrice':
-          update[`data[${index}].salePrice`] = value;
+          update[`excel_skuList[${index}].salePrice`] = value;
           break
         case 'groupPrice':
-          update[`data[${index}].groupPrice`] = value;
+          update[`excel_skuList[${index}].groupPrice`] = value;
           break
         case 'memberPrice':
-          update[`data[${index}].memberPrice`] = value;
+          update[`excel_skuList[${index}].memberPrice`] = value;
           break
         case 'agentPrice':
-          update[`data[${index}].agentPrice`] = value;
+          update[`excel_skuList[${index}].agentPrice`] = value;
           break
         case 'costPrice':
-          update[`data[${index}].costPrice`] = value;
+          update[`excel_skuList[${index}].costPrice`] = value;
           break
         case 'stock':
-          update[`data[${index}].stock`] = value;
+          update[`excel_skuList[${index}].stock`] = value;
           break
       }
       this.setData(update);
@@ -230,12 +266,12 @@ Component({
       const { value } = e.detail;
 
       let update = {};
-      update[`data[${index}].url`] = value;
+      update[`excel_skuList[${index}].url`] = value;
       console.log(update);
       this.setData(update);
     },
     getData() {
-      return this.data.data
+      return this.data.excel_skuList
     }
   }
 })

@@ -2,13 +2,16 @@
 <view>
   <view class="desc d-f jc-c c-9B9B9B fz-20 mb-68">零售价＞拼单价＞公开报价（会员价）＞代理价>成本价</view>
   <view class="excel">
-    <view class="excel-header ta-c c-333 fz-30 mb-20">规格-价格设定</view>
+    <view class="excel-header d-f jc-fe ta-c c-333 fz-30 mb-20">
+      <view class="mr-120">规格-价格设定</view>
+      <view bindtap="batchPrice">批量设置</view>
+    </view>
     <view class="wrap">
       <view class="theader whs-nw">
         <view class="d-ib ta-l w-120 fz-20 c-707070 mr-14" wx:for="{{headerLsit}}" wx:key="id">{{item.name}}</view>
       </view>
       <view class="tcontent whs-nw">
-        <view class="row" wx:for="{{data}}" wx:key="index">
+        <view class="row" wx:for="{{excel_skuList}}" wx:key="index">
           <!-- sku名称-->
           <view class="row-header ta-c c-000 fz-20 mtb-10">{{item.name}}</view>
           <!-- sku每行 -->
@@ -19,10 +22,59 @@
             <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="agentPrice" value="{{item.agentPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
             <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="costPrice" value="{{item.costPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
             <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="stock" value="{{item.stock}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
-            <upload data-index="{{index}}" bind:success="hanldeSuccess" width="120rpx" height="62rpx" class="row-input d-ib w-120" />
+            <upload initFile='{{item.url}}' data-index="{{index}}" bind:success="hanldeSuccess" width="120rpx" height="62rpx" class="row-input d-ib w-120" />
           </view>
         </view>
       </view>
     </view>
+  </view>
+</view>
+
+<view class="modalWrap" wx:if="{{showBatch}}">
+  <view class="modal">
+    <view class="modal-header d-f jc-c ai-c fz-36 c-3A3A3A mb-72">批量设置</view>
+    <form class="modal-content" catchsubmit="formSubmit">
+      <view class="cell">
+        <view class="w-200">零售价：</view>
+        <view class="d-f fx-1 ai-c">
+          <input slot='content' type='text' placeholder='输入专柜/零售价' placeholder-class='color-ccc' name="salePrice" class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="cell">
+        <view class="w-200">拼单价：</view>
+        <view class="d-f fx-1 ai-c">
+          <input slot='content' type='number' placeholder='输入拼单价' placeholder-class='color-ccc' name="groupPrice" class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="cell">
+        <view class="w-200">公开报价会员价：</view>
+        <view class="d-f fx-1 ai-c">
+          <input slot='content' type='number' placeholder='公开报价/一件代发价/会员价' placeholder-class='color-ccc' name='memberPrice' class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="cell">
+        <view class="w-200">代理拿货价：</view>
+        <view class="d-f fx-1 ai-c">
+          <input slot='content' type='number' placeholder='输入代理/批发价' placeholder-class='color-ccc' name='agentPrice' class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="cell">
+        <view class="w-200">成本价：</view>
+        <view class="d-f fx-1 ai-c">
+          <input slot='content' type='number' placeholder='输入成本价' placeholder-class='color-ccc' name='costPrice' class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="cell bbn">
+        <view class="w-200">库存数：</view>
+        <view class="d-f fx-1 ai-c">
+          <input slot='content' type='number' placeholder='输入库存数' placeholder-class='color-ccc' name='stock' class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="modal-footer d-f mt-20">
+        <button class="h-100rpx fx-1 d-f ai-c jc-c fz-30 c-9A9A9A bd-1" bindtap="handleCancel">取消</button>
+        <button class="h-100rpx fx-1 d-f ai-c jc-c fz-30 c-000 bd-1" formType="submit">保存</button>
+      </view>
+    </form>
+    
   </view>
 </view>
