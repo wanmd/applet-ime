@@ -1,0 +1,194 @@
+<view class="wx_page">
+  <view class="wx_header">
+    <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
+    <view style="width: 100%;text-align:center">{{barTitlle}}</view>
+  </view>
+  <view class="wx_center">
+    <view class='p-l-r'>
+      
+      <form>
+        <view wx:if='{{chatType == 2}}' class="p-t-50 border-b">
+          <input type='text' value='{{name}}' data-target='name' bindinput='input' maxlength="30" class='goods_name' placeholder-class="fz-36 c-CCCCCC" placeholder='取个厉害的标题，最多30字'></input>
+        </view>
+        <view class=' {{chatType == 2 ? "m-t-30" : ""}}' style='margin-top:20rpx;padding-bottom:40rpx;'>
+          <textarea value='{{content}}' data-target='content' bindinput='input' style='height:320rpx;padding:0rpx' class='w-100' maxlength='18000' placeholder="{{chatType == 2?'添加详情让大家更想买TA...':'说点什么让你的灵魂更有趣...'}}"></textarea>
+          <view class='absolute____' style='right:0;bottom:0;'>{{content.length}}/800</view>
+        </view>
+        <view class=" mb-32 pb-10 borderb-1-solid-EFEFE">
+          <view class="c-707070 mb-10">添加产品图片,最多18张</view>
+          <view class='images clear m-t-30'>
+            <upload class='item' wx:for='{{images}}' wx:key='id' data-index='{{index}}' initFile='{{item.file}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
+            <!-- <upload wx:if='{{images.length < 9}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-images.length}}'></upload> -->
+            <upload wx:if='{{images.length < 18}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{18-images.length}}'></upload>
+          </view>
+        </view>
+        <view class=" mb-32 pb-10 borderb-1-solid-EFEFE">
+          <view class="c-707070 mb-10">添加产品视频,最多1个，且15秒以内</view>
+          <view class='images clear m-t-30'>
+            <uploadVideo class='item' initFile='{{item.file}}' bind:success='uploadVideo_' bind:clear='clearVideo'></uploadVideo>
+            <!-- <uploadVideo wx:if='{{videoUrl}}' class='item' bind:success='uploadVideo' bind:clear='clearVideo' only></uploadVideo> -->
+          </view>
+        </view>
+        <view class='m-t-30'>
+          <!-- 发布产品 (转发的？)-->
+          <block wx:if='{{chatType == 2&&share!=0}}'>
+            <view class="d-f jc-sb ai-c">
+              <view class="w-300">产品条码（选填）111</view>
+              <view class="d-f ai-c">
+                <input slot='content' type='text' placeholder='扫码或手动录入' placeholder-class='color-ccc' value='{{no}}' data-target='no' bindinput='input' class='input'></input>
+                <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao.png"/> 
+              </view>
+            </view>
+            <cell title='产品品类' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/pages/productCategory/index'>
+                <text wx:if="{{productCategoryId === null}}" class="color-ccc">请选择产品品类</text>
+                <text wx:else>{{productCategoryId.parent.name}}-{{productCategoryId.name}}</text>
+              </view>
+            </cell>
+            <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/pages/storeCategory/index'>
+                <text wx:if="{{!categoryIds}}" class="color-ccc">请选择店铺分类</text>
+                <text wx:else>
+                  <text wx:for="{{categoryIds}}">{{item.parentName}}-{{item.name}};</text>
+                </text>
+              </view>
+            </cell>
+            <cell title='产品标签' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/pages/goodsLabel/index'>
+                <text wx:if="{{!labels}}" class="color-ccc">请选择产品标签</text>
+                <text wx:else>{{labels}}</text>
+              </view>
+            </cell>
+            <cell title='货号/私密备注' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/packages/pack-A/pages/goodsRemark/index'>
+                <text wx:if="{{!remark}}" class="color-ccc">商家私密备注信息 仅自己可见</text>
+                <text wx:else>{{remark}}</text>
+              </view>
+            </cell>
+            <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
+              <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
+                value='{{sourceChatId}}' data-target='sourceChatId' bindinput='input' class='input w300'>
+              </input>
+            </cell>
+            <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/packages/pack-A/pages/user/setFreight/index'>
+                <text wx:if="{{!template}}" class="color-ccc">请设置</text>
+                <text wx:else>{{template.type == 1 ? '包邮' : '不包邮'}}</text>
+              </view>
+            </cell>
+            <cell title='服务设置' border='{{false}}' arrow='{{false}}'>
+              <radio-group bindchange="radioChange" name="type" slot='content'>
+                <label class="radio mr-20" wx:for="{{option1}}" wx:key="{{item.label}}">
+                  <radio color="#FFE200" value="{{item.value}}" wx:key="{{item.value}}" checked="{{ fee.type === item.value}}">{{item.label}}</radio>
+                </label>
+              </radio-group>
+            </cell>
+          </block>
+          <!-- 发布产品或编辑  -->
+          <block wx:if='{{chatType != 1&&share==0}}'>
+            <view class="d-f jc-sb ai-c">
+              <view class="w-300">产品条码（选填）</view>
+              <view class="d-f ai-c">
+                <input slot='content' type='text' placeholder='扫码或手动录入' placeholder-class='color-ccc' value='{{no}}' data-target='no' bindinput='input' class='input'></input>
+                <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao.png"/> 
+              </view>
+            </view>
+            <cell title='产品品类' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/pages/productCategory/index'>
+                <text wx:if="{{productCategoryId === null}}" class="color-ccc">请选择产品品类</text>
+                <text wx:else>{{productCategoryId.parent.name}}-{{productCategoryId.name}}</text>
+              </view>
+            </cell>
+            <priceExcel mode="read" wx:if="{{goods_skuList}}" skuList="{{goods_skuList}}" />
+            <view class="addSku" bindtap="handleAddSku">+添加商品规格</view>
+            <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/pages/storeCategory/index'>
+                <text wx:if="{{!categoryIds}}" class="color-ccc">请选择店铺分类</text>
+                <text wx:else>
+                  <text wx:for="{{categoryIds}}">{{item.parentName}}-{{item.name}};</text>
+                </text>
+              </view>
+            </cell>
+            <cell title='产品标签' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/pages/goodsLabel/index'>
+                <text wx:if="{{!labels}}" class="color-ccc">请选择产品标签</text>
+                <text wx:else>{{labels}}</text>
+              </view>
+            </cell>
+            <cell title='货号/私密备注' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/packages/pack-A/pages/goodsRemark/index'>
+                <text wx:if="{{!remark}}" class="color-ccc">商家私密备注信息 仅自己可见</text>
+                <text wx:else>{{remark}}</text>
+              </view>
+            </cell>
+            <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
+              <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
+                value='{{sourceChatId}}' data-target='sourceChatId' bindinput='input' class='input w300'>
+              </input>
+            </cell>
+            <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
+              <view 
+                slot='content' 
+                bindtap="handleNav"
+                data-url='/packages/pack-A/pages/user/setFreight/index'>
+                <text wx:if="{{!template}}" class="color-ccc">请设置</text>
+                <text wx:else>{{template.type == 1 ? '包邮' : '不包邮'}}</text>
+              </view>
+            </cell>
+            <cell title='服务设置' border='{{false}}' arrow='{{false}}'>
+              <radio-group bindchange="radioChange" name="type" slot='content'>
+                <label class="radio mr-20" wx:for="{{option1}}" wx:key="{{item.label}}">
+                  <radio color="#FFE200" value="{{item.label}}" wx:key="{{item.label}}" checked="{{ fee.type === item.value}}">{{item.label}}</radio>
+                </label>
+              </radio-group>
+            </cell>
+          </block>
+          
+          <view class='relative'>
+             <cell border='{{false}}' title='所在位置' content='{{location}}' clear bindtap='selectPostion' bind:clear='clearLocation'>
+              </cell>
+          </view>
+          <!--<cell wx:if='{{chatType == 1}}' border='{{false}}' arrow='{{false}}' title='开启打赏'>
+            <view slot='content' class='relative'>
+              <switch color='#FFE200' checked='{{reward}}' data-target='reward' bindchange='input'></switch>
+            </view>
+          </cell>-->
+        </view>
+      </form>
+    </view>
+    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+      <btn bindtap='submit' round wx-if='{{share=="dp"}}'>发布并同步到我的店铺</btn>
+      <btn bindtap='submit' round wx-if='{{share=="xc"}}'>发布并同步到我的相册</btn>
+      <btn bindtap='submit' round wx-if='{{share==0&&chatId!=0}}'>保存</btn>
+      <btn bindtap='submit' round wx-if='{{share==0&&chatId==0}}'>发布</btn>
+    </view>
+  </view>
+</view>
+

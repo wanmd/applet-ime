@@ -110,6 +110,14 @@ Page({
       }
     }, data)
   },
+  // 编辑
+  handleEdit(e) {
+    let { id, chatid } = e.currentTarget.dataset;
+    
+    wx.navigateTo({
+      url: '/pages/publish/newChat/edit?id=' + id + '&chatId=' + chatid,
+    })
+  },
   // 删除
   handleDelete(e) {
     const _this = this;

@@ -43,7 +43,7 @@ Component({
             {
                 image: '../../assets/images/user/chanpin@2x.png',
                 text: '产品管理',
-                url: '',
+                url: '/pages/goodsManage/index',
             },
             {
                 image: '../../assets/images/user/dingdan@2x.png',
@@ -73,7 +73,7 @@ Component({
             {
                 image: '../../assets/images/user/dianpu@2x.png',
                 text: '店铺数据',
-                url: '',
+                url: '/packages/pack-A/pages/order/quantity/index',
             },
             {
                 image: '../../assets/images/user/gongyinglian@2x.png',

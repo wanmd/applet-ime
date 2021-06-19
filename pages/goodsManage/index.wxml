@@ -25,16 +25,23 @@
                 </view>
                 <view class="d-f fxd-c">
                   <view class="ellipsis fz-28 c-333 lh-38 mb-14">{{item.name}}</view>
-                  <view class="fz-24 c-333 lh-32 mb-18"><text class="mr-126">{{item.no}}</text><text>库存   {{item.stock}}</text></view>
-                  <view>
-                    <text class="fz-24 c-333 mr-12">￥</text>
-                    <text class="fz-32 c-333 mr-96">{{item.price}}</text>
-                    <text class="btn" data-state="{{item.state}}" data-id="{{item.id}}" catchtap="handleState">{{item.state === 1 ? '下架' : '上架'}}</text>
-                    <text class="btn" catchtap="handleEdit" data-id="{{item.id}}">编辑</text>
-                    <text class="delete_btn" data-id="{{item.id}}" catchtap="handleDelete">删除</text>
+                  <view class="d-f fz-24 c-333 lh-32 mb-18">
+                    <view class="w-280">{{item.no}}</view>
+                    <view class="fx-1 ta-l">库存   {{item.stock}}</view>
+                  </view>
+                  <view class="d-f">
+                    <view class="w-200">
+                      <text class="fz-24 c-333 mr-12">￥</text>  
+                      <text class="fz-32 c-333 mr-96">{{item.price}}</text>
+                    </view>
+                    <view class="fx-1">
+                      <text class="btn" data-state="{{item.state}}" data-id="{{item.id}}" catchtap="handleState">{{item.state === 1 ? '下架' : '上架'}}</text>
+                      <text class="btn" catchtap="handleEdit" data-id="{{item.id}}" data-chatid="{{item.chat_id}}">编辑</text>
+                      <text class="delete_btn" data-id="{{item.id}}" catchtap="handleDelete">删除</text>
+                    </view>
+                   
                   </view>
                 </view>
-                  
               </view>
           </navigator>
       </view>
