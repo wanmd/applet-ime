@@ -340,4 +340,4 @@
 </view>
 
 <!-- 购物车弹框 -->
-<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" />
+<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" mode="b0" />

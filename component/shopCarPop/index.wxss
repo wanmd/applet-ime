@@ -25,6 +25,9 @@
   background: #fff;
   z-index: 9999;
 }
+.b-0 {
+  bottom: 0 !important;
+}
 
 .select-share-type .modal .close {
   position: absolute;
@@ -41,6 +44,9 @@
 }
 
 .select-share-type .modal .type{
+  /* position: fixed;
+  height: 88rpx;
+  bottom: 0; */
   display: flex;
   width: 100%;
   justify-content: center;

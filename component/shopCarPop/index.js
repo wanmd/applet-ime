@@ -8,6 +8,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    // 要不要触底
+    mode: {
+      type: String,
+      value: ''
+    }, 
     show: {
       type: Boolean,
       value: true

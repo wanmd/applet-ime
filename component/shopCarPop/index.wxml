@@ -1,6 +1,6 @@
 <!-- 购物车弹框 -->
 <view class="select-share-type sliup_1" data-current="sliup_1" bindtap='toggleSelectShareType' hidden="{{!show}}">
-  <view class="modal" data-current="modal" catchtap="toggleSelectShareType">
+  <view class="modal {{mode === 'b0' ? 'b-0' : ''}}" data-current="modal" catchtap="toggleSelectShareType">
     <view class='header mb-40'>
       <view class="d-f pt-26 plr-26">
         <view class="w-204 h-204 mr-20">
