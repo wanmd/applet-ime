@@ -1,1 +1,37 @@
 /* pages/merchant/storeBackground/index.wxss */
+@import '../../../utils/wxss/index.wxss';
+
+page{
+  background:#fff !important;
+  /* padding-bottom: 200rpx; */
+  height: 100vh;
+}
+
+
+.upload {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
+.item{
+  background:#fff;
+  margin-top:20rpx;
+  padding:0rpx 20rpx;
+}
+.item1{
+  /* background:#fff;
+  margin-top:20rpx; */
+  height: 296rpx;
+}
+.upload .item1{
+  /* float:left;
+  margin:18rpx 0rpx 0rpx 18rpx; */
+  width: 100%;
+  height: 100%;
+}
+.upload .item1:nth-of-type(3n + 1){
+  /* margin-left:0rpx; */
+}

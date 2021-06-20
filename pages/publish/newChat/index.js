@@ -415,9 +415,11 @@ wx.Page({
         request.post('product', res => {
             if (res.success) {
                 toast('发布成功')
-                app.newPublish = true
+                app.newPublish = true;
+                // 清除之前保存的规格数据
+                app.globalData.goods_skuList = null;
                 if (this.data.chatId > 0) {
-                    wx._navigateBack()
+                    wx._navigateBack();
                 } else {
                     // wx._switchTab('/pages/dynamics/index')
                     wx._switchTab('/pages/index/index')

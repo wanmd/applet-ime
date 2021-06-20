@@ -252,6 +252,9 @@
 .mr-66 {
   margin-right: 66rpx;
 }
+.mr-72 {
+  margin-right: 72rpx;
+}
 .mr-78 {
   margin-right: 78rpx;
 }
@@ -284,6 +287,9 @@
 }
 .ml-40 {
   margin-left: 40rpx;
+}
+.ml-72 {
+  margin-left: 72rpx;
 }
 .ml-138 {
   margin-left: 138rpx;
@@ -830,6 +836,9 @@
 .w-580 {
   width: 580rpx;
 }
+.w-598 {
+  width: 598rpx;
+}
 .w-600 {
   width: 600rpx;
 }
@@ -1024,6 +1033,9 @@
 }
 .h-290 {
   height: 290rpx;
+}
+.h-296 {
+  height: 296rpx;
 }
 .h-300 {
   height: 300rpx;

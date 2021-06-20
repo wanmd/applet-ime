@@ -743,6 +743,13 @@
           "id": -1,
           "name": "发布报价",
           "pathName": "pages/publish/offer/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商家报价单设置",
+          "pathName": "pages/merchant/storeBackground/index",
           "scene": null
         }
       ]

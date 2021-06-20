@@ -1,6 +1,7 @@
 /* packages/pack-A/pages/goodsRemark/index.wxss */
 page {
   background-color: #fff !important;
+  padding-bottom: 200rpx;
 }
 .inputWrap {
   width: 576rpx;
@@ -45,7 +46,7 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 9;
+  z-index: 999;
   background-color: #fff;
 }
 .save {

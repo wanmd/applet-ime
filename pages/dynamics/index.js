@@ -201,6 +201,12 @@ Component({
             var val = e.currentTarget.dataset.copy_name;
             copyText(val)
         },
+        toProduct(e) {
+            var chat_id = e.currentTarget.dataset.chat_id;
+            wx.navigateTo({
+              url: '/pages/goods/index?chatId=' + chat_id,
+            })
+        },
         toggleType(e) {
             let currentType = e.currentTarget.dataset.type;
             if (currentType == this.data.currentType) return;

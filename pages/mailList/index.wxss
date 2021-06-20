@@ -54,10 +54,15 @@ page{
   vertical-align: middle;
 }
 .user_vip{
-  width:72rpx;
+  /* width:72rpx;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10rpx;
+  margin-left: 10rpx; */
+  position: absolute;
+  width: 33rpx;
+  height: 33rpx;
+  bottom: 0;
+  left: -30rpx;
 }
 .title{
   position: relative;

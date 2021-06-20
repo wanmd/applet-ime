@@ -128,18 +128,15 @@ Component({
       const isEdit = (app.globalData.skuData && app.globalData.skuData.isEdit) || false;
       if (isEdit) { // 编辑
         if (!this.data.hasChanged) {
-          debugger
           this.setData({
             excel_skuList: this.data.excel_skuList
           })
         } else {
-          debugger
           this.propsData();
           //this.mockData();
         }
         
       } else {// 新增
-        debugger
         this.propsData();
         //this.mockData();
       }
@@ -152,7 +149,6 @@ Component({
           item.skuList.forEach(vitem => vitem.title = item.title);
           return item
         });
-        debugger
         
         const list = skuList.map(item => item.skuList);
         let allArr = this.cartesianProductOf(...list);

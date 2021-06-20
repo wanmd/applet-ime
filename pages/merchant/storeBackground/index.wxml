@@ -1,2 +1,31 @@
 <!--pages/merchant/storeBackground/index.wxml-->
-<text>pages/merchant/storeBackground/index.wxml</text>
+<!-- <view class="mt-72 ml-72 w-598 h-240 bgc-F9F9F9 pt-30 pl-30 mb-60">
+  <textarea class="w-100 h-100" placeholder="请输入报价说明180字" />
+</view>
+<view class="mt-72 ml-72 w-598 h-240 bgc-F9F9F9 pt-30 pl-30">
+  <upload />
+</view> -->
+<view class='m-t-20'>
+    <view class='relative ml-72 mr-72 mb-60'>
+      <textarea 
+        placeholder='请输入报价说明80字' 
+        class=" w-100p h-240 bgc-F9F9F9 pt-30 pl-30"
+        placeholder-style='font-size:24rpx;color:#999' 
+        value='{{formData.store_quote_state}}'
+        data-target='store_store_quote_state' 
+        bindinput='input' 
+        maxlength="80" 
+      >
+      </textarea>
+      <view class='absolute' style='bottom:20rpx;right:20rpx'>{{formData.store_quote_state.length}}/80</view>
+    </view>
+    <view class="d-f fxd-c jc-c ai-c mt-72  ml-72 mr-72 h-300 bgc-F9F9F9 ta-c relative" bindtap="setBackground">
+        <view wx:if="{{!formData.store_background}}" style="color:#ccc;font-size:40px;margin-bottom:10px">+</view>
+        <view wx:if="{{!formData.store_background}}">添加店铺背景图/报价单广告图片600*300/1200*600</view>
+        <img wx:if="{{formData.store_background}}" class='w-600 h-300' mode="aspectFill" src="{{formData.store_background}}" />
+    </view>
+  </view>
+
+<view class='bottom-fixed'>
+  <btn bindtap='submit'>保存</btn>
+</view>

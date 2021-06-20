@@ -153,7 +153,7 @@
       </view>
     </view>
     <!-- 个人类型  新样式 -->
-    <view class="bgc-fff p-26" wx:if="{{userType !== 2}}">
+    <view class="bgc-fff p-26">
       <view class="card2">
         <view class="d-f fxd-c jc-c w-20p mb-28" 
           wx:for="{{personManageList}}" 

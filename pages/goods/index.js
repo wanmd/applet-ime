@@ -264,6 +264,8 @@ wx.Page({
       req.setConfig('responseType', 'arraybuffer')
       req.get('qr/chat', res => {
         let qrcode = wx.arrayBufferToBase64(res).replace(/[\r\n]/g, '')
+        debugger
+        console.log(qrcode);
         this.setData({ qrcode: qrcode })
         wx.nextTick(() => {
           this.draw()
@@ -512,6 +514,8 @@ wx.Page({
       ctx.draw(true)
 
       // 画二维码
+      console.log(qrcode);
+      
       let d = new Date()
       const fsm = wx.getFileSystemManager()
       const filePath = `${wx.env.USER_DATA_PATH}/` + d.getTime() + '.png'

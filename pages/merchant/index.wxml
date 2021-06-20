@@ -64,7 +64,7 @@
 	<cell height="136rpx" url='/pages/storeCategory/index' title='分类设置'></cell>
 </view>
 <view class='p-l-r  fs14'>
-	<cell height="136rpx" url='' title='商家店铺背景图/报价单设置'></cell>
+	<cell height="136rpx" url='./storeBackground/index' title='商家店铺背景图/报价单设置'></cell>
 </view>
 <view class='p-l-r  fs14'>
 	<cell height="136rpx" url='./paySet/index' title='商家自助收款设置'></cell>

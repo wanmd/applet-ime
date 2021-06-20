@@ -99,7 +99,18 @@
 									<view>{{item.update_time[1]}}</view>
 								  </view>
 								</view>
-					      		<view class="td td2" data-copy_name="{{item.content}}" catchtap="copyName"><view>{{item.content}}</view></view>
+					      		<view class="td td2" data-copy_name="{{item.content}}" catchtap="copyName">
+											<view>
+												<image 
+													class="w-20 h-20" 
+													wx:if="{{item.product_id}}" 
+													data-chat_id="{{item.chat_id}}" 
+													catchtap="toProduct" 
+													src="../../assets/images/avatar.png"
+												/>
+												{{item.content}}
+											</view>
+										</view>
 					      		<view class="td td3">
 					      			<view>
 						      			<avatar block store store-type="3" center size="24px" src='{{item.avatar}}' userId='{{item.store_id}}'>

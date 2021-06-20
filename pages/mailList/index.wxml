@@ -8,16 +8,19 @@
     <view class='item p-l-r' wx:for='{{userList}}' wx:key="index">
       <cell height='140rpx' url='/pages/homepage/index?userId={{selectedNav == 2 ? item.follow_user_id : item.user_id}}'>
         <view class="title" slot='title'>
-          <avatar size='80rpx' src='{{item.user.avatar}}'>
+          <avatar size='80rpx' src='{{item.user.avatar || "../../assets/images/avatar.png"}}'>
           <el-image wx:if="{{item.isVip}}" class="vip" src='vip/vip.png' style='width:30rpx;display: inline-block;'></el-image>
             <view class='user-info'>
               <view class='bold f-32'>
                 <text class="user_name">{{item.user.nickname}}</text>
+                <el-image  class="w-40 h-40" src='index/daili.png'></el-image>
+                <el-image  class="w-40 h-40" src='index/shangjia.png'></el-image>
                 <text class="user_type" wx:if="{{item.user.user_type==2}}">商家认证</text>
-                <el-image wx:if="{{item.isVip}}" class="user_vip" src='vip/vip_label@2x.png'></el-image>
+                <!-- <el-image wx:if="{{item.isVip}}" class="user_vip" src='vip/vip_label@2x.png'></el-image> -->
+                <el-image wx:if="{{item.isVip}}" class="user_vip" src='index/vip@2x.png'></el-image>
               </view>
               <view class='f-24 color-999'>
-                <text>动态：{{item.user.chat_number}}</text>
+                <text>新动态：{{item.user.chat_number}}</text>
                 <text class='m-l-30'>产品：{{item.user.goods_number}}</text>
               </view>
             </view>
