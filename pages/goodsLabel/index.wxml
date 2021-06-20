@@ -30,7 +30,7 @@
     
   </view>
 </view>
-<view class="bottom">
-  <view class="save" bindtap="handleSave">保存</view>
+<view class="bottom" bindtap="handleSave">
+  <view class="save">保存</view>
 </view>
 

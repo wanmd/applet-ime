@@ -60,7 +60,7 @@ Page({
   },
 
   formSubmit(e) {
-    const { type, defaultNumber = 0, defaultPrice = 0, createNumber = 0,createPrice = 0 } = e.detail.value;
+    const { type, defaultNumber = '', defaultPrice = '', createNumber = '',createPrice = '' } = e.detail.value;
     const data = {
       type,
       config: {

@@ -508,6 +508,12 @@ wx.Page({
                 if ('category_name' in data) {
                     update.category_name = data.category_name
                 }
+                data.productCategoryId = {
+                    parent: {
+                        name: ''
+                    },
+                    name: ''
+                }
 
                 if (data.picture) {
                     if (typeof data.picture == 'string') {
@@ -561,17 +567,17 @@ wx.Page({
                 //     update.category_name = data.category_name
                 // }
 
-                // if (data.image_urls) {
-                //     if (typeof data.image_urls == 'string') {
-                //         data.image_urls = JSON.parse(data.image_urls)
-                //     }
-                //     let images = []
-                //     data.image_urls.forEach((v, i) => {
-                //         images.push({ file: v, id: i })
-                //     })
+                if (data.image_urls) {
+                    if (typeof data.image_urls == 'string') {
+                        data.image_urls = data.image_urls.split(',')
+                    }
+                    let images = []
+                    data.image_urls.forEach((v, i) => {
+                        images.push({ file: v, id: i })
+                    })
 
-                //     update.images = images
-                // }
+                    update.images = images
+                }
                 this.setData(update)
             } else {
                 toast(res.msg)

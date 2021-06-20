@@ -21,7 +21,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
+    "useMultiFrameRuntime": false,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
@@ -730,6 +730,19 @@
           "name": "商品详情(新)",
           "pathName": "pages/goods/index",
           "query": "chatId=2343",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "编辑产品(新)",
+          "pathName": "pages/publish/newChat/edit",
+          "query": "id=40&chatId=2343",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布报价",
+          "pathName": "pages/publish/offer/index",
           "scene": null
         }
       ]

@@ -47,6 +47,8 @@ Page({
           wx.redirectTo({
             url: '/pages/marketing/agent/index',
           })
+        } else {
+          wx.navigateBack()
         }
       }else{
         toast(res.msg)

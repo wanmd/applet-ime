@@ -5,6 +5,20 @@
     <view wx:if="{{background}}" class="fx-1 d-f ai-c jc-c bgc-fff" bindtap="setBackground">更换背景图片</view>
     <view wx:if="{{!background}}" class="image d-f ai-c jc-c bgc-fff" bindtap="setBackground">上传背景图片</view>
   </view>
+  <!-- <view class='module'>
+    <view class='title'>背景设置</view>
+    <view class='body'>
+      <view class='scan-type clear'>
+        <el-image class='pull-left item' src='wxpay-example.png'></el-image>
+        <upload width='100%' height='100%' camera='{{false}}' initFile='{{formData.wx_pay}}' class='pull-right item' data-target='wx_pay' bind:success='input'>
+          <view class='upload-tips xy'>
+            <el-image class='icon' src='ic_add.png'></el-image>
+            <view>背景设置</view>
+          </view>
+        </upload>
+      </view>
+    </view>
+  </view> -->
 </view>
 <view class='bottom-fixed p-l-r' style='padding-bottom:40rpx;'>
   <btn bindtap='confirm'>确定</btn>

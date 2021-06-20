@@ -556,6 +556,10 @@
   padding-left: 68rpx;
   padding-right: 68rpx;
 }
+.plr-70 {
+  padding-left: 70rpx;
+  padding-right: 70rpx;
+}
 .plr-135 {
   padding-left: 135rpx;
   padding-right: 135rpx;

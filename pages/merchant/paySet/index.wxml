@@ -28,7 +28,7 @@
       </view>
     </view>
   </view>
-  <view class='module m-t-60'>
+  <view class='module m-t-60' wx:if="{{false}}">
     <view class='title'>银行转账</view>
     <view class='body'>
       <view class='ctr-row'>

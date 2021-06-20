@@ -623,4 +623,66 @@ page {
     height: 100%;
 }
 
+/*add*/
+
+.select-share-type {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.select-share-type .modal {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 128rpx;
+    /*bottom: 0;*/
+    background: #fff;
+    z-index: 9999;
+}
+
+.select-share-type .modal .close {
+    position: absolute;
+    right: 30rpx;
+    width: 48rpx;
+}
+
+.select-share-type .modal .header {
+    line-height: 48rpx;
+    font-size: 32rpx;
+    text-align: center;
+    border-bottom: 1px solid #f7f7f7;
+    position: relative;
+}
+
+.select-share-type .modal .types {
+    display: flex;
+    padding: 50rpx 0rpx 60rpx 0rpx;
+}
+
+.select-share-type .modal .types .item {
+    flex: 1;
+}
+
+.select-share-type .modal .types .item .icon {
+    display: block;
+    width: 88rpx;
+    height: auto;
+    margin: auto;
+}
+
+.select-share-type .modal .types .item .name {
+    margin-top: 20rpx;
+    text-align: center;
+}
+
+.select-share-type .modal .types .item .name view {
+    line-height: 22rpx;
+    font-size: 20rpx
+}
+
 @import '../../utils/wxss/renting-list.wxss';

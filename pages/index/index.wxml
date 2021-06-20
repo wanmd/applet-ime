@@ -43,66 +43,6 @@
 				</view> -->
 				<view class='list' wx:if='{{chatList.length>0}}'>
 					<view class='item' wx:for='{{chatList}}' wx:key='index'>
-						<!-- iME官方小助手 -->
-						<view class='p-l-r' wx:if="{{false}}" >
-							<view class='relative'>
-								<view class='relative'>
-									<avatar user="{{item.user}}" src='../../assets/images/shanghu@2x.png' userId='{{item.user.user_id}}'>
-										<view class='user-info'>
-											<view class='f-28'>iME官方小助手</view>
-											<view class='color-999999 f-24'>{{iME_time}}</view>
-										</view>
-									</avatar>
-									<view class='share-icon flex_align-center'>
-										<block wx:if='{{item.chat_type == 4}}'>
-											<el-image class='icon' src='product-red-share.png'></el-image>
-										</block>
-										<block wx:if='{{item.chat_type == 5}}'>
-												<el-image class='icon' src='bargain-share.png'></el-image>
-										</block>
-										<!-- <button hover-class="none" open-type='share' data-index='{{index}}' catchtap='share'>
-											<el-image class='icon chat-share' src='ic_share@2x.png'></el-image>
-										</button> -->
-									</view>
-								</view>
-								<view class='ellipsis-3 content' data-url='{{item.url}}' catchtap="isAuth_" hover-class="none">
-										<text>{{item.content}}</text>
-								</view>
-							</view>
-						</view>
-						<!-- 动态转发 -->
-						<view class='p-l-r' wx:if="{{false}}">
-							<view class='relative'>
-								<view class='relative'>
-									<avatar class='relative' user="{{item.user}}" src='{{item.user.avatar}}' userId='{{item.user.user_id}}'>
-										
-										<view class='user-info'>
-											<view class='f-28'>{{item.user.nickname}}</view>
-											<!-- <view class='color-999999 f-24'>{{item.create_time}}</view> -->
-											<image class="icon ml--44" src="../../assets/images/index/vip@2x.png" />
-											<image class="icon" src="../../assets/images/index/daili.png" />
-											<image class="icon" src="../../assets/images/index/shangjia.png" />
-											<image class="icon" src="../../assets/images/index/vip2@2x.png" />
-											<text class="c-ECBD75 fz-22 lh-30 ml-40 va-b">产品来源名称+供货中/+已下架</text>
-										</view>
-									</avatar>
-									<view class='share-icon flex_align-center'>
-										<block wx:if='{{item.chat_type == 4}}'>
-											<el-image class='icon' src='product-red-share.png'></el-image>
-										</block>
-										<block wx:if='{{item.chat_type == 5}}'>
-												<el-image class='icon' src='bargain-share.png'></el-image>
-										</block>
-										<!-- <button hover-class="none" open-type='share' data-index='{{index}}' catchtap='share'>
-											<el-image class='icon chat-share' src='ic_share@2x.png'></el-image>
-										</button> -->
-									</view>
-								</view>
-								<view class='ellipsis-3 content' data-url='{{item.url}}' catchtap="isAuth_" hover-class="none">
-										<text>{{item.content}}</text>
-								</view>
-							</view>
-						</view>
 						<!-- 普通发布者信息 -->
 						<view class='p-l-r'>
 							<view class='relative'>
@@ -111,6 +51,13 @@
 										<view class='user-info'>
 											<view class='f-28'>{{item.user.nickname}}</view>
 											<view class='color-999999 f-24'>{{item.create_time}}</view>
+											<image class="icon ml--44" src="../../assets/images/index/vip@2x.png" />
+											<image class="icon" src="../../assets/images/index/daili.png" />
+											<image class="icon" src="../../assets/images/index/shangjia.png" />
+											<image class="icon" src="../../assets/images/index/vip2@2x.png" />
+											<text wx:if="{{item.form_chat_id}}" class="c-ECBD75 fz-22 lh-30 ml-40 va-b">
+												产品来源名称+供货中/+已下架
+											</text>
 										</view>
 									</avatar>
 									<view class='share-icon flex_align-center'>

@@ -1,4 +1,4 @@
-import { Request, toast } from '../../../utils/util.js'
+import { Request, toast, rpxTopx } from '../../../utils/util.js'
 let request = new Request()
 let app = getApp()
 wx.Page({
@@ -10,7 +10,8 @@ wx.Page({
         backLabel: "<",
         barTitlle: "发布公开报价",
         type: "",
-        placeholder: "公开报价格式如下例：\n高露洁牙膏-25\n力士沐浴露1l：35\n多芬沐浴露1g 36\n清扬冰爽薄荷-37\n清扬去屑洗发乳-37\n力士柔亮丝滑-30\n飘柔去屑滋润-36\nVs沙宣深层滋润-57"
+        placeholder: "公开报价格式如下例：\n高露洁牙膏-25\n力士沐浴露1l：35\n多芬沐浴露1g 36\n清扬冰爽薄荷-37\n清扬去屑洗发乳-37\n力士柔亮丝滑-30\n飘柔去屑滋润-36\nVs沙宣深层滋润-57",
+        showCard: !false
     },
     /*
 高露洁牙膏：25
@@ -22,6 +23,9 @@ wx.Page({
 飘柔去屑滋润-36
 Vs沙宣深层滋润-57
   */
+    onShow() {
+        this.draw()
+    },
     goback: function() {
         var pages = getCurrentPages();
         wx.showModal({
@@ -166,6 +170,197 @@ Vs沙宣深层滋润-57
                 toast(res.msg)
             }
         })
+    },
+    // 画布
+    draw() {
+        this.setData({
+            showCard: !this.data.showCard
+        })
+        var ctx = wx.createCanvasContext('firstCanvas')
+        let self = this;
+        let userInfo =  wx.getStorageSync('userinfo') || app.globalData.userInfo;
+        let avatar = userInfo.avatar;
+        let nickname = userInfo.nickname;
+        let remark = userInfo.remark;
+        // 画头像
+        wx.getImageInfo({
+            src: avatar,
+            success: function (res) {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(rpxTopx(100), rpxTopx(80), rpxTopx(50), 0, 2*Math.PI);
+                ctx.closePath();
+                // 下面就裁剪出一个圆形了，且坐标在 （50， 90）
+                ctx.clip();
+                ctx.drawImage(res.path, rpxTopx(50), rpxTopx(30), rpxTopx(100), rpxTopx(100));
+                ctx.restore();
+                ctx.draw(true);
+                // 画昵称
+                ctx.setFillStyle('#333333')
+                ctx.setFontSize(rpxTopx(32))
+                var nickname_ = self.transformContentToMultiLineText(ctx, nickname, rpxTopx(320), 1);
+                let nickname_length = nickname_[0].length;
+                let nickname_txt = nickname;
+                if(nickname_length<nickname.length) nickname_txt = nickname.substring(0,nickname_length)+'...';
+                ctx.fillText(nickname_txt, rpxTopx(170), rpxTopx(72))
+                ctx.draw(true)
+                
+                // 画签名
+                ctx.setFillStyle('#333333')
+                ctx.setFontSize(rpxTopx(20))
+                var remark_ = self.transformContentToMultiLineText(ctx, remark, rpxTopx(320), 1);
+                let remark_length = remark_[0].length;
+                let remark_txt = remark;
+                if(remark_length<remark.length) remark_txt = remark.substring(0,remark_length)+'...';
+                ctx.fillText(remark_txt, rpxTopx(170), rpxTopx(120))
+                ctx.draw(true)
+
+                // 画商品价格
+                ctx.setFontSize(rpxTopx(32))
+                ctx.setFillStyle('#333')
+                ctx.fillText('商家名-5月20日文字报价单', rpxTopx(144), rpxTopx(204))
+                ctx.draw(true)
+                // 画数据(日期)
+                ctx.font = 'normal bold ' + rpxTopx(20) + ' sans-serif';
+                // ctx.setFontSize(rpxTopx(24))
+                // ctx.setFontWeight(600);
+                // ctx.font = 'bold'
+                ctx.setFillStyle('#333')
+                ctx.fillText('报价日期：2021-01-01 15：30', rpxTopx(52), rpxTopx(314))
+                ctx.draw(true)
+
+                ctx.font = 'normal bold ' + rpxTopx(20) + ' sans-serif';
+                ctx.setFillStyle('#333')
+                ctx.fillText('报价产品数：268 个', rpxTopx(52), rpxTopx(368))
+                ctx.draw(true)
+
+                ctx.setFontSize(rpxTopx(24))
+                ctx.setFillStyle('#333')
+                ctx.fillText('手机：1564354564', rpxTopx(52), rpxTopx(422))
+                ctx.draw(true)
+
+                ctx.setFontSize(rpxTopx(24))
+                ctx.setFillStyle('#333')
+                ctx.fillText('微信：1564354564', rpxTopx(52), rpxTopx(476))
+                ctx.draw(true)
+
+                ctx.setFontSize(rpxTopx(24))
+                ctx.setFillStyle('#333')
+                ctx.fillText('地址档口：广东深圳华强北大苏打离开了', rpxTopx(52), rpxTopx(530))
+                ctx.draw(true)
+
+                let words = '报价说明：发JFK苏菲玛索大陆方面是否立即释放的空间法律界士大夫立刻释放分开就分开圣诞发没发上课方面看是否民生方面80字以内';
+                let words_20 = words.substring(0,20);
+                let words_20_40 = words.substring(20,40);
+                let words_40_60 = words.substring(40,60);
+                let words_60_80 = words.substring(60,80);
+                ctx.setFontSize(rpxTopx(24))
+                ctx.setFillStyle('#333')
+                ctx.fillText(words_20, rpxTopx(52), rpxTopx(584))
+                ctx.draw(true)
+
+                let lineheight = 30;
+                if (words_20_40) {
+                    ctx.setFontSize(rpxTopx(24))
+                    ctx.setFillStyle('#333')
+                    ctx.fillText(words_20_40, rpxTopx(52), rpxTopx(584 + lineheight * 1 ))
+                    ctx.draw(true)
+                }
+                if (words_40_60) {
+                    ctx.setFontSize(rpxTopx(24))
+                    ctx.setFillStyle('#333')
+                    ctx.fillText(words_40_60, rpxTopx(52), rpxTopx(584 + lineheight * 2))
+                    ctx.draw(true)
+                }
+                if (words_60_80) {
+                    ctx.setFontSize(rpxTopx(24))
+                    ctx.setFillStyle('#333')
+                    ctx.fillText(words_60_80, rpxTopx(52), rpxTopx(584 + lineheight * 3))
+                    ctx.draw(true)
+                }
+            }
+        })
+        
+    },
+    /**
+    * canvas绘图相关，把文字转化成只能行数，多余显示省略号
+    * ctx: 当前的canvas
+    * text: 文本
+    * contentWidth: 文本最大宽度
+    * lineNumber: 显示几行
+    */
+    transformContentToMultiLineText(ctx, text, contentWidth, lineNumber) {
+    if(!text) return [''];
+    var textArray = text.split(""); // 分割成字符串数组
+    var temp = "";
+    var row = [];
+
+    for (var i = 0; i < textArray.length; i++) {
+      if (ctx.measureText(temp).width < contentWidth) {
+        temp += textArray[i];
+      } else {
+        i--; // 这里添加i--是为了防止字符丢失
+        row.push(temp);
+        temp = "";
+      }
+    }
+    row.push(temp);
+    // 如果数组长度大于2，则截取前两个
+    if (row.length > lineNumber) {
+      var rowCut = row.slice(0, lineNumber);
+      console.log(rowCut)
+      var rowPart = '';
+      if(rowCut.length<=1){
+        rowPart = rowCut[0];
+      }else{
+        rowPart = rowCut[1];
+      }
+      var test = "";
+      var empty = [];
+      for (var a = 0; a < rowPart.length; a++) {
+        if (ctx.measureText(test).width < contentWidth) {
+          test += rowPart[a];
+        } else {
+          break;
+        }
+      }
+      empty.push(test); // 处理后面加省略号
+      var group = empty[0] + '...'
+      rowCut.splice(lineNumber - 1, 1, group);
+      row = rowCut;
+    }
+    return row;
+    },
+    /**
+     * 文本换行
+     *
+     * @param {Object} obj
+     */
+    textWrap: function (obj) {
+        console.log('文本换行')
+        var td = Math.ceil(obj.width / (obj.size));
+        var tr = Math.ceil(obj.text.length / td);
+        for (var i = 0; i < tr; i++) {
+            var txt = {
+                x: obj.x,
+                y: obj.y + (i * obj.height),
+                color: obj.color,
+                size: obj.size,
+                align: obj.align,
+                baseline: obj.baseline,
+                text: obj.text.substring(i * td, (i + 1) * td),
+                bold: obj.bold
+            };
+            if (i < obj.line) {
+                if (i == obj.line-1){
+                    txt.text = txt.text.substring(0, txt.text.length - 3) +'......';
+                }
+                this.drawText(txt);
+            }
+        }
+    },
+    toggleCardHide (){
+        this.setData({ storeQr: '' ,showCard:false})
     },
     onLoad: function(options) {
         console.log(options.type);

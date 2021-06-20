@@ -52,7 +52,7 @@
 	<cell height="136rpx" url='../marketing/agent/index' title='代理设置'></cell>
 </view>
 <view class='p-l-r  fs14'>
-	<cell height="136rpx" url='./buyInfo/index' title='购买须知'></cell>
+	<cell height="136rpx" url='./buyInfo/index' title='商家服务'></cell>
 </view>
 <view class='p-l-r  fs14'>
 	<cell height="136rpx" url='./storeadd/index' title='店铺地址'></cell>
@@ -67,7 +67,7 @@
 	<cell height="136rpx" url='' title='商家店铺背景图/报价单设置'></cell>
 </view>
 <view class='p-l-r  fs14'>
-	<cell height="136rpx" url='' title='商家自助收款设置'></cell>
+	<cell height="136rpx" url='./paySet/index' title='商家自助收款设置'></cell>
 </view>
 <!-- <view class="line12"></view> -->
 <!-- <view class="text-center padd_tb-24 closestore" bind:tap="closeStroe">关停店铺</view> -->

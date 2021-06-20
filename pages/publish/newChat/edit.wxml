@@ -1,8 +1,8 @@
 <view class="wx_page">
-  <view class="wx_header">
+  <!-- <view class="wx_header">
     <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
     <view style="width: 100%;text-align:center">{{barTitlle}}</view>
-  </view>
+  </view> -->
   <view class="wx_center">
     <view class='p-l-r'>
       

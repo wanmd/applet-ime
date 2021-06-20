@@ -64,9 +64,9 @@
     <view class="type mt-60">
       <view class="buttonWrap d-f">
         <view class="w-200 d-f jc-c ai-c c-fff bgc-FFC901 {{ type === 'cart' ? 'bigger' : ''}}" bindtap="handleChangeOpea" data-type="cart">+购物车</view>
-        <!-- 一般用户  显示  单独购买 拼单购买 
-        会员用户  显示  单独购买 会员购买  
-        代理用户  显示  单独购买  代理拿货 -->
+        <!-- 一般用户  单独购买(零售价sale_price) + 拼单购买(拼单价group_price)
+        会员用户 单独购买(会员价member_price) + 会员购买 (会员价member_price)
+        代理用户 单独购买(代理价agent_price) + 代理拿货（代理价agent_price） -->
         <view class="w-200 d-f fxd-c jc-c ai-c c-fff bgc-FF9900 {{ type === 'single' ? 'bigger' : ''}}" bindtap="handleChangeOpea" data-type="single">
           <view class="fz-30">￥{{price_1}}</view>
           <view class="fz-20">单独购买</view>

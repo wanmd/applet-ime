@@ -25,8 +25,21 @@
     </view>
     <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
       <btn bindtap='submit' round>{{type=='editor'?'保存':"发布公开报价"}}</btn>
-      <view class="editor" bind:tap="getEditor" wx-if="{{type!='editor'}}">查看最后公开报价</view>
+    </view>
+    <view class="d-f jc-sb mb-30 plr-70">
+      <view class="editor" bind:tap="draw">生成文字报价单</view>
+      <view class="editor" bind:tap="getEditor" wx-if="{{type!='editor'}}">查看最后文字公开报价</view>
       <view class="editor" bind:tap="removeList" wx-if="{{type=='editor'}}">一键清空上次全部报价</view>
     </view>
+  </view>
+</view>
+
+<view wx:if='{{showCard}}' bindtap='toggleCardHide'>
+  <view style='position:fixed;z-index:9;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' ></view>
+  <view class='card-modal'>
+    <canvas id='canvas-modal' canvas-id="firstCanvas" style='width:696rpx;height:1000rpx;background: linear-gradient(180deg, #FFE200 0%, #FFFFFF 22%, #FFFFFF 100%);'></canvas>
+    <button hover-class="none" style='background:#FFE200;padding:30rpx 0rpx;width:512rpx;margin:40rpx auto 0rpx auto;border-radius: 48px;' bindtap='saveCard'>
+      保存图片分享给好友/群
+    </button>
   </view>
 </view>

@@ -363,8 +363,8 @@ wx.Page({
         let lng = this.data.longitude
         let lat = this.data.latitude
         if (lng !== '' && lat !== '') {
-            data.longitude = lng
-            data.latitude = lat
+            data.lng = lng
+            data.lat = lat
         }
 
         if (this.data.chatId > 0) {
@@ -374,7 +374,8 @@ wx.Page({
                 data.chatId = this.data.chatId
             }
         }
-
+        // console.log(data);
+        
         request.post('product', res => {
             if (res.success) {
                 toast('发布成功')
