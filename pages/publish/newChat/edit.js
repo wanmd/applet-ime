@@ -55,7 +55,8 @@ wx.Page({
                 label: '特殊商品不退换'
             }
         ],
-        goods_skuList: []
+        goods_skuList: [],
+        id: null
     },
     goback: function() {
         var pages = getCurrentPages();
@@ -149,7 +150,7 @@ wx.Page({
     selectPostion() {
         wx.chooseLocation({
             success: res => {
-                this.setData({ location: res.name, longitude: res.longitude, latitude: res.latitude })
+                this.setData({ location: res.name, lng: res.longitude, lat: res.latitude })
             }
         })
     },
@@ -238,7 +239,7 @@ wx.Page({
           url: '/pages/goodsSku/index',
         })
     },
-
+    // 编辑提交
     submit() {
         console.log(this.data);
 
@@ -303,21 +304,29 @@ wx.Page({
                 toast('请选择标签~')
                 return
             }
-            data.labels = this.data.labels.split(',');
+            if (Array.isArray(this.data.labels)) {
+                data.labels = this.data.labels;
+            } else {
+                data.labels = this.data.labels.split(',');
+            }
+            
             // 备注
             data.remark = this.data.remark;
             // attribute 规格数组
             data.attribute = [];
             //  商品规格
             let { goods_skuList, excel_skuList } = app.globalData.skuData;
+            console.log(goods_skuList);
+            console.log(excel_skuList);
+            
             if (!excel_skuList.length) {
-							toast('请添加商品规格~')
-							return
-						}
-						if (!goods_skuList.length) {
-								toast('请添加商品规格~')
-								return
-						}
+                toast('请添加商品规格~')
+                return
+            }
+            if (!goods_skuList.length) {
+                toast('请添加商品规格~')
+                return
+            }
 
             goods_skuList.forEach(item => {
                 let obj = {};
@@ -332,15 +341,18 @@ wx.Page({
             // specs sku数组
             data.specs = [];
             excel_skuList.forEach(item => {
-                item.productSpecs = {};
-                // 规格标题
-                let title_Arr = item.title.split('-');
-                // 规格类型
-                let name_Arr = item.name.split('-');
-                title_Arr.forEach((titem, tindex) => {
-                    item.productSpecs[titem] = name_Arr[tindex]
-                })
+                if (item.title) {// 是数组说明改变过
+                    item.productSpecs = {};
+                    // 规格标题
+                    let title_Arr = item.title.split('-');
+                    // 规格类型
+                    let name_Arr = item.name.split('-');
+                    title_Arr.forEach((titem, tindex) => {
+                        item.productSpecs[titem] = name_Arr[tindex]
+                    })
+                }
                 data.specs.push(item)
+                
             })
             // 运费 1-包邮 2-不包邮
             if (!this.data.template) {
@@ -350,7 +362,7 @@ wx.Page({
             data.templateId = this.data.template ? this.data.template.type : 1;
             // 服务设置
             if (!this.data.serviceSetting) {
-                toast('请选择运费设置~')
+                toast('请选择服务设置~')
                 return
             }
             data.serviceSetting = this.data.serviceSetting || '';
@@ -364,12 +376,15 @@ wx.Page({
         if (location !== '') {
             data.location = location
         }
+        let lng = this.data.lng
+        let lat = this.data.lat
 
-        let lng = this.data.longitude
-        let lat = this.data.latitude
         if (lng !== '' && lat !== '') {
             data.lng = lng
             data.lat = lat
+        } else {
+            toast('定位数据有误，请重新定位')
+            return
         }
 
         if (this.data.chatId > 0) {
@@ -379,11 +394,12 @@ wx.Page({
                 data.chatId = this.data.chatId
             }
         }
-
-        request.post('product', res => {
+        console.log(data);
+        
+        request.put('product/' + this.data.id, res => {
             if (res.success) {
-                toast('发布成功')
-                app.newPublish = true;
+                toast('编辑成功')
+                // app.newPublish = true;
                 // 清除之前保存的规格数据
                 app.globalData.goods_skuList = null;
                 if (this.data.chatId > 0) {
@@ -431,7 +447,7 @@ wx.Page({
             userType: userInfo.user_type
         })
 
-        this.setData({ chatType: chatType, chatId: chatId, share: share })
+        this.setData({ chatType: chatType, chatId: chatId, share: share, id })
         if (chatId == 0) { //编辑的
             if (chatType == 1) {
                 barTitlle = '发布图文'
@@ -566,14 +582,14 @@ wx.Page({
                     chatType: data.chat_type || 2,
                     content: data.content,
                     location: data.location || '',
-                    latitude: data.latitude || '',
-                    longitude: data.longitude || '',
+                    lat: data.lat || '',
+                    lng: data.lng || '',
 
                     name: data.name,
                     no: data.no,
                     remark: data.remark,
                     videoUrl: data.video_url,
-                    service_setting: data.service_setting,
+                    serviceSetting: data.service_setting,
                     template: {
                         type: data.template_id
                     },
@@ -581,42 +597,56 @@ wx.Page({
                         type: data.service_setting === '7天无理由' ? 1 : 2
                     },
                     labels: data.labels.map(item => item.name),
-                    // sale_price: data.sale_price || '',
-                    // vip_price: data.vip_price || '',
-                    // agent_price: data.agent_price || '',
-                    // category_id: data.category_id
                 }
-
+                // 产品品类
+                update.productCategoryId = {
+                    parent: {
+                        name: data.parent_category_name
+                    },
+                    name: data.category_name,
+                    id: data.category_id
+                }
+                // 商品规格数据
                 if ('specs' in data) {
-										update.goods_skuList = data.specs;
-										// 设置globalData
-										let { attribute } = data;
-										let arr = [];
-										attribute.forEach(item => {
-											let obj = {};
-											obj.id = item.name;
-											obj.title = item.name;
-											obj.skuList = [];
-											item.value.forEach((iitem,iindex) => {
-												obj.skuList.push({
-													index: iindex, id: iitem, name: iitem,
-												})
-											})
-											arr.push(obj)
-										})
-										app.globalData.skuData = {
-											goods_skuList: arr,
-											excel_skuList: data.specs.map(item => {
-												item.salePrice = item.sale_price;
-												item.groupPrice = item.group_price;
-												item.memberPrice = item.member_price;
-												item.agentPrice = item.agent_price;
-												item.costPrice = item.cost_price;
-												return item
-											}),
-											isEdit: true // 编辑状态
-										}
+                    update.goods_skuList = data.specs;
+                    // 设置globalData
+                    let { attribute } = data;
+                    let arr = [];
+                    attribute.forEach(item => {
+                        let obj = {};
+                        obj.id = item.name;
+                        obj.title = item.name;
+                        obj.skuList = [];
+                        item.value.forEach((iitem,iindex) => {
+                            obj.skuList.push({
+                                index: iindex, id: iitem, name: iitem,
+                            })
+                        })
+                        arr.push(obj)
+                    })
+                    app.globalData.skuData = {
+                        goods_skuList: arr,
+                        excel_skuList: data.specs.map(item => {
+                            item.salePrice = item.sale_price;
+                            item.groupPrice = item.group_price;
+                            item.memberPrice = item.member_price;
+                            item.agentPrice = item.agent_price;
+                            item.costPrice = item.cost_price;
+                            return item
+                        }),
+                        isEdit: true // 编辑状态  这个状态很关键priceExcel里面数据做更新时会用到
+                    }
                 }
+                // 店铺分类
+                let categoryIds = [];
+                data.categoryTrees.forEach(item => {
+                    categoryIds.push({
+                        parentName: item.name,
+                        name: item.son.name,
+                        id: item.son.id
+                    })
+                })
+                update.categoryIds = categoryIds;
 
                 if (data.image_urls) {
                     if (typeof data.image_urls == 'string') {
@@ -633,7 +663,7 @@ wx.Page({
             } else {
                 toast(res.msg)
             }
-        })
+        }).showLoading()
     }
 
 })

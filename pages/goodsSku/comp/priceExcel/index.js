@@ -243,14 +243,14 @@ Component({
     // 批量设置提交
     formSubmit(e) {
       this.setData({
-        data: this.data.excel_skuList.map(item => {
+        showBatch: false,
+        excel_skuList: this.data.excel_skuList.map(item => {
           item = {
             ...item,
             ...e.detail.value
           }
           return item
         }),
-        showBatch: false
       })
     },
     handleInput(e) {

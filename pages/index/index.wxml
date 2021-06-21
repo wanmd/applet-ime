@@ -21,7 +21,7 @@
 		</view>
 		<view class="d-f ai-c h-98 bgc-F7F7F7 pl-42 pr-26">
 			<view class="d-f ai-c pos-r bgc-fff bdrs-20 w-490 h-54 pl-76">
-				<input type="text" value="{{query.keyword}}" bindinput="handleChangeKeyword" placeholder="搜索您需要的商家或产品" />
+				<input class="w-100p" type="text" value="{{query.keyword}}" bindinput="handleChangeKeyword" placeholder="搜索您需要的商家或产品" />
 				<image class="pos-a t-16 l-24 w-26 h-26" src="../../assets/images/index/search.png"/>
 			</view>
 			<text class="fz-30 c-333 ml-34 mr-54" bindtap="search">搜索</text>

@@ -77,7 +77,6 @@ Page({
     if(rows.length > 0) {
       let goodsList = Object.assign([], this.data.goodsList)
       rows.forEach(row => {
-        console.log(row);
         if(!row) {
           return
         }
