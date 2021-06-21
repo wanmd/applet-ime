@@ -1,6 +1,22 @@
 import { Request, toast } from '../../../utils/util.js'
 let request = new Request()
 let app = getApp()
+
+const arr = [
+	{
+		agent_price: "60",
+		bargain_price: "",
+		cost_price: "50",
+		group_price: "90",
+		index: 1,
+		member_price: "80",
+		name: "2",
+		sale_price: "100",
+		stock: "100",
+		title: "1",
+		url: "",
+	}
+]
 wx.Page({
     data: {
         chatId: 0,
@@ -38,7 +54,8 @@ wx.Page({
                 value: 2,
                 label: '特殊商品不退换'
             }
-        ]
+        ],
+        goods_skuList: []
     },
     goback: function() {
         var pages = getCurrentPages();
@@ -294,9 +311,13 @@ wx.Page({
             //  商品规格
             let { goods_skuList, excel_skuList } = app.globalData.skuData;
             if (!excel_skuList.length) {
-                toast('请选择商品规格~')
-                return
-            }
+							toast('请添加商品规格~')
+							return
+						}
+						if (!goods_skuList.length) {
+								toast('请添加商品规格~')
+								return
+						}
 
             goods_skuList.forEach(item => {
                 let obj = {};
@@ -347,8 +368,8 @@ wx.Page({
         let lng = this.data.longitude
         let lat = this.data.latitude
         if (lng !== '' && lat !== '') {
-            data.longitude = lng
-            data.latitude = lat
+            data.lng = lng
+            data.lat = lat
         }
 
         if (this.data.chatId > 0) {
@@ -362,7 +383,9 @@ wx.Page({
         request.post('product', res => {
             if (res.success) {
                 toast('发布成功')
-                app.newPublish = true
+                app.newPublish = true;
+                // 清除之前保存的规格数据
+                app.globalData.goods_skuList = null;
                 if (this.data.chatId > 0) {
                     wx._navigateBack()
                 } else {
@@ -549,6 +572,7 @@ wx.Page({
                     name: data.name,
                     no: data.no,
                     remark: data.remark,
+                    videoUrl: data.video_url,
                     service_setting: data.service_setting,
                     template: {
                         type: data.template_id
@@ -563,9 +587,36 @@ wx.Page({
                     // category_id: data.category_id
                 }
 
-                // if ('category_name' in data) {
-                //     update.category_name = data.category_name
-                // }
+                if ('specs' in data) {
+										update.goods_skuList = data.specs;
+										// 设置globalData
+										let { attribute } = data;
+										let arr = [];
+										attribute.forEach(item => {
+											let obj = {};
+											obj.id = item.name;
+											obj.title = item.name;
+											obj.skuList = [];
+											item.value.forEach((iitem,iindex) => {
+												obj.skuList.push({
+													index: iindex, id: iitem, name: iitem,
+												})
+											})
+											arr.push(obj)
+										})
+										app.globalData.skuData = {
+											goods_skuList: arr,
+											excel_skuList: data.specs.map(item => {
+												item.salePrice = item.sale_price;
+												item.groupPrice = item.group_price;
+												item.memberPrice = item.member_price;
+												item.agentPrice = item.agent_price;
+												item.costPrice = item.cost_price;
+												return item
+											}),
+											isEdit: true // 编辑状态
+										}
+                }
 
                 if (data.image_urls) {
                     if (typeof data.image_urls == 'string') {

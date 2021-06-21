@@ -99,6 +99,7 @@ Component({
    */
   methods: {
     initData() {
+      console.log(this.data.skuList);
       this.setData({
         data: this.data.skuList
       })

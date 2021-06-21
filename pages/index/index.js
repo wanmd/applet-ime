@@ -124,7 +124,9 @@ wx.Page({
                     v.url += '?chatId=' + v.chat_id;
                 }
                 v.create_time = formatDate(v.create_time)
-                v.picture = JSON.parse(v.picture)
+                v.picture = JSON.parse(v.picture);
+                // 截取9张
+                // v.picture = v.picture.slice(0,9)
                 if (last == 0) {
                     chatList.push(v)
                 } else {

@@ -2,7 +2,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
       "upload": "/component/upload/index",
-      "uploadVideo": "/component/uploadVideo/index",
+      "newUploadVideo": "/component/newUploadVideo/index",
       "priceExcel": "./comp/priceExcel/index"
   }
 }

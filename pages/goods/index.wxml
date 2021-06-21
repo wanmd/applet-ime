@@ -9,7 +9,13 @@
     <!-- <view class="good_name" bind:longpress="longpress" data-content="{{chat.goods_name}}">{{chat.goods_name}}</view> -->
     <view class="goods_header plr-40 mt-20">
       <view class="d-f jc-sb mb-20 ai-c">
-        <view>￥<text class="fz-48 c-262626 mr-24">3,451</text><text class="c-828282 fz-28 td-l">￥4,588</text></view>
+        <!-- 一般用户 一件代发(会员价) + 代理拿货(代理价) 
+            会员用户 一件代发(会员价) + 代理拿货(代理价) 
+            代理用户 一件代发(代理价) + 代理拿货(代理价) -->
+        <view>
+          <text class="fz-48 c-262626 mr-24">￥{{chat.isAgent ? chat.agent_price : chat.vip_price}}</text>
+          <text class="c-828282 fz-28 td-l">￥{{chat.sale_price}}</text>
+        </view>
         <!-- 分享按钮 -->
         <view class='right-btn'>
           <view wx:if='{{chat.chat_type == 4}}' style='width:88rpx;height:88rpx;border-radius:50%;overflow: hidden; display:block;'>
@@ -31,13 +37,13 @@
       <view class="labels d-f">
         <view class="label" wx:for="{{chat.labels}}" wx:key="index">{{item.name}}</view>
       </view>
-      <cell height="90rpx">
+      <cell height="90rpx" arrow="{{false}}">
         <view slot='title'>发货</view>
-        <view slot='content'>包邮/5件内8元</view>
+        <view slot='content'>{{chat.buyNotice.send_info}}</view>
       </cell>
-      <cell height="90rpx">
+      <cell height="90rpx" arrow="{{false}}">
         <view slot='title'>服务</view>
-        <view slot='content'>7天无理由/特殊商品不退换/</view>
+        <view slot='content'>{{chat.buyNotice.buy_info}}</view>
       </cell>
     </view>
    
@@ -184,15 +190,17 @@
             <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.vip_price}}</view>
             <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">会员购买</view>
           </btn> -->
-
+          <!-- 一般用户 一件代发(会员价) + 代理拿货(代理价) 
+            会员用户 一件代发(会员价) + 代理拿货(代理价) 
+            代理用户 一件代发(代理价) + 代理拿货(代理价) -->
           <btn class='add-cart1 middle' style-text='width:139rpx;height: 88rpx;line-height: 88rpx;color: #fff;background:linear-gradient(270deg,rgba(255,186,0,1),rgba(255,225,3,1));border-radius:42px 0px 0px 42px;'>+购物车</btn>
           <btn class='now-buy1 middle' style-text='width:160rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,174,0,1),rgba(255,132,0,1));'>
-            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.price}}</view>
-            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">立即购买</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.isAgent ? chat.agent_price : chat.vip_price}}</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">一件代发</view>
           </btn>
           <btn class='now-buy2 middle' style-text='width:158rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,115,1,1),rgba(255,84,0,1));border-radius:0px 42px 42px 0px;'>
-            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.vip_price}}</view>
-            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">会员购买</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.agent_price}}</view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">代理拿货</view>
           </btn>
         </view>
         <view wx:else class="buy_btn2">

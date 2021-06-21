@@ -8,7 +8,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    initFile: {
+      type: String,
+      value: ''
+    }
   },
 
   /**
@@ -16,6 +19,17 @@ Component({
    */
   data: {
     videoSrc: ''
+  },
+
+  observers : {
+    initFile(initFile) {
+      if (initFile !== '') {
+        this.setData({ 
+          // thumb: thumbFileUrl(initFile), url: initFile ,
+          videoSrc: fileUrl(initFile)
+        })
+      }
+    }
   },
 
   /**

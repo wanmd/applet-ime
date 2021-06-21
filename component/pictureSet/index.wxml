@@ -9,9 +9,31 @@
 		</view>
 
 	</block>
-	<block wx:else>
+	<!-- before -->
+	<!-- <block wx:else>
 		<view class='images-3' id='images-3'>
 			<image bindtap='previewImage' mode="aspectFill" class='image' wx:for='{{pictureSet}}' wx:key='index' src='{{baseUrl}}/{{item}}' data-index='{{index}}'></image>
+		</view>
+	</block> -->
+	<!-- 修改：超过9张图折叠显示 -->
+	<block wx:elif='{{pictureSet.length == 3 || (pictureSet.length > 4 && pictureSet.length < 10)}}'>
+		<view class='images-3' id='images-3'>
+			<image bindtap='previewImage' mode="aspectFill" class='image' wx:for='{{pictureSet}}' wx:key='index' src='{{baseUrl}}/{{item}}' data-index='{{index}}'></image>
+		</view>
+	</block>
+	<block wx:else>
+		<view class='images-3' id='images-3'>
+			<image 
+				bindtap='previewImage' 
+				mode="aspectFill" 
+				class='image {{index == 8 ? "relative" : ""}} {{index > 8 ? "dn" : ""}}' 
+				wx:for='{{pictureSet}}' 
+				wx:key='index' 
+				src='{{baseUrl}}/{{item}}' 
+				data-index='{{index}}'
+			>
+				<text class="leftNum" wx:if="{{index == 8}}">+{{pictureSet.length -9}}</text>
+			</image>
 		</view>
 	</block>
 </view>

@@ -23,13 +23,13 @@
         
       </form>
     </view>
-    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+    <view style='width:400rpx;margin:100rpx auto 20rpx auto;'>
       <btn bindtap='submit' round>{{type=='editor'?'保存':"发布公开报价"}}</btn>
     </view>
     <view class="d-f jc-sb mb-30 plr-70">
-      <view class="editor" bind:tap="initPricePicture">生成文字报价单</view>
-      <view class="editor" bind:tap="getEditor" wx-if="{{type!='editor'}}">查看最后文字公开报价</view>
-      <view class="editor" bind:tap="removeList" wx-if="{{type=='editor'}}">一键清空上次全部报价</view>
+      <view bind:tap="initPricePicture">生成文字报价单</view>
+      <view bind:tap="getEditor" wx-if="{{type!='editor'}}">查看最后文字公开报价</view>
+      <view bind:tap="removeList" wx-if="{{type=='editor'}}">一键清空上次全部报价</view>
     </view>
   </view>
 </view>

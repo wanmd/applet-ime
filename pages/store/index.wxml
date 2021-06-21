@@ -85,24 +85,22 @@
                                 <view class='title ellipsis-2' data-type="{{chat.chat_type}}" data-chatid="{{chat.chat_id}}">
                                     {{chat.goods_name?chat.goods_name:chat.content}}
                                 </view>
-                                <view class='a' wx:if='{{isAgent == 1}}'>
+                                <view class='a ' wx:if='{{isSelf}}'>
                                     <view class='price1'>
-                                        零售价:
-                                        <text>￥ {{chat.sale_price}}</text>
+                                        <text class="c-333 fz-32">￥ {{chat.sale_price}}</text>
                                     </view>
-                                    <view class='price2'>
-                                        代理价:
-                                        <text>￥ {{chat.agent_price}}</text>
+                                </view>
+                                <view class='a' wx:elif='{{!isSelf && isAgent == 1}}'>
+                                    <view class='price1'>
+                                        <text class="mr-8">￥ {{chat.agent_price}}</text>
+                                        <text class="c-000 td-l">￥ {{chat.sale_price}}</text>
                                     </view>
                                 </view>
                                 <view class='a' wx:else>
-                                    <view class='price1'>
-                                        零售价:
-                                        <text>￥ {{chat.sale_price}}</text>
-                                    </view>
-                                    <view class='price2'>
-                                        会员价:
-                                        <text>￥ {{chat.vip_price}}</text>
+                                    <view class='price1 d-f ai-c'>
+                                        <text class="c-000">￥ {{chat.sale_price}}</text>
+                                        <image data-url='../applyAgent/index?storeId={{userInfo.user_id}}&storeName={{userInfo.nickname}}' catchtap="isAuth_"  class="w-64 h-28 mlr-16"  src='/assets/images/daili@2x (2).png'></image>
+                                        <text>￥ {{chat.agent_price}}</text>
                                     </view>
                                 </view>
                             </navigator>

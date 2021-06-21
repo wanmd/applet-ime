@@ -477,6 +477,13 @@ page {
     margin-left: 20rpx;
     width: 34rpx;
 }
+.date-block .daili {
+    position: absolute;
+    right: 0;
+    bottom: 20rpx;
+    margin-left: 20rpx;
+    width: 34rpx;
+}
 
 .date-block .ellipsis-2 {
     display: -webkit-box;

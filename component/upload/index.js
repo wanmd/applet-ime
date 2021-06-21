@@ -60,8 +60,6 @@ Component({
     initFile(initFile) {
 
       if (initFile !== '') {
-        console.log(thumbFileUrl(initFile));
-        
         this.setData({ thumb: thumbFileUrl(initFile), url: initFile })
       }
     }
@@ -75,28 +73,9 @@ Component({
       this.setData({ url : '', thumb : ''})
       this.triggerEvent('clear')
     },
-    /**
-     * 图片  视频 选择框
-     */
-    actioncnt() {
-      let _this = this;
-      wx.showActionSheet({
-        itemList: ['图片', '视频'],
-        success: function(res) {
-          if(res.tapIndex == 0) {
-            _this.selectUpload()
-          }
-          if(res.tapIndex == 1) {
-            _this.chooseVideo()
-          }
-        },
-        fail: function(res) {
-          console.log(res.errMsg)
-        }
-      })
-    },
     selectUpload(){
       let _this = this;
+      this.triggerEvent('selectpic');
       this.multiUploadImg({number: _this.properties.count}, ret => {
         if(ret.success) {
           _this.setData({ rate: 100})
@@ -135,7 +114,7 @@ Component({
         sourceType: ['album', 'camera'],
         count : this.properties.count,
         success : (res) => {
-
+          
           this.setData({ uploadIng : true})
 
           const tempFilePaths = res.tempFilePaths

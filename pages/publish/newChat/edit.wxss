@@ -1,3 +1,6 @@
+.pt-20 {
+  padding-top: 20rpx;
+}
 .images .item {
   float: left;
   margin: 18rpx 0rpx 0rpx 18rpx;

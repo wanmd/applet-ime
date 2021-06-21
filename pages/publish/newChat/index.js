@@ -127,7 +127,6 @@ wx.Page({
 
     // 选择定位
     selectPostion() {
-			console.log(wx.getSetting());
 			const _this = this;
 			wx.getSetting({
 				success: (res) => {
@@ -335,7 +334,11 @@ wx.Page({
             //  商品规格
             let { goods_skuList, excel_skuList } = app.globalData.skuData;
             if (!excel_skuList.length) {
-                toast('请选择商品规格~')
+                toast('请添加商品规格~')
+                return
+            }
+            if (!goods_skuList.length) {
+                toast('请添加商品规格~')
                 return
             }
 

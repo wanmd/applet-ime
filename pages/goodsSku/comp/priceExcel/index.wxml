@@ -22,7 +22,7 @@
             <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="agentPrice" value="{{item.agentPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
             <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="costPrice" value="{{item.costPrice}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
             <input type="number" bindinput="handleInput" data-index="{{index}}" data-name="stock" value="{{item.stock}}" placeholder-class="fz-20" placeholder="请输入" class="row-input d-ib w-120" />
-            <upload initFile='{{item.url}}' data-index="{{index}}" bind:success="hanldeSuccess" width="120rpx" height="62rpx" class="row-input d-ib w-120" />
+            <upload initFile='{{item.url}}' data-index="{{index}}" bind:selectpic="handleSelect" bind:success="hanldeSuccess" width="120rpx" height="62rpx" class="row-input d-ib w-120" />
           </view>
         </view>
       </view>

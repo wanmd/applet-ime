@@ -24,7 +24,8 @@ Component({
         height: '0rpx',
         baseUrl: ALIYUN_URL,
         picture: [],
-        size: ''
+        size: '',
+        new_pictureSet: []
     },
 
     observers: {
@@ -34,7 +35,10 @@ Component({
                 v = ALIYUN_URL + '/' + v
                 picture.push(v)
             })
-            this.setData({ picture: picture })
+            this.setData({ 
+                picture: picture,
+                new_pictureSet: picture
+            })
         }
     },
 

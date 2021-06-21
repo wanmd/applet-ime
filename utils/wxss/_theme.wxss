@@ -201,6 +201,9 @@
 .mr-6 {
   margin-right: 6rpx;
 }
+.mr-8 {
+  margin-right: 8rpx;
+}
 .mr-9 {
   margin-right: 9rpx;
 }
@@ -1145,6 +1148,9 @@
 /* Color */
 .c-fff {
   color: #fff;
+}
+.c-000 {
+  color: #000;
 }
 .c-333 {
   color: #333;

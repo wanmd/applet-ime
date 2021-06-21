@@ -25,10 +25,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(!!options.isEdit);
-    // this.setData({
-    //   isEdit: !!options.isEdit
-    // })
   },
 
   /**
@@ -113,7 +109,6 @@ Page({
       return
     }
     if(!isEdit) { // 新增
-      debugger
       this.setData({
         show: false,
         skuTitle: '',
@@ -125,8 +120,9 @@ Page({
         }]],
         hasChanged: true,
       })
+      console.log(skuList);
+      console.log(this.data.goods_skuList);
     } else { // 编辑  需要替换
-      debugger
       const { goods_skuList, editIndex, skuTitle, skuList } = this.data;
       goods_skuList[editIndex] = {
         id: skuTitle,
@@ -191,7 +187,8 @@ Page({
     //数据挂在app
     app.globalData.skuData = {
       goods_skuList: this.data.goods_skuList,
-      excel_skuList
+      excel_skuList,
+      isEdit: true
     } 
 
     wx.navigateBack()

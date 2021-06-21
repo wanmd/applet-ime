@@ -131,7 +131,7 @@ Page({
               if(res.code == 200){
                 toast('删除成功');
                 _this.setData({
-                  goodsList: goodsList.filter(item => item.id != id)
+                  goodsList: this.data.goodsList.filter(item => item.id != id)
                 })
               }else{
                 errorToast(res.msg)

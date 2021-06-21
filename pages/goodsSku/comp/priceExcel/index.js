@@ -50,6 +50,7 @@ Component({
   },
 
   observers: {
+    //  每次商品的规格属性一变化就需要重置数据
     skuList(val) {
       if (val.length && val) {
         this.initData()
@@ -92,18 +93,27 @@ Component({
       },
     ],
     excel_skuList: [],
+    store_excel_skuList: [],
     rowItem: {
-      agentPrice: "60",
+      // agentPrice: "60",
+      // bargainPrice: "",
+      // costPrice: "50",
+      // groupPrice: "90",
+      // memberPrice: "80",
+      // salePrice: "100",
+      // stock: "100",
+      agentPrice: "",
       bargainPrice: "",
-      costPrice: "50",
-      groupPrice: "90",
-      memberPrice: "80",
-      salePrice: "100",
-      stock: "100",
+      costPrice: "",
+      groupPrice: "",
+      memberPrice: "",
+      salePrice: "",
+      stock: "",
       url: "",
     },
     // 批量设置弹框
-    showBatch: false
+    showBatch: false,
+    isUpload: false
   },
 
   // lifetimes : {
@@ -124,14 +134,17 @@ Component({
    */
   methods: {
     async initData() {
-      // console.log(app.globalData.skuData.isEdit);
       const isEdit = (app.globalData.skuData && app.globalData.skuData.isEdit) || false;
       if (isEdit) { // 编辑
-        if (!this.data.hasChanged) {
+        if (!this.data.hasChanged) { // 上级数据没有改变
+          
           this.setData({
             excel_skuList: this.data.excel_skuList
           })
         } else {
+          this.setData({
+            excel_skuList: []
+          })
           this.propsData();
           //this.mockData();
         }
@@ -144,7 +157,16 @@ Component({
     },
     // 组件数据  真实
     async propsData() {
+      const { isUpload } = this.data;
+      // 因为图片上传会触发excel_skuList数据重置  所以这里要劫持掉
+      if (isUpload) {
+        this.setData({
+          excel_skuList: this.data.store_excel_skuList
+        })
+        return
+      }
       setTimeout(() => {
+        // 设置标题
         const skuList = this.data.skuList.map(item => {
           item.skuList.forEach(vitem => vitem.title = item.title);
           return item
@@ -212,11 +234,13 @@ Component({
         showBatch: true
       })
     },
+    // 批量设置取消
     handleCancel() {
       this.setData({
         showBatch: false
       })
     },
+    // 批量设置提交
     formSubmit(e) {
       this.setData({
         data: this.data.excel_skuList.map(item => {
@@ -232,7 +256,9 @@ Component({
     handleInput(e) {
       const { index, name } = e.currentTarget.dataset;
       const { value } = e.detail;
-      let update = {};
+      let update = {
+        isUpload: false
+      };
       switch(name) {
         case 'salePrice':
           update[`excel_skuList[${index}].salePrice`] = value;
@@ -255,18 +281,26 @@ Component({
       }
       this.setData(update);
     },
+    // 图片上传需要阻止initData
+    handleSelect() {
+      this.setData({
+        isUpload: true,
+        store_excel_skuList: this.data.excel_skuList // 暂存
+      })
+    },
     // 图片上传成功
     hanldeSuccess(e) {
-      console.log(this.data);
       const { index } = e.currentTarget.dataset;
       const { value } = e.detail;
 
-      let update = {};
-      update[`excel_skuList[${index}].url`] = value;
-      console.log(update);
-      this.setData(update);
+      setTimeout(() => {
+        let update = {};
+        update[`excel_skuList[${index}].url`] = value;
+        this.setData(update);
+      }, 0)
     },
     getData() {
+      console.log(this.data.excel_skuList);
       return this.data.excel_skuList
     }
   }

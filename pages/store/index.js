@@ -753,5 +753,9 @@ wx.Page({
         wx.navigateBack({
           delta: 1,
         })
-    }
+    },
+    isAuth_(e) {
+        if(!this.isToLogin()) return;
+        app.requireLogin(e.currentTarget.dataset.url)
+    },
 })

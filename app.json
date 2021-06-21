@@ -64,6 +64,7 @@
     "pages/storeCategory/edit",
     "pages/goodsManage/index",
     "pages/publish/newChat/index",
+    "pages/publish/newChat/edit",
     "pages/goodsLabel/index",
     "pages/productCategory/index",
     "pages/goodsSku/index",

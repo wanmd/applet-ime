@@ -80,7 +80,7 @@
                 <text wx:else>{{remark}}</text>
               </view>
             </cell>
-            <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
+            <cell title='来源（选填）' border='{{false}}' arrow='{{false}}'>
               <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
                 value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
