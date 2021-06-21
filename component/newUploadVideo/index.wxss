@@ -1,0 +1,11 @@
+/* component/newUploadVideo/index.wxss */
+.upload-frame {
+  /* border-radius:16rpx; */
+  position: relative;
+  background: no-repeat center #F2F2F2;
+  background-size: 60rpx 54rpx;
+}
+
+.upload-frame.camera {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA2CAMAAACsuQomAAAALVBMVEVHcEz////////////////////////////////////////////////////////NXt0CAAAADnRSTlMAvbVeJi/n+UoXls93CPvUGc4AAAGbSURBVEjHrZdZdsMgDEWDwAjEsP/lxgbq4wSBZdKXr7TcI4TGvF7/Lr99yngxqm2uwnxKbUnEQmalJSzlgdw9u43YbNO6YYFpP2Yz3MFxAuMgYJvTVXYCZ6pnnLt4n6ItQd0/iHmq9m+ErbEm5OfCGna/wrakSbTGluczeVU0j81cdppRd/IvNfEqqDCLuxnCNpoaDAdjGAboNf3UI1h9ZXFE8bURusp1KLWsKrsRBEW6ftFC2JY7G2hVYPWoSXBweSt3iREdxpMV+Iy22L0eRSp1K7FcDH9WGh7V61EAHwcd173UPYzc65TuRXjrc+hvvcOOi1ZvucCWaxvLsNCy5a5dXjEKctsz58qYAkGoDvdM364YXxgY+liVbHei3D52gBS68RhE9axK9zn/jiXIjGG+nuN1M0EyXaVM21Cb4puOsQ3EFOQ97Ht54WfhqPWSZ3crWevNGE/cBXza9Pcsp7g7DTY/bfr5b1XI03EDvww6wlUW2cwRCticFcqNxpDg0nUf1Et0G2h7Fjy3S+cgTY4AlFhA0f/+U+QNOTCAtrNt5ywAAAAASUVORK5CYII=);
+}

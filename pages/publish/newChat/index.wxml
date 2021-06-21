@@ -25,9 +25,11 @@
         <view class=" mb-32 pb-10 borderb-1-solid-EFEFE">
           <view class="c-707070 mb-10">添加产品视频,最多1个，且15秒以内</view>
           <view class='images clear m-t-30'>
-            <uploadVideo class='item' initFile='{{item.file}}' bind:success='uploadVideo_' bind:takevideo='uploadTakevideo' bind:clear='clearVideo'></uploadVideo>
+            <!-- <uploadVideo class='item' initFile='{{item.file}}' bind:success='uploadVideo_' bind:takevideo='uploadTakevideo' bind:clear='clearVideo'></uploadVideo> -->
             <!-- <uploadVideo wx:if='{{videoUrl}}' class='item' bind:success='uploadVideo' bind:clear='clearVideo' only></uploadVideo> -->
             <!-- <video wx:if='{{videoUrl}}' class='item' src="{{videoUrl}}"></video> -->
+            <!-- <view class='upload-frame camera' style='width:218rpx;height:218rpx' bindtap="{{handleVideo}}"></view> -->
+            <newUploadVideo bind:success='uploadVideo_' />
           </view>
         </view>
         <view class='m-t-30'>

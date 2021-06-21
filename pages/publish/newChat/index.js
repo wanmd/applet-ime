@@ -118,8 +118,6 @@ wx.Page({
     * 上传视频 目前后台限制最大100M, 以后如果视频太大可以选择视频的时候进行压缩
     */
    uploadVideo_(e) {
-       console.log('uploadVideo_uploadVideo_uploadVideo_uploadVideo_');
-       console.log(e);
         let d = new Date();
         let file = e.detail.value;
         this.setData({
@@ -127,105 +125,96 @@ wx.Page({
         })
     },
 
-    uploadTakevideo(videoSrc) {
-        this.setData({
-            videoUrl: videoSrc
-        })
-    },
-
-    uploadVideo(e) {
-        debugger
-    },
-
+    // 选择定位
     selectPostion() {
-        console.log(wx.getSetting());
-        const _this = this;
-        wx.getSetting({
-					success: (res) => {
-						console.log(res);
-						var statu = res.authSetting;
-						if (!statu['scope.userLocation']) {
-							wx.showModal({
-								title: '是否授权当前位置',
-								content: '需要获取您的地理位置，请确认授权',
-								confirmColor: '#f16765',
-								success: (res) => {
-									console.log(res);
-									
-									if (res.confirm) {
-										wx.openSetting({
-											success: data => {
-												if (data.authSetting["scope.userLocation"]) {
-													_this.chooseLocation()
-												}
+			console.log(wx.getSetting());
+			const _this = this;
+			wx.getSetting({
+				success: (res) => {
+					console.log(res);
+					var statu = res.authSetting;
+					if (!statu['scope.userLocation']) {
+						wx.showModal({
+							title: '是否授权当前位置',
+							content: '需要获取您的地理位置，请确认授权',
+							confirmColor: '#f16765',
+							success: (res) => {
+								console.log(res);
+								
+								if (res.confirm) {
+									wx.openSetting({
+										success: data => {
+											if (data.authSetting["scope.userLocation"]) {
+												_this.chooseLocation()
 											}
-										})
-											
-									}
+										}
+									})
+										
 								}
-							})
-						} else {
-								_this.chooseLocation()
-						}
-					},
-					fail: () => {
+							}
+						})
+					} else {
+							_this.chooseLocation()
 					}
-        })
+				},
+				fail: () => {
+				}
+      })
     },
 
     chooseLocation() {
-        wx.chooseLocation({
-            success: res => {
-                this.setData({ location: res.name, longitude: res.longitude, latitude: res.latitude })
-            }
-        })
+			wx.chooseLocation({
+				success: res => {
+					this.setData({ location: res.name, longitude: res.longitude, latitude: res.latitude })
+				}
+			})
     },
 
     clearLocation() {
-        this.setData({ location: '', longitude: '', latitude: '' })
+      this.setData({ location: '', longitude: '', latitude: '' })
     },
 
     toSelectCategory() {
-        wx.navigateTo({
-            url: '/pages/goodsCategory/index'
-        })
+			wx.navigateTo({
+				url: '/pages/goodsCategory/index'
+			})
     },
 
     clearCategory() {
-        this.setData({ category_id: 0, category_name: '' })
+      this.setData({ category_id: 0, category_name: '' })
     },
 
      // 允许从相机和相册扫码
-     handleScan() {
-        const _this = this;
-        // 允许从相机和相册扫码
-        wx.scanCode({
-            success (res) {
-                _this.setData({
-                    no: res.result
-                })
-            }
-        })
+    handleScan() {
+			const _this = this;
+			// 允许从相机和相册扫码
+			wx.scanCode({
+				success (res) {
+					_this.setData({
+						no: res.result
+					})
+				}
+			})
     },
 
     handleNav(e) {
-        console.log(e.currentTarget.dataset.url);
-        
-        wx.navigateTo({
-          url: e.currentTarget.dataset.url,
-        })
+			console.log(e.currentTarget.dataset.url);
+			
+			wx.navigateTo({
+				url: e.currentTarget.dataset.url,
+			})
     },
 
     setLabels(labels) {
-        this.setData({
-            labels: labels
-        })
+			this.setData({
+				labels: labels
+			})
     },
 
     setRemarks(remark) {
-        this.setData({
-            remark: remark
-        })
+			this.setData({
+				remark: remark
+			})
     },
 
     setProductCategoryId(currentSelect) {
