@@ -726,10 +726,10 @@
           "scene": null
         },
         {
-          "id": -1,
+          "id": 94,
           "name": "商品详情(新)",
           "pathName": "pages/goods/index",
-          "query": "chatId=2343",
+          "query": "chatId=2375",
           "scene": null
         },
         {
@@ -750,6 +750,7 @@
           "id": -1,
           "name": "商家报价单设置",
           "pathName": "pages/merchant/storeBackground/index",
+          "query": "",
           "scene": null
         }
       ]

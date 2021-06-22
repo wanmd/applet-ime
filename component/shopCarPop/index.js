@@ -52,8 +52,8 @@ Component({
     goodName: '',
     // 价格
     header_price: '',//顶部展示价格
-    price_1: '',// 单独购买价格
-    price_2: '',// 拼团或代理价格
+    price_1: '',// 一件代发价格
+    price_2: '',// 代理价格
     userType: '',// 用户身份
   },
 
@@ -293,12 +293,22 @@ Component({
           this.setData({
             price_1: member_price,
             price_2: maskNumber(agent_price),
-            header_price: maskNumber(agent_price)
+            header_price: member_price
           })
           break
         case 'member':
+          this.setData({
+            price_1: member_price,
+            price_2: agent_price,
+            header_price: type === 'agent' ? agent_price : member_price
+          })
           break
         case 'agent':
+          this.setData({
+            price_1: agent_price,
+            price_2: agent_price,
+            header_price: agent_price
+          })
           break
       }
       
@@ -354,7 +364,9 @@ Component({
         if(res.success){
           toast('加入购物车成功!')
           this.setData({
-            show: false
+            show: false,
+            type: '',
+            canSelect: false
           })
           return
         }else{
@@ -362,17 +374,18 @@ Component({
         }
       }, data).showLoading()
     },
-    // 单独购买
-    postBuy() {
-      const { detail, num: goodsNum } = this.data;
+    // 购买
+    postBuy() { 
+      const { detail, num: goodsNum, type } = this.data;
       const { chat_id: chatId, remark = '', shareUserId = 0 } = detail;
       const productSpecs = JSON.stringify(this.getProductSpecs());
-      const isGroup = 2 ; // 是否拼单购买 1-是 2-否 一般用户生效
-      const buyType = 1; // 1-普通用户 2-会员购买
+      // 是否拼单购买 1-是 2-否 一般用户生效
+      // const isGroup = 2 ; 
+      const buyType =  type === 'normal' ? 1 : 2; // 1-普通用户 2-会员购买
       const prefix = '../../packages/pack-A/pages/checkout/index?chatId=' 
 
       wx.navigateTo({
-        url: prefix + chatId + "&goodsNum=" + goodsNum + "&remark=" + remark + "&type=2&shareUserId=" + shareUserId + '&isGroup=2&productSpecs=' + productSpecs + '&buyType=' + buyType + '&isGroup=' + 2,
+        url: prefix + chatId + "&goodsNum=" + goodsNum + "&remark=" + remark + "&type=2&shareUserId=" + shareUserId + '&isGroup=2&productSpecs=' + productSpecs + '&buyType=' + buyType,
       });
     }
   }
