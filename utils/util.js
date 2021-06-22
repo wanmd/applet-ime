@@ -377,6 +377,21 @@ function timestampToTime(timestamp) {
         ymd: Y + M + D
     };
 }
+
+const maskNumber = num => {
+    if (typeof(num) === 'number') {
+        num = String(num)
+    }
+    let str = String(num)[0];
+    for(let i = 1; i < num.length; i++) {
+        let item = num[i];
+        if (!isNaN(item)) {
+            item = '*'
+        }
+        str += item
+    }
+    return str
+};
 module.exports = {
     validmobile: validmobile,
     formatTime: formatTime,
@@ -392,5 +407,6 @@ module.exports = {
     rpxTopx: rpxTopx,
     queryParams: queryParams,
     getDate: getDate,
-    timestampToTime
+    timestampToTime,
+    maskNumber
 };

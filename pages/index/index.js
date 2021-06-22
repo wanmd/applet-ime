@@ -84,9 +84,9 @@ wx.Page({
         showlink: 0,
         iME_time: '2021-06-02',
         showShopCarPop: false,
-        // goods_id: null
+        goods_id: null
         // showShopCarPop: true,
-        goods_id: 40
+        // goods_id: 40
     },
     urlTo(e) {
         console.log(e.currentTarget.dataset)

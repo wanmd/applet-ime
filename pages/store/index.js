@@ -1,5 +1,5 @@
-import { Request, toast, rpxTopx, copyText } from '../../utils/util.js';
-import { assetsImages } from '../../utils/config.js';
+import { Request, toast, rpxTopx, copyText, errorToast } from '../../utils/util.js';
+import { assetsImages, ALIYUN_URL } from '../../utils/config.js';
 let request = new Request();
 let app = getApp();
 let W = 0;
@@ -49,13 +49,16 @@ wx.Page({
         pageHude: false,
 
         assetsImages: assetsImages,
+        ALIYUN_URL,
         userInfo: {},
-        backgroundIamge: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1985214588,1769404971&fm=26&gp=0.jpg',
+        backgroundIamge: '',
         // backgroundIamge: '',
         topHeight: 0,
         statusBarHeight: 0,
         navTop: 0,
-        showType: 0
+        showType: 0,
+        showShopCarPop: false,
+        goods_id: null
     },
 
     /**
@@ -212,7 +215,7 @@ wx.Page({
     },
 
     load(e) {
-        console.log(e);
+        // console.log(e);
         let rows = e.detail.list
         let page = e.detail.page
         console.log(page)
@@ -234,7 +237,7 @@ wx.Page({
         this.setData({ goodsList: goodsList })
     },
     load1(e) {
-        console.log(e);
+        // console.log(e);
         let isAgent = e.detail.isAgent;
         let rows = e.detail.list
         let page = e.detail.page
@@ -281,7 +284,7 @@ wx.Page({
                 let k = m + '' + d
                 if (k in tmpMapList) {
                     tmpMapList[k].list.push(v)
-                    console.log(tmpMapList)
+                    // console.log(tmpMapList)
                 } else {
                     tmpMapList[k] = {
                         list: [v],
@@ -289,11 +292,11 @@ wx.Page({
                         d: d
                     }
                     chatList.push(tmpMapList[k])
-                    console.log(chatList)
+                    // console.log(chatList)
                 }
             })
 
-            console.log(chatList)
+            // console.log(chatList)
             this.setData({
                 tmpMapList,
                 isAgent: isAgent,
@@ -302,10 +305,8 @@ wx.Page({
         }
     },
     load2(e) {
-        console.log(e);
         let rows = e.detail.list
         let page = e.detail.page
-        console.log(e.detail)
             // let isAgent =  e.detail.isAgent;
         if (rows.length == 0 && page == 1) {
             this.setData({
@@ -319,7 +320,7 @@ wx.Page({
 
         if (rows.length > 0) {
             rows = rows.map((v, i) => {
-                v.picture = JSON.parse(v.picture)
+                v.picture = JSON.parse(v.picture) 
                 return v
             })
             let picture2 = this.data.picture2
@@ -327,7 +328,6 @@ wx.Page({
             rows.forEach(v => {
                 picture2.push(v)
             })
-            console.log(picture2)
             this.setData({
                 picture2,
                 // isAgent: isAgent
@@ -394,25 +394,24 @@ wx.Page({
 
     deleteChat(e) {
         let index = e.currentTarget.dataset.index
-        let chatId = this.data.goodsList[index].chat_id
+        let chatId = this.data.goodsList[index].chat_id;
+        let id = this.data.goodsList[index].id;
         wx.showModal({
             title: '删除产品',
             content: '确定删除这个产品吗',
 
             success: (res) => {
                 if (res.confirm) {
-                    request.delete('chat/delete', res => {
-                        if (res.success) {
-                            let goodsList = this.data.goodsList
-                            goodsList.splice(index, 1)
-                            this.setData({ goodsList: goodsList })
-                            if (goodsList.length == 0) {
-                                this.selectComponent('#pagination').initLoad()
-                            }
-                        } else {
-                            toast(res.msg)
-                        }
-                    }, { chatId: chatId })
+                    request.delete('product/' + id,res=>{
+                    if(res.code == 200){
+                        toast('删除成功');
+                        this.setData({
+                            goodsList: this.data.goodsList.filter(item => item.id != id)
+                        })
+                    }else{
+                        errorToast(res.msg)
+                    }
+                    }, {})
                 }
             }
         })
@@ -421,8 +420,9 @@ wx.Page({
     edit(e) {
         let index = e.currentTarget.dataset.index
         let chatId = this.data.goodsList[index].chat_id
+        let id = this.data.goodsList[index].id;
         wx.navigateTo({
-            url: '/pages/publish/chat/index?chatId=' + chatId
+            url: '/pages/publish/newChat/edit?chatId=' + chatId + '&id=' + id
         })
     },
 
@@ -758,4 +758,15 @@ wx.Page({
         if(!this.isToLogin()) return;
         app.requireLogin(e.currentTarget.dataset.url)
     },
+    // 购物车弹框
+    showGoodsPopup(e) {
+        if (!this.isToLogin()) return;
+        // 产品id
+        const { goods_id } = e.currentTarget.dataset;
+        
+        this.setData({
+            showShopCarPop: true,
+            goods_id 
+        })
+    }
 })

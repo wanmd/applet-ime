@@ -694,13 +694,25 @@
         {
           "name": "商品详情(新)",
           "pathName": "pages/goods/index",
-          "query": "chatId=2343",
+          "query": "chatId=2375",
           "scene": null
         },
         {
           "name": "产品编辑",
           "pathName": "pages/publish/newChat/edit",
           "query": "id=59&chatId=2365",
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/cart/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的店铺",
+          "pathName": "pages/store/index",
+          "query": "storeId=903450&type=4",
           "scene": null
         }
       ]

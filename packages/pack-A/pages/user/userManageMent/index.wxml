@@ -3,59 +3,59 @@
   <view class="header bgc-fff d-f fxd-c">
     <view class="data-all d-f fx-1 mb-72">
       <view class="d-f fxd-c fx-1 pt-12">
-        <view class="fz-48 fw-600 c-333 mb-20">8888</view>
+        <view class="fz-48 fw-600 c-333 mb-20">{{countInfo.totalAttend}}</view>
         <view class="fz-24 fw-400 c-929292">用户总数</view>
       </view>
       <view class="d-f fxd-c fx-1 mr-48">
         <view class="d-f jc-sb ai-c">
           <view class="fz-24 fw-400 c-929292">男</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.boyAttend}}</view>
         </view>
         <view class="d-f jc-sb ai-c">
           <view class="fz-24 fw-400 c-929292">女</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.girlAttend}}</view>
         </view>
         <view class="d-f jc-sb ai-c">
           <view class="fz-24 fw-400 c-929292">其它</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.unknownAttend}}</view>
         </view>
       </view>
       <view class="d-f fxd-c fx-1 mr-20">
         <view class="d-f jc-sb ai-c  mb-24">
           <view class="fz-24 fw-400 c-929292">会员</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.member}}</view>
         </view>
         <view class="d-f jc-sb ai-c">
           <view class="fz-24 fw-400 c-929292">商家</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.merchant}}</view>
         </view>
       </view>
       <view class="d-f fxd-c fx-1">
         <view class="d-f jc-sb ai-c  mb-24">
           <view class="fz-24 fw-400 c-929292">代理</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.agent}}</view>
         </view>
         <view class="d-f jc-sb ai-c">
           <view class="fz-24 fw-400 c-929292">付费用户</view>
-          <view class="fz-32 fw-600 c-333">88</view>
+          <view class="fz-32 fw-600 c-333">{{countInfo.payed}}</view>
         </view>
       </view>
     </view>
     <view class="data-add d-f ">
       <view class="d-f fxd-c fx-1 ai-c">
-        <view class="c-333 fz-32 mb-20 fw-600">88</view>
+        <view class="c-333 fz-32 mb-20 fw-600">{{countInfo.today}}</view>
         <view class="c-929292 fz-24 fw-400">今日新增</view>
       </view>
       <view class="d-f fxd-c fx-1 ai-c">
-        <view class="c-333 fz-32 mb-20 fw-600">88</view>
+        <view class="c-333 fz-32 mb-20 fw-600">{{countInfo.yesterday}}</view>
         <view class="c-929292 fz-24 fw-400">昨日新增</view>
       </view>
       <view class="d-f fxd-c fx-1 ai-c">
-        <view class="c-333 fz-32 mb-20 fw-600">88</view>
+        <view class="c-333 fz-32 mb-20 fw-600">{{countInfo.week}}</view>
         <view class="c-929292 fz-24 fw-400">本周新增</view>
       </view>
       <view class="d-f fxd-c fx-1 ai-c">
-        <view class="c-333 fz-32 mb-20 fw-600">88</view>
+        <view class="c-333 fz-32 mb-20 fw-600">{{countInfo.month}}</view>
         <view class="c-929292 fz-24 fw-400">本月新增</view>
       </view>
     </view>
@@ -74,23 +74,24 @@
     <view bindtap="changeCurrent" data-type="0" data-current="4" class="th th4 {{current === 4 ? 'c-000' : 'c-929292'}}">未付费用户</view>
   </view>
   <!-- <view class="pagination2" wx-if="{{userInfo.user_type == 2}}"> -->
-  <view class="pagination2">
+  <view class="pagination2" wx:if="{{dataList.length}}">
     <view class="d-f ai-c bfc-fff plr-48 ptb-18 bdb-1px_F2F2F2" wx:for="{{dataList}}" wx:key="{{index}}">
       <view class="avatar mr-14 w-56 h-56 bdrs-50p">
-        <image class="w-56 h-56" src="../../../../../assets/images/share_ic_wechat@2x.png" />
+        <image class="w-56 h-56" src="{{item.avatar}}" />
       </view>
       <view class="fxd-c fz-20 c-666">
         <view class="user-top mb-4">
-          <text class="c-333 mr-22">Kaylah McGlynn</text>
-          <text class="mr-22">ID : 8545512</text>
-          <text>158888888</text>
+          <text class="c-333 mr-22">{{item.nickname}}</text>
+          <text class="mr-22">ID : {{item.user_id}}</text>
+          <text>{{item.wx_mobile}}</text>
         </view>
         <view class="user-bottom">
           <text class="mr-16">申请时间</text>
-          <text class="mr-26">2018-08-24 18：18</text>
-          <text>最后登录2018-08-24 18：18</text>
+          <text class="mr-26">{{item.register_time}}</text>
+          <text>最后登录{{item.last_login_time}}</text>
         </view>
       </view>
     </view>
   </view>
+  <view wx:else class="mt-20 d-f jc-c ai-c">暂无数据</view>
 </view>

@@ -36,7 +36,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.search()
   },
 
   bindinput_(e) {
@@ -130,7 +130,7 @@ Page({
               if(res.code == 200){
                 toast('删除成功');
                 _this.setData({
-                  goodsList: this.data.goodsList.filter(item => item.id != id)
+                  goodsList: _this.data.goodsList.filter(item => item.id != id)
                 })
               }else{
                 errorToast(res.msg)

@@ -8,14 +8,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList: [
-      1,2,3
-    ],
+    dataList: [],
     current: 0,
+    countInfo:　{},
     quoteListKeyword: '',
     query2: {
       keyword: '',
-      type: 1
+      type: 0
     },
   },
 
@@ -37,11 +36,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // this.initData()
+    this.initData()
   },
 
   initData() {
-    request.get('visit/contactInfo', res => {
+    request.setMany(true);
+    // 获取统计
+    this.getCountInfo()
+    // 获取列表
+    this.getList()
+    
+  },
+  getCountInfo() {
+    request.get('userstatic/count', res => {
+      if (res.success) {
+        console.log(res);
+        this.setData({ 
+          countInfo: res.data.list
+        })
+      }
+    }, {})
+  },
+  getList() {
+    request.get('userstatics', res => {
       if (res.success) {
             this.setData({ 
               dataList: res.data

@@ -1,4 +1,4 @@
-import { Request, toast, formatDate, alert, fileUrl, rpxTopx } from '../../utils/util.js'
+import { Request, toast, formatDate, alert, fileUrl, rpxTopx, maskNumber } from '../../utils/util.js'
 import { ALIYUN_URL } from '../../utils/config.js'
 let W, H = 0
 let request = new Request()
@@ -35,7 +35,8 @@ wx.Page({
     padd_r270: false,
     storeCommonParam: null,
     showShopCarPop: !true,
-    goods_id: null
+    goods_id: null,
+    user: ''
   },
   onLoad: function (opts) {
     console.log("goods=======opts");
@@ -132,9 +133,10 @@ wx.Page({
           data.picture = JSON.parse(data.picture)
         }
         let storeCommonParam =  data.buyNotice || null;
-        data.price = (data.isAgent && data.chat_type != 5) ? data.agent_price: data.sale_price
+        data.price = (data.isAgent && data.chat_type != 5) ? data.agent_price: data.sale_price;
+        data.agent_price = (!data.isAgent && !this.data.userType.isVip) ? maskNumber(data.agent_price) : data.agent_price;
         
-        this.setData({chat : data, storeCommonParam: storeCommonParam, goods_id: data.product_id})
+        this.setData({chat : data, storeCommonParam: storeCommonParam, goods_id: data.product_id, user: JSON.stringify(data.user)})
         if(this.data.chat.chat_type==5 || (this.data.shareUserId!=''&&this.data.shareUserId!='0')){
           this.setData({
             padd_r270: true
@@ -264,8 +266,6 @@ wx.Page({
       req.setConfig('responseType', 'arraybuffer')
       req.get('qr/chat', res => {
         let qrcode = wx.arrayBufferToBase64(res).replace(/[\r\n]/g, '')
-        debugger
-        console.log(qrcode);
         this.setData({ qrcode: qrcode })
         wx.nextTick(() => {
           this.draw()

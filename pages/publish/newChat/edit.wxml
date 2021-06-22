@@ -32,7 +32,7 @@
           <!-- 发布产品 (转发的？)-->
           <block wx:if='{{chatType == 2&&share!=0}}'>
             <view class="d-f jc-sb ai-c">
-              <view class="w-300">产品条码（选填）111</view>
+              <view class="w-300">产品条码（选填）</view>
               <view class="d-f ai-c">
                 <input slot='content' type='text' placeholder='扫码或手动录入' placeholder-class='color-ccc' value='{{no}}' data-target='no' bindinput='input' class='input'></input>
                 <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao.png"/> 
@@ -47,6 +47,7 @@
                 <text wx:else>{{productCategoryId.parent.name}}-{{productCategoryId.name}}</text>
               </view>
             </cell>
+            <priceExcel mode="read" wx:if="{{goods_skuList}}" skuList="{{goods_skuList}}" />
             <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
               <view 
                 slot='content' 
@@ -78,7 +79,7 @@
             </cell>
             <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
               <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
-                value='{{sourceChatId}}' data-target='sourceChatId' bindinput='input' class='input w300'>
+                value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
             </cell>
             <cell title='运费设置' border='{{false}}' arrow='{{true}}'>

@@ -19,7 +19,7 @@
       <view class='goods-list bgc-fff {{ goodsList.length ? "pb-50" : ""}}' wx:if='{{goodsList.length}}' style="padding-top: 0;margin-top: 46rpx;">
           <navigator class='item mb-20 pl-32 pr-60' wx:for='{{goodsList}}' wx:key='index' url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none">
               <view class='_wrap d-f '>
-                <view class="mr-24 w-144 h-144">
+                <view class="mr-24 w-144 h-144 d-if">
                   <!-- <img class='w-144 h-144' mode='aspectFill' thumb="{{thumb}}" src='../../assets/images/bg_goods@2x.png'></img> -->
                   <img class='w-144 h-144' mode='aspectFill' src='{{item.image_urls}}' /> 
                 </view>

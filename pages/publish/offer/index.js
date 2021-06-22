@@ -249,18 +249,18 @@ Vs沙宣深层滋润-57
                 ctx.fillText(remark_txt, rpxTopx(170), rpxTopx(120))
                 ctx.draw(true)
 
-								// 画商家名和日期
-								let date = new Date();
-								let month = date.getMonth() + 1;
-								let day = date.getDate();
-								let storeName = '商家名';
-								let title = `${storeName}-${month}月${day}日文字报价单`
+                // 画商家名和日期
+                let date = new Date();
+                let month = date.getMonth() + 1;
+                let day = date.getDate();
+                let storeName = '商家名';
+                let title = `${nickname}-${month}月${day}日文字报价单`
                 ctx.setFontSize(rpxTopx(32))
                 ctx.setFillStyle('#333')
                 ctx.fillText(title, rpxTopx(144), rpxTopx(204))
-								ctx.draw(true)
-								
-								let num = -30; // 调整上下距离
+                ctx.draw(true)
+                
+                let num = -30; // 调整上下距离
                 // 画数据(日期)
                 // ctx.font = 'normal bold ' + rpxTopx(20) + ' sans-serif';
                 ctx.setFontSize(rpxTopx(24))
@@ -289,8 +289,8 @@ Vs沙宣深层滋润-57
                 ctx.fillText('地址档口：' + address, rpxTopx(52), rpxTopx(530 + num))
                 ctx.draw(true)
 
-								// 报价说明
-								let prewords = '报价说明:';
+                // 报价说明
+                let prewords = '报价说明:';
                 let words = store_quote_state || '';
                 let words_20 = words.substring(0,20);
                 let words_20_40 = words.substring(20,40);
@@ -322,36 +322,35 @@ Vs沙宣深层滋润-57
                     ctx.draw(true)
                 }
 
-								// 画背景
-								let pic =  ALIYUN_URL + '/' + store_background;
+                // 画背景
+                let pic =  ALIYUN_URL + '/' + store_background;
+
                 wx.getImageInfo({
                     src: pic,
-                    success(res) {
-											console.log(res);
-											
-											var w = 0
-											var h = 0
-											var l = 0
-											var t = 0
-											var baseSize = 600
-											var baseSize_ = 300
-											var w_h__bar = res.width/res.height;
+                    success(res) {			
+                        var w = 0
+                        var h = 0
+                        var l = 0
+                        var t = 0
+                        var baseSize = 600
+                        var baseSize_ = 300
+                        var w_h__bar = res.width/res.height;
 
-											if(w_h__bar>1){
-													h = baseSize
-													w = h*w_h__bar
-													l = (res.width-res.height)/2
-													baseSize_ = res.height
-											}else{
-													w = baseSize
-													h = w/w_h__bar
-													t = (res.height-res.width)/2
-													baseSize_ = res.width
-											}
-											// –drawImage(Imageimg,float sx,float sy,float sw,float sh,float dx,float dy,float dw,float dh)
-											// •从sx、sy处截取sw、sh大小的图片，绘制dw、dh大小到dx、dy处
-											ctx.drawImage(res.path, l, t, baseSize_, baseSize_, rpxTopx(42), rpxTopx(660), rpxTopx(baseSize), rpxTopx(baseSize_))
-											ctx.draw(true)
+                        if(w_h__bar>1){
+                                h = baseSize
+                                w = h*w_h__bar
+                                l = (res.width-res.height)/2
+                                baseSize_ = res.height
+                        }else{
+                                w = baseSize
+                                h = w/w_h__bar
+                                t = (res.height-res.width)/2
+                                baseSize_ = res.width
+                        }
+                        // –drawImage(Imageimg,float sx,float sy,float sw,float sh,float dx,float dy,float dw,float dh)
+                        // •从sx、sy处截取sw、sh大小的图片，绘制dw、dh大小到dx、dy处
+                        ctx.drawImage(res.path, l, t, baseSize_, baseSize_, rpxTopx(42), rpxTopx(660), rpxTopx(baseSize), rpxTopx(baseSize_))
+                        ctx.draw(true)
                     }
                 })
 
@@ -359,36 +358,36 @@ Vs沙宣深层滋润-57
                 ctx.setFontSize(rpxTopx(20))
                 ctx.setFillStyle('#333')
                 ctx.fillText('iME供应链  货源+工具+渠道', rpxTopx(216), rpxTopx(1048))
-								ctx.draw(true)
+				ctx.draw(true)
 								
-								// 画商家二维码
-								let req = new Request()
-     					  req.setConfig('responseType', 'arraybuffer')
-								req.post('quote/qrcode', res => {
-										let qrcode = wx.arrayBufferToBase64(res).replace(/[\r\n]/g, '');
-										let d = new Date()
-										const fsm = wx.getFileSystemManager()
-										const filePath = `${wx.env.USER_DATA_PATH}/` + d.getTime() + '.png';
-										const buffer = wx.base64ToArrayBuffer(qrcode)
+                // 画商家二维码
+                let req = new Request()
+                req.setConfig('responseType', 'arraybuffer')
+                req.post('quote/qrcode', res => {
+                        let qrcode = wx.arrayBufferToBase64(res).replace(/[\r\n]/g, '');
+                        let d = new Date()
+                        const fsm = wx.getFileSystemManager()
+                        const filePath = `${wx.env.USER_DATA_PATH}/` + d.getTime() + '.png';
+                        const buffer = wx.base64ToArrayBuffer(qrcode)
 
-										fsm.writeFile({
-											filePath,
-											data: buffer,
-											encoding: 'binary',
-											success() {
-												wx.getImageInfo({
-													src: filePath,
-													success: (res) => {
-														console.log(res);
-														
-														let qrSize = rpxTopx(188)
-														ctx.drawImage(res.path, 0, 0, res.width, res.height, rpxTopx(464), rpxTopx(326), qrSize, qrSize)
-														ctx.draw(true)
-													}
-												})
-											}
-										})
-								}).showLoading()
+                        fsm.writeFile({
+                            filePath,
+                            data: buffer,
+                            encoding: 'binary',
+                            success() {
+                                wx.getImageInfo({
+                                    src: filePath,
+                                    success: (res) => {
+                                        console.log(res);
+                                        
+                                        let qrSize = rpxTopx(188)
+                                        ctx.drawImage(res.path, 0, 0, res.width, res.height, rpxTopx(464), rpxTopx(326), qrSize, qrSize)
+                                        ctx.draw(true)
+                                    }
+                                })
+                            }
+                        })
+                }).showLoading()
             }
         })
         

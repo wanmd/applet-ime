@@ -1,15 +1,15 @@
 page {
-    height: 100%;
+    /* height: 100%; */
     padding-top: 200rpx;
-    /*padding-bottom: 120rpx;*/
+    padding-bottom: 120rpx;
     /*background:rgba(241,241,241,1);*/
-    /*background:#fff;*/
+    background:#fff !important;
     background: rgba(241, 241, 241, 1);
 }
 
 .page {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .page.bg_fff {
@@ -46,8 +46,8 @@ page {
 } */
 
 .goods-list .item image {
-    width: 344rpx;
-    height: 342rpx;
+    /* width: 344rpx;
+    height: 342rpx; */
 }
 
 .cover {
@@ -424,7 +424,7 @@ page {
     align-items: center;
     flex-wrap: wrap;
     justify-content: flex-start;
-    /*margin-top: 20rpx;*/
+    margin-top: 20rpx;
     position: relative;
     width: 100%;
 }
@@ -532,6 +532,13 @@ page {
 .image_num {
     position: absolute;
     left: 20rpx;
+    bottom: 10rpx;
+    color: #fff;
+    font-weight: bold;
+}
+.image_shopcar {
+    position: absolute;
+    right: 20rpx;
     bottom: 10rpx;
     color: #fff;
     font-weight: bold;

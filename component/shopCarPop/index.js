@@ -1,5 +1,5 @@
 // component/shopCarPop/index.js
-import { Request, toast } from '../../utils/util.js'
+import { Request, toast, maskNumber } from '../../utils/util.js'
 import { bannerUrl, ALIYUN_URL } from '../../utils/config.js'
 let request = new Request()
 
@@ -11,7 +11,7 @@ Component({
     // 要不要触底
     mode: {
       type: String,
-      value: ''
+      value: 'b0'
     }, 
     show: {
       type: Boolean,
@@ -20,6 +20,10 @@ Component({
     goods_id: { // 产品id
       type: Number,
       value: 0
+    } ,
+    user: { // 商家信息
+      type: String,
+      value: ''
     }
   },
 
@@ -77,37 +81,43 @@ Component({
             return item
           })
           // 根据用户身份计算最低价
-          // 一般用户  显示  单独购买 拼单购买 
-          // 会员用户  显示  单独购买 会员购买  
-          // 代理用户  显示  单独购买  代理拿货
-          const { isVip, isAgent } = res.data;
+          // 一般用户 一件代发(会员价) + 代理拿货(代理价) 
+          // 会员用户 一件代发(会员价) + 代理拿货(代理价) 
+          // 代理用户 一件代发(代理价) + 代理拿货(代理价)
+          const userInfo =  wx.getStorageSync('userinfo') || app.globalData.userInfo;
+          const { isAgent } = res.data;
+          const { isVip } = userInfo;
+
+
+          let specs = res.data.specs;
+          let member_price = specs.sort(function(a, b) {
+            return a.member_price - b.member_price
+          })
+          let agent_price = specs.sort(function(a, b) {
+            return a.agent_price - b.agent_price
+          })
+          // 一般用户
           if (!isVip && !isAgent) {
-            let specs = res.data.specs;
-            let sale_price = specs.sort(function(a, b) {
-              return a.sale_price - b.sale_price
-            })
-            let group_price = specs.sort(function(a, b) {
-              return a.group_price - b.group_price
-            })
-            console.log(sale_price);
             this.setData({
               userType: 'normal',
-              price_1: sale_price[0].sale_price,
-              price_2: group_price[0].group_price
+              price_1: member_price[0].member_price,
+              price_2: maskNumber(agent_price[0].agent_price)
             })
           }
+          // 会员用户
           if (isVip && !isAgent) {
             this.setData({
               userType: 'member',
-              // price_1: sale_price[0].sale_price,
-              // price_2: group_price[0].group_price
+              price_1: member_price[0].member_price,
+              price_2: agent_price[0].agent_price
             })
           }
+          // 代理
           if (isAgent) {
             this.setData({
               userType: 'agent',
-              // price_1: sale_price[0].sale_price,
-              // price_2: group_price[0].group_price
+              price_1: member_price[0].agent_price,
+              price_2: agent_price[0].agent_price
             })
           }
           console.log(res.data);
@@ -133,6 +143,10 @@ Component({
     },
     // 数量加减
     operaTap(e) {
+      if (!this.data.canSelect) {
+        toast("请先选择+购物车、单独购买或者代理拿货后再进行选择");
+        return
+      }
       let { flag } = e.currentTarget.dataset;
       let { num } = this.data;
       if (flag === '-') {
@@ -151,6 +165,10 @@ Component({
     },
     // 数量键盘输入
     handleInput(e) {
+      if (!this.data.canSelect) {
+        toast("请先选择+购物车、单独购买或者代理拿货后再进行选择");
+        return
+      }
       this.setData({
         num: Math.floor(e.detail.value)
       })
@@ -158,7 +176,9 @@ Component({
     // 操作按钮
     handleChangeOpea(e) {
       const { type } = e.currentTarget.dataset;
-      const { price_1, price_2 } = this.data;
+      const { price_1, price_2, detail } = this.data;
+      const { isAgent } = detail;
+      const { nickname, user_id } = JSON.parse(this.data.user);
       let header_price = '';
 
       switch(type) {
@@ -169,6 +189,12 @@ Component({
           header_price = price_1
           break
         case 'agent':
+          if (!isAgent) {
+            wx.navigateTo({
+              url: `/pages/applyAgent/index?storeId=${user_id}&storeName=${nickname}`,
+            })
+            return
+          }
           header_price = price_2
           break
       }
@@ -226,6 +252,7 @@ Component({
         canConfirm
       })
     },
+    // 改变价格显示
     changePriceShow() {
       let { detail } = this.data;
       let { attribute, specs } = detail;
@@ -258,15 +285,15 @@ Component({
         }
       }
       console.log(select_product_specs);
-      const { sale_price, group_price, member_price } = select_product_specs;
+      const { agent_price, member_price } = select_product_specs;
       const { userType, type } = this.data;
 
       switch(userType) {
         case 'normal':
           this.setData({
-            price_1: sale_price,
-            price_2: group_price,
-            header_price: type === 'agent' ? group_price : sale_price
+            price_1: member_price,
+            price_2: maskNumber(agent_price),
+            header_price: maskNumber(agent_price)
           })
           break
         case 'member':

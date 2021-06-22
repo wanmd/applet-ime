@@ -287,7 +287,7 @@
       <!-- <el-image class='close middle' src='close.png' bindtap='toggleSelectShareType'></el-image> -->
     </view>
     <view class='types' style="padding-bottom: 0;">
-      <navigator wx:if='{{userType == 2}}' class='item' hover-class="none" url='/pages/publish/chat/index?type=2&chatId={{chatId}}&share=dp'>
+      <navigator wx:if='{{userType == 2}}' class='item' hover-class="none" url='/pages/publish/newChat/edit?type=2&chatId={{chatId}}&share=dp&id={{chat.product_id}}'>
         <el-image class='icon' src='shanghu@2x.png'></el-image>
         <view class='name'>
           <view>一键转发到</view>
@@ -348,4 +348,4 @@
 </view>
 
 <!-- 购物车弹框 -->
-<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" mode="b0" />
+<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" user="{{user}}" mode="b0" />

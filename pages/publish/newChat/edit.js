@@ -350,6 +350,8 @@ wx.Page({
                     title_Arr.forEach((titem, tindex) => {
                         item.productSpecs[titem] = name_Arr[tindex]
                     })
+                } else {
+                    item.productSpecs =  item.product_specs;
                 }
                 data.specs.push(item)
                 
@@ -395,23 +397,45 @@ wx.Page({
             }
         }
         console.log(data);
-        
-        request.put('product/' + this.data.id, res => {
-            if (res.success) {
-                toast('编辑成功')
-                // app.newPublish = true;
-                // 清除之前保存的规格数据
-                app.globalData.goods_skuList = null;
-                if (this.data.chatId > 0) {
-                    wx._navigateBack()
+
+        if (this.data.share) {
+            request.post('product', res => {
+                if (res.success) {
+                    toast('转存成功')
+                    // app.newPublish = true;
+                    // 清除之前保存的规格数据
+                    app.globalData.goods_skuList = null;
+                    if (this.data.chatId > 0) {
+                        wx._navigateBack()
+                    } else {
+                        // wx._switchTab('/pages/dynamics/index')
+                        wx._switchTab('/pages/index/index')
+                    }
                 } else {
-                    // wx._switchTab('/pages/dynamics/index')
-                    wx._switchTab('/pages/index/index')
+                    toast(res.msg)
                 }
-            } else {
-                toast(res.msg)
-            }
-        }, data).showLoading()
+            }, data).showLoading()
+        } else {
+            request.put('product/' + this.data.id, res => {
+                if (res.success) {
+                    toast('编辑成功')
+                    // app.newPublish = true;
+                    // 清除之前保存的规格数据
+                    app.globalData.goods_skuList = null;
+                    if (this.data.chatId > 0) {
+                        wx._navigateBack()
+                    } else {
+                        // wx._switchTab('/pages/dynamics/index')
+                        wx._switchTab('/pages/index/index')
+                    }
+                } else {
+                    toast(res.msg)
+                }
+            }, data).showLoading()
+        }
+
+        
+        
 
     },
 
@@ -465,50 +489,14 @@ wx.Page({
             barTitlle = '一键转存'
             this.setData({ barTitlle: barTitlle })
             wx.setNavigationBarTitle({
-                    title: '一键转存'
-                })
-                // request.get('chat/copayInfo?chatId='+ chatId , res => {
-            request.get('chat/chat?id=' + chatId, res => {
-                // console.log(res)
-                if (res.success) {
-                    // let data = res.data.chat
-                    let data = res.data
-                    let isAgent = data.isAgent || ''
-                    let agent_price = data.agent_price;
-                    if (!isAgent) agent_price = "0.00";
-                    let update = {
-                        // chatType : data.chat_type,
-                        content: data.content,
-                        location: data.location || '',
-                        latitude: data.latitude || '',
-                        longitude: data.longitude || '',
-                        isAgent: isAgent,
-                        name: data.name,
-                        // no: data.no,
-                        no: "",
-                        sale_price: data.sale_price || '',
-                        vip_price: data.vip_price || '',
-                        agent_price: agent_price,
-                        category_id: data.category_id,
-                        user_id: data.user_id,
-                        category_name: ''
-                    }
-                    if (data.picture) {
-                        if (typeof data.picture == 'string') {
-                            data.picture = JSON.parse(data.picture)
-                        }
-                        let images = []
-                        data.picture.forEach((v, i) => {
-                            images.push({ file: v, id: i })
-                        })
+                title: '一键转存'
+            })
+            this.getProductDetail(id)
+            
 
-                        update.images = images
-                    }
-
-                    this.setData(update)
-                } else {
-                    toast(res.msg)
-                }
+            this.setData({ 
+                chatId: chatId,
+                sourceChatId: id
             })
         } else {
             barTitlle = '编辑'

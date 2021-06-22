@@ -1,5 +1,5 @@
 <view class="page {{selectedNav!=1 ? 'bg_fff': ''}}">
-    <view class='fixed w-100' style='left:0;top:0;z-index:2;height: {{topHeight + 100}}px;background-image:url({{backgroundIamge}})'>
+    <view class='fixed w-100' style='left:0;top:0;z-index:2;height: {{topHeight + 100}}px;background-image:url({{ALIYUN_URL}}/{{userInfo.store_background}});background-size: cover'>
         <view bindtap="handleBack" class="backnav fz-24 bgc-fff c-929292 fixed w-96 ta-c" style='top:{{navTop}}px;line-height:{{navHeight}}rpx;border-radius: 0 20px 20px 0;'>返回</view>
         <view class='p-l-r relative padd_tb-10 mb-20' style="margin-top:{{topHeight}}px">
             <avatar size='80rpx' src='{{user.avatar}}' user="{{user}}" userId='{{storeId}}'>
@@ -48,9 +48,9 @@
                         <img class='cover' mode='aspectFill' thumb="{{thumb}}" src='{{item.cover}}'></img>
                         <block wx:if='{{editting == false}}'>
                             <view class='m-t-30 ellipsis1'>{{item.goods_name}}</view>
-                            <view class='m-tb-20 f-20 color-fbd49d'>
-                                ￥
-                                <text class='f-32 bold'>{{item.sale_price}}</text>
+                            <view class='m-tb-20 f-20 color-fbd49d w-100p plr-20 d-f jc-sb'>
+                                <view>￥<text class='f-32 bold'>{{item.sale_price}}</text></view>
+                                <view catchtap="showGoodsPopup" data-goods_id='{{item.id}}'><image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" /></view>
                             </view>
                         </block>
                         <block wx:else>
@@ -86,8 +86,9 @@
                                     {{chat.goods_name?chat.goods_name:chat.content}}
                                 </view>
                                 <view class='a ' wx:if='{{isSelf}}'>
-                                    <view class='price1'>
-                                        <text class="c-333 fz-32">￥ {{chat.sale_price}}</text>
+                                    <view class='price1 d-f jc-sb si-c'>
+                                        <view><text class="c-333 fz-32">￥ {{chat.sale_price}}</text></view>
+                                        <view catchtap="showGoodsPopup" data-goods_id='{{chat.product_id}}'><image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" /></view>
                                     </view>
                                 </view>
                                 <view class='a' wx:elif='{{!isSelf && isAgent == 1}}'>
@@ -194,7 +195,17 @@
                         <navigator class="imageBox" url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none">
                             <img slot='content' class='thumb thumb_l' thumb src='{{item.cover}}'></img>
                             <view class="image_num">{{item.picture.length}}</view>
+                            <view catchtap="showGoodsPopup" data-goods_id='{{item.product_id}}' class="image_shopcar">
+                                <image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" />
+                            </view>
                         </navigator>
+                        <navigator class="imageBox" hover-class="none">
+                            <video wx:if="{{item.video_url}}" class='thumb thumb_l' src="{{ALIYUN_URL}}/{{item.video_url}}" />
+                            <view catchtap="showGoodsPopup" data-goods_id='{{item.product_id}}' class="image_shopcar">
+                                <image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" />
+                            </view>
+                        </navigator>
+                        
                     </block>
                 </view>
                 <empty wx:else class='absolute xy' style="padding-top: 400rpx;"></empty>
@@ -203,11 +214,11 @@
     </view>
     <view class='bottom-nav' style='padding-top:20rpx;padding-bottom:20rpx;' wx:if='{{selectedNav==1}}'>
         <block wx:if='{{isSelf}}'>
-            <navigator class='item' url='/pages/goodsCategoryManage/index?storeId={{storeId}}' hover-class="none">
+            <view class='item' url='/pages/goodsCategoryManage/index?storeId={{storeId}}' hover-class="none">
                 <icon-text class='absolute xy wh48' direction='vertical' icon='ic_fenlei_set@2x.png'>
                     分类管理
                 </icon-text>
-            </navigator>
+            </view>
             <!-- 
                 <navigator class='item' url='./library/index'>
                     <icon-text class='absolute xy wh48' direction='vertical' icon='goods-library.png'>商品库</icon-text>
@@ -340,3 +351,6 @@
     <import src="/widgets/templates.wxml" />
     <template is="linkbox" data="{{userInfo:user, showlink:showlink}}" />
 </view>
+
+<!-- 购物车弹框 -->
+<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" />
