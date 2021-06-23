@@ -105,7 +105,7 @@ Component({
             {
                 image: '../../assets/images/user/dianzan@2x.png',
                 text: '点赞',
-                url: '../../packages/pack-A/pages/myRenting/index',
+                url: '',
             },
             {
                 image: '../../assets/images/user/address@2x.png',
@@ -115,7 +115,7 @@ Component({
             {
                 image: '../../assets/images/user/remark@2x.png',
                 text: '建议留言',
-                url: '/pages/marketing/index',
+                url: '',
             },
             {
                 image: '../../assets/images/user/rebate@2x.png',
@@ -135,7 +135,7 @@ Component({
             {
                 image: '../../assets/images/user/setting@2x.png',
                 text: '设置',
-                url: '/pages/marketing/index',
+                url: '',
             },
             {
                 image: '../../assets/images/user/contact@2x.png',
