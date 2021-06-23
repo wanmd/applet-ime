@@ -1,4 +1,4 @@
-import { Request, toast, rpxTopx, copyText } from '../../utils/util.js';
+import { Request, toast, rpxTopx, copyText, maskNumber } from '../../utils/util.js';
 let app = getApp();
 wx.Page({
     data: {
@@ -14,7 +14,7 @@ wx.Page({
         text: '做我的代理，我宠你！代理价拿货！一件代发！副业好帮手！',
         currentType: 1,
         showlink: 0,
-        user: {}
+        user: {},
     },
     onLoad() {
         let userInfo = wx.getStorageSync('userinfo') || app.globalData.userInfo
@@ -59,10 +59,20 @@ wx.Page({
                         v.cart.forEach(item => {
                             item.checked = false;
                             item.agent_price = Number(item.agent_price).toFixed(2);
-                            item.sale_price = Number(item.sale_price).toFixed(2)
+                            item.sale_price = item.isAgent ? Number(item.sale_price).toFixed(2) : maskNumber(Number(item.sale_price).toFixed(2));
+                            let display = ''
+                            let product_specs =JSON.parse(item.product_specs);
+                            for (let key in product_specs) {
+                                display +=  key + ':' + product_specs[key] + ';'
+                            }
+                            item.display = display;
+                            if (item.id == 120) {
+                                item.state = 0
+                            }
                             goodsCount++;
                         });
                     });
+                    console.log(cartList);
                     this.setData({ cartList, goodsCount });
                 }
                 this.total();
@@ -263,17 +273,23 @@ wx.Page({
                     if (v.checked) {
                         totalSelect++;
                         ids.push(v.id);
+                        // if (item.isAgent) {
+                        //     totalMoney += v.agent_price * v.quantity;
+                        // } else if (this.data.userInfo.isVip == 1) {
+                        //     totalMoney += v.vip_price * v.quantity;
+                        // } else {
+                        //     totalMoney += v.sale_price * v.quantity;
+                        // }
                         if (item.isAgent) {
                             totalMoney += v.agent_price * v.quantity;
-                        } else if (this.data.userInfo.isVip == 1) {
-                            totalMoney += v.vip_price * v.quantity;
                         } else {
-                            totalMoney += v.sale_price * v.quantity;
+                            totalMoney += v.member_price * v.quantity;
                         }
 
                     }
                 });
             });
+            console.log(totalMoney);
             if (this.data.goodsCount == totalSelect) {
                 allSelect = true;
             } else {
@@ -377,6 +393,22 @@ wx.Page({
     toPay() {
         if (this.data.totalSelect == 0) {
             wx._showToast('还没选择商品呢~');
+            return;
+        }
+        let { cartList } = this.data;
+        let flag = true;
+        for (let i = 0; i < cartList.length; i++) {
+            let v = cartList[i].cart;
+            for(let ii = 0; ii < v.length; ii++) {
+                if (v[ii].checked && v[ii].state ==0) {
+                    flag = false;
+                    break
+                }
+            }
+            
+        }
+        if (!flag) {
+            wx._showToast('有失效的商品，请重新选择后再结算~');
             return;
         }
         let cartIds = this.data.ids.join(',');

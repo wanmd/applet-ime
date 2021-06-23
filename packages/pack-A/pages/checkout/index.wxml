@@ -48,7 +48,7 @@
         <view class="user-status user-status1" wx:if="{{item.isAgent}}">我的商家</view>
       </navigator>
       <view class="user-status" wx:if="{{item.isAgent}}">代理价结算</view>
-      <view class="user-status" wx:else>零售价结算</view>
+      <view class="user-status" wx:else>会员价结算</view>
     </view>
     <view class='goods-list p-l-r'>
       <view class='goods' wx:for='{{item.cart}}' wx:for-index='idx' wx:for-item="it" wx:key='id'>
@@ -57,12 +57,12 @@
             <img class='cover' thumb src='{{it.cover}}'></img>
           </navigator>
           <view class='content'>
-            <navigator class='goods-name' url='/pages/goods/index?chatId={{it.chat_id}}'>{{it.goods_name}}</navigator>
+            <navigator class='goods-name' url='/pages/goods/index?chatId={{it.chat_id}}'>{{it.name}}</navigator>
             <view class="goodsNum">
               <text>数量</text>
               <view class='num'>{{it.quantity}}</view>
             </view>
-            <block wx:if="{{item.isAgent}}">
+            <!-- <block wx:if="{{item.isAgent}}">
               <view class='goods-price1'>
                 <text>零售价</text>
                 <view class="line-through"><text class='num'>￥{{it.sale_price}}</text></view>
@@ -89,7 +89,18 @@
                   <view><text class='num'>￥{{it.vip_price}}</text></view>
                 </view>
               </block>
-
+            </block> -->
+            <block wx:if="{{item.isAgent}}">
+              <view class='goods-price1'>
+                <text>代理价</text>
+                <view class="line-through"><text class='num'>￥{{it.agent_price}}</text></view>
+              </view>
+            </block>
+            <block wx:else>
+              <view class='goods-price1'>
+                <text>会员价</text>
+                <view class="line-through"><text class='num'>￥{{it.member_price}}</text></view>
+              </view>
             </block>
           </view>
         </view>

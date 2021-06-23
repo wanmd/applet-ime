@@ -41,7 +41,7 @@
         <!-- <view wx:if='{{userInfo.user_type == 2}}' catchtap="getqr" class='getqr-nav middle' hover-class="none">
           <icon-text-flex icon='user/saomiao@2x.png' width='40rpx' style='padding: 4rpx;'></icon-text-flex>
         </view> -->
-        <view  catchtap="getqr" class='getqr-nav middle' hover-class="none">
+        <view class='getqr-nav middle' hover-class="none">
           <!-- <el-image src='user/saomiao@2x.png' style='width:40rpx;display: inline-block;padding: 4rpx;'></el-image> -->
           <icon-text-flex icon='user/message@2x.png' width='40rpx' style='padding: 4rpx;'></icon-text-flex>
         </view>

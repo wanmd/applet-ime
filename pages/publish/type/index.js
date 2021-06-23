@@ -56,24 +56,24 @@ Page({
     navTo(e) {
         let dataset = e.currentTarget.dataset
         let type = dataset.type
-        // if (type != 1) {
-        //     if (this.data.userType != 2) {
-        //         wx.showModal({
-        //             title: '提示',
-        //             content: '该类型只有商家才能发布',
-        //             confirmText: '成为商家',
-        //             success: (res) => {
-        //                 if (res.confirm) {
-        //                     wx._navigateTo('/pages/applyMerchant/index')
-        //                         // wx.redirectTo({
-        //                         //   url: '/pages/applyMerchant/index',
-        //                         // })
-        //                 }
-        //             }
-        //         })
-        //         return
-        //     }
-        // }
+        if (type != 1) {
+            if (this.data.userType != 2) {
+                wx.showModal({
+                    title: '提示',
+                    content: '该类型只有商家才能发布',
+                    confirmText: '成为商家',
+                    success: (res) => {
+                        if (res.confirm) {
+                            wx._navigateTo('/pages/applyMerchant/index')
+                                // wx.redirectTo({
+                                //   url: '/pages/applyMerchant/index',
+                                // })
+                        }
+                    }
+                })
+                return
+            }
+        }
         getApp().requireLogin(dataset.url)
     },
 

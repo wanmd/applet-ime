@@ -381,7 +381,7 @@ Component({
       const productSpecs = JSON.stringify(this.getProductSpecs());
       // 是否拼单购买 1-是 2-否 一般用户生效
       // const isGroup = 2 ; 
-      const buyType =  type === 'normal' ? 1 : 2; // 1-普通用户 2-会员购买
+      const buyType =  type === 'agent' ? 2 : 1; // 1-普通用户 2-会员购买
       const prefix = '../../packages/pack-A/pages/checkout/index?chatId=' 
 
       wx.navigateTo({

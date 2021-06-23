@@ -25,7 +25,7 @@
               url='../applyAgent/index?storeId={{item.store_id}}' 
               hover-class="none"  
               class="slogan"
-              wx:if="{{!item.isAgent && item.store_agent_rule.slogan && item.store_agent_rule.slogan!='' && userInfo.user_id !== item.store_id}}"
+              wx:if="{{!item.isAgent && item.store_agent_rule.slogan && item.store_agent_rule.slogan!=''}}"
             >
               <view class="link-CWDL">
                 <image class='image' src='/assets/images/DAILI@2x.png'  style="width:35rpx;height:35rpx;"></image>
@@ -34,15 +34,19 @@
               </view>
             </navigator>
 
-            <view class="car-goods-item border-b" wx:for="{{item.cart}}" wx:for-index='idx' wx:for-item="it" wx:key='id' >
-              <view class="car-goods-item_">
+            <view class="car-goods-item border-b " wx:for="{{item.cart}}" wx:for-index='idx' wx:for-item="it" wx:key='id' >
+              
+              <view class="car-goods-item_ relative" >
+                <view wx:if="{{it.state == 0}}" class="mask">
+                  <view class="round">失效</view>
+                </view>
                 <switch type="checkbox" class="checkbox" checked="{{it.checked}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchchange="selectOne" />
-                
                 <img class='cover' thumb src='{{it.cover}}' bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}"></img>
                 <view class="goods-info flex__it" url='/pages/goods/index?chatId={{it.chat_id}}' hover-class="none" bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}">
                   <view class="goods-info--t">{{it.name}}</view>
                   <view class="goods-info--b">
                     <view class="price-info">
+                      <!-- 旧 -->
                       <!-- <view class="goods-price" wx:if="{{item.isAgent}}">
                         <view>
                           <text class="text">零售价</text>
@@ -76,12 +80,12 @@
                       <!-- 新 -->
                       <view class="goods-price" wx:if="{{item.isAgent}}">
                         <view>
-                          <text class="text">零售价</text>
-                          <text class='text-through'>{{it.sale_price}}</text>
+                          <text class="text c-262626">零售价</text>
+                          <text class='text-through c-262626'>{{it.sale_price}}</text>
                         </view>
                         <view>
-                          <text class="text">代理价</text>
-                          <text>{{it.agent_price}}</text>
+                          <text class="text c-ECBD75">代理价</text>
+                          <text class="c-ECBD75">{{it.agent_price}}</text>
                         </view>
                       </view>
                       <view class="goods-price" wx:else>
@@ -92,11 +96,11 @@
                             style="width:68rpx;height:28rpx;margin-right:4rpx" 
                             catchtap="isAuth_"
                           />
-                          <text class='text-through'>{{it.sale_price}}</text>
+                          <text class='text-through c-ECBD75'>{{it.sale_price}}</text>
                         </view>
                         <view>
-                          <text class="text">代发价￥</text>
-                          <text>{{it.member_price}}</text>
+                          <text class="text c-262626">代发价￥</text>
+                          <text class="c-262626">{{it.member_price}}</text>
                         </view>
                       </view>
                     </view>
@@ -114,6 +118,7 @@
                   </view>
                 </view>
               </view>
+              <view>规格:{{it.display}}</view>
               <view class="goods-product__note">
                 <view class="g-p__note_title">购买备注:</view>
                 <view class="g-p__note_val">
