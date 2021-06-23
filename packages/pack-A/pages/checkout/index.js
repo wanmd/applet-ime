@@ -181,13 +181,13 @@ console.log(app.formatDecimal("1.20"))
             if(v.isAgent) {
               user__isAgent = true;
               isAgent__amount += (item.quantity * app.formatDecimal(item.agent_price))*100
-              amount += (~~item.quantity * app.formatDecimal(item.sale_price))*100
+              amount += (~~item.quantity * app.formatDecimal(item.agent_price))*100
             }else if(this.data.userInfo.isVip==1){
-              isVip__amount += (~~item.quantity * app.formatDecimal(item.vip_price))*100
-              amount += (~~item.quantity * app.formatDecimal(item.sale_price))*100
+              isVip__amount += (~~item.quantity * app.formatDecimal(item.member_price))*100
+              amount += (~~item.quantity * app.formatDecimal(item.member_price))*100
             }else{
-              isAgent__amount += (item.quantity * app.formatDecimal(item.sale_price))*100
-              amount += (~~item.quantity * app.formatDecimal(item.sale_price))*100
+              isAgent__amount += (item.quantity * app.formatDecimal(item.member_price))*100
+              amount += (~~item.quantity * app.formatDecimal(item.member_price))*100
             }
           })
         })

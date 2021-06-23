@@ -118,7 +118,7 @@
                   </view>
                 </view>
               </view>
-              <view>规格:{{it.display}}</view>
+              <view class="fz-24 c-9B9B9B">规格:{{it.display}}</view>
               <view class="goods-product__note">
                 <view class="g-p__note_title">购买备注:</view>
                 <view class="g-p__note_val">

@@ -1,4 +1,4 @@
-import { Request, toast, rpxTopx, copyText, errorToast } from '../../utils/util.js';
+import { Request, toast, rpxTopx, copyText, errorToast, maskNumber } from '../../utils/util.js';
 import { assetsImages, ALIYUN_URL } from '../../utils/config.js';
 let request = new Request();
 let app = getApp();
@@ -254,7 +254,10 @@ wx.Page({
         let chatList = Object.assign([], this.data.chatList)
         if (rows.length > 0) {
             rows = rows.map((v, i) => {
-                v.picture = JSON.parse(v.picture)
+                v.picture = JSON.parse(v.picture);
+                if(!isAgent) {
+                    v.agent_price = maskNumber(v.agent_price)
+                }
                 return v
             })
             let tmpMapList = this.data.tmpMapList

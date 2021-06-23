@@ -93,13 +93,13 @@
             <block wx:if="{{item.isAgent}}">
               <view class='goods-price1'>
                 <text>代理价</text>
-                <view class="line-through"><text class='num'>￥{{it.agent_price}}</text></view>
+                <view><text class='num'>￥{{it.agent_price}}</text></view>
               </view>
             </block>
             <block wx:else>
               <view class='goods-price1'>
                 <text>会员价</text>
-                <view class="line-through"><text class='num'>￥{{it.member_price}}</text></view>
+                <view><text class='num'>￥{{it.member_price}}</text></view>
               </view>
             </block>
           </view>
