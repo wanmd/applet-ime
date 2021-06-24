@@ -164,7 +164,7 @@
                         <!-- 产品名 -->
                         <view wx:if="{{showType == '1'}}" class="td td3">
                             <view>
-                                <view class="nickname">兰蔻 小黑瓶兰蔻 小黑瓶兰蔻 小黑瓶30字 </view>
+                                <view class="nickname">{{item.content}}</view>
                             </view>
                         </view>
                         <!-- 报价 -->
