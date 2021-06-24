@@ -382,6 +382,7 @@ const maskNumber = num => {
     if (typeof(num) === 'number') {
         num = String(num)
     }
+    if (!num) num = '0.00'
     let str = String(num)[0];
     for(let i = 1; i < num.length; i++) {
         let item = num[i];

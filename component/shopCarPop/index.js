@@ -137,7 +137,11 @@ Component({
       const { show } = this.data;
       if (current === 'sliup_1' && show) {
         this.setData({
-          show: false
+          show: false,
+          header_price: '',
+          price_1: '',
+          price_2: '',
+          type: ''
         })
       }
     },
@@ -178,7 +182,7 @@ Component({
       const { type } = e.currentTarget.dataset;
       const { price_1, price_2, detail } = this.data;
       const { isAgent } = detail;
-      const { nickname, user_id } = JSON.parse(this.data.user);
+      const { nickname, user_id } = this.data.user ? JSON.parse(this.data.user) : wx.getStorageSync('userinfo');
       let header_price = '';
 
       switch(type) {

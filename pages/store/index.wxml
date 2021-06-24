@@ -159,7 +159,7 @@
                         </view>
                         <!-- 产品主图 -->
                         <view wx:if="{{showType == '1'}}" class="td td2" data-copy_name="{{item.content}}" catchtap="copyName">
-                            <image mode="aspectFit" class="w-130 h-130" src="{{backgroundIamge}}" />
+                            <img mode="aspectFit" class="w-130 h-130" src="{{url}}" />
                         </view>
                         <!-- 产品名 -->
                         <view wx:if="{{showType == '1'}}" class="td td3">
