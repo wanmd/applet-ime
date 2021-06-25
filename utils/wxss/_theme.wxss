@@ -803,6 +803,9 @@
 .w-284 {
   width: 284rpx;
 }
+.w-286 {
+  width: 286rpx;
+}
 .w-252 {
   width: 252rpx;
 }
@@ -1033,6 +1036,9 @@
 }
 .h-260 {
   height: 260rpx;
+}
+.h-286 {
+  height: 286rpx;
 }
 .h-290 {
   height: 290rpx;

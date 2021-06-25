@@ -64,10 +64,16 @@
           <input slot='content' type='number' placeholder='输入成本价' placeholder-class='color-ccc' name='costPrice' class='bgc-fff'></input>
         </view>
       </view>
-      <view class="cell bbn">
+      <view class="cell">
         <view class="w-200">库存数：</view>
         <view class="d-f fx-1 ai-c">
           <input slot='content' type='number' placeholder='输入库存数' placeholder-class='color-ccc' name='stock' class='bgc-fff'></input>
+        </view>
+      </view>
+      <view class="cell bbn">
+        <view class="w-200">图片：</view>
+        <view class="d-f fx-1 ai-c">
+          <upload initFile='{{item.url}}' name='url' bind:success="hanldeSuccess_batch" width="120rpx"  height="62rpx" class="row-input d-ib w-120" />
         </view>
       </view>
       <view class="modal-footer d-f mt-20">

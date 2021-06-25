@@ -54,6 +54,7 @@ Component({
       query.lastPk = data.lastPk
       query.page = data.page
       query.pageSize = this.properties.pageSize
+      console.log(query);
       this.setData({ isSendIng: true})
       request.get(this.properties.url, res => {
         this.setData({ isSendIng: false})

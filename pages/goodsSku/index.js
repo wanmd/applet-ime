@@ -197,6 +197,11 @@ Page({
   checkPrice(excel_skuList) {
     console.log(excel_skuList);
     let flag = true;
+    if (!excel_skuList.length) {
+      toast("请设置参数后再保存");
+      flag = false;
+      return
+    }
     for(let i = 0; i < excel_skuList.length; i++) {
       const rowItem = excel_skuList[i];
       const { salePrice, groupPrice, memberPrice, agentPrice, costPrice, stock, url } = rowItem;

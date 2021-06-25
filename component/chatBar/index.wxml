@@ -46,9 +46,9 @@
 <view class="flex--c fixed__ z100 {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}">
   <view class="link-box" style="bottom: 560rpx;" data-content="{{userInfo.wechat}}" catch:tap="copy">
     <view class="link-wrap">
-      <view class="buyer_user">
-        <view class="buyer_img">
-          <image class="" src="{{userInfo.avatar}}"></image>
+      <view class="">
+        <view class="buyer_user_code">
+          <img class="cover" src="7e3d7ffebedcfe294dab5d1682d7ba12.jpg"></img>
           <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
         </view>
         <view class="buyer_name">{{userInfo.nickname}}</view>

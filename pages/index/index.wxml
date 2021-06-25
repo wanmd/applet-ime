@@ -21,7 +21,7 @@
 		</view>
 		<view class="d-f ai-c h-98 bgc-F7F7F7 pl-42 pr-26">
 			<view class="d-f ai-c pos-r bgc-fff bdrs-20 w-490 h-54 pl-76">
-				<input class="w-100p" type="text" value="{{query.keyword}}" bindinput="handleChangeKeyword" placeholder="搜索您需要的商家或产品" />
+				<input allowclear class="w-100p" type="text" value="{{query.keyword}}" bindinput="handleChangeKeyword" placeholder="搜索您需要的商家或产品" />
 				<image class="pos-a t-16 l-24 w-26 h-26" src="../../assets/images/index/search.png"/>
 			</view>
 			<text class="fz-30 c-333 ml-34 mr-54" bindtap="search">搜索</text>
@@ -46,19 +46,20 @@
 						<!-- 普通发布者信息 -->
 						<view class='p-l-r'>
 							<view class='relative'>
-								<view class='relative'>
-									<avatar user="{{item.user}}" src='{{item.user.avatar}}' userId='{{item.user.user_id}}'>
-										<view class='user-info'>
-											<view class='f-28'>{{item.user.nickname}}</view>
-											<view class='color-999999 f-24'>{{item.create_time}}</view>
-											<image wx:if="{{item.isVip}}" class="icon ml--44" src="../../assets/images/index/vip@2x.png" />
-											<image wx:if="{{item.isAgent}}" class="icon" src="../../assets/images/index/daili.png" />
-											<image wx:if="{{item.isMerchant}}" class="icon" src="../../assets/images/index/shangjia.png" />
-											<text wx:if="{{item.form_chat_id}}" class="c-ECBD75 fz-22 lh-30 ml-40 va-b">
-												产品来源名称+供货中/+已下架
-											</text>
-										</view>
-									</avatar>
+								<view class='relative d-f'>
+									<view class="relative">
+										<avatar user="{{item.user}}" src='{{item.user.avatar}}' userId='{{item.user.user_id}}'></avatar>
+										<image wx:if="{{item.isVip}}" class="avatar-icon" src="../../assets/images/index/vip@2x.png" />
+										<image wx:if="{{item.isAgent}}" class="avatar-icon" src="../../assets/images/index/daili.png" />
+										<image wx:if="{{item.isMerchant}}" class="avatar-icon" src="../../assets/images/index/shangjia.png" />
+									</view>
+									<view class='user-info'>
+										<view class='f-28'>{{item.user.nickname}}</view>
+										<view class='color-999999 f-24'>{{item.create_time}}</view>
+										<text wx:if="{{item.form_chat_id}}" class="c-ECBD75 fz-22 lh-30 ml-40 va-b">
+											产品来源名称+供货中/+已下架
+										</text>
+									</view>
 									<view class='share-icon flex_align-center'>
 										<block wx:if='{{item.chat_type == 4}}'>
 											<el-image class='icon' src='product-red-share.png'></el-image>
@@ -70,6 +71,19 @@
 											<el-image class='icon chat-share' src='ic_share@2x.png'></el-image>
 										</button> -->
 									</view>
+									<!-- 分享赚 -->
+									<button hover-class="none" class="shareBtn" data-index='{{index}}' data-id='{{item.chat_id}}' catchtap='toggleSelectShareType' wx:if="{{item.goods_name}}">
+										<view class="btn_share Shareicon">
+											<!-- <image class="flex__it image share-icon1 icon" mode="widthFix" style="width: 30rpx;" src="/assets/images/fenxiang@2x.png"></image> -->
+											<!-- {{item.fina_sale_price}} -->
+											<!-- 一键转发 -->
+											<el-image class='icon' src='iconbg@2x.png'></el-image>
+												<view class="text">
+														<view class="t__1 {{item.fina_sale_price.length > 5 ? 't__11' : ''}}">￥{{item.fina_sale_price}}</view>
+														<view class="t__2">分享赚收益</view>
+												</view>
+										</view>
+									</button>
 								</view>
 								<view class='ellipsis-3 content' data-url='{{item.url}}' catchtap="isAuth_" hover-class="none">
 										<text>{{item.content}}</text>
@@ -97,19 +111,8 @@
 							<button hover-class="none" class="flex__it" data-index='{{index}}' data-goods_id='{{item.goods_id}}' catchtap='showGoodsPopup' wx:if="{{item.goods_name}}">
 									<image class="flex__it w-36 click-icon icon" mode="widthFix" src="/assets/images/index/shopcar@2x.png"></image>
 							</button>
-							<!-- 分享赚 -->
-							<button hover-class="none" class="flex__it mr-48" data-index='{{index}}' data-id='{{item.chat_id}}' catchtap='toggleSelectShareType' wx:if="{{item.goods_name}}">
-								<view class="btn_share Shareicon">
-									<!-- <image class="flex__it image share-icon1 icon" mode="widthFix" style="width: 30rpx;" src="/assets/images/fenxiang@2x.png"></image> -->
-									<!-- {{item.fina_sale_price}} -->
-									<!-- 一键转发 -->
-									<el-image class='icon' src='iconbg@2x.png'></el-image>
-										<view class="text">
-												<view class="t__1 {{item.fina_sale_price.length > 5 ? 't__11' : ''}}">￥{{item.fina_sale_price}}</view>
-												<view class="t__2">分享赚收益</view>
-										</view>
-								</view>
-							</button>
+							
+							<!-- 转发 -->
 							<button hover-class="none" class="flex__it" open-type='share' data-index='{{index}}' catchtap='share' wx:else>
 								<image class="flex__it image share-icon1 icon" mode="widthFix" src="/assets/images/fenxiang@2x.png"></image>
 							</button>

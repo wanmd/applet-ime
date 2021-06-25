@@ -37,6 +37,9 @@ class Request {
 
     get(url, callback, data) {
         this.config.method = 'GET';
+        this.config.header = {
+            'content-type': 'application/json;charset=UTF-8'
+        };
         this.send(url, data, callback);
         return this;
     }
@@ -118,7 +121,7 @@ class Request {
         };
 
         config.data = data;
-
+        console.log(config);
         this.isSendIng = true;
         wx.request(config);
     }

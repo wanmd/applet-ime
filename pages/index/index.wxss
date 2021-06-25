@@ -685,4 +685,18 @@ page {
     font-size: 20rpx
 }
 
+.shareBtn {
+    position: absolute;
+    right: 0;
+    top: 0;  
+}
+
+.avatar-icon {
+    position: absolute;
+    right: 0;  
+    bottom: 0;
+    width: 40rpx;
+    height: 40rpx;
+}
+
 @import '../../utils/wxss/renting-list.wxss';

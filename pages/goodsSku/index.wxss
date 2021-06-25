@@ -5,7 +5,7 @@ page {
 .goods_skuItem {
   margin-right: 20rpx;
   width: 712rpx;
-  height: 308rpx;
+  min-height: 308rpx;
   border: 2rpx solid #DFDFDF;
   opacity: 1;
   border-radius: 20rpx;

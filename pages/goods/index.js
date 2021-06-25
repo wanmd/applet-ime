@@ -68,7 +68,7 @@ wx.Page({
         sharer:opts.sharer||0
       })
     }
-    console.error(opts.shareUserId)
+    // console.error(opts.shareUserId)
     let userInfo =  wx.getStorageSync('userinfo') || app.globalData.userInfo 
     this.setData({
       userInfo: userInfo
@@ -170,7 +170,7 @@ wx.Page({
   },
   getShareChatDetail(){
     let sharer = parseInt(this.data.sharer || 0)
-    let userId = app.globalData.userInfo.user_id
+    let userId = app.globalData.userInfo && app.globalData.userInfo.user_id
     if (sharer != userId) {
       //不是自己分享出去的
       request.post('chat/grabShareAmount', res => {

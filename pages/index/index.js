@@ -860,10 +860,14 @@ wx.Page({
         const _this = this;
         wx.scanCode({
             success (res) {
-                toast(res.result)
-            console.log(res)
                 _this.setData({
                     'query.keyword': res.result
+                })
+                let query = _this.data.query;
+                _this.setData({ quoteList: [] })
+                _this.paginationInit();
+                _this.setData({
+                    'query.keyword': ''
                 })
             }
         })

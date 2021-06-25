@@ -18,8 +18,9 @@
 //     ]
 //   },
 // ]
-let app = getApp()
+import { toast } from '../../../../utils/util.js'
 
+let app = getApp()
 console.log(app.globalData);
 
 Component({
@@ -113,7 +114,8 @@ Component({
     },
     // 批量设置弹框
     showBatch: false,
-    isUpload: false
+    isUpload: false,
+    batch_url: ''
   },
 
   // lifetimes : {
@@ -230,6 +232,10 @@ Component({
     },
     // 批量设置
     batchPrice() {
+      if (!this.data.skuList.length) {
+        toast("请先添加商品规格");
+        return
+      }
       this.setData({
         showBatch: true
       })
@@ -242,12 +248,14 @@ Component({
     },
     // 批量设置提交
     formSubmit(e) {
+      console.log(e);
       this.setData({
         showBatch: false,
         excel_skuList: this.data.excel_skuList.map(item => {
           item = {
             ...item,
-            ...e.detail.value
+            ...e.detail.value,
+            url: this.data.batch_url
           }
           return item
         }),
@@ -298,6 +306,12 @@ Component({
         update[`excel_skuList[${index}].url`] = value;
         this.setData(update);
       }, 0)
+    },
+    hanldeSuccess_batch(e) {
+      console.log(e);
+      this.setData({
+        batch_url: e.detail.value
+      })
     },
     getData() {
       console.log(this.data.excel_skuList);
