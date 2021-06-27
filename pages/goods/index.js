@@ -913,14 +913,15 @@ wx.Page({
     const { type } = e.currentTarget.dataset;
     const { chat } = this.data;
     console.log(chat);
-    
-    const { nickname, user_id } = chat ? chat.user : wx.getStorageSync('userinfo');
-    if (!chat.isAgent) {
+
+    if(type === 'agent' && !chat.isAgent) {
+      const { nickname, user_id } = chat ? chat.user : wx.getStorageSync('userinfo');
       wx.navigateTo({
         url: `/pages/applyAgent/index?storeId=${user_id}&storeName=${nickname}`,
       })
       return
     }
+    
     this.setData({
       showShopCarPop: true,
       needSelectType: false,
