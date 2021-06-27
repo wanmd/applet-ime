@@ -18,7 +18,7 @@
   width: 100%;
   left: 0;
   bottom: 128rpx;
-  height: 750rpx;
+  height: 1000rpx;
   overflow-y: auto;
   padding-bottom: 100rpx;
   /*bottom: 0;*/
@@ -36,17 +36,25 @@
 }
 
 .select-share-type .modal .header {
+  position: fixed;
+  left: 0;
+  right: 0;
   line-height: 48rpx;
   font-size: 32rpx;
   text-align: center;
+  background-color: #fff;
+  z-index: 99;
   /* border-bottom: 1px solid #f7f7f7; */
-  position: relative;
+  /* position: relative; */
 }
 
 .select-share-type .modal .type{
-  /* position: fixed;
+  position: fixed;
   height: 88rpx;
-  bottom: 0; */
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 99;
   display: flex;
   width: 100%;
   justify-content: center;

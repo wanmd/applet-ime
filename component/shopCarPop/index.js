@@ -24,6 +24,14 @@ Component({
     user: { // 商家信息
       type: String,
       value: ''
+    },
+    needSelectType: {
+      type: Boolean,
+      value: true
+    },
+    type: { // 拿货类型
+      type: String,
+      value: ''
     }
   },
 
@@ -62,6 +70,27 @@ Component({
    */
   methods: {
     initData() {
+      const { type } = this.data;
+      let type_title = '';
+
+      switch(type) {
+        case 'cart':
+          type_title = '加入购物车'
+          break
+        case 'single':
+          type_title = '一件代发'
+          break
+        case 'agent':
+          type_title = '代理拿货'
+          break
+      }
+      if(!this.data.needSelectType) {
+        this.setData({
+          canSelect: true,
+          type_title
+        })
+      }
+      
       this.getDetail()
     },
     getDetail() {
@@ -135,13 +164,17 @@ Component({
     toggleSelectShareType(e) {
       const { current } = e.currentTarget.dataset;
       const { show } = this.data;
+      // 数据重置
       if (current === 'sliup_1' && show) {
         this.setData({
           show: false,
+          canSelect: false,
+          canConfirm: false,
+          detail: null,
           header_price: '',
           price_1: '',
           price_2: '',
-          type: ''
+          type: '',
         })
       }
     },
@@ -180,9 +213,7 @@ Component({
     // 操作按钮
     handleChangeOpea(e) {
       const { type } = e.currentTarget.dataset;
-      const { price_1, price_2, detail } = this.data;
-      const { isAgent } = detail;
-      const { nickname, user_id } = this.data.user ? JSON.parse(this.data.user) : wx.getStorageSync('userinfo');
+      const { price_1, price_2 } = this.data;
       let header_price = '';
 
       switch(type) {
@@ -193,13 +224,8 @@ Component({
           header_price = price_1
           break
         case 'agent':
-          if (!isAgent) {
-            wx.navigateTo({
-              url: `/pages/applyAgent/index?storeId=${user_id}&storeName=${nickname}`,
-            })
-            return
-          }
           header_price = price_2
+          this.postAgent();
           break
       }
 
@@ -391,6 +417,20 @@ Component({
       wx.navigateTo({
         url: prefix + chatId + "&goodsNum=" + goodsNum + "&remark=" + remark + "&type=2&shareUserId=" + shareUserId + '&isGroup=2&productSpecs=' + productSpecs + '&buyType=' + buyType,
       });
+    },
+    // 代理拿货
+    postAgent() {
+      const { detail } = this.data;
+      const { isAgent } = detail;
+      const { nickname, user_id } = this.data.user ? JSON.parse(this.data.user) : wx.getStorageSync('userinfo');
+      if (!isAgent) {
+        wx.navigateTo({
+          url: `/pages/applyAgent/index?storeId=${user_id}&storeName=${nickname}`,
+        })
+        return
+      } else {
+        this.postBuy()
+      }
     }
   }
 })

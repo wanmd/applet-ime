@@ -39,9 +39,10 @@ input {
 
 .bottom {
   position: fixed;
-  bottom: 54rpx;
+  bottom: 0rpx;
   width: 100%;
   padding-top: 20rpx;
+  padding-bottom: 50rpx;
   display: flex;
   justify-content: center;
   align-items: center;

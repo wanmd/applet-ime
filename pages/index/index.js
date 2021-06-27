@@ -98,6 +98,11 @@ wx.Page({
             'query.keyword': e.detail.value
         })
     },
+    handleDelete() {
+        this.setData({
+            'query.keyword': ''
+        })
+    },
     load(e, last = 0) {
         let rows = e.detail.list
         let page = e.detail.page
@@ -219,10 +224,10 @@ wx.Page({
     },
     search() {
         let query = this.data.query;
-        this.setData({ query: query, quoteList: [] })
+        this.setData({ query: query, chatList: [] })
         this.paginationInit();
-        // let pagination2 = this.selectComponent('#pagination2')
-        // pagination2.initLoad()
+        // let pagination1 = this.selectComponent('#pagination1')
+        // pagination1.initLoad()
     },
     search2() {
         let query2 = this.data.query2;
@@ -669,10 +674,13 @@ wx.Page({
      * 显示/关闭分享弹窗
      */
     toggleSelectShareType(e) {
+        console.log(e);
+        
         if (!this.isToLogin()) return;
         let dataset = e.currentTarget.dataset
         let sharedataset = dataset
         let chatId = dataset.id
+        let goodsid = dataset.goodsid
         console.log(chatId)
         let show = this.data.showSelectShareType
         console.log(show)
@@ -681,7 +689,7 @@ wx.Page({
         } else {
             show = 1
         }
-        this.setData({ showSelectShareType: show, chatId: chatId, sharedataset: sharedataset })
+        this.setData({ showSelectShareType: show, chatId: chatId, goodsid: goodsid, sharedataset: sharedataset })
     },
     /**
      * 关闭 产品卡/小程序码 弹窗

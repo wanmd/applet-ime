@@ -36,7 +36,9 @@ wx.Page({
     storeCommonParam: null,
     showShopCarPop: !true,
     goods_id: null,
-    user: ''
+    user: '',
+    needSelectType: true, //需不需要再进行操作按钮选择
+    type: ''
   },
   onLoad: function (opts) {
     console.log("goods=======opts");
@@ -722,7 +724,6 @@ wx.Page({
 
   toBargain (e) {
     if(!this.isToLogin()) return;
-    console.log(e);
     this.setData({ formId : e.detail.formId})
     let isAuth = app.isAuthWxInfo(`/pages/deliveryAddress/index?target=select&id=${this.data.chat.bargain_id}`)
     if(isAuth){
@@ -910,9 +911,22 @@ wx.Page({
     }
   },
   // 
-  handleShowPop() {
+  handleShowPop(e) {
+    const { type } = e.currentTarget.dataset;
+    const { chat } = this.data;
+    console.log(chat);
+    
+    const { nickname, user_id } = chat ? chat.user : wx.getStorageSync('userinfo');
+    if (!chat.isAgent) {
+      wx.navigateTo({
+        url: `/pages/applyAgent/index?storeId=${user_id}&storeName=${nickname}`,
+      })
+      return
+    }
     this.setData({
-      showShopCarPop: true
+      showShopCarPop: true,
+      needSelectType: false,
+      type
     })
   }
 })

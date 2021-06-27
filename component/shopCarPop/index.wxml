@@ -7,6 +7,7 @@
           <image class="pic" mode="aspectFill" src="{{baseUrl}}/{{[detail.image_urls]}}" />
         </view>
         <view class="header_right fx-1 d-f fxd-c ai-fs">
+          <view class="c-333 fz-28">{{type_title}}</view>
           <view class=""><text class="c-333 fz-28">价格:  ￥</text><text class="c-333 fz-32">{{header_price}}</text></view>
           <view class="mb-20">
             <text class="c-333 fz-28 mr-14">已选择：</text>
@@ -38,13 +39,12 @@
               </button> 
             </view>
           </view>
-          
         </view>
       </view>
     </view>
-    <view class="content ml-38" wx:if="{{detail.attribute.length}}">
+    <view class="content ml-38 mt-250" wx:if="{{detail.attribute.length}}">
       <view class="wrapItem" wx:for="{{detail.attribute}}" wx:key="index" wx:for-index='index'>
-        <view class="title c-333 fz-28 lh-28 mb-22">{{item.name}}</view>
+        <view class="title c-333 fz-28 lh-28 mb-22">选择{{item.name}}</view>
         <view class="skuWrap d-f fxw-w">
           <view class="skuItem {{vitem.active ? 'active' : ''}}" 
             data-index="{{index}}" 
@@ -61,7 +61,7 @@
     <view class="bottom mt-40 w-100p d-f jc-c">
       <button disabled="{{!canConfirm}}" class="save {{canConfirm ? '' : ''}}" bindtap="handleSubmit">确定</button>
     </view>
-    <view class="type mt-60">
+    <view class="type mt-60  {{mode === 'b0' ? 'b-20' : 'b-180'}}" wx:if="{{needSelectType}}">
       <view class="buttonWrap d-f">
         <view class="w-200 d-f jc-c ai-c c-fff bgc-FFC901 {{ type === 'cart' ? 'bigger' : ''}}" bindtap="handleChangeOpea" data-type="cart">+购物车</view>
         <!-- 一般用户 一件代发(会员价) + 代理拿货(代理价) 

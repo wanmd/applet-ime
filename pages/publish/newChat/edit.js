@@ -239,6 +239,13 @@ wx.Page({
           url: '/pages/goodsSku/index',
         })
     },
+    handleEditSku() {
+        wx.navigateTo({
+            url: '/pages/goodsSku/index?isEdit=' + 1,
+        })
+        //数据挂在app
+        app.globalData.skuData.isEdit = true 
+    },
     // 编辑提交
     submit() {
         console.log(this.data);

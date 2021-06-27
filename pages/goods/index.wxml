@@ -180,7 +180,7 @@
           </form>
     </block>
     <block wx:else>
-        <view wx:if="{{shareUserId==''||shareUserId==0}}" class="buy_btn2" bindtap='handleShowPop'>
+        <view wx:if="{{shareUserId==''||shareUserId==0}}" class="buy_btn2">
           <!-- <btn class='add-cart1 middle' style-text='width:139rpx;height: 88rpx;line-height: 88rpx;color: #fff;background:linear-gradient(270deg,rgba(255,186,0,1),rgba(255,225,3,1));border-radius:42px 0px 0px 42px;' bindtap='addCart' >+购物车</btn>
           <btn class='now-buy1 middle' style-text='width:160rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,174,0,1),rgba(255,132,0,1));' bindtap='nowBuy'>
             <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.price}}</view>
@@ -193,12 +193,29 @@
           <!-- 一般用户 一件代发(会员价) + 代理拿货(代理价) 
             会员用户 一件代发(会员价) + 代理拿货(代理价) 
             代理用户 一件代发(代理价) + 代理拿货(代理价) -->
-          <btn class='add-cart1 middle' style-text='width:139rpx;height: 88rpx;line-height: 88rpx;color: #fff;background:linear-gradient(270deg,rgba(255,186,0,1),rgba(255,225,3,1));border-radius:42px 0px 0px 42px;'>+购物车</btn>
-          <btn class='now-buy1 middle' style-text='width:160rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,174,0,1),rgba(255,132,0,1));'>
-            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.isAgent ? chat.agent_price : chat.vip_price}}</view>
-            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">一件代发</view>
+          <btn 
+            data-type="cart"
+            bindtap='handleShowPop'
+            class='add-cart1 middle' 
+            style-text='width:139rpx;height: 88rpx;line-height: 88rpx;color: #fff;background:linear-gradient(270deg,rgba(255,186,0,1),rgba(255,225,3,1));border-radius:42px 0px 0px 42px;'
+          >+购物车</btn>
+          <btn 
+            data-type="single"
+            bindtap='handleShowPop'
+            class='now-buy1 middle' 
+            style-text='width:160rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,174,0,1),rgba(255,132,0,1));'>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">
+              ¥{{chat.isAgent ? chat.agent_price : chat.vip_price}}
+            </view>
+            <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">
+              一件代发
+            </view>
           </btn>
-          <btn class='now-buy2 middle' style-text='width:158rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,115,1,1),rgba(255,84,0,1));border-radius:0px 42px 42px 0px;'>
+          <btn 
+            data-type="agent"
+            bindtap='handleShowPop'
+            class='now-buy2 middle' 
+            style-text='width:158rpx;height: 88rpx;color: #fff;background:linear-gradient(90deg,rgba(255,115,1,1),rgba(255,84,0,1));border-radius:0px 42px 42px 0px;'>
             <view style="font-size:28rpx;line-height: 31rpx;padding-top: 16rpx;">¥{{chat.agent_price}}</view>
             <view style="font-size:28rpx;line-height: 31rpx;padding-bottom: 16rpx;">代理拿货</view>
           </btn>
@@ -348,4 +365,12 @@
 </view>
 
 <!-- 购物车弹框 -->
-<shopCarPop show="{{showShopCarPop}}" goods_id="{{goods_id}}" user="{{user}}" mode="b0" />
+<shopCarPop 
+  show="{{showShopCarPop}}" 
+  goods_id="{{goods_id}}" 
+  user="{{user}}" 
+  mode="b0" 
+  needSelectType="{{needSelectType}}"
+  type="{{type}}" 
+
+/>

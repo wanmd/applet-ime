@@ -20,6 +20,9 @@
 .r-0 {
     right: 0;
 }
+.r-10 {
+    right: 10rpx;
+}
 .r-20 {
     right: 20rpx;
 }
@@ -37,6 +40,12 @@
 }
 .b-20 {
     bottom: 20rpx;
+}
+.b-120 {
+    bottom: 120rpx;
+}
+.b-180 {
+    bottom: 180rpx;
 }
 .l-0 {
     left: 0;
@@ -73,6 +82,9 @@
 }
 .z-51 {
     z-index: 51;
+}
+.z-99 {
+    z-index: 99;
 }
 .z-1000 {
     z-index: 1000;

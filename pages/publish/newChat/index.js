@@ -28,6 +28,7 @@ wx.Page({
         
         productCategoryId: null,
         template: null,
+        isExpress: null,
         videoUrl: '',
         option1: [
             {
@@ -37,6 +38,16 @@ wx.Page({
             {
                 value: 2,
                 label: '特殊商品不退换'
+            }
+        ],
+        option2: [
+            {
+                value: 1,
+                label: '包邮'
+            },
+            {
+                value: 2,
+                label: '不包邮'
             }
         ]
     },
@@ -242,9 +253,14 @@ wx.Page({
     },
 
     radioChange(e) {
-        console.log(e);
         this.setData({
             serviceSetting: e.detail.value
+        })
+    },
+
+    radioChangeExpress(e) {
+        this.setData({
+            isExpress: e.detail.value
         })
     },
 
@@ -366,11 +382,11 @@ wx.Page({
                 data.specs.push(item)
             })
             // 运费 1-包邮 2-不包邮
-            if (!this.data.template) {
+            if (!this.data.isExpress) {
                 toast('请选择运费设置~')
                 return
             }
-            data.templateId = this.data.template ? this.data.template.type : 1;
+            data.isExpress = this.data.isExpress;
             // 服务设置
             if (!this.data.serviceSetting) {
                 toast('请选择运费设置~')
