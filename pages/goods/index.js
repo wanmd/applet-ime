@@ -147,8 +147,6 @@ wx.Page({
         // this.getStoreCommonParam(data.user.user_id)
       }else{
         if(res.code == 404){
-          // alert(res.msg)
-          // wx.navigateBack()
           wx._showAlert({
               content:res.msg,
               success(res){
