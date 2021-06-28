@@ -25,7 +25,7 @@ Component({
       type: String,
       value: ''
     },
-    needSelectType: {
+    needSelectType: {// 选择规格前需不需要选底部拿货类型
       type: Boolean,
       value: true
     },
