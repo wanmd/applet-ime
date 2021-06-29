@@ -2,7 +2,7 @@
 <view class="page d-f p-44">
   <view class="first-levelList fx-1 w-50p mr-26">
     <view wx:for="{{treeData}}" wx:key="id" class="item {{ item.focus ? 'focus' : ''}}">
-      <image data-id="{{item.id}}"  data-name="{{item.name}}" bindtap="handleDelete" src="../../assets/images/index/delete@2x.png" class="delete"/>
+      <image data-id="{{item.id}}"  data-name="{{item.name}}" bindtap="handleDelete" src="../../assets/images/index/delete2@3x.png" class="delete"/>
       <input data-id="{{item.id}}" data-name="{{item.name}}" value="{{item.name}}" bindfocus="handleFocus" bindinput="handleInput" bindblur="handleblur" placeholder="填写一级分类名称"/>
     </view>
     <view class="item add" bindtap="handleAddFirstLevel">
@@ -11,7 +11,7 @@
   </view>
   <view class="second-levelList fx-1 w-50p">
     <view wx:for="{{level2_treeData}}" wx:key="id" class="item {{ item.focus ? 'focus' : ''}}">
-      <image data-id="{{item.id}}"  data-name="{{item.name}}" bindtap="handleDelete2" src="../../assets/images/index/delete@2x.png" class="delete"/>
+      <image data-id="{{item.id}}"  data-name="{{item.name}}" bindtap="handleDelete2" src="../../assets/images/index/delete2@3x.png" class="delete"/>
       <input data-id="{{item.id}}"  data-name="{{item.name}}" value="{{item.name}}" bindfocus="handleFocus2" bindinput="handleInput2" bindblur="handleblur2" placeholder="填写二级分类名称"/>
     </view>
     <view class="item add"  wx:if="{{parentid}}" bindtap="handleAddSecondLevel">

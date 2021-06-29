@@ -208,11 +208,17 @@ wx.Page({
     },
 
     handleNav(e) {
-			console.log(e.currentTarget.dataset.url);
-			
-			wx.navigateTo({
-				url: e.currentTarget.dataset.url,
-			})
+        console.log(e.currentTarget.dataset.url);
+        
+        wx.navigateTo({
+            url: e.currentTarget.dataset.url,
+        })
+    },
+
+    handleSetFreight(e) {
+        wx.navigateTo({
+            url: e.currentTarget.dataset.url,
+        })
     },
 
     setLabels(labels) {
@@ -466,11 +472,8 @@ wx.Page({
 
         let userInfo = wx.getStorageSync('userinfo') || app.globalData.userInfo
         let userType = userInfo.user_type;
-        this.setData({
-            userType: userInfo.user_type
-        })
 
-        this.setData({ chatType: chatType, chatId: chatId, share: share })
+        this.setData({ userType: userInfo.user_type, chatType: chatType, chatId: chatId, share: share })
         if (chatId == 0) { //编辑的
             if (chatType == 1) {
                 barTitlle = '发布图文'
@@ -583,6 +586,25 @@ wx.Page({
         }
 
 
+    },
+    onShow() {
+        // 获取运费模板
+        request.get('feetemplate', res => {
+            if (res.success) {
+                // this.setData({ 
+                //     fee: res.data.list,
+                // })
+                if (!res.data) {
+                    this.setData({ 
+                        hasSetFee: false
+                    })
+                } else {
+                    this.setData({ 
+                        hasSetFee: true
+                    })
+                }
+            }
+        }, {})
     }
 
 })

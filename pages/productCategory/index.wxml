@@ -5,7 +5,7 @@
     <view class="mlr-40 pb-38 borderb-1-solid-E4E4E4 d-f jc-c">
       <view class="c-333 fz-30 lh-44 pos-r w-100 ta-c">
         选择产品品类
-        <text class="fz-40 c-8E8E8E pos-a r-0 t-0">x</text>
+        <text class="fz-40 c-8E8E8E pos-a r-0 t-0" bindtap="handleBack">x</text>
       </view>
     </view>
     <view class="d-f jc-c mt-28 mb-68 c-6A6A6A fz-20">完善品类信息提高分销推广效果</view>
@@ -26,7 +26,7 @@
   </view>
 </view>
 
-<!-- 购物车弹框 -->
+<!-- 二级弹框 -->
 <view class="select-share-type sliup_1" bindtap='toggleSelectShareType' wx:if="{{show}}">
   <view class="modal">
     <view class='header_top pos-r'>

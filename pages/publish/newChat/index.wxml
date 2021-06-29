@@ -157,19 +157,23 @@
                 value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
             </cell>
-            <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
-              <!-- <view 
+            <cell title='运费设置' border='{{false}}' arrow='{{false}}'>
+              <view 
                 slot='content' 
-                bindtap="handleNav"
-                data-url='/packages/pack-A/pages/user/setFreight/index'>
-                <text wx:if="{{!template}}" class="color-ccc">请设置</text>
-                <text wx:else>{{template.type == 1 ? '包邮' : '不包邮'}}</text>
-              </view> -->
-              <radio-group bindchange="radioChangeExpress" name="isExpress" slot='content'>
-                <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
-                  <radio color="#FFE200" value="{{item.value}}" wx:key="{{item.label}}" checked="{{ isExpress == item.value}}">{{item.label}}</radio>
-                </label>
-              </radio-group>
+              >
+                <radio-group catchchange="radioChangeExpress" name="isExpress" slot='content'>
+                  <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
+                    <radio disabled="{{!hasSetFee}}" color="#FFE200" value="{{item.value}}" wx:key="{{item.label}}" checked="{{ isExpress == item.value}}">{{item.label}}</radio>
+                  </label>
+                  <text 
+                    class="arr"
+                    bindtap="handleSetFreight"
+                    data-url='/packages/pack-A/pages/user/setFreight/index'
+                  ></text>
+                </radio-group>
+               
+              </view>
+              
             </cell>
             <cell title='服务设置' border='{{false}}' arrow='{{false}}'>
               <radio-group bindchange="radioChange" name="type" slot='content'>

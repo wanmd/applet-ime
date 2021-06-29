@@ -71,9 +71,14 @@
     left: 50%;
     background-color: #fff;
     width: 560rpx;
-    height: 332rpx;
     margin-left: -280rpx;
     z-index: 99;
+}
+.h332 {
+    height: 332rpx;
+}
+.h524 {
+    height: 524rpx;
 }
 
 .link-wrap {
@@ -277,4 +282,10 @@
     line-height: 88rpx;
     text-align: center;
     background: #EEEEEE;
+}
+.ta-c {
+    text-align: center;
+}
+.pt-70 {
+    padding-top: 70rpx;
 }

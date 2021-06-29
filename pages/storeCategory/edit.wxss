@@ -20,10 +20,10 @@
 }
 .delete{
   position: absolute;
-  right: -10rpx;
-  top: -8rpx;
-  width: 22rpx;
-  height: 22rpx;
+  right: -22rpx;
+  top: -22rpx;
+  width: 45rpx;
+  height: 45rpx;
   z-index: 9;
 }
 

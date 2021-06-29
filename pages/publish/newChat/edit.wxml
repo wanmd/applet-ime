@@ -86,10 +86,15 @@
             <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
               <view 
                 slot='content' 
-                bindtap="handleNav"
-                data-url='/packages/pack-A/pages/user/setFreight/index'>
-                <text wx:if="{{!template}}" class="color-ccc">请设置</text>
-                <text wx:else>{{template.type == 1 ? '包邮' : '不包邮'}}</text>
+              >
+                <radio-group catchchange="radioChangeExpress" name="isExpress" slot='content'>
+                  <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
+                    <radio disabled="{{!hasSetFee}}" color="#FFE200" value="{{item.value}}" wx:key="{{item.label}}" checked="{{ isExpress == item.value}}">{{item.label}}</radio>
+                  </label>
+                  <text 
+                    class="arr"
+                  ></text>
+                </radio-group>
               </view>
             </cell>
             <cell title='服务设置' border='{{false}}' arrow='{{false}}'>

@@ -43,9 +43,11 @@
     </view>
   </view>
 </view>
+<!-- 微信联系方式 -->
 <view class="flex--c fixed__ z100 {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}">
-  <view class="link-box" style="bottom: 560rpx;" data-content="{{userInfo.wechat}}" catch:tap="copy">
-    <view class="link-wrap">
+  <!-- 上 -->
+  <view class="link-box h524" style="bottom: 560rpx;" data-content="{{userInfo.wechat}}" catch:tap="copy">
+    <!-- <view class="link-wrap">
       <view class="">
         <view class="buyer_user_code">
           <img class="cover" src="7e3d7ffebedcfe294dab5d1682d7ba12.jpg"></img>
@@ -57,10 +59,22 @@
         <el-image class="icon" src='ic_contact_wechat@2x.png' style='width:42rpx;display: inline-block;'></el-image>
         <text>{{userInfo.wechat}}</text>
       </view>
-      <!-- <view class="link-num" data-content="{{userInfo.wechat}}" catch:tap="copy">复制</view> -->
+    </view> -->
+    <view>
+      <view class="buyer_user_code ta-c pt-70">
+        <image src="{{ALIYUN_URL}}/{{userInfo.wx_qr_code}}" style="width:286rpx;height:290rpx"></image>
+        <!-- <image src='/assets/images/sad.png' style="width:286rpx;height:290rpx"></image> -->
+        <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
+      </view>
+      <view class="buyer_name">{{userInfo.nickname}}</view>
+      <view class="link-tit">
+        <el-image class="icon" src='ic_contact_wechat@2x.png' style='width:42rpx;display: inline-block;'></el-image>
+        <text>{{userInfo.wechat}}</text>
+      </view>
     </view>
   </view>
-  <view class="link-box" style="bottom: 210rpx;" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">
+  <!-- 下 -->
+  <view class="link-box h332" style="bottom: 210rpx;" data-phone="{{userInfo.mobile}}" catch:tap="callNumPhone">
     <view class="link-wrap">
       <view class="buyer_user">
         <view class="buyer_img">

@@ -80,7 +80,8 @@ Component({
         showContact: false,
         showPraise: false,
         showlink: 0,
-        downOk: false
+        downOk: false,
+        ALIYUN_URL
     },
     methods: {
         downOkHide() {
