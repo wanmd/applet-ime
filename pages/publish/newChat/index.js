@@ -27,7 +27,7 @@ wx.Page({
         src: "",        // 上传视频
         
         productCategoryId: null,
-        template: null,
+        templateId: null,
         isExpress: null,
         videoUrl: '',
         option1: [
@@ -245,11 +245,11 @@ wx.Page({
         })
     },
 
-    setTemplate(template) {
-        this.setData({
-            template
-        })
-    },
+    // setTemplate(template) {
+    //     this.setData({
+    //         template
+    //     })
+    // },
 
     setGoods_skuList(goods_skuList) {
         console.log(goods_skuList);
@@ -393,9 +393,10 @@ wx.Page({
                 return
             }
             data.isExpress = this.data.isExpress;
+            data.templateId = this.data.templateId;
             // 服务设置
             if (!this.data.serviceSetting) {
-                toast('请选择运费设置~')
+                toast('请选择服务设置~')
                 return
             }
             data.serviceSetting = this.data.serviceSetting || '';
@@ -600,7 +601,8 @@ wx.Page({
                     })
                 } else {
                     this.setData({ 
-                        hasSetFee: true
+                        hasSetFee: true,
+                        templateId: res.data.list.id
                     })
                 }
             }

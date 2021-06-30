@@ -43,7 +43,8 @@ wx.Page({
         src: "",        // 上传视频
         
         productCategoryId: null,
-        template: null,
+        isExpress: null,
+        templateId: null,
         videoUrl: '',
         option1: [
             {
@@ -53,6 +54,16 @@ wx.Page({
             {
                 value: 2,
                 label: '特殊商品不退换'
+            }
+        ],
+        option2: [
+            {
+                value: 1,
+                label: '包邮'
+            },
+            {
+                value: 2,
+                label: '不包邮'
             }
         ],
         goods_skuList: [],
@@ -214,11 +225,11 @@ wx.Page({
         })
     },
 
-    setTemplate(template) {
-        this.setData({
-            template
-        })
-    },
+    // setTemplate(template) {
+    //     this.setData({
+    //         template
+    //     })
+    // },
 
     setGoods_skuList(goods_skuList) {
         console.log(goods_skuList);
@@ -231,6 +242,12 @@ wx.Page({
         console.log(e);
         this.setData({
             serviceSetting: e.detail.value
+        })
+    },
+
+    radioChangeExpress(e) {
+        this.setData({
+            isExpress: e.detail.value
         })
     },
 
@@ -323,8 +340,8 @@ wx.Page({
             data.attribute = [];
             //  商品规格
             let { goods_skuList, excel_skuList } = app.globalData.skuData;
-            console.log(goods_skuList);
-            console.log(excel_skuList);
+            // console.log(goods_skuList);
+            // console.log(excel_skuList);
             
             if (!excel_skuList.length) {
                 toast('请添加商品规格~')
@@ -364,11 +381,12 @@ wx.Page({
                 
             })
             // 运费 1-包邮 2-不包邮
-            if (!this.data.template) {
+            if (!this.data.isExpress) {
                 toast('请选择运费设置~')
                 return
             }
-            data.templateId = this.data.template ? this.data.template.type : 1;
+            data.isExpress = this.data.isExpress;
+            data.templateId = this.data.templateId;
             // 服务设置
             if (!this.data.serviceSetting) {
                 toast('请选择服务设置~')
@@ -585,9 +603,8 @@ wx.Page({
                     remark: data.remark,
                     videoUrl: data.video_url,
                     serviceSetting: data.service_setting,
-                    template: {
-                        type: data.template_id
-                    },
+                    templateId: data.template_id,
+                    isExpress: data.is_express,
                     fee: {
                         type: data.service_setting === '7天无理由' ? 1 : 2
                     },

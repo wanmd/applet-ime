@@ -5,7 +5,6 @@
   </view>
   <view class="wx_center">
     <view class='p-l-r'>
-      
       <form>
         <view wx:if='{{chatType == 2}}' class="p-t-50 border-b">
           <input type='text' value='{{name}}' data-target='name' bindinput='input' maxlength="30" class='goods_name' placeholder-class="fz-36 c-CCCCCC" placeholder='取个厉害的标题，最多30字'></input>
@@ -29,7 +28,7 @@
           </view>
         </view>
         <view class='m-t-30'>
-          <!-- 发布产品 (转发的？)-->
+          <!-- 发布产品 (或者转发的？)-->
           <block wx:if='{{chatType == 2&&share!=0}}'>
             <view class="d-f jc-sb ai-c">
               <view class="w-300">产品条码（选填）</view>
@@ -159,13 +158,15 @@
                 value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
             </cell>
-            <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
+            <cell title='运费设置' border='{{false}}' arrow='{{false}}'>
               <view 
-                slot='content' 
-                bindtap="handleNav"
-                data-url='/packages/pack-A/pages/user/setFreight/index'>
-                <text wx:if="{{!template}}" class="color-ccc">请设置</text>
-                <text wx:else>{{template.type == 1 ? '包邮' : '不包邮'}}</text>
+                slot='content'
+              >
+                <radio-group catchchange="radioChangeExpress" name="isExpress" slot='content'>
+                  <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
+                    <radio color="#FFE200" value="{{item.value}}" wx:key="{{item.label}}" checked="{{ isExpress == item.value}}">{{item.label}}</radio>
+                  </label>
+                </radio-group>
               </view>
             </cell>
             <cell title='服务设置' border='{{false}}' arrow='{{false}}'>
