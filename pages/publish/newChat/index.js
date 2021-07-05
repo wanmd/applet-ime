@@ -175,6 +175,7 @@ wx.Page({
     chooseLocation() {
 			wx.chooseLocation({
 				success: res => {
+                    console.log(res);
 					this.setData({ location: res.name, longitude: res.longitude, latitude: res.latitude })
 				}
 			})
@@ -355,11 +356,11 @@ wx.Page({
             data.attribute = [];
             //  商品规格
             let { goods_skuList, excel_skuList } = app.globalData.skuData;
-            if (!excel_skuList.length) {
+            if (!excel_skuList || !excel_skuList.length) {
                 toast('请添加商品规格~')
                 return
             }
-            if (!goods_skuList.length) {
+            if (!goods_skuList || !goods_skuList.length) {
                 toast('请添加商品规格~')
                 return
             }
