@@ -44,6 +44,20 @@
     </view>
   </view>
   <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
+  <!-- 拼团 -->
+  <view wx:if="{{order.is_group}}" class="d-f jc-sb ai-c p-20">
+    <view>
+      <text class="c-333 fz-26 lh-34 mr-22">拼单组合</text>
+      <timer time="{{order.diff_time}}" font="fz-22" color="c-979797" /><text class="c-979797 fz-22">后结束</text>
+    </view>
+    <view class="d-f ai-c"> 
+      <button hover-class="none" class="inviteBtn" open-type='share'>邀请好友拼单</button>
+      <view class="ml-38">
+        <image src="{{order.buyer.avatar}}" class="w-48 h-48 bdrs-50p" />
+        <image src="/assets/images/order/nobody@2x.png" class="w-48 h-48" />
+      </view>
+    </view>
+  </view>
   <goods wx:for='{{order.goods}}' ismy="{{false}}" goods='{{item}}' note='{{true}}' wx:key="index"></goods>
   <view class='order-fee-detail'>
     <view class='item'>

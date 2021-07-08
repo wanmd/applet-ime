@@ -274,13 +274,14 @@ Page({
                 order.pay_time = parseTime(order.pay_time)
                 order.deliver_time = parseTime(order.deliver_time)
                 order.complete_time = parseTime(order.complete_time)
+                order.diff_time = order.group_time + 86400 - Math.floor(new Date().getTime()/1000)
 
                 let total_price = 0;
                 let vip_price = 0;
                 let amount_price = 0;
                 order.goods.forEach(item => {
                     total_price += app.formatDecimal(item.sale_price) * item.quantity;
-                    vip_price += app.formatDecimal(item.vip_price) * item.quantity;
+                    vip_price += app.formatDecimal(item.member_price) * item.quantity;
                 })
                 amount_price = order.amount;
 
