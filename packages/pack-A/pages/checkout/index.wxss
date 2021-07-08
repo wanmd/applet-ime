@@ -329,3 +329,70 @@ page{
 .color-FFE200{
   color: #FFE200;
 }
+
+.class1 {
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+}
+.class2 {
+  border-radius: 56rpx 56rpx 0rpx 0rpx;
+}
+.active {
+  background-color: #FFE200;
+  color: #333333;
+  font-size: 36rpx;
+}
+
+.hx{
+  padding-top: 20rpx;
+}
+.hx_cell_t{
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 42rpx;
+}
+.hx_cell .label{
+  width: 90rpx;
+  color: #666666;
+  font-size: 18rpx;
+  line-height: 20rpx;
+}
+.hx_cell{
+  margin-bottom: 16rpx;
+}
+.hx_cell,
+.hx_liucheng{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hx_liucheng .item-icon{
+  display: block;
+  margin-bottom: 16rpx;
+}
+.hx_liucheng_item{
+  width: 140rpx;
+  font-size: 20rpx;
+  color: #252525;
+  text-align: center;
+}
+.hx_liucheng_bor{
+  width: 100rpx;
+  margin: 0 -15rpx;
+}
+.selfBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 156rpx;
+  height: 60rpx;
+  border: 2rpx solid #B3B3B3;
+  border-radius: 30rpx;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  color: #000000;
+}
+.active2 {
+  background: rgba(255, 226, 0, 0.18);
+  color:#333333;
+  border: 1rpx solid #FFE200;
+}

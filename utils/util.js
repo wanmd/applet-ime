@@ -121,7 +121,6 @@ class Request {
         };
 
         config.data = data;
-        console.log(config);
         this.isSendIng = true;
         wx.request(config);
     }

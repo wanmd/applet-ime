@@ -351,8 +351,6 @@ App({
 
         const { top: navTop, height: nav_button_height } = wx.getMenuButtonBoundingClientRect(); // 胶囊按钮与顶部的距离
 
-        console.log(wx.getMenuButtonBoundingClientRect());
-        
         // 系统
         const isiOS = system.indexOf('iOS') > -1;
         
