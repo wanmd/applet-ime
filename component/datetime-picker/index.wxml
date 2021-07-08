@@ -1,0 +1,12 @@
+<view style="width: 400rpx; text-align: right">
+  <picker mode="multiSelector" range="{{rangeValues}}" range-key="name" value="{{initvalue}}" bindchange="checkRule" bindcolumnchange="handleChangeColumn">
+    <view class="d-f ai-c">
+      <view class="d-f f-1">
+        <view wx:if="{{showvalue}}" class="fz-28 ptb-26">{{showvalue}}</view>
+        <view wx:else class="fz-28 ptb-26 c-D9D9D9">{{option.placeholder}}</view>
+      </view>
+      <image class="w-10 h-18" src="https://xiuxiu-picture-weapp.oss-cn-shenzhen.aliyuncs.com/my/arrow.png" />
+    </view>
+  </picker>
+  <view class="fz-28 lh-36 ptb-26 c-FA5151" wx:if="{{message}}">{{message}}</view>
+</view>

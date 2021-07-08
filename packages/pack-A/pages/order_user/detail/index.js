@@ -296,7 +296,7 @@ Page({
                 }
                 this.setData({
                     order: order,
-                    orderStatus: order.statu,
+                    orderStatus: order.status,
                     receiveId: receiveId,
                     order_no: order_no,
                     total_price: total_price,

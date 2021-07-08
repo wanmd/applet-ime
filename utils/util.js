@@ -411,5 +411,6 @@ module.exports = {
     queryParams: queryParams,
     getDate: getDate,
     timestampToTime,
-    maskNumber
+    maskNumber,
+    formatNumber
 };

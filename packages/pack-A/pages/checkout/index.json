@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "tab-bar": "/component/tab-bar/index",
-    "counter" : "/component/counter/index"
+    "counter" : "/component/counter/index",
+    "datetimepicker" : "/component/datetime-picker/index"
   },
   "navigationBarTitleText": "确认订单"
 }
