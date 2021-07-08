@@ -21,7 +21,6 @@
 import { toast } from '../../../../utils/util.js'
 
 let app = getApp()
-console.log(app.globalData);
 
 Component({
   /**

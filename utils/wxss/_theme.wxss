@@ -6,6 +6,9 @@
   bottom: 40rpx;
 }
 /* Margin & Padding */
+.mt-0 {
+  margin-top: 0rpx;
+}
 .mt-8 {
   margin-top: 8rpx;
 }
@@ -20,6 +23,9 @@
 }
 .mt-17 {
   margin-top: 17rpx;
+}
+.mt-18 {
+  margin-top: 18rpx;
 }
 .mt-20 {
   margin-top: 20rpx;
@@ -42,6 +48,9 @@
 .mt-40 {
   margin-top: 40rpx;
 }
+.mt-44 {
+  margin-top: 44rpx;
+}
 .mt-45 {
   margin-top: 45rpx;
 }
@@ -51,14 +60,23 @@
 .mt-52 {
   margin-top: 52rpx;
 }
+.mt-54 {
+  margin-top: 54rpx;
+}
+.mt-56 {
+  margin-top: 56rpx;
+}
+.mt-58 {
+  margin-top: 58rpx;
+}
 .mt-60 {
   margin-top: 60rpx;
 }
+.mt-84 {
+  margin-top: 84rpx;
+}
 .mt-140 {
   margin-top: 140rpx;
-}
-.mt-200 {
-  margin-top: 200rpx;
 }
 .mt-250 {
   margin-top: 250rpx;
@@ -83,6 +101,9 @@
 }
 .mb-7 {
   margin-bottom: 7rpx;
+}
+.mb-8 {
+  margin-bottom: 8rpx;
 }
 .mb-10 {
   margin-bottom: 10rpx;
@@ -123,6 +144,9 @@
 .mb-32 {
   margin-bottom: 32rpx;
 }
+.mb-34 {
+  margin-bottom: 34rpx;
+}
 .mb-36 {
   margin-bottom: 36rpx;
 }
@@ -138,11 +162,17 @@
 .mb-44 {
   margin-bottom: 44rpx;
 }
+.mb-46 {
+  margin-bottom: 46rpx;
+}
 .mb-48 {
   margin-bottom: 48rpx;
 }
 .mb-52 {
   margin-bottom: 52rpx;
+}
+.mb-56 {
+  margin-bottom: 56rpx;
 }
 .mb-58 {
   margin-bottom: 58rpx;
@@ -174,6 +204,9 @@
 .ml-12 {
   margin-left: 12rpx;
 }
+.ml-16 {
+  margin-left: 16rpx;
+}
 .ml-17 {
   margin-left: 17rpx;
 }
@@ -195,11 +228,20 @@
 .ml-40 {
   margin-left: 40rpx;
 }
+.ml-48 {
+  margin-left: 48rpx;
+}
 .ml-56 {
   margin-left: 56rpx;
 }
+.ml-60 {
+  margin-left: 60rpx;
+}
 .ml-100 {
   margin-left: 100rpx;
+}
+.ml--50 {
+  margin-left: -50rpx;
 }
 .mr-2 {
   margin-right: 2rpx;
@@ -288,6 +330,9 @@
 .mr-150 {
   margin-right: 150rpx;
 }
+.mr-250 {
+  margin-right: 250rpx;
+}
 .ml-30 {
   margin-left: 30rpx;
 }
@@ -347,6 +392,14 @@
   margin-left: 30rpx;
   margin-right: 30rpx;
 }
+.mlr-36 {
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+}
+.mlr-38 {
+  margin-left: 38rpx;
+  margin-right: 38rpx;
+}
 .mlr-40 {
   margin-left: 40rpx;
   margin-right: 40rpx;
@@ -362,6 +415,14 @@
 .mlr-80 {
   margin-left: 80rpx;
   margin-right: 80rpx;
+}
+.mlr-88 {
+  margin-left: 88rpx;
+  margin-right: 88rpx;
+}
+.mlr-100 {
+  margin-left: 100rpx;
+  margin-right: 100rpx;
 }
 .mlr-5p {
   margin-left: 5%;
@@ -427,8 +488,14 @@
 .pt-60 {
   padding-top: 60rpx;
 }
+.pt-78 {
+  padding-top: 78rpx;
+}
 .pt-80 {
   padding-top: 80rpx;
+}
+.pt-100 {
+  padding-top: 100rpx;
 }
 .pt-160 {
   padding-top: 160rpx;
@@ -445,6 +512,9 @@
 .pb-16 {
   padding-bottom: 16rpx;
 }
+.pb-20 {
+  padding-bottom: 20rpx;
+}
 .pb-24 {
   padding-bottom: 24rpx;
 }
@@ -453,6 +523,9 @@
 }
 .pb-30 {
   padding-bottom: 30rpx;
+}
+.pb-32 {
+  padding-bottom: 32rpx;
 }
 .pb-38 {
   padding-bottom: 38rpx;
@@ -475,8 +548,14 @@
 .pb-300 {
   padding-bottom: 300rpx;
 }
+.pb-600 {
+  padding-bottom: 600rpx;
+}
 .pr-6 {
   padding-right: 6rpx;
+}
+.pr-20 {
+  padding-right: 20rpx;
 }
 .pr-24 {
   padding-right: 24rpx;
@@ -484,14 +563,26 @@
 .pr-26 {
   padding-right: 26rpx;
 }
+.pr-32 {
+  padding-right: 32rpx;
+}
+.pr-34 {
+  padding-right: 34rpx;
+}
 .pr-36 {
   padding-right: 36rpx;
+}
+.pr-40 {
+  padding-right: 40rpx;
 }
 .pr-48 {
   padding-right: 48rpx;
 }
 .pr-60 {
   padding-right: 60rpx;
+}
+.pr-146 {
+  padding-right: 146rpx;
 }
 .pl-4 {
   padding-left: 4rpx;
@@ -517,11 +608,23 @@
 .pl-40 {
   padding-left: 40rpx;
 }
+.pl-48 {
+  padding-left: 48rpx;
+}
+.pl-54 {
+  padding-left: 54rpx;
+}
 .pl-60 {
   padding-left: 60rpx;
 }
+.pl-68 {
+  padding-left: 68rpx;
+}
 .pl-76 {
   padding-left: 76rpx;
+}
+.pl-146 {
+  padding-left: 146rpx;
 }
 .plr-4 {
   padding-left: 4rpx;
@@ -575,9 +678,17 @@
   padding-left: 70rpx;
   padding-right: 70rpx;
 }
+.plr-120 {
+  padding-left: 120rpx;
+  padding-right: 120rpx;
+}
 .plr-135 {
   padding-left: 135rpx;
   padding-right: 135rpx;
+}
+.plr-168 {
+  padding-left: 168rpx;
+  padding-right: 168rpx;
 }
 .ptb-4 {
   padding-top: 4rpx;
@@ -689,6 +800,9 @@
 .w-46 {
   width: 46rpx;
 }
+.w-48 {
+  width: 48rpx;
+}
 .w-50 {
   width: 50rpx;
 }
@@ -712,6 +826,9 @@
 }
 .w-68 {
   width: 68rpx;
+}
+.w-70 {
+  width: 70rpx;
 }
 .w-72 {
   width: 72rpx;
@@ -751,6 +868,9 @@
 }
 .w-110 {
   width: 110rpx;
+}
+.w-116 {
+  width: 116rpx;
 }
 .w-120 {
   width: 120rpx;
@@ -809,9 +929,6 @@
 .w-284 {
   width: 284rpx;
 }
-.w-286 {
-  width: 286rpx;
-}
 .w-252 {
   width: 252rpx;
 }
@@ -829,6 +946,9 @@
 }
 .w-400 {
   width: 400rpx;
+}
+.w-424 {
+  width: 424rpx;
 }
 .w-464 {
   width: 464rpx;
@@ -938,6 +1058,9 @@
 .h-60 {
   height: 60rpx;
 }
+.h-64 {
+  height: 64rpx;
+}
 .h-66 {
   height: 66rpx;
 }
@@ -992,6 +1115,9 @@
 .h-110 {
   height: 110rpx;
 }
+.h-116 {
+  height: 116rpx;
+}
 .h-120 {
   height: 120rpx;
 }
@@ -1031,6 +1157,9 @@
 .h-232 {
   height: 232rpx;
 }
+.h-236 {
+  height: 236rpx;
+}
 .h-240 {
   height: 240rpx;
 }
@@ -1042,9 +1171,6 @@
 }
 .h-260 {
   height: 260rpx;
-}
-.h-286 {
-  height: 286rpx;
 }
 .h-290 {
   height: 290rpx;
@@ -1096,6 +1222,12 @@
 }
 
 /* Font */
+.fz-8 {
+  font-size: 8rpx;
+}
+.fz-12 {
+  font-size: 12rpx;
+}
 .fz-16 {
   font-size: 16rpx;
 }
@@ -1254,6 +1386,48 @@
 .c-9A9A9A {
   color: #9A9A9A;
 }
+.c-BFBFBF {
+  color: #BFBFBF;
+}
+.c-AB00FF {
+  color: #AB00FF;
+}
+.c-FF00EE {
+  color:#FF00EE;
+}
+.c-A4A4A4 {
+  color:#A4A4A4;
+}
+.c-A5A5A5 {
+  color:#A5A5A5;
+}
+.c-AFAFAF {
+  color:#AFAFAF;
+}
+.c-FF0000 {
+  color:#FF0000;
+}
+.c-EE3700 {
+  color:#EE3700;
+}
+.c-434759 {
+  color:#434759;
+}
+.c-B3B3B3 {
+  color:#B3B3B3;
+}
+.c-979797 {
+  color:#979797;
+}
+.c-F61935 {
+  color:#F61935;
+}
+.c-747474 {
+  color:#747474;
+}
+.c-CDCDCD {
+  color:#CDCDCD;
+}
 /* Background */
 .bgc-f5 {
   background-color: #f5f5f5;
@@ -1351,7 +1525,23 @@
 .bgc-FF6C01 {
   background-color: #FF6C01;
 }
-.bgc-0-0-0-50p { background-color: rgba(0,0,0,.5); }
+.bgc-D681FF {
+  background-color: #D681FF;
+}
+.bgc-C246FF {
+  background-color: #C246FF;
+}
+.bgc-AB00FF {
+  background-color: #AB00FF;
+}
+.bgc-AB00FF-15p {
+  background-color: rgba(171, 0, 255, 0.15);
+}
+.bgc-F3F3F3 {
+  background-color: #F3F3F3;
+}
+.bgc-0-0-0-50p { background-color: rgba(0,0,0,0.5)}
+.bgc-171-0-255-18p { background: rgba(171, 0, 255, 0.18)}
 .bg-line-g-ED6606-EBA12F { 
   background: linear-gradient(135deg, #ED6606 0%, #EBA12F 100%);
 }
@@ -1388,12 +1578,16 @@
 .bdrs-22 {
   border-radius: 22rpx;
 }
-.bdrs-40 {
-  border-radius: 40rpx;
-}
 .bdrs-30 {
   border-radius: 30rpx;
 }
+.bdrs-32 {
+  border-radius: 32rpx;
+}
+.bdrs-40 {
+  border-radius: 40rpx;
+}
+
 .bdrs-44 {
   border-radius: 44rpx;
 }

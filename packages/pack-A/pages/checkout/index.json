@@ -2,5 +2,6 @@
   "usingComponents": {
     "tab-bar": "/component/tab-bar/index",
     "counter" : "/component/counter/index"
-  }
+  },
+  "navigationBarTitleText": "确认订单"
 }

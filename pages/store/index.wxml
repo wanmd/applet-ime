@@ -19,7 +19,7 @@
                 </block>
                 <button hover-class="none" class='pull-left m-l-30' open-type='share'><el-image style='display:block;width:36rpx;' src='ic_share@2x.png'></el-image></button>
             </view> -->
-            <view class='absolute middle r-46 overflow' wx:if='{{isSelf == true}}'>
+            <view class='absolute middle r-46 overflow' wx:if='{{isSelf == true}}' bindtap="navToIyou">
                 <image class="w-52 h-52" src="../../assets/images/index/IYOU@2x.png" />
             </view>
         </view>

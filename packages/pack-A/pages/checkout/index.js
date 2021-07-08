@@ -30,7 +30,17 @@ Page({
       address : ''
     },
     cartIds: '',
-    type: 0
+    type: 0,
+    // 方式
+    current: 1,
+    // 到店自提
+    selfParams: {
+      selfPickup: 1,
+      pickupTime: '',
+      consignee: '',
+      mobile: '',
+      pickupStatePart: 1
+    }
   },
   smart: function (val){
     return address_parse.method(val || '')
@@ -195,15 +205,16 @@ console.log(app.formatDecimal("1.20"))
         isVip__amount = isVip__amount/100;
         amount = amount/100;
         this.setData({
-            cartList: res.data.list, 
-            goodsCount: goodsCount, 
-            amount: amount, 
-            remarks: remarks, 
-            orderNo: res.data.orderNo,
-            user__isAgent: user__isAgent,
-            isAgent__amount: isAgent__amount,
-            isVip__amount: isVip__amount
-          })
+          cartList: res.data.list, 
+          goodsCount: goodsCount, 
+          amount: amount, 
+          remarks: remarks, 
+          orderNo: res.data.orderNo,
+          user__isAgent: user__isAgent,
+          isAgent__amount: isAgent__amount,
+          isVip__amount: isVip__amount,
+          storeId: res.data.list[0].store_id
+        })
         if(opt.type==1){
           this.setData({
             sorderNo: res.data.sorderNo
@@ -297,4 +308,46 @@ console.log(app.formatDecimal("1.20"))
       addressAI: address
     })
   },
+  // 切换快递物流还是到店消费
+  handleChange(e) {
+    const { index } = e.currentTarget.dataset;
+    this.setData({
+      current: index
+    })
+    if (index == 2) {
+      this.getStoreInfo()
+    }
+  },
+  getStoreInfo() {
+    const { storeId } = this.data;
+    request.get('store/' + storeId, res => {
+      console.log(res);
+      this.setData({
+        storeInfo:  res.data.list
+      })
+    }, {}).showLoading()
+  },
+  bindChangePickupType(e) {
+    this.setData({
+      'selfParams.pickupStatePart': e.currentTarget.dataset.type
+    })
+  },
+  // 自提时间
+  handlePickupTime(e) {
+    this.setData({
+      'selfParams.pickupTime': e.detail.value
+    })
+  },
+  navToAddress() {
+    wx.navigateTo({
+      url: '/pages/deliveryAddress/index?target=select',
+    })
+  },
+  daohang() {
+    const { storeInfo } = this.data;
+    wx.openLocation({
+      latitude: storeInfo.lat || 22.52291,//要去的纬度-地址
+      longitude: storeInfo.lng || 114.05454,//要去的经度-地址
+    })
+  }
 })
