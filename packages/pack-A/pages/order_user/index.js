@@ -26,11 +26,20 @@ Page({
 
   selectToggle(e) {
     let status = parseInt(e.currentTarget.dataset.status)
-    if (this.data.query.status == status) {
-      return
+    if (status == 100) {
+      this.setData({
+        'query.groupstate': 1
+      })
+    } else {
+      this.setData({
+        'query.groupstate': ''
+      })
     }
+    // if (this.data.query.status == status) {
+    //   return
+    // }
     this.setData({ orderList: [] })
-    this.setData({ 'query.status': status })
+    this.setData({ 'query.status': status == 100 ? 2 : status })
     this.selectComponent('#pagination').initLoad()
   },
 
@@ -173,7 +182,8 @@ Page({
     let opt = options;
     if(options&&options.status){
       let query = {
-        status: options.status || 5
+        status: options.status || 5,
+        groupstate: options.groupstate || ''
       }
       this.setData({ query: query })
     }
@@ -187,7 +197,7 @@ Page({
         if (res.success && res.data.list.length > 0) {
           this.load({ detail: { list: res.data.list, page: 1 } }, 1)
         }
-      }, { status: this.data.query.status, lastPk: 0, page: 1, pageSize: 20 })
+      }, { status: this.data.query.status, groupstate: this.data.query.groupstate, lastPk: 0, page: 1, pageSize: 20 })
     }
     this.getOrderCount(1);
   },

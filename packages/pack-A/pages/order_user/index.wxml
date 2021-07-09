@@ -22,7 +22,17 @@
         <view class='text'>待付款</view>
       </view>
     </view>
-    <view class='item {{query.status == 2 ? "current" : ""}}' data-status='2' bindtap='selectToggle'>
+    <!-- `groupstate`  拼团状态 1-待成团 2-已成团 ' -->
+    <view class='item {{query.groupstate == 1 ? "current" : ""}}' data-status='100' data-groupstate="1" bindtap='selectToggle'>
+      <view class='wrap'>
+        <!-- <el-image class='icon' src='user/my-order2@2x.png' mode='widthFix'></el-image> -->
+        <icon-text-flex class='item-icon' width="100rpx" icon='user/my-order6@2x.png'>
+          <view class="red-number" wx:if="{{orderCount.waitGroupNum>0}}">{{orderCount.waitGroupNum > 99 ? '99+' : orderCount.waitGroupNum}}</view>
+        </icon-text-flex>
+        <view class='text'>待成团</view>
+      </view>
+    </view>
+    <view class='item {{query.groupstate != 1 && query.status == 2 ? "current" : ""}}' data-status='2' bindtap='selectToggle'>
       <view class='wrap'>
         <!-- <el-image class='icon' src='user/my-order2@2x.png' mode='widthFix'></el-image> -->
         <icon-text-flex class='item-icon' width="100rpx" icon='user/my-order2@2x.png'>
@@ -50,9 +60,15 @@
   </view>
 </view>
 <pagination id='pagination' url='order/list' query='{{query}}' pkName='order_id' bind:load='load'>
-<view class='order-list' wx:if="{{orderList.length>0}}">
+<view class='order-list pb-20' wx:if="{{orderList.length>0}}">
   <view class='item p-l-r' wx:for='{{orderList}}' wx:key='order_id'>
-    <store store='{{item.store}}' status='{{item.status}}' is_agent='{{item.is_agent}}'></store>
+    <store 
+      store='{{item.store}}' 
+      status='{{item.status}}' 
+      is_agent='{{item.is_agent}}' 
+      self_pickup="{{item.self_pickup}}"
+      groupstate="{{query.groupstate}}">
+    </store>
     <view class='relative'>
       <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>
       <goods wx:for='{{item.goods}}' ismy="{{false}}" goods='{{item}}' wx:key='chat_id'></goods>

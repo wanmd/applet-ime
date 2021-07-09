@@ -41,8 +41,10 @@
         <!-- <view wx:if='{{userInfo.user_type == 2}}' catchtap="getqr" class='getqr-nav middle' hover-class="none">
           <icon-text-flex icon='user/saomiao@2x.png' width='40rpx' style='padding: 4rpx;'></icon-text-flex>
         </view> -->
+        <view class="iyou-icon middle" wx:if='{{userType == 2}}' bindtap="navToIyou">
+          <image src='/assets/images/index/IYOU@2x.png' style='width:52rpx;height:52rpx;display: inline-block;padding: 4rpx;'></image>
+        </view>
         <view class='getqr-nav middle' hover-class="none">
-          <!-- <el-image src='user/saomiao@2x.png' style='width:40rpx;display: inline-block;padding: 4rpx;'></el-image> -->
           <icon-text-flex icon='user/message@2x.png' width='40rpx' style='padding: 4rpx;'></icon-text-flex>
         </view>
 
@@ -108,12 +110,12 @@
               </icon-text-flex>
               <view class="item-text fz-24">待付款</view>
           </view>
-          <!-- <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=1">
+          <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?groupstate=1&status=2">
               <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order6@2x.png'>
-                <view class="red-number">6</view>
+                <view class="red-number" wx:if="{{orderCount.waitGroupNum>0}}">{{orderCount.waitGroupNum > 99 ? '99+' : orderCount.waitGroupNum}}</view>
               </icon-text-flex>
               <view class="item-text fz-24">待成团</view>
-          </view> -->
+          </view>
           <view class="order-item" bindtap="isAuth_" data-url="../../packages/pack-A/pages/order_user/index?status=2">
               <icon-text-flex class='item-icon' width="120rpx" icon='user/my-order2@2x.png'>
                 <view class="red-number" wx:if="{{orderCount.waitSendNum>0}}">{{orderCount.waitSendNum > 99 ? '99+' : orderCount.waitSendNum}}</view>

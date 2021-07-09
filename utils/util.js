@@ -395,6 +395,21 @@ const maskNumber = num => {
     }
     return str
 };
+// 跳转iyou
+const navToIyou = () => {
+    const storeInfo = wx.getStorageSync('userInfo');
+    wx.navigateToMiniProgram({
+        appId: 'wx3020976f686fe9f8',
+        path: 'pages/home/index?storeId=' + storeInfo.user_id,
+        extraData: {
+          storeInfo
+        },
+        envVersion: 'develop',
+        success(res) {
+          // 打开成功
+        }
+      })
+}
 module.exports = {
     validmobile: validmobile,
     formatTime: formatTime,
@@ -411,5 +426,6 @@ module.exports = {
     queryParams: queryParams,
     getDate: getDate,
     timestampToTime,
-    maskNumber
+    maskNumber,
+    navToIyou
 };

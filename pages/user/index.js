@@ -1,6 +1,7 @@
 import {
     Request,
-    toast
+    toast,
+    navToIyou
 } from '../../utils/util.js'
 
 let request = new Request()
@@ -305,6 +306,7 @@ Component({
                 }
             })
         },
+        navToIyou
     },
     pageLifetimes: {
         show() { //获取位置

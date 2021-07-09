@@ -1,5 +1,13 @@
 <view wx:if='{{order !== null}}' class='p-l-r' style='padding-bottom:200rpx'>
-  <store store='{{order.store}}' status="{{order.status}}" is_agent='{{order.is_agent}}'></store>
+  <store 
+    store='{{order.store}}' 
+    status="{{order.status}}" 
+    is_agent='{{order.is_agent}}' 
+    is_vip='{{userInfo.Vip}}'
+    self_pickup='{{order.self_pickup}}'
+    groupstate="{{order.is_group}}"
+  >
+  </store>
   <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
   <goods wx:for='{{order.goods}}' ismy="{{false}}" goods='{{item}}' note='{{true}}' wx:key="index"></goods>
   <view class='order-fee-detail'>
@@ -173,12 +181,24 @@
           <btn bindtap='confirmBuy'>付款</btn>
         </view>
       </block>
-      <view style='flex:1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 2 && isShowTime }}">
+      <!-- isgroup 1-团购订单 2-非团购订单 -->
+      <view style='flex:1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 2 && isShowTime && order.is_group == 2}}">
         <btn style-text='width: 100%;background:rgba(242,242,242,1);color:#999999'>
           <view class="line1">卖家/买家 还剩</view>
           <view class="line2 m-t-b">{{surplusObj.day}}天{{surplusObj.hou}}：{{surplusObj.min}}：{{surplusObj.sec}}发货 / 消费</view>
           <!-- <view class="line2 m-t-b">{{surplusObj.day}}天{{surplusObj.hou}}：{{surplusObj.min}}发货</view> -->
         </btn>
+      </view>
+
+      <view style='flex:1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 2 && isShowTime && order.is_group == 1}}">
+        <btn style-text='width: 100%;background:rgba(242,242,242,1);color:#999999'>
+          <view class="line1">拼单将于</view>
+          <view class="line2 m-t-b fz-20">{{surplusObj.day}}天{{surplusObj.hou}}：{{surplusObj.min}}：{{surplusObj.sec}}自动取消</view>
+          <!-- <view class="line2 m-t-b">{{surplusObj.day}}天{{surplusObj.hou}}：{{surplusObj.min}}发货</view> -->
+        </btn>
+      </view>
+      <view style='flex:1;' wx:if="{{order.is_group == 1}}">
+        <btn bindtap='confirmGroupOrder'>一键匹配拼单</btn>
       </view>
       
       <view style='flex:1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 3 && isShowTime }}">

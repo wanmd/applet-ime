@@ -83,12 +83,17 @@ page{
   width:200rpx;
 }
 .store-nav_r{
-  right:80rpx;
+  right:160rpx;
 }
 
 .getqr-nav{
   position:absolute;
   right: 0;
+  width: 60rpx;
+}
+.iyou-icon {
+  position:absolute;
+  right: 84rpx;
   width: 60rpx;
 }
 .mark{

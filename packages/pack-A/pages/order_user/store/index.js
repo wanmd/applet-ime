@@ -13,8 +13,20 @@ Component({
       value : {}
     },
     is_agent : {
-      type : String,
-      value : {}
+      type : Number,
+      value : 0
+    },
+    is_vip : {
+      type : Number,
+      value : 0
+    },
+    self_pickup : {
+      type : Number,
+      value : 0
+    },
+    groupstate : {
+      type : Number,
+      value : 0
     },
   },
 

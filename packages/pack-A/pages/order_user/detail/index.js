@@ -164,6 +164,27 @@ Page({
             }
         }, { id: orderId })
     },
+    // 一键匹配拼单
+    confirmGroupOrder() {
+        let orderId = this.data.orderId
+
+        request.post('order/group', res => {
+            if (res.success) {
+                toast('拼单成功')
+                wx.redirectTo({
+                        url: '../index?status=2'
+                    })
+                    // wx.navigateBack({})
+                    // app.requireLogin('packages/pack-A/pages/order_user/index?status=4')
+                    // this.onLoad({'orderId': this.data.orderId, 'index' : this.data.index});
+                    // wx.redirectTo({
+                    // url: '../index'
+                    // })
+            } else {
+                toast(res.msg)
+            }
+        }, { orderId })
+    },
 
     capy(e) {
         let content = e.currentTarget.dataset.content;
@@ -296,7 +317,7 @@ Page({
                 }
                 this.setData({
                     order: order,
-                    orderStatus: order.statu,
+                    orderStatus: order.status,
                     receiveId: receiveId,
                     order_no: order_no,
                     total_price: total_price,
@@ -334,7 +355,7 @@ Page({
             }
         }, { id: orderId }).showLoading()
 
-        this.setData({ orderId: orderId, index: options.index })
+        this.setData({ orderId: orderId, index: options.index, userInfo: wx.getStorageSync('userInfo') })
     },
 
     // 倒计时

@@ -1,4 +1,4 @@
-import { Request, toast, rpxTopx, copyText, errorToast, maskNumber } from '../../utils/util.js';
+import { Request, toast, rpxTopx, copyText, errorToast, maskNumber, navToIyou } from '../../utils/util.js';
 import { assetsImages, ALIYUN_URL } from '../../utils/config.js';
 let request = new Request();
 let app = getApp();
@@ -774,18 +774,5 @@ wx.Page({
         })
     },
     // 跳转iyou
-    navToIyou() {
-        const storeInfo = wx.getStorageSync('userInfo');
-        wx.navigateToMiniProgram({
-            appId: 'wx3020976f686fe9f8',
-            path: 'pages/home/index?storeId=' + storeInfo.user_id,
-            extraData: {
-              storeInfo
-            },
-            envVersion: 'develop',
-            success(res) {
-              // 打开成功
-            }
-          })
-    }
+    navToIyou
 })
