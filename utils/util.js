@@ -404,7 +404,7 @@ const navToIyou = () => {
         extraData: {
           storeInfo
         },
-        envVersion: 'develop',
+        envVersion: 'trial',
         success(res) {
           // 打开成功
         }
