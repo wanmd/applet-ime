@@ -427,5 +427,6 @@ module.exports = {
     getDate: getDate,
     timestampToTime,
     maskNumber,
-    navToIyou
+    navToIyou,
+    formatNumber
 };

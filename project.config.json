@@ -21,21 +21,21 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
+    "useMultiFrameRuntime": false,
     "useApiHook": true,
-    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": false,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "useApiHostProcess": false,
+    "enableEngineNative": false,
+    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
@@ -751,6 +751,20 @@
           "name": "商家报价单设置",
           "pathName": "pages/merchant/storeBackground/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "确认订单",
+          "pathName": "packages/pack-A/pages/checkout/index",
+          "query": "chatId=2375&goodsNum=1&remark=%E7%A7%81%E5%AF%86%E5%A4%87%E6%B3%A8&type=2&shareUserId=0&isGroup=2&productSpecs=%7B%22%E6%95%B0%E9%87%8F%22%3A%2210%E6%9C%B5%22%2C%22%E7%B1%BB%E5%88%AB%22%3A%22%E7%8E%AB%E7%91%B0%E8%8A%B1%22%7D&buyType=1",
+          "scene": null
+        },
+        {
+          "id": 99,
+          "name": "待发货/消费",
+          "pathName": "packages/pack-A/pages/order_user/detail/index",
+          "query": "orderId=242&index=0",
           "scene": null
         }
       ]

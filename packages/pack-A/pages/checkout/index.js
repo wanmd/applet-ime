@@ -40,7 +40,11 @@ Page({
       consignee: '',
       mobile: '',
       pickupStatePart: 1
-    }
+    },
+    // 选择日期时间
+    option: {
+      initialValue: null
+    },
   },
   smart: function (val){
     return address_parse.method(val || '')
@@ -63,9 +67,11 @@ Page({
   },
 
   confirm () {
+    const { current } = this.data; // 1.快递物流  2.到店
     let address = this.data.address
     console.log(address)
-    if(address == null){
+
+    if(current == 1 && address == null){
       toast('请选择收货地址')
       return
     }
@@ -94,7 +100,31 @@ Page({
     if(this.data.type == 2){
       data['shareUserId'] = this.data.shareUserId;
     }
+
+    data['selfPickup'] = 0;
+    // 到店
+    if(current == 2) {
+      if (address == null) {
+        toast('请选择收货地址')
+        return
+      } else {
+        data['consignee'] = address.consignee;
+        data['mobile'] = address.mobile;
+      }
+      const { pickupTime, pickupStatePart } = this.data.selfParams;
+      if (!pickupTime) {
+        toast('请选择自提时间')
+        return
+      } 
+      data['selfPickup'] = 1;
+      data['pickupTime'] = pickupTime;
+      data['pickupStatePart'] = pickupStatePart;
+      
+    }
+    // 0 发起新团  >0 加入某个团
+    data['groupId'] = this.data.groupId || 0
     console.log(data)
+    const that = this;
     // request.post('cart/settlement', res => {
     request.post('order/buy', res => {
         if(res.success){
@@ -153,7 +183,7 @@ Page({
       }
       this.setData({type : opt.type, cartIds : cartIds})
     }else if(opt.type==2){//直接下单
-      console.log(JSON.parse(opt.productSpecs));
+      // console.log(JSON.parse(opt.productSpecs));
       
       data = {
         chatId: opt.chatId,
@@ -320,7 +350,7 @@ console.log(app.formatDecimal("1.20"))
   },
   getStoreInfo() {
     const { storeId } = this.data;
-    request.get('store/' + storeId, res => {
+    request.get('iy/store/' + storeId, res => {
       console.log(res);
       this.setData({
         storeInfo:  res.data.list

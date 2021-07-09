@@ -8,7 +8,58 @@
     groupstate="{{order.is_group}}"
   >
   </store>
+  <!-- 自取 -->
+  <view class="self bgc-fff p-20 mb-16" wx:if="{{order.self_pickup}}">
+    <view class="self-A d-f">
+      <view class="self-A-left d-f fx-1 fxd-c pos-r mr-48 pl-54">
+        <image src="/assets/images/iyou_user/shopname@2x.png" class="w-44 h-44 pos-a t-0 l-0" />
+        <view><text class="fz-32 c-434759 mr-40">{{storeInfo.name}}</text><text class="ml-20">{{storeInfo.mobile}}</text></view>
+        <view class="fz-20 c-3A3A3A">{{storeInfo.m_prov}}-{{storeInfo.m_city}}-{{storeInfo.m_dist}}-{{storeInfo.m_street}}</view>
+      </view>
+      <view class="self-A-right d-f fxd-c jc-c ai-c pos-r w-120" bindtap="daohang">
+        <image src="/assets/images/iyou_user/daohang@2x.png" class="w-32 h-32 mb-16" />
+        <view class="fz-20 c-3A3A3A">导航到商家</view>
+      </view>
+    </view>
+    <view class="self-B d-f fxd-c mt-44 pl-54 pos-r">
+      <image src="/assets/images/iyou_user/walk@2x.png" class="w-44 h-44 pos-a t-24 l-0" />
+      <view class="d-f jc-sb ai-c">
+        <view class="d-f ai-c">
+          <text class="c-B3B3B3 fz-20 w-120">联系人：</text>
+          <input class="w-120" value="{{order.consignee}}"disabled="{{true}}" data-key="consignee" />
+          <input class="w-200 ml-50" value="{{order.mobile}}"disabled="{{true}}" data-key="mobile" />
+        </view>
+        <view class='pull-right c-AB00FF f-28' data-content="{{order.mobile}}" catch:tap="copyTxt">复制</view>
+      </view>
+      <view class="d-f jc-sb">
+        <view class="c-B3B3B3 fz-20 w-150">消费方式：</view>
+        <view class="d-f jc-sb">
+          <!-- 是否自提：1-是 0-否 -->
+          {{ order.pickup_state_part == 1 ? '店内消费' : '到店自提'}}
+        </view>
+      </view>
+      <view class="d-f jc-sb mb-40">
+        <view class="c-B3B3B3 fz-20 w-150">自取时间：</view>
+        <view>{{order.pickup_time}}</view>
+      </view>
+      
+    </view>
+  </view>
   <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
+  <!-- 拼团 -->
+ <view wx:if="{{order.is_group}}" class="d-f jc-sb ai-c p-20">
+    <view>
+      <text class="c-333 fz-26 lh-34 mr-22">拼单组合</text>
+      <timer time="{{order.diff_time}}" font="fz-22" color="c-979797" /><text class="c-979797 fz-22">后结束</text>
+    </view>
+    <view class="d-f ai-c"> 
+      <button hover-class="none" class="inviteBtn" open-type='share'>邀请好友拼单</button>
+      <view class="ml-38">
+        <image src="{{order.buyer.avatar}}" class="w-48 h-48 bdrs-50p" />
+        <image src="/assets/images/order/nobody@2x.png" class="w-48 h-48" />
+      </view>
+    </view>
+  </view>
   <goods wx:for='{{order.goods}}' ismy="{{false}}" goods='{{item}}' note='{{true}}' wx:key="index"></goods>
   <view class='order-fee-detail'>
     <view class='item'>
