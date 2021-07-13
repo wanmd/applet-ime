@@ -28,6 +28,7 @@ wx.Page({
         quoteListKeyword: '',
         query: {
             keyword: '',
+            // no: '',
         },
         query2: {
             keyword: '',
@@ -102,6 +103,7 @@ wx.Page({
         this.setData({
             'query.keyword': ''
         })
+        this.search()
     },
     load(e, last = 0) {
         let rows = e.detail.list

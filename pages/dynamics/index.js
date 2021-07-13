@@ -185,6 +185,12 @@ Component({
             // let pagination2 = this.selectComponent('#pagination2')
             // pagination2.initLoad()
         },
+        handleDelete() {
+            this.setData({
+                quoteListKeyword: ''
+            })
+            this.search2()
+        },
         search3() {
             let query3 = this.data.query3;
             query3.keyword = this.data.askBuyListKeyword;

@@ -383,6 +383,9 @@ App({
         isLogin: false,
         dynamics: {
             type: 1
+        },
+        skuData: {
+            
         }
     },
 

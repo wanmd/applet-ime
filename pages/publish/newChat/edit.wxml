@@ -34,7 +34,7 @@
               <view class="w-300">产品条码（选填）</view>
               <view class="d-f ai-c">
                 <input slot='content' type='text' placeholder='扫码或手动录入' placeholder-class='color-ccc' value='{{no}}' data-target='no' bindinput='input' class='input'></input>
-                <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao.png"/> 
+                <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao@3x.png"/> 
               </view>
             </view>
             <cell title='产品品类' border='{{false}}' arrow='{{true}}'>
@@ -96,7 +96,7 @@
                 </radio-group>
               </view>
             </cell>
-            <cell title='服务设置' border='{{false}}' arrow='{{false}}'>
+            <cell title='商家服务' border='{{false}}' arrow='{{false}}'>
               <radio-group bindchange="radioChange" name="type" slot='content'>
                 <label class="radio mr-20" wx:for="{{option1}}" wx:key="{{item.label}}">
                   <radio color="#FFE200" value="{{item.value}}" wx:key="{{item.value}}" checked="{{ fee.type === item.value}}">{{item.label}}</radio>
@@ -110,7 +110,7 @@
               <view class="w-300">产品条码（选填）</view>
               <view class="d-f ai-c">
                 <input slot='content' type='text' placeholder='扫码或手动录入' placeholder-class='color-ccc' value='{{no}}' data-target='no' bindinput='input' class='input'></input>
-                <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao.png"/> 
+                <image bindtap="handleScan" class="w-42 h-42 ml-34" src="../../../assets/images/index/saoyisao@3x.png"/> 
               </view>
             </view>
             <cell title='产品品类' border='{{false}}' arrow='{{true}}'>
@@ -169,7 +169,7 @@
                 </radio-group>
               </view>
             </cell>
-            <cell title='服务设置' border='{{false}}' arrow='{{false}}'>
+            <cell title='商家服务' border='{{false}}' arrow='{{false}}'>
               <radio-group bindchange="radioChange" name="type" slot='content'>
                 <label class="radio mr-20" wx:for="{{option1}}" wx:key="{{item.label}}">
                   <radio color="#FFE200" value="{{item.label}}" wx:key="{{item.label}}" checked="{{ fee.type === item.value}}">{{item.label}}</radio>

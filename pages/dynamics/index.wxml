@@ -77,8 +77,23 @@
 	  	<block wx:if='{{loadFlag2 }}'>
 			<view class="relative1_box" class="{{currentType == 2 ? 'show' : 'hide'}}">
 				<view class="search_wrap">
-			      	<view class="input">
-			        	<input bindinput="bindinput_"  placeholder="请输入您要搜索的产品或商家" placeholder-style="color: #d8d8d8;" value="{{quoteListKeyword}}" data-target='quoteListKeyword' bindconfirm="search2" confirm-type="search"/>
+			      	<view class="input pos-r">
+								<input 
+									bindinput="bindinput_"  
+									placeholder="请输入您要搜索的产品或商家" 
+									placeholder-style="color: #d8d8d8;" 
+									value="{{quoteListKeyword}}" 
+									data-target='quoteListKeyword' 
+									bindconfirm="search2" 
+									confirm-type="search"
+								/>
+								<!-- 删除icon -->
+								<image 
+									bindtap="handleDelete" 
+									wx:if="{{quoteListKeyword}}" 
+									class="pos-a t-16 r-10 w-26 h-26 z-9" 
+									src="/assets/images/index/input_delete@3x.png"
+								/>
 			      	</view>
 			      	<view class="search_btn" bindtap='search2'>搜索</view>
 			    </view>

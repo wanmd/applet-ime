@@ -13,7 +13,7 @@
             会员用户 一件代发(会员价) + 代理拿货(代理价) 
             代理用户 一件代发(代理价) + 代理拿货(代理价) -->
         <view>
-          <text class="fz-48 c-262626 mr-24">￥{{chat.isAgent ? chat.agent_price : chat.member_price}}</text>
+          <text class="fz-48 c-262626 mr-24 Bebas">￥{{chat.isAgent ? chat.agent_price : chat.member_price}}</text>
           <text class="c-828282 fz-28 td-l">￥{{chat.sale_price}}</text>
         </view>
         <!-- 分享按钮 -->

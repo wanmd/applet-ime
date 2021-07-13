@@ -318,11 +318,6 @@ wx.Page({
                 return
             }
 
-            if (!this.data.categoryIds.length) {
-                toast('请选择店铺分类~')
-                return
-            }
-
             data.no = this.data.no
             data.add = this.data.add
             // 视频地址
@@ -336,7 +331,7 @@ wx.Page({
             }
             data.productCategoryId = this.data.productCategoryId.id;
             // 店铺分类数组categoryIds
-            if (!this.data.categoryIds.length) {
+            if (!this.data.categoryIds || !this.data.categoryIds.length) {
                 toast('请选择店铺分类~')
                 return
             }
@@ -356,6 +351,7 @@ wx.Page({
             data.attribute = [];
             //  商品规格
             let { goods_skuList, excel_skuList } = app.globalData.skuData;
+            
             if (!excel_skuList || !excel_skuList.length) {
                 toast('请添加商品规格~')
                 return

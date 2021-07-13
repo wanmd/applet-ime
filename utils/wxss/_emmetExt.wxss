@@ -5,6 +5,9 @@
 .t-16rpx {
     top: 16rpx;
 }
+.t-16 {
+    top: 16rpx;
+}
 .t-24 {
     top: 24rpx;
 }

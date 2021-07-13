@@ -175,6 +175,7 @@ Component({
         count: number,
         success: function(res) {
           // if (showLoading) wx._showLoading('图片上传中...');
+          
           if (uploadInfo) {
             uploadInfo(res.tempFiles);
           }
@@ -185,6 +186,11 @@ Component({
     _upload(files, i, opt, resolve, reject, progressFn) {
       let _this = this
       if(files[i]) {
+        if (files[i].indexOf('gif') > 0) {
+          errorToast('不支持上传gif文件,请重新选择后上传')
+          return
+        }
+        
         _this.setData({ uploadIng : true})
         let uploadTask = wx.uploadFile({
           url: config.baseUrls + '/upload/uploadpic',
