@@ -123,7 +123,9 @@
                         </view>
                         <view class="search_btn" bindtap='search'>搜索</view>
                     </view>
-                    <view bindtap="handleChangeShowType"><image class="w-46 h-48" src="../../assets/images/index/changeView@2x.png" /></view>
+                    <view bindtap="handleChangeShowType">
+                        <image class="w-46 h-48" src="/assets/images/index/{{showType == 0 ? 'text_View' : 'pic_View'}}@2x.png" />
+                    </view>
                 </view>
                 <view class="offer-header" wx:if="{{showType == 0}}">
                     <view class="th th1">日期</view>
