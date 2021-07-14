@@ -97,9 +97,7 @@ Page({
     req.post('user/update', res => { }, { background : file})
     // 更新本地存储
     this.update('background', file)
-    wx.navigateTo({
-      url: '/pages/userInfo/index',
-    })
+    wx.navigateBack()
   },
 
   /**

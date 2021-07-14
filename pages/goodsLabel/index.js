@@ -1,5 +1,6 @@
 import { Request, toast } from '../../utils/util.js'
 let request = new Request()
+let app = getApp()
 
 Page({
 
@@ -39,6 +40,12 @@ Page({
 
   initData() {
     request.setMany(true);
+    const { goodsLabel } = app.globalData;
+    if (goodsLabel.length) {
+      this.setData({
+        productLabels: goodsLabel
+      })
+    }
     this.getLabelsByProduct()
     this.getLabelsUsed()
     this.getLabelsHistory()
@@ -84,15 +91,23 @@ Page({
   },
 
   confirm() {
-    const { productLabels } = this.data;
+    const { productLabels, label } = this.data;
+    
+    if (productLabels.length && productLabels.some(item => item.name.indexOf(label) > -1)) {
+      toast("使用了相同标签,请重新输入");
+      return
+    }
     if (productLabels.length < 3) {
       this.setData({
         productLabels: [...this.data.productLabels, ...[{
           id: null,
-          name: this.data.label
+          name: label
         }]],
         label: ''
       })
+    } else {
+      toast("超过数量限制");
+      return
     }
   },
 
@@ -123,6 +138,8 @@ Page({
     this.data.productLabels.forEach(item => {
       label = label + item.name + ','
     })
+
+    app.globalData.goodsLabel = this.data.productLabels;
     
     page.setLabels(label.substr(0, label.length -1))
     wx.navigateBack()

@@ -1,5 +1,8 @@
 /* pages/goodsCategoryManageNew/edit.wxss */
-.item {
+page {
+  background: #fff !important;
+}
+.level1_item {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,22 +11,38 @@
   height: 82rpx;
   line-height: 38rpx;
   color: #333333;
-  border: 1rpx solid #333333;
+  border: 1rpx solid #F7F7F7;
+  background: #E7E7E7;
+  margin-bottom: 22rpx;
+}
+.level2_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 28rpx;
+  height: 82rpx;
+  line-height: 38rpx;
+  color: #8A8A8A;
+  border: 1rpx solid #F7F7F7;
+  background:  #F8F8F8;
   margin-bottom: 22rpx;
 }
 .focus {
   border: 1rpx solid #FFE200;
+  background: rgba(255, 226, 0, 0.18);
 }
 .add {
-  color: #FFE200;
-  border: 1rpx solid #FFE200;
+  color: #FF0000;
+  border: 1rpx solid #FF0000;
+  background: rgba(255, 0, 0, 0.08);
 }
 .delete{
   position: absolute;
-  right: -22rpx;
-  top: -22rpx;
-  width: 45rpx;
-  height: 45rpx;
+  right: 10rpx;
+  top: 26rpx;
+  width: 30rpx;
+  height: 30rpx;
   z-index: 9;
 }
 

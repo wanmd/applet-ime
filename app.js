@@ -63,6 +63,7 @@ App({
                 this.systemInfo = res;
             }
         });
+        wx.hideTabBar()
     },
     autoUpdate: function() {
         var self = this
@@ -384,9 +385,10 @@ App({
         dynamics: {
             type: 1
         },
-        skuData: {
-            
-        }
+        // 商品规格
+        skuData: {},
+        // 商品标签
+        goodsLabel: []
     },
 
     newPublish: false

@@ -1540,6 +1540,9 @@
 .bgc-F3F3F3 {
   background-color: #F3F3F3;
 }
+.bgc-E7E7E7 {
+  background-color: #E7E7E7;
+}
 .bgc-0-0-0-50p { background-color: rgba(0,0,0,0.5)}
 .bgc-171-0-255-18p { background: rgba(171, 0, 255, 0.18)}
 .bg-line-g-ED6606-EBA12F { 

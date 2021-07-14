@@ -148,6 +148,7 @@
           wx:key="{{item.text}}" 
           bindtap="isAuth_"
           data-url="{{item.url}}"
+          data-type="{{item.type}}"
         >
           <view class="d-f jc-c mb-28"><image style="width: 35px;height:35px" src="{{item.image}}" /></view>
           <view class="d-f jc-c c-000 fz-20">{{item.text}}</view>
@@ -251,4 +252,16 @@
       确定
     </button>
   </view>
+</view>
+
+<view class='mask' wx:if='{{showQr}}' bindtap='toggleCardHide'>
+    <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' bindtap='toggleCardHide'></view>
+    <view class='card-modal'>
+        <view wx:if='{{qrcode != ""}}' style='position:relative;background:#fff;'>
+            <canvas id='canvas-modal1' canvas-id="firstCanvas1" style='width:676rpx;height:1000rpx;'></canvas>
+        </view>
+        <button hover-class="none" style='background:#fff;padding:30rpx 0rpx;margin:40rpx auto 0rpx auto;width:500rpx;' bindtap='saveCard1'>
+            保存至相册，打印张贴转发扩粉哦
+        </button>
+    </view>
 </view>

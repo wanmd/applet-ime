@@ -28,7 +28,7 @@ wx.Page({
         quoteListKeyword: '',
         query: {
             keyword: '',
-            // no: '',
+            no: '',
         },
         query2: {
             keyword: '',
@@ -101,7 +101,8 @@ wx.Page({
     },
     handleDelete() {
         this.setData({
-            'query.keyword': ''
+            'query.keyword': '',
+            'query.no': ''
         })
         this.search()
     },
@@ -871,14 +872,11 @@ wx.Page({
         wx.scanCode({
             success (res) {
                 _this.setData({
-                    'query.keyword': res.result
+                    'query.no': res.result
                 })
                 let query = _this.data.query;
                 _this.setData({ quoteList: [] })
                 _this.paginationInit();
-                _this.setData({
-                    'query.keyword': ''
-                })
             }
         })
     },

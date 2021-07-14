@@ -81,6 +81,7 @@ Page({
 
   update (key, value) {
     let update = {}
+    let app = getApp()
     let userInfo = Object.assign({}, this.data.userInfo)
     userInfo[key] = value
     update['userInfo.' + key] = value
@@ -113,9 +114,7 @@ Page({
     // 更新本地存储
     this.update('store_quote_state', store_quote_state)
     this.update('store_background', store_background)
-    wx.navigateTo({
-      url: '/pages/userInfo/index',
-    })
+    wx.navigateBack()
   },
 
   /**
