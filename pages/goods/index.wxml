@@ -39,11 +39,11 @@
       </view>
       <cell height="90rpx" arrow="{{false}}">
         <view slot='title'>发货</view>
-        <view slot='content'>{{chat.buyNotice.send_info}}</view>
+        <view slot='content'>{{chat.is_express ? '包邮' : '不包邮'}}</view>
       </cell>
       <cell height="90rpx" arrow="{{false}}">
         <view slot='title'>服务</view>
-        <view slot='content'>{{chat.buyNotice.buy_info}}</view>
+        <view slot='content'>{{chat.service_setting}}</view>
       </cell>
     </view>
    

@@ -167,6 +167,10 @@
           <view class="d-f jc-c mb-28"><image style="width: 35px;height:35px" src="{{item.image}}" /></view>
           <view class="d-f jc-c c-333 fz-24">{{item.text}}</view>
         </view>
+        <button hover-class="none" open-type="contact" class='d-f fxd-c jc-c w-20p mb-28'>
+          <view class="d-f jc-c mb-28"><image style="width: 35px;height:35px" src="/assets/images/user/contact@2x.png" /></view>
+          <view class="d-f jc-c c-333 fz-24">联系客服</view>
+        </button>
       </view>
     </view>
     <view class="p-l-r" wx:if="{{false}}">

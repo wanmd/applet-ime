@@ -91,7 +91,7 @@ Component({
             {
                 image: '../../assets/images/user/homepage@2x.png',
                 text: '个人主页',
-                url: '/pages/merchant/index',
+                url: '/pages/store/index?storeId=' + wx.getStorageSync('userinfo').user_id,
             },
             {
                 image: '../../assets/images/user/shoucang@2x.png',
@@ -123,11 +123,11 @@ Component({
                 text: '建议留言',
                 url: '',
             },
-            {
-                image: '../../assets/images/user/rebate@2x.png',
-                text: '返利小金库',
-                url: '',
-            },
+            // {
+            //     image: '../../assets/images/user/rebate@2x.png',
+            //     text: '返利小金库',
+            //     url: '',
+            // },
             {
                 image: '../../assets/images/user/lesson@2x.png',
                 text: 'iME课堂',
@@ -136,23 +136,23 @@ Component({
             {
                 image: '../../assets/images/user/record@2x.png',
                 text: '拿货记录',
-                url: '../../packages/pack-A/pages/myAskBuy/index',
+                url: '../../packages/pack-A/pages/offer/index',
             },
-            {
-                image: '../../assets/images/user/setting@2x.png',
-                text: '设置',
-                url: '',
-            },
-            {
-                image: '../../assets/images/user/contact@2x.png',
-                text: '联系我们',
-                url: '',
-            },
-            {
-                image: '../../assets/images/user/jifen@2x.png',
-                text: '积分',
-                url: '',
-            }
+            // {
+            //     image: '../../assets/images/user/setting@2x.png',
+            //     text: '设置',
+            //     url: '',
+            // },
+            // {
+            //     image: '../../assets/images/user/contact@2x.png',
+            //     text: '联系我们',
+            //     url: '',
+            // },
+            // {
+            //     image: '../../assets/images/user/jifen@2x.png',
+            //     text: '积分',
+            //     url: '',
+            // }
         ],
         showQr: false
     },
@@ -164,6 +164,7 @@ Component({
         onShow() {
             request.setMany(true);
             let userInfo = wx.getStorageSync('userinfo') || app.globalData.userInfo;
+            
             if (userInfo) {
                 this.setData({
                     userInfo: userInfo,

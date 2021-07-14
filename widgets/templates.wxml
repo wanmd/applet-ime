@@ -15,14 +15,14 @@ Template Params:
     <view class="text-align mar_t-16" catch:tap="hideMark">取消</view>
   </view> -->
   <view class="flex--c fixed__ z100 {{showlink==0?'slidown_none':''}} {{showlink==1 ?'sliup_1': ''}} {{showlink==2 ?'slidown_1': ''}}" catch:tap="hideMark">
-    <view class="link-box" style="bottom: 560rpx;" data-content="{{userInfo.wechat}}" catch:tap="copy">
+    <view class="link-box" style="bottom: 560rpx;height: 524rpx" data-content="{{userInfo.wechat}}" catch:tap="copy">
       <view class="link-wrap">
         <view class="buyer_user">
-          <view class="buyer_img">
-            <image class="" src="{{userInfo.avatar}}"></image>
+          <view class="wx_img ta-c mb-40">
+            <image style="width:290rpx;height:290rpx" src="https://static-2019.oss-cn-shenzhen.aliyuncs.com/{{userInfo.wx_qr_code}}" />
             <el-image wx:if="{{userInfo.isVip==1}}" class="vip" src='vip/vip.png' style='width:42rpx;display: inline-block;'></el-image>
           </view>
-          <view class="buyer_name">{{userInfo.nickname}}</view>
+          <!-- <view class="buyer_name">{{userInfo.nickname}}</view> -->
         </view>
 
         <view class="link-tit">

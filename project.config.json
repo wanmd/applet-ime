@@ -66,6 +66,7 @@
       "list": []
     },
     "miniprogram": {
+      "current": -1,
       "list": [
         {
           "id": 1,
@@ -729,7 +730,7 @@
           "id": 94,
           "name": "商品详情(新)",
           "pathName": "pages/goods/index",
-          "query": "chatId=2375",
+          "query": "chatId=2395",
           "scene": null
         },
         {

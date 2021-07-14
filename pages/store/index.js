@@ -623,6 +623,8 @@ wx.Page({
         }, { userId: userId })
     },
     contact() {
+        console.log(this.data.user);
+        
         let isAuth = app.isAuthWxInfo()
         if (!isAuth) {
             toast('需要授权获取您的用户信息')
@@ -696,6 +698,12 @@ wx.Page({
         this.setData({ query: query })
         let pagination = this.selectComponent('#pagination');
         pagination.initLoad()
+    },
+    handleDelete() {
+        this.setData({
+            goodsName: '',
+        })
+        this.search()
     },
     isToLogin() {
         let userInfo = wx._getStorageSync('userinfo')
@@ -774,5 +782,21 @@ wx.Page({
         })
     },
     // 跳转iyou
-    navToIyou
+    navToIyou,
+    play(e) {
+        const { id } = e.currentTarget.dataset;
+        //执行全屏方法  
+        this.videoContext = wx.createVideoContext(id, this);
+        this.videoContext.requestFullScreen({ direction: 90 });
+       this.setData({
+           fullScreen:true
+       })
+    },
+    fullScreen(e) {
+        var isFull = e.detail.fullScreen;
+        //视屏全屏时显示加载video，非全屏时，不显示加载video
+        this.setData({
+            fullScreen:isFull
+        })
+    }
 })

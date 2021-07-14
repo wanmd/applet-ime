@@ -932,6 +932,9 @@
 .w-252 {
   width: 252rpx;
 }
+.w-290 {
+  width: 290rpx;
+}
 .w-300 {
   width: 300rpx;
 }
