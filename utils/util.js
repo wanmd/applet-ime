@@ -85,6 +85,12 @@ class Request {
             if (response.statusCode != 200) {
                 networkError();
             } else {
+                if (response.data.code == 401) {
+                    wx.navigateTo({
+                      url: '/pages/auth/index',
+                    })
+                    return
+                }
                 callback(response.data);
             }
         };
