@@ -50,13 +50,19 @@ Page({
 
   bindinput_(e) {
     this.setData({
-      quoteListKeyword: e.detail.value
+      'query.keyword': e.detail.value
     })
   },
 
   search2() {
-    this.initData()
+    let query = this.data.query;
+    this.setData({ query: query, productList: [] })
+    this.paginationInit();
   },
+
+  paginationInit() {
+    this.selectComponent('#pagination1').initLoad();
+},
 
   toggleType(e) {
     const { current, type } = e.currentTarget.dataset;
@@ -121,6 +127,12 @@ Page({
         })
         this.setData({ normalList: normalList })
     }
+  },
+
+  nav(e) {
+    wx.navigateTo({
+      url: '/pages/goods/index?chatId=' + e.currentTarget.dataset.id,
+    })
   },
 
   /**

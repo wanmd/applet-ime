@@ -2,7 +2,15 @@
 <view class="page_bar relative1_box">
   <view class="search_wrap">
     <view class="input">
-      <input bindinput="bindinput_"  placeholder="请输入您要搜索的用户ID或手机" placeholder-style="color: #d8d8d8;" value="{{quoteListKeyword}}" data-target='quoteListKeyword' bindconfirm="search2" confirm-type="search"/>
+      <input 
+        bindinput="bindinput_"  
+        placeholder="请输入您要搜索的用户ID或手机" 
+        placeholder-style="color: #d8d8d8;" 
+        value="{{query.keyword}}" 
+        data-target='{{query.keyword}}' 
+        bindconfirm="search2" 
+        confirm-type="search"
+      />
     </view>
     <view class="search_btn" bindtap='search2'>搜索</view>
   </view>
@@ -15,7 +23,7 @@
     <block wx:if='{{currentType == 0}}'>
 			<pagination id='pagination1' url='collects' pkName='chat_id' bind:load='load' query='{{query}}'>
 				<view class='list' wx:if='{{productList.length>0}}'>
-					<view class='item mb-16' wx:for='{{productList}}' wx:key='index'>
+					<view class='item mb-16' wx:for='{{productList}}' wx:key='index' data-id="{{item.chat_id}}" bindtap="nav">
             <view class="d-f">
               <view class="avatar w-180 h-180 mr-24">
                 <image src="{{baseUrl + '/' + item.cover || ''}}" class="w-180 h-180" />

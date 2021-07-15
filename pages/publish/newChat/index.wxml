@@ -17,9 +17,9 @@
         <view class=" mb-32 pb-10 borderb-1-solid-EFEFE">
           <view class="c-707070 mb-10">添加产品图片,最多18张</view>
           <view class='images clear m-t-30'>
-            <upload class='item' wx:for='{{images}}' wx:key='id' data-index='{{index}}' initFile='{{item.file}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
+            <upload width="120rpx" height="120rpx" class='item' wx:for='{{images}}' wx:key='id' data-index='{{index}}' initFile='{{item.file}}' bind:success='uploadPic_' bind:clear='clearPic'></upload>
             <!-- <upload wx:if='{{images.length < 9}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{9-images.length}}'></upload> -->
-            <upload wx:if='{{images.length < 18}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{18-images.length}}'></upload>
+            <upload width="120rpx" height="120rpx" wx:if='{{images.length < 18}}' class='item' bind:success='uploadPic' bind:clear='clearPic' only count='{{18-images.length}}'></upload>
           </view>
         </view>
         <view class=" mb-32 pb-10 borderb-1-solid-EFEFE">

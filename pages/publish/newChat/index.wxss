@@ -4,7 +4,7 @@
 }
 
 .images .item:nth-of-type(3n + 1) {
-    margin-left: 0rpx;
+    /* margin-left: 0rpx; */
 }
 
 .input {

@@ -13,8 +13,8 @@
             <view class='user-info'>
               <view class='bold f-32'>
                 <text class="user_name">{{item.user.nickname}}</text>
-                <el-image  class="w-40 h-40" src='index/daili.png'></el-image>
-                <el-image  class="w-40 h-40" src='index/shangjia.png'></el-image>
+                <el-image wx:if="{{item.isAgent}}"  class="w-40 h-40" src='index/daili.png'></el-image>
+                <el-image wx:if="{{item.isMerchant}}"  class="w-40 h-40" src='index/shangjia.png'></el-image>
                 <text class="user_type" wx:if="{{item.user.user_type==2}}">商家认证</text>
                 <!-- <el-image wx:if="{{item.isVip}}" class="user_vip" src='vip/vip_label@2x.png'></el-image> -->
                 <el-image wx:if="{{item.isVip}}" class="user_vip" src='index/vip@2x.png'></el-image>
