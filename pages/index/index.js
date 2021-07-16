@@ -90,7 +90,6 @@ wx.Page({
         // goods_id: 40
     },
     urlTo(e) {
-        console.log(e.currentTarget.dataset)
         let url = e.currentTarget.dataset.url
         wx.navigateTo({ url: `/pages/webview/webview?url=${url}` });
     },
@@ -114,7 +113,8 @@ wx.Page({
             return
         }
         if (rows.length > 0) {
-            let chatList = this.data.chatList
+            let chatList = this.data.chatList;
+
             rows.forEach(v => {
                 switch (v.chat_type) {
                     case 1:
@@ -133,15 +133,20 @@ wx.Page({
                 }
                 v.create_time = formatDate(v.create_time)
                 v.picture = JSON.parse(v.picture);
-                // 截取9张
-                // v.picture = v.picture.slice(0,9)
+                // 如果有视频，则发布的1——18张图展示前1—6张
+                if (v.video_url) {
+                    v.picture = v.picture.slice(0,6)
+                }
+                
                 if (last == 0) {
                     chatList.push(v)
                 } else {
                     chatList.unshift(v)
                 }
             })
-            this.setData({ chatList: chatList })
+            this.setData({ 
+                chatList: chatList
+            })
         }
         this.setData({ ajaxFlag: true })
     },
@@ -916,6 +921,17 @@ wx.Page({
         this.setData({
             showShopCarPop: true,
             goods_id 
+        })
+    },
+    // 小图图片预览
+    previewImage(e) {
+        let index = parseInt(e.currentTarget.dataset.index)
+        let picture = e.currentTarget.dataset.picture
+        let current = picture[index]
+
+        wx.previewImage({
+            current: this.data.baseUrl + '/' + current,
+            urls: picture.map(item => this.data.baseUrl + '/' + item)
         })
     }
 

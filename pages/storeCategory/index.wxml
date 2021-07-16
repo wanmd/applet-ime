@@ -1,10 +1,10 @@
 <!--pages/goodsCategoryManageNew/index.wxml-->
 <view class="p-44 mb-300 bgc-fff">
-  <view class="mb-44 borderb-1-solid-EAEAEA pb-40" wx:for="{{treeData}}" wx:key="id" wx:for-index="parentIndex">
+  <view class="pb-20 mb-44 borderb-1-solid-EAEAEA pb-40" wx:for="{{treeData}}" wx:key="id" wx:for-index="parentIndex">
     <!-- 一级分类 -->
-    <view class="d-f ai-c jc-c w-330 h-82 {{item.active ? 'bgc-E7E7E7' : 'bgc-E7E7E7' }} c-333 fz-28 mb-28">{{item.name}}</view>
+    <view class="d-f ai-c jc-c w-330 h-82 bdr8 {{item.active ? 'bgc-F7F7FA' : 'bgc-F7F7FA' }} c-333 fz-28 mb-28">{{item.name}}</view>
     <!-- 二级分类 -->
-    <view wx:if="{{item.son.length}}"  class="d-f fxw-w ">
+    <view wx:if="{{item.son.length}}"  class="d-f fxw-w">
       <view wx:for="{{item.son}}" wx:key="id" wx:for-item="sonItem">
         <view bindtap="handleCheck" data-id="{{sonItem.id}}" data-parent-index="{{parentIndex}}" data-index="{{index}}" class="level2 {{sonItem.active ? 'level2_active' : 'bgc-F8F8F8'}}">{{sonItem.name}}</view>
       </view>

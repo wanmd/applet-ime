@@ -68,7 +68,8 @@
     "pages/goodsLabel/index",
     "pages/productCategory/index",
     "pages/goodsSku/index",
-    "pages/merchant/storeBackground/index"
+    "pages/merchant/storeBackground/index",
+    "pages/merchant/service/index"
   ],
   "subPackages": [
     {

@@ -41,7 +41,7 @@
         <view slot='title'>发货</view>
         <view slot='content'>{{chat.is_express ? '包邮' : '不包邮'}}</view>
       </cell>
-      <cell height="90rpx" arrow="{{false}}">
+      <cell height="90rpx" arrow="{{true}}" bindtap="showMoreService">
         <view slot='title'>服务</view>
         <view slot='content'>{{chat.service_setting}}</view>
       </cell>
@@ -378,3 +378,14 @@
   needSelectType="{{needSelectType}}"
   type="{{type}}" 
 />
+<!-- 商家服务弹框 -->
+<view wx:if='{{showService}}' bindtap='toggleServiceHide'>
+  <view style='position:fixed;z-index:5;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' >
+    <view class="service-modal">
+      <view class="service-header">商家服务</view>
+      <view class="service-content">
+        <view class="service-item" wx:for="{{service_setting}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

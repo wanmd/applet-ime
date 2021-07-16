@@ -55,7 +55,6 @@
           "scene": null
         },
         {
-          "id": 7,
           "name": "店铺设置",
           "pathName": "pages/merchant/index",
           "query": "",
@@ -694,7 +693,7 @@
         {
           "name": "商品详情(新)",
           "pathName": "pages/goods/index",
-          "query": "chatId=2375",
+          "query": "chatId=2395",
           "scene": null
         },
         {
@@ -724,6 +723,12 @@
         {
           "name": "店铺分类",
           "pathName": "pages/storeCategory/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "服务设置",
+          "pathName": "pages/merchant/service/index",
           "query": "",
           "scene": null
         }

@@ -38,7 +38,8 @@ wx.Page({
     goods_id: null,
     user: '',
     needSelectType: true, //需不需要再进行操作按钮选择
-    type: ''
+    type: '',
+    showService: false
   },
   onLoad: function (opts) {
     console.log("goods=======opts");
@@ -137,8 +138,28 @@ wx.Page({
         let storeCommonParam =  data.buyNotice || null;
         data.price = (data.isAgent && data.chat_type != 5) ? data.agent_price: data.sale_price;
         data.agent_price = (!data.isAgent && !this.data.userType.isVip) ? maskNumber(data.agent_price) : data.agent_price;
+        //商家服务
+        // data.service_setting = '哈哈哈,jsjjs,看看打开'
+        let service_setting = data.service_setting ? data.service_setting.split(',') : [];
+        if (service_setting.length > 2 ) {
+          let cut_string = '';
+          service_setting.forEach((item, index) => {
+            if (index < 2) {
+              cut_string += item+','
+            }
+          })
+          data.service_setting = cut_string;
+        } else {
+
+        }
         
-        this.setData({chat : data, storeCommonParam: storeCommonParam, goods_id: data.product_id, user: JSON.stringify(data.user)})
+        this.setData({
+          chat : data, 
+          storeCommonParam: storeCommonParam,
+          goods_id: data.product_id, 
+          user: JSON.stringify(data.user),
+          service_setting
+        })
         if(this.data.chat.chat_type==5 || (this.data.shareUserId!=''&&this.data.shareUserId!='0')){
           this.setData({
             padd_r270: true
@@ -926,6 +947,16 @@ wx.Page({
       showShopCarPop: true,
       needSelectType: false,
       type
+    })
+  },
+  showMoreService() {
+    this.setData({
+      showService: true
+    })
+  },
+  toggleServiceHide() {
+    this.setData({
+      showService: !this.data.showService
     })
   }
 })

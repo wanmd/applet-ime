@@ -66,6 +66,9 @@ Component({
         previewImage(e) {
             let index = parseInt(e.currentTarget.dataset.index)
             let current = this.data.picture[index]
+
+            console.log(this.data.picture);
+            console.log(current);
             wx.previewImage({
                 current: current,
                 urls: this.data.picture

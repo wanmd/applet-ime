@@ -1,0 +1,35 @@
+/* pages/merchant/service/index.wxss */
+@import '../../../utils/wxss/index.wxss';
+
+page{
+  background:#fff !important;
+  /* padding-bottom: 200rpx; */
+  height: 100vh;
+}
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 208rpx;
+  height: 68rpx;
+  background: #F5F5F5;
+  border-radius: 42rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #333333;
+  margin-bottom: 30rpx;
+}
+.item_active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 208rpx;
+  height: 68rpx;
+  background: rgba(255, 226, 0, 0.13);
+  border: 2rpx solid #FFE200;
+  border-radius: 42rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  color: #333333;
+  margin-bottom: 30rpx;
+}

@@ -1,0 +1,12 @@
+<view class="mt-100 mlr-32 d-f fxw-w jc-sb">
+  <view 
+    class="{{item.active ? 'item_active' : 'item' }}" 
+    wx:for="{{dataList}}" 
+    wx:key="{{item.name}}"
+    data-index="{{index}}"
+    bindtap="handleCheck"
+  >{{item.name}}</view>
+</view>
+<view class='bottom-fixed'>
+  <btn bindtap='submit'>保存</btn>
+</view>

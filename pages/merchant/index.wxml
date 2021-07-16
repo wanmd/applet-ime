@@ -52,7 +52,7 @@
 	<cell height="136rpx" url='../marketing/agent/index' title='代理设置'></cell>
 </view>
 <view class='p-l-r  fs14'>
-	<cell height="136rpx" url='./buyInfo/index' title='商家服务'></cell>
+	<cell height="136rpx" url='./buyInfo/index' title='购买须知'></cell>
 </view>
 <view class='p-l-r  fs14'>
 	<cell height="136rpx" url='./storeadd/index' title='店铺地址'></cell>
@@ -62,6 +62,9 @@
 </view>
 <view class='p-l-r  fs14'>
 	<cell height="136rpx" url='/pages/storeCategory/index' title='分类设置'></cell>
+</view>
+<view class='p-l-r  fs14'>
+	<cell height="136rpx" url='./service/index' title='服务设置'></cell>
 </view>
 <view class='p-l-r  fs14'>
 	<cell height="136rpx" url='./storeBackground/index' title='商家店铺背景图/报价单设置'></cell>

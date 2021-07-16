@@ -12,7 +12,7 @@ page {
   line-height: 38rpx;
   color: #333333;
   border: 1rpx solid #F7F7F7;
-  background: #E7E7E7;
+  background: #F7F7FA;
   margin-bottom: 22rpx;
 }
 .level2_item {
@@ -25,7 +25,7 @@ page {
   line-height: 38rpx;
   color: #8A8A8A;
   border: 1rpx solid #F7F7F7;
-  background:  #F8F8F8;
+  background: #FFFFFF;
   margin-bottom: 22rpx;
 }
 .focus {

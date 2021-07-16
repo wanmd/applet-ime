@@ -179,3 +179,14 @@
   transform: scale(1.2);
   z-index: 999;
 }
+.border1 {
+  border: 1rpx solid #FFC901;
+  border-radius: 46rpx 0rpx 0rpx 46rpx;
+}
+.border2 {
+  border: 1rpx solid #FF9900;
+}
+.border3 {
+  border: 1rpx solid #FF6C01;
+  border-radius: 0rpx 46rpx 46rpx 0rpx;
+}

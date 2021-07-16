@@ -104,11 +104,35 @@
 								</view>
 							</view>
 						</view>
-						<!-- 发布者文字 -->
-						<view class='m-t-20'>
+						<!-- 发布者图片展示 无视频时 -->
+						<view class='m-t-20' wx:if="{{!item.video_url}}">
 								<picture-set margin='{{4}}' pictureSet='{{item.picture}}'></picture-set>
 						</view>
-						<!-- 图片内容 -->
+						<!-- 发布者图片+视频展示 有视频时 -->
+						<view class='m-t-20' wx:if="{{item.video_url}}">
+							<view class="w100p h-480">
+								<video 
+									controls="{{false}}"
+									style="width:750rpx;height:480rpx" 
+									wx:if="{{item.video_url}}" 
+									src="{{baseUrl}}/{{item.video_url}}" 
+								/>
+							</view>
+							<view class="d-f jc-fs">
+								<image 
+									style="width:120rpx;height:120rpx;margin: 4rpx"
+									bindtap='previewImage' mode="aspectFill" 
+									wx:for="{{item.picture}}" 
+									wx:for-item="pitem"
+									wx:for-index="pindex"
+									wx:key="pindex"
+									data-index='{{pindex}}' 
+									data-picture='{{item.picture}}' 
+									src="{{baseUrl}}/{{pitem}}"
+								/>
+								</view>
+						</view>
+						<!-- 底部操作按钮 -->
 						<view class="flex_align-center pr-48">
 							<button hover-class="none" class="flex__it" data-index='{{index}}' catchtap='down'>
 									<image class="image down-icon icon" mode="widthFix" src="/assets/images/index/noxiazai@2x.png"></image>

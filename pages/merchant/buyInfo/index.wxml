@@ -1,5 +1,5 @@
 <view class='p-l-r-t'>
-  <view class="card-cell">
+  <view class="card-cell" wx:if="{{false}}">
     <view>{{dataInfo.title}}</view>
     <view>{{dataInfo.page1}}</view>
     <view>{{dataInfo.page2}}</view>
