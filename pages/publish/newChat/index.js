@@ -30,16 +30,6 @@ wx.Page({
         templateId: null,
         isExpress: null,
         videoUrl: '',
-        option1: [
-            {
-                value: 1,
-                label: '7天无理由'
-            },
-            {
-                value: 2,
-                label: '特殊商品不退换'
-            }
-        ],
         option2: [
             {
                 value: 1,
@@ -259,12 +249,6 @@ wx.Page({
         })
     },
 
-    radioChange(e) {
-        this.setData({
-            serviceSetting: e.detail.value
-        })
-    },
-
     radioChangeExpress(e) {
         this.setData({
             isExpress: e.detail.value
@@ -391,12 +375,7 @@ wx.Page({
             }
             data.isExpress = this.data.isExpress;
             data.templateId = this.data.templateId;
-            // 服务设置
-            if (!this.data.serviceSetting) {
-                toast('请选择服务设置~')
-                return
-            }
-            data.serviceSetting = this.data.serviceSetting || '';
+
             if (this.data.chatId > 0) {
                 data.chatId = this.data.chatId
             }
@@ -589,9 +568,6 @@ wx.Page({
         // 获取运费模板
         request.get('feetemplate', res => {
             if (res.success) {
-                // this.setData({ 
-                //     fee: res.data.list,
-                // })
                 if (!res.data) {
                     this.setData({ 
                         hasSetFee: false

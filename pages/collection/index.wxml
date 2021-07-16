@@ -32,20 +32,26 @@
                 <view class="dataitem-header">
                   <view class="fz-28 c-666 lh-46 ellipsis mb-6">{{item.content}}</view>
                   <view class="tags">
-                    <text class="tag">产品标签</text>
-                    <text class="tag">产品标签</text>
-                    <text class="tag">产品标签</text>
+                    <text class="tag" wx:for="{{item.label}}" wx:key="index">{{item.name}}</text>
                   </view>
                 </view>
                 <view class="fz-20 c-3A3A3A">
                   <text>零售价:  ￥</text>
-                  <text class="fz-24 mr-20 text-through">551</text>
-                  <!-- <text>会员价:  ￥</text>
-                  <text class="fz-24 mr-20">551</text>
-                  <text>代理价:  ￥</text>
-                  <text class="fz-24 mr-20">551</text> -->
-                  <text>拼单价:  ￥</text>
-                  <text class="fz-24 mr-20">551</text>
+                  <text class="fz-24 mr-20 text-through">{{item.specs.sale_price}}</text>
+                  <block wx:if="{{userInfo.isAgent}}">
+                    <text>代理价:  ￥</text>
+                    <text class="fz-24 mr-20">{{item.specs.agent_price}}</text>
+                  </block>
+                  <block wx:if="{{item.isVip}}">
+                    <text>会员价:  ￥</text>
+                    <text class="fz-24 mr-20">{{item.specs.member_price}}</text>
+                  </block>
+                  <block wx:else>
+                    <text>拼单价:  ￥</text>
+                    <text class="fz-24 mr-20">{{item.specs.group_price}}</text>
+                  </block>
+                  
+                  
                 </view>
               </view>
             </view>

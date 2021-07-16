@@ -32,6 +32,10 @@ Page({
    */
   onLoad: function (options) {
     console.log(this.data);
+    let userInfo = wx.getStorageSync('userinfo') || getApp().globalData.userInfo
+    this.setData({
+      userInfo
+    })
   },
 
   /**

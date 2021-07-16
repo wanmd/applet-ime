@@ -96,13 +96,6 @@
                 </radio-group>
               </view>
             </cell>
-            <cell title='商家服务' border='{{false}}' arrow='{{false}}'>
-              <radio-group bindchange="radioChange" name="type" slot='content'>
-                <label class="radio mr-20" wx:for="{{option1}}" wx:key="{{item.label}}">
-                  <radio color="#FFE200" value="{{item.value}}" wx:key="{{item.value}}" checked="{{ fee.type === item.value}}">{{item.label}}</radio>
-                </label>
-              </radio-group>
-            </cell>
           </block>
           <!-- 发布产品或编辑  -->
           <block wx:if='{{chatType != 1&&share==0}}'>
@@ -168,13 +161,6 @@
                   </label>
                 </radio-group>
               </view>
-            </cell>
-            <cell title='商家服务' border='{{false}}' arrow='{{false}}'>
-              <radio-group bindchange="radioChange" name="type" slot='content'>
-                <label class="radio mr-20" wx:for="{{option1}}" wx:key="{{item.label}}">
-                  <radio color="#FFE200" value="{{item.label}}" wx:key="{{item.label}}" checked="{{ fee.type === item.value}}">{{item.label}}</radio>
-                </label>
-              </radio-group>
             </cell>
           </block>
           
