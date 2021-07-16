@@ -38,7 +38,7 @@
                 <view class="fz-20 c-3A3A3A">
                   <text>零售价:  ￥</text>
                   <text class="fz-24 mr-20 text-through">{{item.specs.sale_price}}</text>
-                  <block wx:if="{{userInfo.isAgent}}">
+                  <block wx:if="{{item.isAgent}}">
                     <text>代理价:  ￥</text>
                     <text class="fz-24 mr-20">{{item.specs.agent_price}}</text>
                   </block>
