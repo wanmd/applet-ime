@@ -693,8 +693,8 @@ page {
 
 .avatar-icon {
     position: absolute;
-    right: 0;  
-    bottom: 0;
+    right: -8rpx;  
+    bottom: -2rpx;
     width: 40rpx;
     height: 40rpx;
 }
