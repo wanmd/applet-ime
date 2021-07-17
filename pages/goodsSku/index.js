@@ -100,6 +100,7 @@ Page({
   // 保存规格
   handleSave() {
     const { skuTitle, skuList, isEdit } = this.data;
+    console.log(this.data.goods_skuList);
     if (!skuTitle) {
       toast('有未填写的规格标题');
       return

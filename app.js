@@ -386,7 +386,10 @@ App({
             type: 1
         },
         // 商品规格
-        skuData: {},
+        skuData: {
+            goods_skuList: [],
+            excel_skuList: []
+        },
         // 商品标签
         goodsLabel: []
     },

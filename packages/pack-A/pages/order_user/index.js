@@ -45,7 +45,6 @@ Page({
 
   load(e) {
     let rows = e.detail.list
-    // let rows = orderlist1.data.list
     let page = e.detail.page
     let orderList = [];
     if(page == 1){
@@ -55,6 +54,7 @@ Page({
     }
     rows.forEach(item => {
       item.delivery = { remarks: item.remarks, consignee: item.consignee, mobile: item.mobile, province: item.province, city: item.city, district: item.district, address: item.address }
+      item.store.nickname = item.store.nickname.substring(0,10)
       orderList.push(item)
     })
 

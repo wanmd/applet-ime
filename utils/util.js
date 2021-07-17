@@ -408,13 +408,13 @@ const navToIyou = () => {
         appId: 'wx3020976f686fe9f8',
         path: 'pages/home/index?storeId=' + storeInfo.user_id,
         extraData: {
-          storeInfo
+            storeInfo
         },
         envVersion: 'trial',
         success(res) {
-          // 打开成功
+            // 打开成功
         }
-      })
+    })
 }
 module.exports = {
     validmobile: validmobile,

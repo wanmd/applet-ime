@@ -14,7 +14,8 @@
             </view>
           </view>
           <block wx:if="{{cartList.length>0}}" wx:for="{{cartList}}" wx:key="index">
-            <view class="car-item" wx:if="{{userType !=2 }}">
+            <!-- wx:if="{{userType !=2 }}" -->
+            <view class="car-item">
               <view class="user-box">
                 <image class='avatar' src='{{item.store.avatar}}'></image>
                 <view class="user-info">{{item.store.nickname}}</view>
