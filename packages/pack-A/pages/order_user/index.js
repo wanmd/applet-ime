@@ -35,9 +35,6 @@ Page({
         'query.groupstate': ''
       })
     }
-    // if (this.data.query.status == status) {
-    //   return
-    // }
     this.setData({ orderList: [] })
     this.setData({ 'query.status': status == 100 ? 2 : status })
     this.selectComponent('#pagination').initLoad()

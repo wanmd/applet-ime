@@ -27,12 +27,26 @@ Page({
   },
 
   selectToggle(e) {
+    // let status = parseInt(e.currentTarget.dataset.status)
+    // if (this.data.query.status == status) {
+    //   return
+    // }
+    // this.setData({ orderList: [] })
+    // this.setData({ 'query.status': status })
+    // this.selectComponent('#pagination').initLoad()
+
     let status = parseInt(e.currentTarget.dataset.status)
-    if (this.data.query.status == status) {
-      return
+    if (status == 100) {
+      this.setData({
+        'query.groupstate': 1
+      })
+    } else {
+      this.setData({
+        'query.groupstate': ''
+      })
     }
     this.setData({ orderList: [] })
-    this.setData({ 'query.status': status })
+    this.setData({ 'query.status': status == 100 ? 2 : status })
     this.selectComponent('#pagination').initLoad()
   },
 
@@ -48,6 +62,7 @@ Page({
     }
     rows.forEach(item => {
       item.delivery = { remarks: item.remarks, consignee: item.consignee, mobile: item.mobile, province: item.province, city: item.city, district: item.district, address: item.address }
+      item.store.nickname = item.store.nickname.substring(0,10)
       orderList.push(item)
     })
 
