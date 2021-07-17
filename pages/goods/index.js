@@ -162,7 +162,7 @@ wx.Page({
         })
         if(this.data.chat.chat_type==5 || (this.data.shareUserId!=''&&this.data.shareUserId!='0')){
           this.setData({
-            padd_r270: true
+            // padd_r270: true
           })
         }
         // this.getStoreCommonParam(data.user.user_id)
