@@ -112,7 +112,7 @@
 						<view class='m-t-20' wx:if="{{item.video_url}}">
 							<view class="w100p h-480">
 								<video 
-									controls="{{false}}"
+									controls="{{true}}"
 									style="width:750rpx;height:480rpx" 
 									wx:if="{{item.video_url}}" 
 									src="{{baseUrl}}/{{item.video_url}}" 
