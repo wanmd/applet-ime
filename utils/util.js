@@ -403,14 +403,20 @@ const maskNumber = num => {
 };
 // 跳转iyou
 const navToIyou = () => {
-    const storeInfo = wx.getStorageSync('userInfo');
+    let app = getApp();
+    let storeInfo =  wx.getStorageSync('userinfo') || app.globalData.userInfo 
+    console.log(storeInfo);
+    console.log(storeInfo.user_id);
+    
     wx.navigateToMiniProgram({
         appId: 'wx3020976f686fe9f8',
         path: 'pages/home/index?storeId=' + storeInfo.user_id,
         extraData: {
             storeInfo
         },
-        envVersion: 'trial',
+        envVersion: 'trial',// 体验版
+        // envVersion: 'develop',// 开发板
+        // envVersion: 'release',// 正式
         success(res) {
             // 打开成功
         }
