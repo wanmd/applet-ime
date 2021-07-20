@@ -241,7 +241,7 @@ App({
                             self.globalData.userInfo = user;
                             if (typeof callback === 'function') {
                                 console.log("callback=====callback")
-                                console.log(callback)
+                                // console.log(callback)
                                 callback(result);
                             }
                         } else {

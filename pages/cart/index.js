@@ -57,15 +57,21 @@ wx.Page({
                         v.store = JSON.parse(v.store);
                         v.id = index;
                         v.cart.forEach(item => {
+                            console.log(item);
+                            
                             item.checked = false;
                             item.agent_price = Number(item.agent_price).toFixed(2);
                             item.sale_price = item.isAgent ? Number(item.sale_price).toFixed(2) : maskNumber(Number(item.agent_price).toFixed(2));
-                            let display = ''
-                            let product_specs =JSON.parse(item.product_specs);
-                            for (let key in product_specs) {
-                                display +=  key + ':' + product_specs[key] + ';'
+                            
+                            let display = '';
+                            if(item.product_specs) {
+                                let product_specs =JSON.parse(item.product_specs);
+                                for (let key in product_specs) {
+                                    display +=  key + ':' + product_specs[key] + ';'
+                                }
+                                item.display = display;
                             }
-                            item.display = display;
+                            
                             if (item.id == 120) {
                                 item.state = 0
                             }
