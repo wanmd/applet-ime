@@ -54,7 +54,7 @@ Page({
 
   setBackground () {
     wx.chooseImage({
-        sourceType: ['camera'],
+        sourceType: ['album', 'camera'],
         count: 1,
         success: (res) => {
           const tempFilePaths = res.tempFilePaths

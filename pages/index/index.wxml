@@ -20,7 +20,7 @@
 			</view>
 		</view>
 		<view class="d-f ai-c h-98 bgc-F7F7F7 pl-42 pr-26">
-			<view class="d-f ai-c pos-r bgc-fff bdrs-20 w-490 h-54 pl-76">
+			<view class="d-f ai-c pos-r bgc-fff bdrs-40 w-490 h-54 pl-76">
 				<!-- 搜索框 -->
 				<input 
 					class="w-100p" type="text" value="{{query.keyword}}" 
@@ -63,9 +63,9 @@
 								<view class='relative d-f'>
 									<view class="relative">
 										<avatar user="{{item.user}}" src='{{item.user.avatar}}' userId='{{item.user.user_id}}'></avatar>
-										<image wx:if="{{item.isVip}}" class="avatar-icon" src="../../assets/images/index/vip@2x.png" />
+										<!-- <image wx:if="{{item.isVip}}" class="avatar-icon" src="../../assets/images/index/vip@2x.png" />
 										<image wx:if="{{item.isAgent}}" class="avatar-icon" src="../../assets/images/index/daili.png" />
-										<image wx:if="{{item.isMerchant}}" class="avatar-icon" src="../../assets/images/index/shangjia.png" />
+										<image wx:if="{{item.isMerchant}}" class="avatar-icon" src="../../assets/images/index/shangjia.png" /> -->
 									</view>
 									<view class='user-info'>
 										<view class='f-28'>{{item.user.nickname}}</view>
@@ -147,17 +147,14 @@
 									<image class="flex__it w-36 click-icon icon" mode="widthFix" src="{{item.praise == 0 ?'/assets/images/index/dianzan@2x.png' : '/assets/images/index/dianzan_active@2x.png'}}"></image>
 							</button>
 							<!-- 购物车 -->
-							<button hover-class="none" class="flex__it" data-index='{{index}}' data-goods_id='{{item.goods_id}}' catchtap='showGoodsPopup' wx:if="{{item.goods_name}}">
-									<image class="flex__it w-36 click-icon w-60" mode="widthFix" src="/assets/images/index/shopcar@2x.png"></image>
+							<button hover-class="none" class="flex__it ml-200" data-index='{{index}}' data-goods_id='{{item.goods_id}}' catchtap='showGoodsPopup' wx:if="{{item.goods_name}}">
+								<image class="flex__it  click-icon w-48" mode="widthFix" src="/assets/images/index/shopcar@2x.png"></image>
 							</button>
-							
 							<!-- 转发 -->
-							<button hover-class="none" class="flex__it" open-type='share' data-index='{{index}}' catchtap='share' wx:else>
-								<image class="flex__it image share-icon1 icon" mode="widthFix" src="/assets/images/fenxiang@2x.png"></image>
+							<button hover-class="none" class="flex__it ml-200" open-type='share' data-index='{{index}}' catchtap='share' wx:else>
+								<image class="flex__it image share-icon1 w-48" mode="widthFix" src="/assets/images/fenxiang@2x.png"></image>
 							</button>
-								
 						</view>
-						
 					</view>
 				</view>
 				<empty wx:if='{{chatList.length==0&&ajaxFlag}}' class='absolute xy' text='啥动态都没呢'>

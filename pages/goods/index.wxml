@@ -3,7 +3,7 @@
     <!-- 商品图片 -->
     <swiper indicator-dots indicator-color='rgba(255,255,255,0.3)' indicator-active-color='#ffffff' style='height:750rpx' bindchange='swiperChange'>
       <swiper-item class="swiper-item" wx:for='{{chat.picture}}' wx:key="index">
-        <image style='width:100%;' mode='widthFix' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
+        <image style='height:750rpx;width:750rpx' mode='center' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
       </swiper-item>
     </swiper>
     <!-- <view class="good_name" bind:longpress="longpress" data-content="{{chat.goods_name}}">{{chat.goods_name}}</view> -->
@@ -89,8 +89,16 @@
         <image class='jiantou' src='/assets/images/jiantou.png' style="width:12rpx;height:22rpx;"></image>
       </view>
     </view>
-
-     <view class='p-l-r text-justify color-333333 m-t-60'>
+    <!-- 视频 -->
+    <view class="w100p h-480" wx:if="{{chat.video_url}}">
+      <video 
+        controls="{{true}}"
+        style="width:750rpx;height:480rpx" 
+        src="{{ALIYUN_URL}}/{{chat.video_url}}" 
+      />
+    </view>
+    <!-- 图片 -->
+    <view class='p-l-r text-justify color-333333 m-t-60'>
       <view wx:for='{{chat.picture}}' wx:key="index">
         <image style='width:100%;' mode='widthFix' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
       </view>
