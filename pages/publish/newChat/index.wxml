@@ -5,7 +5,6 @@
   </view>
   <view class="wx_center">
     <view class='p-l-r'>
-      
       <form>
         <view wx:if='{{chatType == 2}}' class="p-t-50 border-b">
           <input type='text' value='{{name}}' data-target='name' bindinput='input' maxlength="30" class='goods_name' placeholder-class="fz-36 c-CCCCCC" placeholder='取个厉害的标题，最多30字'></input>
@@ -182,7 +181,7 @@
         </view>
       </form>
     </view>
-    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 30px;'>
+    <view style='width:400rpx;margin:100rpx auto 60rpx auto;padding-bottom: 50px;'>
       <btn bindtap='submit' round wx-if='{{share=="dp"}}'>发布并同步到我的店铺</btn>
       <btn bindtap='submit' round wx-if='{{share=="xc"}}'>发布并同步到我的相册</btn>
       <btn bindtap='submit' round wx-if='{{share==0&&chatId!=0}}'>保存</btn>
