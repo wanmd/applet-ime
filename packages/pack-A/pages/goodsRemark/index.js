@@ -1,6 +1,7 @@
 // packages/pack-A/pages/goodsRemark/index.js
 import { Request, toast } from '../../../../utils/util.js'
 let request = new Request()
+let app = getApp()
 
 Page({
 
@@ -37,6 +38,12 @@ Page({
 
   initData() {
     request.setMany(true);
+    const { productRemarks } = app.globalData;
+    if (productRemarks.length) {
+      this.setData({
+        productRemarks
+      })
+    }
     this.getRemarksUsed()
     this.getRemarksHistory()
   },
@@ -104,6 +111,8 @@ Page({
     this.data.productRemarks.forEach(item => {
       remark = remark + item.remark
     })
+
+    app.globalData.productRemarks = this.data.productRemarks;
     
     page.setRemarks(remark)
     wx.navigateBack()

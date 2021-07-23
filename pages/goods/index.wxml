@@ -3,7 +3,7 @@
     <!-- 商品图片 -->
     <swiper indicator-dots indicator-color='rgba(255,255,255,0.3)' indicator-active-color='#ffffff' style='height:750rpx' bindchange='swiperChange'>
       <swiper-item class="swiper-item" wx:for='{{chat.picture}}' wx:key="index">
-        <image style='height:750rpx;width:750rpx' mode='center' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
+        <image style='height:750rpx;width:750rpx' mode='aspectFill' src='{{ALIYUN_URL}}/{{item}}' data-index='{{index}}' bindload='imageLoad' data-imgs="{{chat.picture}}" data-img="{{item}}" bindtap='previewImage'></image>
       </swiper-item>
     </swiper>
     <!-- <view class="good_name" bind:longpress="longpress" data-content="{{chat.goods_name}}">{{chat.goods_name}}</view> -->

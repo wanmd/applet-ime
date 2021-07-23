@@ -391,7 +391,9 @@ App({
         //     excel_skuList: []
         // },
         // 商品标签
-        goodsLabel: []
+        goodsLabel: [],
+        // 商品私密备注
+        productRemarks: []
     },
 
     newPublish: false
