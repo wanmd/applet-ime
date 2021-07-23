@@ -121,17 +121,25 @@
 							<view class="d-f jc-fs">
 								<image 
 									lazy-load="{{true}}"
-									style="width:120rpx;height:120rpx;margin: 4rpx"
+									style="width:120rpx;height:120rpx;margin: 4rpx;position: relative"
 									bindtap='previewImage' mode="aspectFill" 
-									wx:for="{{item.picture}}" 
+									wx:for="{{item.picture_cut}}" 
 									wx:for-item="pitem"
 									wx:for-index="pindex"
 									wx:key="pindex"
 									data-index='{{pindex}}' 
 									data-picture='{{item.picture}}' 
 									src="{{baseUrl}}/{{pitem}}"
-								/>
-								</view>
+								>
+									<view 
+										class="mask_more" 
+										wx:if="{{pindex == 5}}"
+										data-index='{{pindex}}' 
+										data-picture='{{item.picture}}' 
+									>+{{item.picture.length - 6}}</view>
+								</image>
+								
+							</view>
 						</view>
 						<!-- 底部操作按钮 -->
 						<view class="flex_align-center pr-48">

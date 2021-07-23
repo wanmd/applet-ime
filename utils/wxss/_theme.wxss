@@ -798,6 +798,9 @@
 .w-34 {
   width: 34rpx;
 }
+.w-36 {
+  width: 36rpx;
+}
 .w-40 {
   width: 40rpx;
 }

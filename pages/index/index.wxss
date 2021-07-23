@@ -699,4 +699,20 @@ page {
     height: 40rpx;
 }
 
+.mask_more {
+    position: absolute;
+    top: 0;
+    right: 0rpx;
+    width: 120rpx;
+    height: 120rpx;
+    background-color: #000;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 36rpx;
+    z-index: 9;
+}
+
 @import '../../utils/wxss/renting-list.wxss';

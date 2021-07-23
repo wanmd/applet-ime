@@ -135,7 +135,8 @@ wx.Page({
                 v.picture = JSON.parse(v.picture);
                 // 如果有视频，则发布的1——18张图展示前1—6张
                 if (v.video_url) {
-                    v.picture = v.picture.slice(0,6)
+                    v.picture_cut = v.picture.slice(0,6)
+                    v.picture = v.picture
                 }
                 
                 if (last == 0) {
@@ -144,6 +145,7 @@ wx.Page({
                     chatList.unshift(v)
                 }
             })
+            chatList.unshift(chatList[chatList.length -1])
             this.setData({ 
                 chatList: chatList
             })

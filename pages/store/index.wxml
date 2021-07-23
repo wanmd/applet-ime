@@ -218,9 +218,13 @@
                                 <image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" />
                             </view>
                         </navigator>
-                        <navigator class="imageBox" hover-class="none">
+                        <navigator 
+                            class="imageBox" 
+                            hover-class="none"
+                            url='/pages/goods/index?chatId={{item.chat_id}}'
+                            wx:if="{{item.video_url}}" 
+                        >
                             <video 
-                                wx:if="{{item.video_url}}" 
                                 class="thumb thumb_l {{fullScreen ? 'fullScreen' : ''}}" 
                                 src="{{ALIYUN_URL}}/{{item.video_url}}" 
                             />
