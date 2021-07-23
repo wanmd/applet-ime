@@ -57,8 +57,6 @@ wx.Page({
                         v.store = JSON.parse(v.store);
                         v.id = index;
                         v.cart.forEach(item => {
-                            console.log(item);
-                            
                             item.checked = false;
                             item.agent_price = Number(item.agent_price).toFixed(2);
                             item.sale_price = item.isAgent ? Number(item.sale_price).toFixed(2) : maskNumber(Number(item.agent_price).toFixed(2));
@@ -72,9 +70,9 @@ wx.Page({
                                 item.display = display;
                             }
                             
-                            if (item.id == 120) {
-                                item.state = 0
-                            }
+                            // if (item.id == 120) {
+                            //     item.state = 0
+                            // }
                             goodsCount++;
                         });
                     });

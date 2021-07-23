@@ -28,7 +28,7 @@
       <view slot='title' class="address_item2">
         <icon-text class='item-icon' width="35rpx" icon='location.png'></icon-text>
         <navigator hover-class="none" url='/pages/deliveryAddress/index?target=select'>
-            <view class='fs-18'>{{address.consignee}}<text class='m-l-20'>{{address.mobile}}</text></view>
+            <view class='fs-18'>{{address.consignee}}<text class='m-l-20 mr-20'>{{address.mobile}}</text><text class="fz32 cccc">></text></view>
             <view class='f-24 color-666 m-t-10 padd_b-10'>{{address.province + address.city + address.district + address.address}}</view>
         </navigator>
         <icon-text catchtap='ai__addressShow' class='ai__address' width="150rpx" icon='ai__address@2x.png'></icon-text>
@@ -143,10 +143,21 @@
             <img class='cover' thumb src='{{it.cover}}'></img>
           </navigator>
           <view class='content'>
-            <navigator class='goods-name' url='/pages/goods/index?chatId={{it.chat_id}}'>{{it.name}}</navigator>
+            <view class="w-100p">
+              <navigator class='goods-name w-100p d-f jc-sb' hover-class="none" url='/pages/goods/index?chatId={{it.chat_id}}'>
+                <view class="fx-1">{{it.name}}</view>
+                <view class="goods-price w-200">
+                  <text class='num' wx:if="{{it.isAgent}}">￥{{it.agent_price}}</text>
+                  <text class='num' wx:else>￥{{it.member_price}}</text>
+                </view>
+              </navigator>
+              <view class="d-f jc-sb fz-20 c-C5C5C5 w-100p">
+                <view>规格:{{it.product_specs}}</view>
+                <view class="line-through">￥{{it.sale_price}}</view>
+              </view>
+            </view>
             <view class="goodsNum">
-              <text>数量</text>
-              <view class='num'>{{it.quantity}}</view>
+              <view class='num'>x{{it.quantity}}</view>
             </view>
             <!-- <block wx:if="{{item.isAgent}}">
               <view class='goods-price1'>
@@ -176,7 +187,7 @@
                 </view>
               </block>
             </block> -->
-            <block wx:if="{{item.isAgent}}">
+            <!-- <block wx:if="{{item.isAgent}}">
               <view class='goods-price1'>
                 <text>代理价</text>
                 <view><text class='num'>￥{{it.agent_price}}</text></view>
@@ -187,23 +198,27 @@
                 <text>会员价</text>
                 <view><text class='num'>￥{{it.member_price}}</text></view>
               </view>
-            </block>
+            </block> -->
           </view>
         </view>
-        <view class='order-remark'>
+        <!-- <view class='order-remark'>
           <text class='title'>购买备注：</text>
           <text class="color-EAB96D">{{it.remark}}</text>
-          <!-- <input placeholder-class="placeholder-class" value="" placeholder='请备注购买信息或先与商家协商一致' type='text' data-index='{{index}}' bindinput='input' /> -->
-        </view>
+        </view> -->
       </view>
     </view>
     <view class='p-l-r'>
-      <!-- <view class='order-remark'> -->
-        <!-- <text class='title'>订单备注:</text> -->
-        <!-- <input placeholder-class="placeholder-class" placeholder='请备注购买信息或先与商家协商一致' type='text' data-index='{{index}}' bindinput='input' /> -->
-
+      <view class='order-remark'>
+        <text class='title'>订单备注:</text>
+        <input 
+          placeholder-class="placeholder-class" 
+          placeholder='请备注购买信息或先与商家协商一致' 
+          type='text' 
+          data-index='{{index}}' 
+          bindinput='input' 
+        />
         <!-- <textarea placeholder='请备注购买信息或先与商家协商一致' style='height:320rpx;width:100%;padding:10rpx 20rpx;' placeholder-style='font-size:24rpx;color:#999' value='{{formData.remarks}}' data-index='{{index}}' bindinput='input'></textarea> -->
-      <!-- </view> -->
+      </view>
     </view>
   </view>
 </view>

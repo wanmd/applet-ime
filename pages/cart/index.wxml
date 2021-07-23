@@ -82,11 +82,11 @@
                       <view class="goods-price" wx:if="{{item.isAgent}}">
                         <view>
                           <text class="text c-262626">零售价</text>
-                          <text class='text-through c-262626'>{{it.sale_price}}</text>
+                          <text class='text-through c-262626 fz-28'>{{it.sale_price}}</text>
                         </view>
                         <view>
                           <text class="text c-ECBD75">代理价</text>
-                          <text class="c-ECBD75">{{it.agent_price}}</text>
+                          <text class="c-ECBD75 fz-30">{{it.agent_price}}</text>
                         </view>
                       </view>
                       <view class="goods-price" wx:else>
@@ -97,11 +97,11 @@
                             style="width:68rpx;height:28rpx;margin-right:4rpx" 
                             catchtap="isAuth_"
                           />
-                          <text class='text-through c-ECBD75'>{{it.sale_price}}</text>
+                          <text class='c-ECBD75 fz-28'>{{it.sale_price}}</text>
                         </view>
                         <view>
                           <text class="text c-262626">代发价￥</text>
-                          <text class="c-262626">{{it.member_price}}</text>
+                          <text class="c-262626 fz-30">{{it.member_price}}</text>
                         </view>
                       </view>
                     </view>
@@ -119,13 +119,13 @@
                   </view>
                 </view>
               </view>
-              <view class="fz-24 c-9B9B9B">规格:{{it.display}}</view>
-              <view class="goods-product__note">
+              <view class="fz-24 c-9B9B9B mt-10">规格:{{it.display}}</view>
+              <!-- <view class="goods-product__note">
                 <view class="g-p__note_title">购买备注:</view>
                 <view class="g-p__note_val">
                   <input placeholder-class="placeholder-class" value="{{it.remark}}"  disabled="{{!isEdit}}" data-remark="{{it.remark}}" data-cindex="{{idx}}"  data-pindex="{{index}}" data-cindex="{{idx}}"  placeholder='请输入要购买的产品型号和规格说明' type='text' bindblur="changeRemark"/>
                 </view>
-              </view>
+              </view> -->
             </view>
 
             <view class="line10"></view>

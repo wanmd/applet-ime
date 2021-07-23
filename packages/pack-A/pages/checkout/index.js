@@ -184,6 +184,14 @@ Page({
       this.setData({type : opt.type, cartIds : cartIds})
     }else if(opt.type==2){//直接下单
       // console.log(JSON.parse(opt.productSpecs));
+      let display = '';
+      if(opt.product_specs) {
+        let product_specs =JSON.parse(opt.product_specs);
+        for (let key in product_specs) {
+          display +=  key + ':' + product_specs[key] + ';'
+        }
+        display = display;
+      }
       
       data = {
         chatId: opt.chatId,
@@ -192,7 +200,7 @@ Page({
         shareUserId: opt.shareUserId||0,
         type: opt.type,
         buyType: opt.buyType,
-        productSpecs: JSON.parse(opt.productSpecs),
+        productSpecs: display,
         isGroup: opt.isGroup
       }
       this.setData({type : opt.type, cartIds : opt.chatId, shareUserId: data.shareUserId})
