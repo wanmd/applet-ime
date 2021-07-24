@@ -310,6 +310,7 @@ wx.Page({
         let _this = this;
         let index = e.currentTarget.dataset.index
         let urls = _this.data.chatList[index].picture;
+        let video_url = _this.data.chatList[index].video_url;
         let urlsNum = urls.length;
         let num = 0;
 
@@ -319,7 +320,8 @@ wx.Page({
                 wx.getSetting({
                     success(res) {
                         if (res.authSetting['scope.writePhotosAlbum']) {
-                            wx.showLoading({ title: '下载中...' })
+                            wx.showLoading({ title: '图片下载中...' })
+                            // 图片下载
                             urls.forEach(url => {
                                 wx.downloadFile({
                                     url: ALIYUN_URL + '/' + url,
@@ -332,7 +334,7 @@ wx.Page({
                                                 wx.hideLoading()
                                                 if (num == urlsNum) {
                                                     num = 0
-                                                    wx.showToast('已下载至相册')
+                                                    toast('图片已下载至相册')
                                                 }
                                             },
                                             fail: res => {
@@ -348,6 +350,33 @@ wx.Page({
                                     }
                                 })
                             })
+                            // 视频下载
+                            if (video_url) {
+                                wx.showLoading({ title: '视频下载中...' })
+                                wx.downloadFile({
+                                    url: ALIYUN_URL + '/' + video_url,
+                                    success: res => {
+                                        wx.saveImageToPhotosAlbum({
+                                            filePath: res.tempFilePath,
+                                            success: res => {
+                                                console.log(res)
+                                                wx.hideLoading()
+                                                toast('视频已下载至相册')
+                                            },
+                                            fail: res => {
+                                                console.log(res)
+                                                wx.hideLoading()
+                                            }
+                                        })
+                                        console.log(res)
+                                    },
+                                    fail: res => {
+                                        wx.hideLoading()
+                                        console.log(res)
+                                    }
+                                })
+                            }
+                            
                         } else {
                             wx.hideLoading()
                             wx._showAlert('您已拒绝系统相册权限，您可以在小程序设置界面（右上角 - 关于 - 右上角 - 设置）进行授权设置。');

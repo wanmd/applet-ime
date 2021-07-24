@@ -214,8 +214,9 @@
           placeholder-class="placeholder-class" 
           placeholder='请备注购买信息或先与商家协商一致' 
           type='text' 
+          data-store_id='{{item.store_id}}' 
           data-index='{{index}}' 
-          bindinput='input' 
+          bindinput='remark_input' 
         />
         <!-- <textarea placeholder='请备注购买信息或先与商家协商一致' style='height:320rpx;width:100%;padding:10rpx 20rpx;' placeholder-style='font-size:24rpx;color:#999' value='{{formData.remarks}}' data-index='{{index}}' bindinput='input'></textarea> -->
       </view>

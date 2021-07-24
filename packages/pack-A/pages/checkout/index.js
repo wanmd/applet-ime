@@ -57,12 +57,14 @@ Page({
     this.setData({ address: address})
   },
 
-  input (e) {
-    let index = e.currentTarget.dataset.index
-    let remarks = e.detail.value
+  remark_input (e) {
+    let { index, store_id }  = e.currentTarget.dataset;
+    console.log(e.currentTarget.dataset);
+    let remark = e.detail.value
 
     let update = {}
-    update[`remarks[${index}]`] = remarks
+    update[`remarks[${index}].remark`] = remark
+    update[`remarks[${index}].storeId`] = store_id
     this.setData(update)
   },
 
@@ -85,13 +87,13 @@ Page({
     })
 
     let addressId = address.id
-    let remarks = this.data.remarks
 
     console.log("提交订单")
     let data = {
       receiveId: addressId,
       orderNo: this.data.orderNo,
-      type: this.data.type
+      type: this.data.type,
+      remarks: this.data.remarks
     }
     if(this.data.type == 1){
       data['sorderNo'] = this.data.sorderNo;
