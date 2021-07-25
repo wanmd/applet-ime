@@ -145,7 +145,7 @@
           <view class='content'>
             <view class="w-100p">
               <navigator class='goods-name w-100p d-f jc-sb' hover-class="none" url='/pages/goods/index?chatId={{it.chat_id}}'>
-                <view class="fx-1">{{it.name}}</view>
+                <view class="fx-1">{{it.goods_name}}</view>
                 <view class="goods-price w-200">
                   <text class='num' wx:if="{{it.isAgent}}">￥{{it.agent_price}}</text>
                   <text class='num' wx:else>￥{{it.member_price}}</text>

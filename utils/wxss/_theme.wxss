@@ -195,6 +195,9 @@
 .ml--44 {
   margin-left: -44rpx;
 }
+.ml-4 {
+  margin-left: 4rpx;
+}
 .ml-6 {
   margin-left: 6rpx;
 }

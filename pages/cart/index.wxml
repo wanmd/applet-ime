@@ -44,7 +44,10 @@
                 <switch type="checkbox" class="checkbox" checked="{{it.checked}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchchange="selectOne" />
                 <img class='cover' thumb src='{{it.cover}}' bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}"></img>
                 <view class="goods-info flex__it" url='/pages/goods/index?chatId={{it.chat_id}}' hover-class="none" bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}">
-                  <view class="goods-info--t">{{it.name}}</view>
+                  <view class="goods-info--t">
+                    <view class="w-500 tov-e-ok">{{it.name}}asdjdasjsdjkasjasdjkasdjasdhkasdasjkhkasd</view>  
+                    <view class="w-500 tov-e-ok fz-24 c-9B9B9B">规格:{{it.display}}</view>
+                  </view>
                   <view class="goods-info--b">
                     <view class="price-info">
                       <!-- 旧 -->
@@ -119,7 +122,6 @@
                   </view>
                 </view>
               </view>
-              <view class="fz-24 c-9B9B9B mt-10">规格:{{it.display}}</view>
               <!-- <view class="goods-product__note">
                 <view class="g-p__note_title">购买备注:</view>
                 <view class="g-p__note_val">

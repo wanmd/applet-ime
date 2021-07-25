@@ -1,6 +1,7 @@
 <!--component/newUploadVideo/index.wxml-->
 <view style="display: flex">  
-  <view wx:if="{{videoSrc}}" style='width:218rpx;height:218rpx;margin-right:20px'>
+  <view wx:if="{{videoSrc}}" style='width:218rpx;height:218rpx;margin-right:20px;position:relative'>
+    <view class='del' bindtap='clear'></view>
     <video style='width:218rpx;height:218rpx;' src="{{videoSrc}}"></video>
   </view>
   <view class='upload-frame camera' style='width:218rpx;height:218rpx' bindtap="chooseVideo"></view>

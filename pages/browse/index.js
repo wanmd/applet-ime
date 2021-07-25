@@ -78,7 +78,8 @@ Page({
         this.setData({ ajaxFlag: true })
     },
     toGoodsDetail(e) {
-        wx._navigateTo(`/pages/goods/index?chatId=${e.currentTarget.dataset.chatid}`)
+        const { chat_id, product_id } = e.currentTarget.dataset.item;
+        wx._navigateTo(`/pages/goods/index?chatId=${chat_id}&productid=${product_id}`)
     },
     isAuth_(e) {
         if (!this.isToLogin()) return;

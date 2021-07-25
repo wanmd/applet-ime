@@ -31,18 +31,26 @@
       <view class="close" bindtap="handleCancel">x</view>
     </view>
     <view class="content">
-      <view class="d-f fxw-w jc-sb">
-        <input 
-          class="skuInput w-284 mb-18" 
-          placeholder="请输入规格分类" 
-          wx:for="{{skuList}}"
-          wx:key="id" 
-          data-index="{{index}}"
-          value="{{item.name}}"
-          bindinput="handleInput"
-        >
-          <text class="delete" bindtap="handleDeleteSku" data-index="{{index}}">x</text>
-        </input>
+      <view class="d-f fxw-w jc-sb pos-r">
+        <view class="w-284 mb-18 d-f ai-c" wx:for="{{skuList}}" wx:key="id" >
+          <input 
+            class="skuInput w-260" 
+            placeholder="请输入规格分类" 
+            data-index="{{index}}"
+            value="{{item.name}}"
+            bindinput="handleInput"
+          >
+            <!-- <text class="delete" bindtap="handleDeleteSku" data-index="{{index}}">x</text> -->
+          </input>
+          <!-- 删除icon -->
+          <image 
+            bindtap="handleDeleteSku" 
+            wx:if="{{item.name}}" 
+            class="w-26 h-26 z-9 ml-4" 
+            data-index="{{index}}"
+            src="/assets/images/index/delete2@3x.png"
+          />
+        </view>
       </view>
       <view class="btn" bindtap="handleAdd">+添加具体规格8字以内</view>
     </view>

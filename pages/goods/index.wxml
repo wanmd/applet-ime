@@ -39,7 +39,7 @@
       </view>
       <cell height="90rpx" arrow="{{false}}">
         <view slot='title'>发货</view>
-        <view slot='content'>{{chat.is_express ? '包邮' : '不包邮'}}</view>
+        <view slot='content'>{{chat.is_express ? '包邮' : express_desc}}</view>
       </cell>
       <cell height="90rpx" arrow="{{true}}" bindtap="showMoreService">
         <view slot='title'>服务</view>
@@ -152,6 +152,8 @@
           <view class='symbols'>
             <!-- <symbol wx:if="{{chat.user.isAuth}}">{{chat.user.merchantType==1?'企业认证':'个人认证'}}</symbol> -->
             <symbol wx:if="{{chat.user.isAuth}}">商户认证</symbol>
+            <text class="fz-24 c-999 ml-4">上新<text class="c-FFC901">{{chat.user.chat_number}}</text></text>
+            <text class="fz-24 c-999 ml-4">产品<text class="c-FFC901">{{chat.user.goods_number}}</text></text>
             <!-- <symbol class='symbol f-20'>企业认证</symbol> -->
             <!-- <symbol class='symbol f-20'>消保金</symbol> -->
           </view>

@@ -202,7 +202,7 @@ Page({
         shareUserId: opt.shareUserId||0,
         type: opt.type,
         buyType: opt.buyType,
-        productSpecs: display,
+        productSpecs: JSON.parse(opt.product_specs),
         isGroup: opt.isGroup
       }
       this.setData({type : opt.type, cartIds : opt.chatId, shareUserId: data.shareUserId})

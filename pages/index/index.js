@@ -145,7 +145,8 @@ wx.Page({
                     chatList.unshift(v)
                 }
             })
-            chatList.unshift(chatList[chatList.length -1])
+            console.log(chatList);
+            
             this.setData({ 
                 chatList: chatList
             })
@@ -356,7 +357,7 @@ wx.Page({
                                 wx.downloadFile({
                                     url: ALIYUN_URL + '/' + video_url,
                                     success: res => {
-                                        wx.saveImageToPhotosAlbum({
+                                        wx.saveVideoToPhotosAlbum({
                                             filePath: res.tempFilePath,
                                             success: res => {
                                                 console.log(res)
@@ -364,6 +365,7 @@ wx.Page({
                                                 toast('视频已下载至相册')
                                             },
                                             fail: res => {
+                                                wx._showAlert('视频下载失败');
                                                 console.log(res)
                                                 wx.hideLoading()
                                             }
@@ -907,11 +909,12 @@ wx.Page({
         const _this = this;
         wx.scanCode({
             success (res) {
+                wx.showLoading({ title: '查找中...' })
                 _this.setData({
                     'query.no': res.result
                 })
-                let query = _this.data.query;
-                _this.setData({ quoteList: [] })
+                _this.setData({ chatList: [] })
+                wx.hideLoading({})
                 _this.paginationInit();
             }
         })

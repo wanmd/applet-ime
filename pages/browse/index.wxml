@@ -8,21 +8,27 @@
 	  <block wx:if='{{currentType==1}}'>
       <pagination class='relative relative1' id='pagination' pkName='chat_id' url='user/getVisitGoodsList' query='{{query}}' bind:load='load'>
       <!-- <pagination url='user/getVisitGoodsList' pkName='id' showEmptyNoMore bindload='load'> -->
-          <view class='car-goods-item border-b' wx:for='{{goodsList}}' wx:key="index">
+          <view class='car-goods-item border-b' wx:for='{{goodsList}}' wx:key="index" data-item="{{item}}" bind:tap="toGoodsDetail">
             <!-- <img class='cover' thumb src='{{it.cover}}' bind:tap="toGoodsDetail" data-chatid="{{it.chat_id}}"></img> -->
             <view class="car-goods-item_">
-              <img class='cover' thumb src='{{item.cover}}' bind:tap="toGoodsDetail" data-chatid="{{item.chat_id}}"></img>
-              <view class="goods-info flex__item" url='/pages/goods/index?chatId={{item.chat_id}}' hover-class="none" bind:tap="toGoodsDetail" data-chatid="{{item.chat_id}}">
+              <img 
+                class='cover' 
+                thumb src='{{item.cover}}' 
+                ></img>
+              <view 
+                class="goods-info flex__item" 
+                hover-class="none" 
+              >
                 <view class="goods-info--t">{{item.goods_name}}</view>
                 <view class="goods-info--b">
                   <view class="price-info">
                     <view class="goods-price" wx:if="{{itemem.isAgent}}">
-                      <view>会员价格：￥{{item.vip_price}}</view>
+                      <view>会员价格：￥{{item.member_price}}</view>
                       <view>代理价格：￥{{item.agent_price}}</view>
                     </view>
                     <view class="goods-price" wx:else>
                       <text>零售价格：￥{{item.sale_price}}</text>
-                      <view>会员价格：￥{{item.vip_price}}</view>
+                      <view>会员价格：￥{{item.member_price}}</view>
                     </view>
                   </view>
                   <view class="time-area">

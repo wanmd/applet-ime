@@ -106,7 +106,7 @@ Component({
               obj.parentName = item.name;
               obj.active =  false;
               return obj
-            })
+            }).reverse()
             return item
           })
           // 根据用户身份计算最低价
@@ -408,14 +408,14 @@ Component({
     postBuy() { 
       const { detail, num: goodsNum, type } = this.data;
       const { chat_id: chatId, remark = '', shareUserId = 0 } = detail;
-      const productSpecs = JSON.stringify(this.getProductSpecs());
+      const product_specs = JSON.stringify(this.getProductSpecs());
       // 是否拼单购买 1-是 2-否 一般用户生效
       // const isGroup = 2 ; 
       const buyType =  type === 'agent' ? 2 : 1; // 1-普通用户 2-会员购买
       const prefix = '../../packages/pack-A/pages/checkout/index?chatId=' 
 
       wx.navigateTo({
-        url: prefix + chatId + "&goodsNum=" + goodsNum + "&remark=" + remark + "&type=2&shareUserId=" + shareUserId + '&isGroup=2&productSpecs=' + productSpecs + '&buyType=' + buyType,
+        url: prefix + chatId + "&goodsNum=" + goodsNum + "&remark=" + remark + "&type=2&shareUserId=" + shareUserId + '&isGroup=2&product_specs=' + product_specs + '&buyType=' + buyType,
       });
     },
     // 代理拿货

@@ -104,5 +104,9 @@ Component({
         }
       })
     },
+    clear () {
+      this.setData({ videoSrc : ''})
+      this.triggerEvent('clear')
+    },
   }
 })

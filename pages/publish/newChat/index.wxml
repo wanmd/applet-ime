@@ -119,6 +119,7 @@
               <view 
                 slot='content' 
                 bindtap="handleNav"
+                class="w-500 tov-e-ok"
                 data-url='/pages/storeCategory/index'>
                 <text wx:if="{{!categoryIds}}" class="color-ccc">请选择店铺分类</text>
                 <text wx:else>
@@ -130,6 +131,7 @@
               <view 
                 slot='content' 
                 bindtap="handleNav"
+                class="w-500 tov-e-ok"
                 data-url='/pages/goodsLabel/index'>
                 <text wx:if="{{!labels}}" class="color-ccc">请选择产品标签</text>
                 <text wx:else>{{labels}}</text>
@@ -139,6 +141,7 @@
               <view 
                 slot='content' 
                 bindtap="handleNav"
+                class="w-500 tov-e-ok"
                 data-url='/packages/pack-A/pages/goodsRemark/index'>
                 <text wx:if="{{!remark}}" class="color-ccc">商家私密备注信息 仅自己可见</text>
                 <text wx:else>{{remark}}</text>

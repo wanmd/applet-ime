@@ -145,12 +145,17 @@ wx.Page({
           let cut_string = '';
           service_setting.forEach((item, index) => {
             if (index < 2) {
-              cut_string += item+','
+              cut_string += item+'/'
             }
           })
           data.service_setting = cut_string;
-        } else {
-
+        }
+        // 商家运费
+        if (!data.is_express) {// 不包邮
+          const { defaultNumber, defaultPrice } = data.fee.config;
+          this.setData({
+            express_desc: `${defaultNumber}件${defaultPrice}元起`
+          })
         }
         
         this.setData({
