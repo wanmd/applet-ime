@@ -95,7 +95,7 @@ page {
 .car-goods-item .cover {
     width: 160rpx;
     height: 160rpx;
-    margin: 0 24rpx;
+    /* margin: 0 24rpx; */
 }
 
 .car-goods-item .goods-info {
@@ -103,6 +103,7 @@ page {
     flex-direction: column;
     justify-content: space-between;
     height: 160rpx;
+    margin-left: 20rpx;
 }
 
 .car-goods-item .goods-info--t {
@@ -380,14 +381,12 @@ page {
 }
 
 .isAgent__hint {
-    width: 179rpx;
-    height: 25rpx;
+    /* width: 179rpx; */
+    /* height: 25rpx; */
     font-size: 26rpx;
     color: rgba(250, 227, 76, 1);
     line-height: 40rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 30rpx;
+    margin-left: 20rpx;
 }
 
 .price1 {

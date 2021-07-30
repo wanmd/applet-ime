@@ -134,25 +134,50 @@ wx.Page({
 					console.log(res);
 					var statu = res.authSetting;
 					if (!statu['scope.userLocation']) {
-						wx.showModal({
-							title: '是否授权当前位置',
-							content: '需要获取您的地理位置，请确认授权',
-							confirmColor: '#f16765',
-							success: (res) => {
-								console.log(res);
+						// wx.showModal({
+						// 	title: '是否授权当前位置',
+						// 	content: '需要获取您的地理位置，请确认授权',
+						// 	confirmColor: '#f16765',
+						// 	success: (res) => {
+						// 		console.log(res);
 								
-								if (res.confirm) {
-									wx.openSetting({
-										success: data => {
-											if (data.authSetting["scope.userLocation"]) {
-												_this.chooseLocation()
-											}
-										}
-									})
+						// 		if (res.confirm) {
+						// 			wx.openSetting({
+						// 				success: data => {
+                        //                     console.log(data);
+						// 					if (data.authSetting["scope.userLocation"]) {
+						// 						_this.chooseLocation()
+						// 					}
+						// 				}
+						// 			})
 										
-								}
-							}
-						})
+						// 		}
+						// 	}
+                        // })
+                        wx.authorize({
+                            scope: 'scope.userLocation',
+                            success() {
+                                _this.getLocation()
+                            },
+                            fail: function(error) {
+                                wx.showModal({
+                                  title: '提示',
+                                  content: '您未开启保定位权限，请点击确定去开启权限！',
+                                  success(res) {
+                                    if (res.confirm) {
+                                      wx.openSetting()
+                                    }
+                                  },
+                                  fail: function() {
+                                    wx.showToast({
+                                      title: '未获取定位权限，请重新打开设置',
+                                      icon: 'none',
+                                      duration: 2000 
+                                    })
+                                    }
+                                })
+                              }
+                        })
 					} else {
 							_this.chooseLocation()
 					}

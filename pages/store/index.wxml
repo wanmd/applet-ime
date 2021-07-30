@@ -1,7 +1,7 @@
 <view class="page {{selectedNav!=1 ? 'bg_fff': ''}}">
     <view 
         class='fixed w-100' 
-        style='left:0;top:0;z-index:9;height: {{topHeight + 100}}px;background-image:url({{ALIYUN_URL}}/{{userInfo.store_background}});background-size: cover'>
+        style='left:0;top:0;z-index:9;height: {{topHeight + 100}}px;background-image:url({{ALIYUN_URL}}/{{user.store_background}});background-size: cover'>
         <view bindtap="handleBack" class="backnav fz-24 bgc-fff c-929292 fixed w-96 ta-c" style='top:{{navTop}}px;line-height:{{navHeight}}rpx;border-radius: 0 20px 20px 0;'>返回</view>
         <view class='p-l-r relative padd_tb-10 mb-20' style="margin-top:{{topHeight}}px">
             <avatar size='80rpx' src='{{user.avatar}}' user="{{user}}" userId='{{storeId}}'>
@@ -52,7 +52,7 @@
                         <image 
                             bindtap="handleDelete" 
                             wx:if="{{goodsName}}" 
-                            class="pos-a t-16 r-10 w-26 h-26 z-9" 
+                            class="pos-a t-16 r-10 w-26 h-26 z-2" 
                             src="/assets/images/index/input_delete@3x.png"
                         />
                     </view>
@@ -66,7 +66,7 @@
                         <block wx:if='{{editting == false}}'>
                             <view class='m-t-30 ellipsis1'>{{item.goods_name}}</view>
                             <view class='m-tb-20 f-20 color-fbd49d w-100p plr-20 d-f jc-sb'>
-                                <view>￥<text class='f-32 bold'>{{item.sale_price}}</text></view>
+                                <view>￥<text class='f-32 bold'>{{item.member_price}}</text></view>
                                 <view catchtap="showGoodsPopup" data-goods_id='{{item.id}}'><image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" /></view>
                             </view>
                         </block>
@@ -83,7 +83,7 @@
                     </view>
                 </navigator>
             </view>
-            <empty wx:else class='' text='TA还没放商品呢'></empty>
+            <empty wx:else class='ptb-50' text='TA还没放商品呢'></empty>
         </view>
         </pagination>
     </view>
@@ -104,7 +104,7 @@
                                 </view>
                                 <view class='a ' wx:if='{{isSelf}}'>
                                     <view class='price1 d-f jc-sb si-c'>
-                                        <view><text class="c-333 fz-32">￥ {{chat.sale_price}}</text></view>
+                                        <view><text class="c-333 fz-32">￥ {{chat.member_price}}</text></view>
                                         <view catchtap="showGoodsPopup" data-goods_id='{{chat.product_id}}'><image class="w-34 h-34" src="/assets/images/index/shopcar2@2x .png" /></view>
                                     </view>
                                 </view>
@@ -136,9 +136,9 @@
                 <view class="search_wrap jc-sb">
                     <view class="d-f ai-c">
                         <view class="input">
-                            <input data-target='goodsName'  bindinput="bindinput_" placeholder="请输入产品关键词" placeholder-style="color: #d8d8d8;" value="{{goodsName}}" bindconfirm="search" confirm-type="search"/>
+                            <input data-target='goodsName'  bindinput="bindinput_" placeholder="请输入产品关键词" placeholder-style="color: #d8d8d8;" value="{{goodsName}}" bindconfirm="search3" confirm-type="search"/>
                         </view>
-                        <view class="search_btn" bindtap='search'>搜索</view>
+                        <view class="search_btn" bindtap='search3'>搜索</view>
                     </view>
                     <view bindtap="handleChangeShowType">
                         <image class="w-46 h-48" src="/assets/images/index/{{showType == 0 ? 'text_View' : 'pic_View'}}@2x.png" />
@@ -152,7 +152,7 @@
                 </view> 
                 <view class="offer-header" wx:if="{{showType == 1}}">
                     <view class="th th1">日期</view>
-                    <view class="th th2">产品主图</view>
+                    <view class="ta-c w-130">产品主图</view>
                     <view class="th th3">产品名</view>
                     <view class="th th3">报价</view>
                     <view class="th th4">操作</view>
@@ -177,19 +177,23 @@
                             </view>
                         </view>
                         <!-- 产品主图 -->
-                        <view wx:if="{{showType == '1'}}" class="td td2">
-                            <img mode="aspectFit" class="w-130 h-130" src="{{item.url}}" />
-                        </view>
+                        <navigator 
+                            url='/pages/goods/index?chatId={{item.chat_id}}&productid={{item.id}}' 
+                            wx:if="{{showType == '1'}}" 
+                            class="w-130 ta-c bdr1-EBEBEB"
+                        >
+                            <img mode="aspectFill" class="w-130" src="{{item.url}}" />
+                        </navigator>
                         <!-- 产品名 -->
                         <view wx:if="{{showType == '1'}}" class="td td3">
                             <view>
-                                <view class="nickname">{{item.content}}</view>
+                                <view class="nickname">{{item.name}}</view>
                             </view>
                         </view>
                         <!-- 报价 -->
                         <view wx:if="{{showType == '1'}}" class="td td3">
                             <view>
-                                <view class="nickname">399.00</view>
+                                <view class="nickname">￥{{item.member_price}}</view>
                             </view>
                         </view>
                         <!-- 操作 -->
@@ -247,11 +251,11 @@
     </view>
     <view class='bottom-nav' style='padding-top:20rpx;padding-bottom:20rpx;' wx:if='{{selectedNav==1}}'>
         <block wx:if='{{isSelf}}'>
-            <view class='item' url='/pages/goodsCategoryManage/index?storeId={{storeId}}' hover-class="none">
+            <!-- <view class='item' url='/pages/goodsCategoryManage/index?storeId={{storeId}}' hover-class="none">
                 <icon-text class='absolute xy wh48' direction='vertical' icon='ic_fenlei_set@2x.png'>
                     分类管理
                 </icon-text>
-            </view>
+            </view> -->
             <!-- 
                 <navigator class='item' url='./library/index'>
                     <icon-text class='absolute xy wh48' direction='vertical' icon='goods-library.png'>商品库</icon-text>
@@ -265,7 +269,7 @@
             </view>
         </block>
         <block wx:else>
-            <navigator class='item' url='/pages/selectGoodsCategory/index?categoryId={{query.category}}&storeId={{query.storeId}}' hover-class="none">
+            <navigator class='item' url='/pages/storeCategory/index?storeId={{query.storeId}}' hover-class="none">
                 <icon-text class='absolute xy wh48' direction='vertical' icon='felei@2x.png'>
                     分类
                 </icon-text>

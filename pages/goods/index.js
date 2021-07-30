@@ -148,7 +148,7 @@ wx.Page({
               cut_string += item+'/'
             }
           })
-          data.service_setting = cut_string;
+          data.service_setting = cut_string.substring(0, cut_string.length-1);
         }
         // 商家运费
         if (!data.is_express) {// 不包邮

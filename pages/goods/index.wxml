@@ -168,7 +168,7 @@
   <!-- 底部选择tab -->
   <!-- <view class='bottom-nav m-t-20 bc-fff padd_r-450"'> -->
   <view class='bottom-nav m-t-20 bc-fff {{padd_r270 ? "padd_r-400" : "padd_r-475"}}'>
-    <chat-bar urls='{{chat.picture}}' chatId='{{chatId}}' userId='{{chat.user.user_id}}' content='{{chat.content}}' exclude='{{["praise"]}}' collectStatus='{{chat.collectStatus}}' type="2"></chat-bar>
+    <chat-bar urls='{{chat.picture}}' video_url='{{chat.video_url}}' chatId='{{chatId}}' userId='{{chat.user.user_id}}' content='{{chat.content}}' exclude='{{["praise"]}}' collectStatus='{{chat.collectStatus}}' type="2"></chat-bar>
     
     
       

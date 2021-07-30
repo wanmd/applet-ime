@@ -190,3 +190,15 @@
   border: 1rpx solid #FF6C01;
   border-radius: 0rpx 46rpx 46rpx 0rpx;
 }
+.normal1 {
+  background: rgba(255, 201, 1, 0.08);
+  color: #FFC901;
+}
+.normal2 {
+  background: rgba(255, 153, 0, 0.08);
+  color: #FF9900;
+}
+.normal3 {
+  background: rgba(255, 108, 1, 0.08);
+  color: #FF6C01;
+}

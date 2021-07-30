@@ -8,7 +8,10 @@ Component({
             type: Array,
             value: []
         },
-
+        video_url: {
+            type: String,
+            value: ''
+        },
         userId: {
             type: Number,
             value: 0
@@ -94,8 +97,10 @@ Component({
                 return
             }
             let urls = this.properties.urls;
+            let video_url = this.properties.video_url;
             let urlsNum = urls.length;
             let num = 0;
+            let _this = this;
 
             let content = this.data.content;
             wx.setClipboardData({
@@ -116,7 +121,8 @@ Component({
                     wx.getSetting({
                         success(res) {
                             if (res.authSetting['scope.writePhotosAlbum']) {
-                                wx.showLoading({ title: '下载中...' });
+                                wx.showLoading({ title: '图片下载中...' });
+                                // 图片下载
                                 urls.forEach(url => {
                                     wx.downloadFile({
                                         url: ALIYUN_URL + '/' + url,
@@ -129,12 +135,12 @@ Component({
                                                     wx.hideLoading();
                                                     if (num == urlsNum) {
                                                         num = 0;
-                                                        this.setData({ downOk: true });
-                                                        // wx.showToast({
-                                                        //     title: '已下载至相册',
-                                                        //     icon: 'success',
-                                                        //     duration: 1500
-                                                        // })
+                                                        _this.setData({ downOk: true });
+                                                        wx.showToast({
+                                                            title: '图片已下载至相册',
+                                                            icon: 'success',
+                                                            duration: 1500
+                                                        })
                                                     }
                                                 },
                                                 fail: res => {
@@ -150,6 +156,33 @@ Component({
                                         }
                                     });
                                 });
+                                // 视频下载
+                                if (video_url) {
+                                    wx.showLoading({ title: '视频下载中...' })
+                                    wx.downloadFile({
+                                        url: ALIYUN_URL + '/' + video_url,
+                                        success: res => {
+                                            wx.saveVideoToPhotosAlbum({
+                                                filePath: res.tempFilePath,
+                                                success: res => {
+                                                    console.log(res)
+                                                    wx.hideLoading()
+                                                    toast('视频已下载至相册')
+                                                },
+                                                fail: res => {
+                                                    wx._showAlert('视频下载失败');
+                                                    console.log(res)
+                                                    wx.hideLoading()
+                                                }
+                                            })
+                                            console.log(res)
+                                        },
+                                        fail: res => {
+                                            wx.hideLoading()
+                                            console.log(res)
+                                        }
+                                    })
+                                }
                             } else {
                                 wx.hideLoading();
                                 wx._showAlert(

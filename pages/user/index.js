@@ -91,7 +91,7 @@ Component({
             {
                 image: '../../assets/images/user/homepage@2x.png',
                 text: '个人主页',
-                url: '/pages/store/index?storeId=' + wx.getStorageSync('userinfo').user_id,
+                url: '/pages/homepage/index?userId=' + wx.getStorageSync('userinfo').user_id,
             },
             {
                 image: '../../assets/images/user/shoucang@2x.png',

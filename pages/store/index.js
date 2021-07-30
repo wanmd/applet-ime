@@ -104,41 +104,6 @@ wx.Page({
             this.setData({ isSelf: true, user: userInfo, storeId: options.storeId })
             this.setData({ query: { storeId: storeId }, storeId: storeId, query2: { store_id: storeId }, query3: { store_id: '', keyword: '', type: 2 }, query4: { store_id: storeId, type: 2 } })
         }
-
-        // let userInfo = app.globalData.userInfo;
-        // console.log(userInfo);
-        // let userId = options.userId || 0
-        // if (userId > 0 && userInfo.user_id != userId) {
-        //   this.setData({
-        //     'query2.userId': userId
-        //   })
-        //   request.get('user/user/' + userId, res => {
-        //     if (res.success) {
-        //       let user = res.data.user
-        //       if (!(user instanceof Object)) {
-        //         user = JSON.parse(user)
-        //       }
-
-        //       if (user.background) {
-        //         user.background = fileUrl(user.background)
-        //       }
-
-        //       this.setData({
-        //         userInfo: user
-        //       })
-        //     }
-        //   })
-
-        // } else {
-        //   let userInfo = JSON.parse(JSON.stringify(Object.assign(app.globalData.userInfo)))
-        //   if (userInfo.background) {
-        //     userInfo.background = fileUrl(userInfo.background)
-        //   }
-        //   this.setData({
-        //     isSelf: true,
-        //     userInfo: userInfo
-        //   })
-        // }
     },
     onShow() {
         const { topHeight, statusBarHeight, navHeight, navTop } = app.setCustomNav();
@@ -371,9 +336,10 @@ wx.Page({
         update[target] = e.detail.value
         this.setData(update)
     },
+    // 报价搜索
     search3() {
         let query3 = this.data.query3;
-        query3.keyword = this.data.quoteListKeyword;
+        query3.keyword = this.data.goodsName;
         this.setData({ query3: query3, offerList: [] })
         this.selectComponent('#pagination3').initLoad()
     },
@@ -681,7 +647,17 @@ wx.Page({
         if (selectedNav == type) {
             return
         }
-        this.setData({ selectedNav: type, userList: [] })
+        if (type == 1) {
+            this.setData({
+                'query.category': 0,
+                'query.goodsName': '',
+                goodsName: ''
+            })
+        }
+        this.setData({ 
+            selectedNav: type, 
+            userList: [] ,
+        })
         wx.nextTick(() => {
             // if(type == 2) this.getMyImageTextList();
             // if(type == 3) this.getMyImageTextList();

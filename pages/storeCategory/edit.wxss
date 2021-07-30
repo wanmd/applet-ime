@@ -48,12 +48,14 @@ page {
 
 .bottom {
   position: fixed;
-  bottom: 28rpx;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  z-index: 9;
+  background-color: #fff;
 }
 .save {
   display: flex;
@@ -66,5 +68,5 @@ page {
   font-size: 32rpx;
   line-height: 42rpx;
   color: #333333;
-  margin-bottom: 54rpx;
+  margin-bottom: 100rpx;
 }

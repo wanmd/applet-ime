@@ -189,6 +189,12 @@
 .mb-72 {
   margin-bottom: 72rpx;
 }
+.mb-120 {
+  margin-bottom: 120rpx;
+}
+.mb-200 {
+  margin-bottom: 200rpx;
+}
 .mb-300 {
   margin-bottom: 300rpx;
 }
@@ -554,6 +560,9 @@
 }
 .pb-100 {
   padding-bottom: 100rpx;
+}
+.pb-120 {
+  padding-bottom: 120rpx;
 }
 .pb-200 {
   padding-bottom: 200rpx;

@@ -63,16 +63,16 @@
     </view>
     <view class="type mt-60  {{mode === 'b0' ? 'b-20' : 'b-180'}}" wx:if="{{needSelectType}}">
       <view class="buttonWrap d-f">
-        <view class="w-200 d-f jc-c ai-c border1 {{ type === 'cart' ? 'bgc-FFC901 bigger c-fff' : 'c-FFC901 bfff'}}" bindtap="handleChangeOpea" data-type="cart">+购物车</view>
+        <view class="w-200 d-f jc-c ai-c border1 {{ type === 'cart' ? 'bgc-FFC901 bigger c-fff' : 'normal1'}}" bindtap="handleChangeOpea" data-type="cart">+购物车</view>
         <!-- 一般用户 一件代发(会员价) + 代理拿货(代理价) 
         会员用户 一件代发(会员价) + 代理拿货(代理价) 
         代理用户 一件代发(代理价) + 代理拿货(代理价) -->
-        <view class="w-200 d-f fxd-c jc-c ai-c  border2  {{ type === 'single' ? 'bgc-FF9900 bigger c-fff' : 'c-FF9900 bfff'}}" bindtap="handleChangeOpea" data-type="single">
+        <view class="w-200 d-f fxd-c jc-c ai-c  border2  {{ type === 'single' ? 'bgc-FF9900 bigger c-fff' : 'normal2'}}" bindtap="handleChangeOpea" data-type="single">
           <view class="fz-30">￥{{price_1}}</view>
           <view class="fz-20">一件代发</view>
         </view>
         <view 
-          class="w-200 d-f fxd-c jc-c ai-c  border3 {{ type === 'agent' ? 'bgc-FF6C01 bigger c-fff' : 'c-FF6C01 bfff'}}" 
+          class="w-200 d-f fxd-c jc-c ai-c  border3 {{ type === 'agent' ? 'bgc-FF6C01 bigger c-fff' : 'normal3'}}" 
           bindtap="handleChangeOpea" 
           data-type="agent"
         > 

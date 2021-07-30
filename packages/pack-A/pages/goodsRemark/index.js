@@ -52,7 +52,7 @@ Page({
   getRemarksUsed() {
     request.get('lastsremark', res => {
         if (res.success) {
-            this.setData({ usedRemarkList: res.data.list })
+            this.setData({ usedRemarkList: res.data.list.filter(item => item.remark) })
         } else {
             toast(res.msg)
         }
@@ -62,7 +62,7 @@ Page({
   getRemarksHistory() {
     request.get('historyremark', res => {
         if (res.success) {
-            this.setData({ historyRemarkList: res.data.list })
+            this.setData({ historyRemarkList: res.data.list.filter(item => item.remark) })
         } else {
             toast(res.msg)
         }

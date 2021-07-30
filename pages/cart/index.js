@@ -1,7 +1,10 @@
 import { Request, toast, rpxTopx, copyText, maskNumber } from '../../utils/util.js';
+import { ALIYUN_URL } from '../../utils/config.js';
 let app = getApp();
+
 wx.Page({
     data: {
+        ALIYUN_URL,
         allSelect: false,
         isEdit: false,
         totalMoney: '0.00',
@@ -65,9 +68,9 @@ wx.Page({
                             if(item.product_specs) {
                                 let product_specs =JSON.parse(item.product_specs);
                                 for (let key in product_specs) {
-                                    display +=  key + ':' + product_specs[key] + ';'
+                                    display +=  product_specs[key] + '/'
                                 }
-                                item.display = display;
+                                item.display = display.substring(0, display.length - 1);
                             }
                             
                             // if (item.id == 120) {

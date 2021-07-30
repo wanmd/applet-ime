@@ -34,7 +34,7 @@
   
 }
 .modal {
-  margin-top: 15%;
+  margin-top: 10%;
   margin-left: 50rpx;
   width: 652rpx;
   /* height: 752rpx; */

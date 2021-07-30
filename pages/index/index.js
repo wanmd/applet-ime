@@ -28,7 +28,6 @@ wx.Page({
         quoteListKeyword: '',
         query: {
             keyword: '',
-            no: '',
         },
         query2: {
             keyword: '',
@@ -101,7 +100,6 @@ wx.Page({
     handleDelete() {
         this.setData({
             'query.keyword': '',
-            'query.no': ''
         })
         this.search()
     },
@@ -911,7 +909,7 @@ wx.Page({
             success (res) {
                 wx.showLoading({ title: '查找中...' })
                 _this.setData({
-                    'query.no': res.result
+                    'query.keyword': res.result
                 })
                 _this.setData({ chatList: [] })
                 wx.hideLoading({})

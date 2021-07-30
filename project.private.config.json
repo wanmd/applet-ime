@@ -711,7 +711,7 @@
         {
           "name": "我的店铺",
           "pathName": "pages/store/index",
-          "query": "storeId=903450&type=4",
+          "query": "storeId=903449&type=1",
           "scene": null
         },
         {
@@ -730,6 +730,12 @@
           "name": "服务设置",
           "pathName": "pages/merchant/service/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "客人查看主人分类",
+          "pathName": "pages/storeCategory/index",
+          "query": "storeId=903449",
           "scene": null
         }
       ]

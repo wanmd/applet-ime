@@ -19,7 +19,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const { storeId } = options;
+    this.setData({ 
+      storeId
+    })
+    if (storeId) {
+      wx.setNavigationBarTitle({
+        title: '商品分类查看',
+      })
+    }
   },
 
   /**
@@ -53,7 +61,7 @@ Page({
         } else {
             toast(res.msg)
         }
-    }, { parentid })
+    }, { parentid, storeId: this.data.storeId || null })
   },
 
   handleCheck(e) {
@@ -111,6 +119,15 @@ Page({
     wx.navigateTo({
       url: '/pages/storeCategory/edit',
     })
+  },
+  // 分类筛选商品列表
+  handleSearchGoods(e) {
+    const { id } = e.currentTarget.dataset;
+    var pages = getCurrentPages();
+    var page = pages[pages.length - 2];
+    
+    page.changeCategory(id)
+    wx.navigateBack()
   },
 
   /**
