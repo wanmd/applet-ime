@@ -766,6 +766,13 @@
           "pathName": "packages/pack-A/pages/order_user/detail/index",
           "query": "orderId=242&index=0",
           "scene": null
+        },
+        {
+          "id": -1,
+          "name": "看别人店铺",
+          "pathName": "pages/storeCategory/index",
+          "query": "storeId=903449",
+          "scene": null
         }
       ]
     }

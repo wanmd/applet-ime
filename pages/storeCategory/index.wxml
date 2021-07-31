@@ -22,7 +22,14 @@
 <!-- 别人店铺的分类 -->
 <block wx:else>
   <view class="p-44 mb-300 bgc-fff">
-    <view class="d-f ai-c jc-c w-100p h-82 bdr8 bgc-F7F7FA c-333 fz-28 mb-28" bindtap="handleSearchGoods" data-id="0">全部产品</view>
+    <view 
+      class="d-f ai-c jc-c w-100p h-82 bdr8 bgc-F7F7FA c-333 fz-28 mb-28 pos-r" 
+      bindtap="handleSearchGoods" 
+      data-id="0"
+    >
+    <view>全部产品</view>
+    <view class="pos-a r-30">{{total}}</view>
+    </view>
     <view class="pb-20 mb-44 borderb-1-solid-EAEAEA pb-40" wx:for="{{treeData}}" wx:key="id" wx:for-index="parentIndex">
       <!-- 一级分类 -->
       <view 

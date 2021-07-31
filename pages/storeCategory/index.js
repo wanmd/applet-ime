@@ -54,8 +54,11 @@ Page({
             // let orderCount = res.data.info;
             console.log(res);
             const { list } = res.data;
+            let total = 0;
+            list.forEach(item => total += item.count)
             this.setData({
               treeData: list,
+              total
             })
             
         } else {

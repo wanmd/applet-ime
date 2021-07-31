@@ -152,7 +152,7 @@
           <view class='symbols'>
             <!-- <symbol wx:if="{{chat.user.isAuth}}">{{chat.user.merchantType==1?'企业认证':'个人认证'}}</symbol> -->
             <symbol wx:if="{{chat.user.isAuth}}">商户认证</symbol>
-            <text class="fz-24 c-999 ml-4">上新<text class="c-FFC901">{{chat.user.chat_number}}</text></text>
+            <text class="fz-24 c-999 ml-4">上新<text class="c-FFC901">{{chat.user.new_product_count}}</text></text>
             <text class="fz-24 c-999 ml-4">产品<text class="c-FFC901">{{chat.user.goods_number}}</text></text>
             <!-- <symbol class='symbol f-20'>企业认证</symbol> -->
             <!-- <symbol class='symbol f-20'>消保金</symbol> -->
