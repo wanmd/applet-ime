@@ -38,7 +38,7 @@
             <view class="car-goods-item border-b " wx:for="{{item.cart}}" wx:for-index='idx' wx:for-item="it" wx:key='id' >
               
               <view class="car-goods-item_ relative" >
-                <view wx:if="{{it.state == 0}}" class="mask">
+                <view wx:if="{{it.state == 2}}" class="mask">
                   <view class="round">失效</view>
                 </view>
                 <switch type="checkbox" class="checkbox" checked="{{it.checked}}" data-pindex="{{index}}" data-cindex="{{idx}}" catchchange="selectOne" />

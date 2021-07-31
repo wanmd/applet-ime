@@ -106,7 +106,7 @@ Component({
               obj.parentName = item.name;
               obj.active =  false;
               return obj
-            }).reverse()
+            })
             return item
           })
           // 根据用户身份计算最低价

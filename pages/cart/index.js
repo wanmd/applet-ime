@@ -407,7 +407,7 @@ wx.Page({
         for (let i = 0; i < cartList.length; i++) {
             let v = cartList[i].cart;
             for(let ii = 0; ii < v.length; ii++) {
-                if (v[ii].checked && v[ii].state ==0) {
+                if (v[ii].checked && v[ii].state == 2) {
                     flag = false;
                     break
                 }
