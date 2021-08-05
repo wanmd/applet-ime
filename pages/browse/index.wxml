@@ -28,7 +28,7 @@
                     </view>
                     <view class="goods-price" wx:else>
                       <text>零售价格：￥{{item.sale_price}}</text>
-                      <view>会员价格：￥{{item.member_price}}</view>
+                      <view>公开价格：￥{{item.member_price}}</view>
                     </view>
                   </view>
                   <view class="time-area">

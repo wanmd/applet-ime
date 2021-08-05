@@ -63,6 +63,9 @@ Page({
     rows.forEach(item => {
       item.delivery = { remarks: item.remarks, consignee: item.consignee, mobile: item.mobile, province: item.province, city: item.city, district: item.district, address: item.address }
       item.store.nickname = item.store.nickname.substring(0,10)
+      item.goods.forEach(gitem => {
+        gitem.remark = item.remarks
+      })
       orderList.push(item)
     })
 

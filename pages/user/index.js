@@ -123,6 +123,12 @@ Component({
                 text: '建议留言',
                 url: '',
             },
+            {
+                image: '../../assets/images/user/xiaoxidingyue@2x.png',
+                text: '消息订阅',
+                url: '',
+                method: 'navToXiaoXi'
+            },
             // {
             //     image: '../../assets/images/user/rebate@2x.png',
             //     text: '返利小金库',
@@ -494,6 +500,11 @@ Component({
         toggleCardHide() {
             this.closeMark()
         },
+        navToXiaoXi() {
+            wx.navigateTo({
+              url: '/packages/pack-A/pages/webview/index?targetUrl=' + 'https://mp.weixin.qq.com/s/ozkfskEDeyri-0YOYQajeA',
+            })
+        }
     },
     pageLifetimes: {
         show() { //获取位置

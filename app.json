@@ -69,7 +69,8 @@
     "pages/productCategory/index",
     "pages/goodsSku/index",
     "pages/merchant/storeBackground/index",
-    "pages/merchant/service/index"
+    "pages/merchant/service/index",
+    "pages/user/webview"
   ],
   "subPackages": [
     {
@@ -109,7 +110,8 @@
         "pages/user/setFreight/index",
         "pages/goodsRemark/index",
         "pages/shopGoodsList/index",
-        "pages/user/setQrCode/index"
+        "pages/user/setQrCode/index",
+        "pages/webview/index"
       ]
     },
     {
