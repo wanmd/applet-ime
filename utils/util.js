@@ -405,14 +405,14 @@ const maskNumber = num => {
 const navToIyou = () => {
     let app = getApp();
     let storeInfo =  wx.getStorageSync('userinfo') || app.globalData.userInfo 
-    console.log(storeInfo);
     console.log(storeInfo.user_id);
     
     wx.navigateToMiniProgram({
         appId: 'wx3020976f686fe9f8',
         path: 'pages/home/index?storeId=' + storeInfo.user_id,
         extraData: {
-            storeInfo
+            storeInfo,
+            storeId: storeInfo.user_id
         },
         envVersion: 'trial',// 体验版
         // envVersion: 'develop',// 开发板
