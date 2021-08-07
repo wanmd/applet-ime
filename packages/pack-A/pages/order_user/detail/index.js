@@ -9,6 +9,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        ALIYUN_URL,
         assetsImages: app.assetsImages,
         baseUrl: ALIYUN_URL,
         orderId: 0,
@@ -45,6 +46,7 @@ Page({
         amount_price: 0,
 
         verify_flag: false,
+        selfPay_pic: false
     },
 
     copy() {
@@ -303,6 +305,7 @@ Page({
                 order.goods.forEach(item => {
                     total_price += app.formatDecimal(item.sale_price) * item.quantity;
                     vip_price += app.formatDecimal(item.member_price) * item.quantity;
+                    item.remarks = order.remarks
                 })
                 amount_price = order.amount;
 
@@ -439,6 +442,26 @@ Page({
         this.setData({
             hx_flag: hx_flag,
             hx_val: hx_val
+        })
+    },
+    // 查看付款凭证
+    toggleViewSelfPay() {
+        this.setData({
+        selfPay_pic: !this.data.selfPay_pic
+        })
+    },
+    previewImage (e) {
+        let img = e.currentTarget.dataset.img;
+        let imgs = e.currentTarget.dataset.imgs;
+        let urls = []
+        let url = ALIYUN_URL + '/' + img
+        for(let i=0;i<imgs.length;i++){
+        let curl = ALIYUN_URL + '/' + imgs[i]
+        urls.push(curl)
+        }
+        wx.previewImage({
+        current: url,
+        urls: urls 
         })
     },
 })

@@ -861,6 +861,9 @@
 .w-79 {
   width: 79rpx;
 }
+.w-80 {
+  width: 80rpx;
+}
 .w-86 {
   width: 86rpx;
 }

@@ -1,4 +1,5 @@
 import { Request, toast, alert, copyText, parseTime } from '../../../../../utils/util.js'
+import { ALIYUN_URL } from './../../../../../utils/config'
 let request = new Request()
 let app = getApp()
 var numberInter = null
@@ -8,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ALIYUN_URL,
     orderId : 0,
     index : -1,
     showCancelConfirm : false,
@@ -44,7 +46,8 @@ Page({
     verify_flag: false,
     vip_price: 0,
     amount_price: 0,
-    userInfo: null
+    userInfo: null,
+    selfPay_pic: false
   },
 
   copy () {
@@ -322,13 +325,15 @@ Page({
         order.pay_time = parseTime(order.pay_time)
         order.deliver_time = parseTime(order.deliver_time)
         order.complete_time = parseTime(order.complete_time)
+        order.pay_picture = JSON.parse(order.pay_picture)
 
         let total_price = 0;
         let vip_price = 0;
         let amount_price = 0;
         order.goods.forEach(item => {
             total_price += app.formatDecimal(item.sale_price) * item.quantity;
-            vip_price += app.formatDecimal(item.vip_price) * item.quantity;
+            vip_price += app.formatDecimal(item.member_price) * item.quantity;
+            item.remark = order.remarks
         })
         amount_price = order.amount;
 
@@ -503,5 +508,25 @@ Page({
     this.setData({
       verify_flag: false
     })
-  }
+  },
+  // 查看付款凭证
+  toggleViewSelfPay() {
+    this.setData({
+      selfPay_pic: !this.data.selfPay_pic
+    })
+  },
+  previewImage (e) {
+    let img = e.currentTarget.dataset.img;
+    let imgs = e.currentTarget.dataset.imgs;
+    let urls = []
+    let url = ALIYUN_URL + '/' + img
+    for(let i=0;i<imgs.length;i++){
+      let curl = ALIYUN_URL + '/' + imgs[i]
+      urls.push(curl)
+    }
+    wx.previewImage({
+    current: url,
+    urls: urls 
+    })
+  },
 })

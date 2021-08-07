@@ -13,7 +13,7 @@
       </view>
       <view class="goods-product__note">
         <view class="g-p__note_title color-666">购买备注:</view>
-        <view class="g-p__note_val">{{goods.remark||''}}</view>
+        <view class="g-p__note_val">{{goods.remarks||''}}</view>
       </view>
     </view>
   </view>

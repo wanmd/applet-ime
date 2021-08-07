@@ -8,6 +8,7 @@ Page({
     userType : 1,
     query: {
       status: 5,
+      type: 1
     },
     orderList: [],
     showCancelConfirm: false,
@@ -52,6 +53,9 @@ Page({
     rows.forEach(item => {
       item.delivery = { remarks: item.remarks, consignee: item.consignee, mobile: item.mobile, province: item.province, city: item.city, district: item.district, address: item.address }
       item.store.nickname = item.store.nickname.substring(0,10)
+      item.goods.forEach(good => {
+        good.remarks = item.remarks
+      })
       orderList.push(item)
     })
 
@@ -180,7 +184,8 @@ Page({
     if(options&&options.status){
       let query = {
         status: options.status || 5,
-        groupstate: options.groupstate || ''
+        groupstate: options.groupstate || '',
+        type: 1 //自己的订单
       }
       this.setData({ query: query })
     }
