@@ -62,7 +62,7 @@ wx.Page({
                         v.cart.forEach(item => {
                             item.checked = false;
                             item.agent_price = Number(item.agent_price).toFixed(2);
-                            item.sale_price = item.isAgent ? Number(item.sale_price).toFixed(2) : maskNumber(Number(item.agent_price).toFixed(2));
+                            item.sale_price = v.isAgent ? Number(item.sale_price).toFixed(2) : maskNumber(Number(item.agent_price).toFixed(2));
                             
                             let display = '';
                             if(item.product_specs) {

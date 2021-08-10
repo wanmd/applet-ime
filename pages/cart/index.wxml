@@ -84,11 +84,11 @@
                       <!-- 新 -->
                       <view class="goods-price" wx:if="{{item.isAgent}}">
                         <view>
-                          <text class="text c-262626">零售价</text>
+                          <text class="text c-262626">零售价￥</text>
                           <text class='text-through c-262626 fz-28'>{{it.sale_price}}</text>
                         </view>
                         <view>
-                          <text class="text c-ECBD75">代理价</text>
+                          <text class="text c-ECBD75">代理价￥</text>
                           <text class="c-ECBD75 fz-30">{{it.agent_price}}</text>
                         </view>
                       </view>
@@ -100,7 +100,7 @@
                             style="width:68rpx;height:28rpx;margin-right:4rpx" 
                             catchtap="isAuth_"
                           />
-                          <text class='c-ECBD75 fz-28'>{{it.sale_price}}</text>
+                          <text class='c-ECBD75 fz-28'>￥{{it.sale_price}}</text>
                         </view>
                         <view>
                           <text class="text c-262626">代发价￥</text>
