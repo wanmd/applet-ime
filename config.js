@@ -1,6 +1,6 @@
 let config = {
     baseUrls: 'https://r.kingwish.com.cn/api/',
-    baseUrls: 'https://dev.kingwish.com.cn/api/',
+    // baseUrls: 'https://dev.kingwish.com.cn/api/',
     userinfo_key: 'userinfo',
     appId: 'wxde0ae16dacfdfd37',
     appData: {
