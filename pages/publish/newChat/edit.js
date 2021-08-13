@@ -623,14 +623,19 @@ wx.Page({
                 }
                 // 店铺分类
                 let categoryIds = [];
-                data.categoryTrees.forEach(item => {
-                    categoryIds.push({
-                        parentName: item.name,
-                        name: item.son.name,
-                        id: item.son.id
+                if (!data.categoryTrees.length) {// 分类被删除
+                    update.categoryIds = null;
+                } else {
+                    data.categoryTrees.forEach(item => {
+                        categoryIds.push({
+                            parentName: item.name,
+                            name: item.son.name,
+                            id: item.son.id
+                        })
                     })
-                })
-                update.categoryIds = categoryIds;
+                    update.categoryIds = categoryIds;
+                }
+                
 
                 if (data.image_urls) {
                     if (typeof data.image_urls == 'string') {

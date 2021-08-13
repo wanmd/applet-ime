@@ -155,6 +155,7 @@
             <cell title='运费设置' border='{{false}}' arrow='{{false}}'>
               <view 
                 slot='content' 
+                v-if="{{hasSetFee}}"
               >
                 <radio-group catchchange="radioChangeExpress" name="isExpress" slot='content'>
                   <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
@@ -166,9 +167,17 @@
                     data-url='/packages/pack-A/pages/user/setFreight/index'
                   ></text>
                 </radio-group>
-               
               </view>
-              
+              <view 
+                slot='content' 
+                v-if="{{!hasSetFee}}"
+              >
+                <text 
+                  class="arr"
+                  bindtap="handleSetFreight"
+                  data-url='/packages/pack-A/pages/user/setFreight/index'
+                >请先去设置运费</text>
+              </view>
             </cell>
           </block>
           
