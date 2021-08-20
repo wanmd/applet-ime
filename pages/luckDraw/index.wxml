@@ -10,7 +10,7 @@
 <view wx:if='{{result != 2}}' class="amount-part {{result==1?'bgcBox':''}}">
   <block wx:if='{{result == 1}}'>
     <view class='color-fbd49d amount'>恭喜你！中奖啦！</view>
-    <el-image class="zjbg" src="zjbg.png" style="height:100%" mode="widthFix"></el-image>
+    <el-image class="zjbg" src="{{ALIYUN_URL}}/images/ime/zjbg.png" style="height:100%" mode="widthFix"></el-image>
   </block>
   <block wx:else>
     <view class='text-center lh30'>差点手气，没中奖</view>

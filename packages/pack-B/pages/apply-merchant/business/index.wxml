@@ -76,7 +76,7 @@
       <view class='p-l-32 p-r-32 m-t-30 padd_b-10'>
         <view>企业工商营业执照</view>
         <view class='zhizhao clear m-t-30'>
-          <el-image class='item pull-left' src='zhizhao.png' width='336rpx' height='460rpx'></el-image>
+          <el-image class='item pull-left' src='{{ALIYUN_URL}}/images/ime/zhizhao.png' width='336rpx' height='460rpx'></el-image>
           <upload class='item pull-right upload upload_color' width='336rpx' height='460rpx' camera='{{false}}' bgcolor="item_1" data-target='licenseImg' data-form='form1'  bindsuccess='input' bind:clear='clearPic1'>
             <view class='wrap xy'>
               <el-image src='ic_add.png' class='icon' height='32rpx' width='32rpx'></el-image>

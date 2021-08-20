@@ -35,7 +35,7 @@
   <view class='p-l-32 p-r-32 m-t-30 padd_b-10'>
     <view>企业工商营业执照</view>
     <view class='zhizhao clear m-t-30'>
-      <el-image class='item pull-left' src='zhizhao.png' width='336rpx' height='460rpx'>
+      <el-image class='item pull-left' src='{{ALIYUN_URL}}/images/ime/zhizhao.png' width='336rpx' height='460rpx'>
       </el-image>
       <upload class='item pull-right upload' width='336rpx' height='460rpx' camera='{{false}}' data-target='licenseImg' bindsuccess='input'>
         <view class='wrap xy'>
@@ -53,7 +53,7 @@
   <view class='p-l-32 p-r-32 m-t-30'>
     <view>商家店铺真实环境照片</view>
     <view class='store clear m-t-30'>
-      <el-image class='item pull-left' src='store-z.png' width='336rpx' height='224rpx'>
+      <el-image class='item pull-left' src='{{ALIYUN_URL}}/images/ime/store-z.png' width='336rpx' height='224rpx'>
       </el-image>
       <upload class='item pull-right upload' width='336rpx' height='224rpx' camera='{{false}}' data-target='storeImg' bindsuccess='input'>
         <view class='wrap xy'>
@@ -64,7 +64,7 @@
       </upload>
     </view>
     <view class='store clear m-t-30'>
-      <el-image class='item pull-left' src='store-f.png' width='336rpx' height='224rpx'>
+      <el-image class='item pull-left' src='{{ALIYUN_URL}}/images/ime/store-f.png' width='336rpx' height='224rpx'>
       </el-image>
       <upload class='item pull-right upload' width='336rpx' height='224rpx' camera='{{false}}' data-target='storeInnerImg' bindsuccess='input'>
         <view class='wrap xy'>

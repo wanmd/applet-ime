@@ -1,10 +1,11 @@
-import { Request, toast, formDate, validmobile } from '../../../../../utils/util.js'
+import { Request, toast, validmobile } from '../../../../../utils/util.js'
+import { ALIYUN_URL } from '../../../../../utils/config.js'
 let request = new Request()
 let app = getApp()
 Page({
 
   data: {
-	  
+	  ALIYUN_URL,
     formData : {
 	  is_agree:true,
       type : 1,

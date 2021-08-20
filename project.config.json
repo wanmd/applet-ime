@@ -21,20 +21,22 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
-    "userConfirmedBundleSwitch": false,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "lazyloadPlaceholderEnable": false,
+    "useApiHostProcess": true,
+    "enableEngineNative": false,
+    "userConfirmedBundleSwitch": false,
     "minifyWXSS": true,
     "showES6CompileOption": false
   },
@@ -771,6 +773,13 @@
           "id": -1,
           "name": "看别人店铺",
           "pathName": "pages/storeCategory/index",
+          "query": "storeId=903449",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/luckDraw/index",
+          "pathName": "pages/luckDraw/index",
           "query": "storeId=903449",
           "scene": null
         }
