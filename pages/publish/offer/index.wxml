@@ -1,4 +1,4 @@
-<view class="wx_page">
+<view class="wx_page pb-50">
   <view class="wx_header">
     <view style="position: absolute;width: 40px;text-align: center" bindtap="goback">{{backLabel}}</view>
     <view style="width: 100%;text-align:center">{{barTitlle}}</view>
@@ -37,7 +37,11 @@
 <view wx:if='{{showCard}}' bindtap='toggleCardHide'>
   <view style='position:fixed;z-index:9;background:rgba(0,0,0,0.5);height:100%;width:100%;left:0;top:0;' ></view>
   <view class='card-modal'>
-    <canvas id='canvas-modal' canvas-id="firstCanvas" style='width:696rpx;height:1076rpx;background: linear-gradient(180deg, #FFE200 0%, #FFFFFF 22%, #FFFFFF 100%);'></canvas>
+    <canvas 
+      id='canvas-modal' 
+      canvas-id="firstCanvas" 
+      style='width:696rpx;height:1076rpx;'
+    ></canvas>
     <button hover-class="none" style='background:#FFE200;padding:30rpx 0rpx;width:512rpx;margin:40rpx auto 0rpx auto;border-radius: 48px;' catchtap='saveCard'>
       保存图片分享给好友/群
     </button>

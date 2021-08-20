@@ -54,6 +54,7 @@ Component({
                 image: '../../assets/images/user/dingdan@2x.png',
                 text: '订单管理',
                 url: '../../packages/pack-A/pages/order/index',
+                redNum: true
             },
             {
                 image: '../../assets/images/user/yonghu@2x.png',

@@ -278,6 +278,19 @@ page{
   border-radius: 50%;
   background-color: #f00;
 }
+.red-number_orderCount2 {
+  position: absolute;
+  right: 40rpx;
+  top: -10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #f00;
+}
 .card {
   display: flex;
   justify-content: flex-start;

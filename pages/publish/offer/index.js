@@ -187,7 +187,7 @@ Vs沙宣深层滋润-57
 
 			request.get('quote/poster', res => {
 				if (res.success) {
-					console.log(res);
+					// console.log(res);
 					this.setData({
 						cardData: {
 							...res.data.list,
@@ -211,6 +211,18 @@ Vs沙宣深层滋润-57
         query.exec(function (res) {
             W = res[0].width
             H = res[0].height
+            // console.log(res);
+            ctx.setFillStyle('#FFF')
+            ctx.fillRect(0, 0, rpxTopx(676), H)
+            ctx.draw(true)
+            // 画背景
+            wx.getImageInfo({
+                src: '../../../packages/assets/bg.png',
+                success(res) {
+                    ctx.drawImage('../../../packages/assets/bg.png', 0, 0, res.width, res.height, 0, 0, rpxTopx(676), rpxTopx(1000))
+                    ctx.draw(true)
+                }
+            })
         })
         let self = this;
         const { cardData } = this.data;
@@ -350,7 +362,7 @@ Vs沙宣深层滋润-57
                         }
                         // –drawImage(Imageimg,float sx,float sy,float sw,float sh,float dx,float dy,float dw,float dh)
                         // •从sx、sy处截取sw、sh大小的图片，绘制dw、dh大小到dx、dy处
-                        ctx.drawImage(res.path, l, t, baseSize_, baseSize_, rpxTopx(42), rpxTopx(660), rpxTopx(baseSize), rpxTopx(baseSize_))
+                        ctx.drawImage(res.path, l, t, baseSize_, baseSize_, rpxTopx(42), rpxTopx(600), rpxTopx(baseSize), rpxTopx(baseSize_))
                         ctx.draw(true)
                     }
                 })
@@ -366,6 +378,8 @@ Vs沙宣深层滋润-57
                 let req = new Request()
                 req.setConfig('responseType', 'arraybuffer')
                 req.post('quote/qrcode?storeId=' + userInfo.user_id, res => {
+                    console.log(res);
+                    
                         let qrcode = wx.arrayBufferToBase64(res).replace(/[\r\n]/g, '');
                         let d = new Date()
                         const fsm = wx.getFileSystemManager()

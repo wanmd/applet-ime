@@ -557,6 +557,8 @@ wx.Page({
           wx.getImageInfo({
             src: filePath,
             success: (res) => {
+              console.log(res);
+              
               let qrSize = rpxTopx(240)
               ctx.drawImage(res.path, 0, 0, res.width, res.height, rpxTopx(400), rpxTopx(720), qrSize, qrSize)
               ctx.draw(true)
