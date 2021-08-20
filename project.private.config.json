@@ -20,10 +20,9 @@
           "scene": null
         },
         {
-          "id": 1,
           "name": "商品详情",
           "pathName": "pages/goods/index",
-          "query": "chatId=5155",
+          "query": "chatId=2412",
           "scene": null
         },
         {
@@ -736,6 +735,12 @@
           "name": "客人查看主人分类",
           "pathName": "pages/storeCategory/index",
           "query": "storeId=903449",
+          "scene": null
+        },
+        {
+          "name": "转发我的店铺",
+          "pathName": "pages/publish/newChat/edit",
+          "query": "type=2&chatId=2412&share=dp&id=104",
           "scene": null
         }
       ]

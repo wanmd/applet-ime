@@ -7,12 +7,12 @@
             <avatar size='80rpx' src='{{user.avatar}}' user="{{user}}" userId='{{storeId}}'>
                 <view class='m-l-20'>
                     <view class='bold'>
-                        <text class="nickname ellipsis1">{{user.nickname}}</text>
-                        <symbol class="symbol" styleName="{{'color: #000;'}}" wx:if="{{user.isAuth}}">
+                        <text class="nickname ellipsis1 c-fff">{{user.nickname}}</text>
+                        <symbol class="symbol" styleName="{{'color: #fff;'}}" wx:if="{{user.isAuth}}">
                             {{user.merchantType==1?'企业认证':'个人认证'}}
                         </symbol>
                     </view>
-                    <view class="remark ellipsis1 p-t-10">{{user.remark}}</view>
+                    <view class="remark ellipsis1 p-t-10 c-fff">{{user.remark}}</view>
                 </view>
             </avatar>
             <!-- <view class='absolute middle r-0 overflow'>

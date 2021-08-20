@@ -178,9 +178,9 @@ Component({
                 })
             }
             this.getOrderCount(1);
-            if (this.data.userType == 2) {
+            // if (this.data.userType == 2) {
                 this.getOrderCount(2);
-            }
+            // }
         },
         getOrderCount(type) {
             request.get('order/getOrderCount', res => {

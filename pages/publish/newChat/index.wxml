@@ -52,6 +52,7 @@
             </cell>
             <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
               <view 
+                class="w-400 tov-e-ok"
                 slot='content' 
                 bindtap="handleNav"
                 data-url='/pages/storeCategory/index'>
@@ -63,6 +64,7 @@
             </cell>
             <cell title='产品标签' border='{{false}}' arrow='{{true}}'>
               <view 
+                class="w-400 tov-e-ok"
                 slot='content' 
                 bindtap="handleNav"
                 data-url='/pages/goodsLabel/index'>
@@ -117,6 +119,7 @@
             <view class="addSku" bindtap="handleEditSku" wx:if="{{goods_skuList.length}}">+编辑商品规格</view>
             <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
               <view 
+                class="w-400 tov-e-ok"
                 slot='content' 
                 bindtap="handleNav"
                 class="w-500 tov-e-ok ta-r"
@@ -129,6 +132,7 @@
             </cell>
             <cell title='产品标签' border='{{false}}' arrow='{{true}}'>
               <view 
+                class="w-400 tov-e-ok"
                 slot='content' 
                 bindtap="handleNav"
                 class="w-500 tov-e-ok ta-r"
@@ -155,7 +159,7 @@
             <cell title='运费设置' border='{{false}}' arrow='{{false}}'>
               <view 
                 slot='content' 
-                v-if="{{hasSetFee}}"
+                wx:if="{{hasSetFee}}"
               >
                 <radio-group catchchange="radioChangeExpress" name="isExpress" slot='content'>
                   <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
@@ -170,7 +174,7 @@
               </view>
               <view 
                 slot='content' 
-                v-if="{{!hasSetFee}}"
+                wx:if="{{!hasSetFee}}"
               >
                 <text 
                   class="arr"

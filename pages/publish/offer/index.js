@@ -205,16 +205,17 @@ Vs沙宣深层滋润-57
         this.setData({
             showCard: !this.data.showCard
         })
-				const ctx = wx.createCanvasContext('firstCanvas');
-				const query = wx.createSelectorQuery();
-				query.select('#canvas-modal').boundingClientRect();
-				query.exec(function (res) {
-					W = res[0].width
-					H = res[0].height
-				})
-				let self = this;
-				const { cardData } = this.data;
-				const {nickname, avatar, remark, mobile, wechat, address, store_background, store_quote_state, good_num } = cardData;
+        const ctx = wx.createCanvasContext('firstCanvas');
+        const query = wx.createSelectorQuery();
+        query.select('#canvas-modal').boundingClientRect();
+        query.exec(function (res) {
+            W = res[0].width
+            H = res[0].height
+        })
+        let self = this;
+        const { cardData } = this.data;
+        const {nickname, avatar, remark, mobile, wechat, address, store_background, store_quote_state, good_num } = cardData;
+        // ctx.setFillStyle('#FFE200')
       
         // 开始画图
         wx.getImageInfo({
@@ -254,10 +255,10 @@ Vs沙宣深层滋润-57
                 let month = date.getMonth() + 1;
                 let day = date.getDate();
                 let storeName = '商家名';
-                let title = `${nickname}-${month}月${day}日文字报价单`
+                let title = `${month}月${day}日文字报价单`
                 ctx.setFontSize(rpxTopx(32))
                 ctx.setFillStyle('#333')
-                ctx.fillText(title, rpxTopx(144), rpxTopx(204))
+                ctx.fillText(title, rpxTopx(224), rpxTopx(204))
                 ctx.draw(true)
                 
                 let num = -30; // 调整上下距离
@@ -361,9 +362,10 @@ Vs沙宣深层滋润-57
 				ctx.draw(true)
 								
                 // 画商家二维码
+                let userInfo = wx.getStorageSync('userinfo') || app.globalData.userInfo;
                 let req = new Request()
                 req.setConfig('responseType', 'arraybuffer')
-                req.post('quote/qrcode', res => {
+                req.post('quote/qrcode?storeId=' + userInfo.user_id, res => {
                         let qrcode = wx.arrayBufferToBase64(res).replace(/[\r\n]/g, '');
                         let d = new Date()
                         const fsm = wx.getFileSystemManager()

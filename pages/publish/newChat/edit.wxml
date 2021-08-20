@@ -50,6 +50,7 @@
             <view class="addSku" bindtap="handleEditSku" wx:if="{{goods_skuList.length}}">+编辑商品规格</view>
             <cell title='店铺分类' border='{{false}}' arrow='{{true}}'>
               <view 
+                class="w-400 tov-e-ok"
                 slot='content' 
                 bindtap="handleNav"
                 data-url='/pages/storeCategory/index'>
@@ -63,6 +64,7 @@
               <view 
                 slot='content' 
                 bindtap="handleNav"
+                class="w-400 tov-e-ok"
                 data-url='/pages/goodsLabel/index'>
                 <text wx:if="{{!labels}}" class="color-ccc">请选择产品标签</text>
                 <text wx:else>{{labels}}</text>
@@ -79,7 +81,7 @@
             </cell>
             <cell title='来源（选填）' border='{{false}}' arrow='{{true}}'>
               <input disabled slot='content' type='text' placeholder='请选择来源' placeholder-class='color-ccc'
-                value='{{sourceChatId || "自建产品"}}' data-target='sourceChatId' bindinput='input' class='input w300'>
+                value='转售产品' data-target='sourceChatId' bindinput='input' class='input w300'>
               </input>
             </cell>
             <cell title='运费设置' border='{{false}}' arrow='{{true}}'>
@@ -90,9 +92,9 @@
                   <label class="radio mr-20" wx:for="{{option2}}" wx:key="{{item.label}}">
                     <radio disabled="{{!hasSetFee}}" color="#FFE200" value="{{item.value}}" wx:key="{{item.label}}" checked="{{ isExpress == item.value}}">{{item.label}}</radio>
                   </label>
-                  <text 
+                  <!-- <text 
                     class="arr"
-                  ></text>
+                  ></text> -->
                 </radio-group>
               </view>
             </cell>

@@ -52,7 +52,7 @@
           />
         </view>
       </view>
-      <view class="btn" bindtap="handleAdd">+添加具体规格8字以内</view>
+      <view class="btn" bindtap="handleAdd">+添加具体规格18字以内</view>
     </view>
     <view class="bottom d-f jc-sb">
       <view class="d-f ai-c jc-c bdrs-20 c-333 fz-32 fx-1 h-80 bgc-F9F9F9 mr-34" bindtap="handleCancel">取消</view>

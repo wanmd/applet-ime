@@ -63,8 +63,8 @@ Page({
   handleInput(e) {
     const { index } = e.currentTarget.dataset;
     let update = {}
-    // 限制8字
-    update[`skuList[${index}].name`]= e.detail.value.substring(0,8)
+    // 限制18字
+    update[`skuList[${index}].name`]= e.detail.value.substring(0,18)
     this.setData(update)
   },
 

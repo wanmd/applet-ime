@@ -572,8 +572,8 @@ wx.Page({
                     lng: data.lng || '',
 
                     name: data.name,
-                    no: data.no,
-                    remark: data.remark,
+                    no: '',
+                    remark: '',
                     videoUrl: data.video_url,
                     templateId: data.template_id,
                     isExpress: data.is_express,
@@ -592,7 +592,11 @@ wx.Page({
                 }
                 // 商品规格数据
                 if ('specs' in data) {
-                    update.goods_skuList = data.specs;
+                    update.goods_skuList = data.specs.map(item => {
+                        item.cost_price = '';
+                        item.costPrice = '';
+                        return item
+                    });
                     // 设置globalData
                     let { attribute } = data;
                     let arr = [];
@@ -615,7 +619,8 @@ wx.Page({
                             item.groupPrice = item.group_price;
                             item.memberPrice = item.member_price;
                             item.agentPrice = item.agent_price;
-                            item.costPrice = item.cost_price;
+                            // item.costPrice = item.cost_price;
+                            item.costPrice = ''; //转售商品要隐藏商家成本价
                             return item
                         }),
                         isEdit: true // 编辑状态  这个状态很关键priceExcel里面数据做更新时会用到

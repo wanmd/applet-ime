@@ -965,6 +965,10 @@ wx.Page({
             current: this.data.baseUrl + '/' + current,
             urls: picture.map(item => this.data.baseUrl + '/' + item)
         })
+    },
+    // 下拉刷新
+    onPullDownRefresh() {
+        this.search()
     }
 
 })

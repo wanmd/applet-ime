@@ -49,7 +49,7 @@
             class="level2 {{sonItem.active ? 'level2_active' : 'bgc-F8F8F8'}}"
           >
             <view>{{sonItem.name}}</view>
-            <view>{{item.count}}</view>
+            <view>{{sonItem.count}}</view>
           </view>
         </view>
       </view>

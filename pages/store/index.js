@@ -221,7 +221,7 @@ wx.Page({
             rows = rows.map((v, i) => {
                 v.picture = JSON.parse(v.picture);
                 if(!isAgent) {
-                    console.log(v.agent_price);
+                    // console.log(v.agent_price);
                     v.agent_price = maskNumber(v.agent_price)
                 }
                 return v
