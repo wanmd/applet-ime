@@ -47,7 +47,7 @@
     </view>
     <view class='m-t-20 overflow'>
       <view class='pull-left'>付款方式：<text class='m-l-20'>{{order.is_self_pay == 1 ? '自助支付' : '在线支付'}}</text></view>
-      <view class='pull-right color-ffe200 f-28' catch:tap="toggleViewSelfPay">查看付款凭证</view>
+      <view class='pull-right color-ffe200 f-28' wx:if="{{order.pay_picture}}" catch:tap="toggleViewSelfPay">查看付款凭证</view>
     </view>
     <view wx:if="{{selfPay_pic}}">
       <image 
@@ -205,11 +205,14 @@
   </view>
 
   <view class='bottom-fixed' style='display:flex;z-index:2;'  wx:if='{{(order.status == 1 && isShowTime)||(order.status == 2 && isShowTime)}}'>
-        <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if='{{order.status == 1 && isShowTime}}'>
+        <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if='{{order.status == 1}}'>
           
-          <btn style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);'>
+          <btn wx:if="{{isShowTime}}" style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);'>
             <view class="line1">订单将于</view>
             <view class="line2">{{surplusObj.hou}}：{{surplusObj.min}}：{{surplusObj.sec}}自动取消</view>
+          </btn>
+          <btn wx:if="{{!isShowTime}}" style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);'>
+            <view class="line1">订单已超时取消</view>
           </btn>
         </view>
       <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 2 && isShowTime}}">
@@ -220,6 +223,9 @@
       </view>
       <view style='justify-content: center;flex:1' wx:if="{{order.status == 2 && isShowTime}}">
         <btn bindtap='confirmComplete'>确认发货 / 消费</btn>
+      </view>
+      <view style='justify-content: center;flex:1' wx:if="{{order.status == 2 && !isShowTime}}">
+        <btn >订单已超时取消</btn>
       </view>
       
      

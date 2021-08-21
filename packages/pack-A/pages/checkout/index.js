@@ -186,14 +186,7 @@ Page({
       this.setData({type : opt.type, cartIds : cartIds})
     }else if(opt.type==2){//直接下单
       // console.log(JSON.parse(opt.productSpecs));
-      let display = '';
-      if(opt.product_specs) {
-        let product_specs =JSON.parse(opt.product_specs);
-        for (let key in product_specs) {
-          display +=  key + ':' + product_specs[key] + ';'
-        }
-        display = display;
-      }
+      
       
       data = {
         chatId: opt.chatId,
@@ -212,7 +205,7 @@ Page({
 
     // let dddd = '47,46,45,44,43'
     // let cartIds = dddd.split(',')
-console.log(app.formatDecimal("1.20"))
+    console.log(app.formatDecimal("1.20"))
 
     request.post('cart/toorder', res => {
       if(res.success){
@@ -227,6 +220,15 @@ console.log(app.formatDecimal("1.20"))
           v.store = JSON.parse(v.store)
           v.id = index
           v.cart.forEach(item => {
+            let display = '';
+            if(item.product_specs) {
+              let product_specs =JSON.parse(opt.product_specs);
+              for (let key in product_specs) {
+                display += product_specs[key] + '/'
+              }
+              display = display;
+            }
+            item.display = display;
             goodsCount += ~~item.quantity
             if(v.isAgent) {
               user__isAgent = true;

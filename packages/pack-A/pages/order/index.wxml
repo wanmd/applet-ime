@@ -84,6 +84,7 @@
   </view>
   <view class="arrow-right"></view>
 </navigator>
+<view class="p-l-r c-FFE200 ta-r" catch:tap="capyAll" wx:if="{{query.groupstate != 1 && query.status == 2 && orderList.length}}">复制全部订单</view>
 <pagination id='pagination' url='order/list' query='{{query}}' pkName='order_id' bind:load='load'>
 <view class='order-list' wx:if="{{orderList.length>0}}">
   <view class='item p-l-r' wx:for='{{orderList}}' wx:key='order_id'>

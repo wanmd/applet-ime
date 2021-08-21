@@ -184,6 +184,31 @@ Page({
       }
     }, {type: type})
   },
+  capyAll() {
+    let content = '';
+    this.data.orderList.forEach(item => {
+      const {province, city, district, consignee, address, mobile} = item.delivery
+      content = `${content}${consignee},${mobile},${province}${city}${district}${address};` +"\n";
+    })
+      if (content == '') {
+        return;
+      }
+      wx.setClipboardData({
+        data: content,
+        success(res) {
+          wx.showToast({
+            title: '全部买家信息已复制',
+            duration: 3000
+          })
+          wx.getClipboardData({
+            success(res) {
+              console.log(res.data); // data
+            }
+          });
+        }
+      });
+      return;
+  },
   onLoad (options) {
     let opt = options;
     if(opt&&opt.status){

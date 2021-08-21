@@ -325,7 +325,7 @@ Page({
         order.pay_time = parseTime(order.pay_time)
         order.deliver_time = parseTime(order.deliver_time)
         order.complete_time = parseTime(order.complete_time)
-        order.pay_picture = JSON.parse(order.pay_picture)
+        order.pay_picture = order.pay_picture && JSON.parse(order.pay_picture)
 
         let total_price = 0;
         let vip_price = 0;

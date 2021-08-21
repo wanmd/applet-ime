@@ -88,7 +88,7 @@
   font-size: 26rpx;
 
   position: absolute;
-  right: -20rpx;
+  right: 0rpx;
   top: 20rpx;
   height: 80rpx;
   line-height: 80rpx;
