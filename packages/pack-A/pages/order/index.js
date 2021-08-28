@@ -64,7 +64,16 @@ Page({
       item.delivery = { remarks: item.remarks, consignee: item.consignee, mobile: item.mobile, province: item.province, city: item.city, district: item.district, address: item.address }
       item.store.nickname = item.store.nickname.substring(0,10)
       item.goods.forEach(gitem => {
-        gitem.remark = item.remarks
+        gitem.remark = item.remarks;
+        let display = '';
+          if(gitem.product_specs) {
+              let specs =JSON.parse(gitem.product_specs);
+              for (let key in specs) {
+                  display +=  specs[key] + '/'
+              }
+              display = display.substr(0, display.length -1);
+          }
+          gitem.product_specs = display;
       })
       orderList.push(item)
     })
@@ -185,10 +194,18 @@ Page({
     }, {type: type})
   },
   capyAll() {
+    console.log(this.data.orderList);
+    
     let content = '';
     this.data.orderList.forEach(item => {
-      const {province, city, district, consignee, address, mobile} = item.delivery
-      content = `${content}${consignee},${mobile},${province}${city}${district}${address};` +"\n";
+      const {province, city, district, consignee, address, mobile} = item.delivery;
+      const { goods = [] } = item;
+      let goods_str = '';
+      goods.length && goods.forEach(gitem => {
+        const { goods_name, quantity, goods_no } = gitem;
+        goods_str = `${goods_str}${goods_name},${quantity},${goods_no}`
+      })
+      content = `${content}${consignee},${mobile},${province}${city}${district}${address},${goods_str};` +"\n";
     })
       if (content == '') {
         return;

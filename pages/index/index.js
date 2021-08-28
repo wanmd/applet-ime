@@ -572,7 +572,8 @@ wx.Page({
         this.getTabBar().setData({
             selectedIndex: 0
         });
-
+        // 每次更新数据
+        this.search()
     },
 
     setLoadFlag(type) {

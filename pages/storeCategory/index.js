@@ -60,11 +60,10 @@ Page({
               treeData: list,
               total
             })
-            
         } else {
             toast(res.msg)
         }
-    }, { parentid, storeId: this.data.storeId || null })
+    }, { parentid, storeId: this.data.storeId || 0 })
   },
 
   handleCheck(e) {

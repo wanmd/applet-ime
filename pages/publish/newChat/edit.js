@@ -210,6 +210,7 @@ wx.Page({
     },
 
     setCategoryIds(categoryIds) {
+        if (!categoryIds.length) return;
         this.setData({
             categoryIds
         })
@@ -618,7 +619,8 @@ wx.Page({
                             item.salePrice = item.sale_price;
                             item.groupPrice = item.group_price;
                             item.memberPrice = item.member_price;
-                            item.agentPrice = item.agent_price;
+                            item.agentPrice = data.isAgent ? item.agent_price : '';// 代理价展示与否根据判断的身份进行控制
+                            item.agent_price = item.agentPrice;
                             // item.costPrice = item.cost_price;
                             item.costPrice = ''; //转售商品要隐藏商家成本价
                             return item

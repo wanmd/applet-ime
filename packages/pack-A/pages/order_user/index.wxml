@@ -73,7 +73,8 @@
       <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>
       <goods wx:for='{{item.goods}}' ismy="{{false}}" goods='{{item}}' wx:key='chat_id'></goods>
       <view class='bottom'>
-        <view class='wrap'>
+        <view>购买备注:{{item.remarks}}</view>
+        <view class='wrap mt-10'>
           <view class='overflow'>
             <text class='pull-left'>共 {{item.quantity}} 件，合计：</text>
             <text class='pull-right color-f9bb69'>￥<text class='f-36'>{{item.amount}}</text></text>

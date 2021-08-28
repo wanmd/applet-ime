@@ -304,7 +304,7 @@
         <icon-text class="icon icon-iconbg" icon='iconbg@2x.png' left='8rpx' width='173rpx'>
 	        <icon-text class="icon icon-money" icon='money@2x.png' left='8rpx' width='78rpx'></icon-text>
         </icon-text>
-     	<text>分享好物给好友，TA从你分享的链接购物消费，你最高可获得成交金额5%的奖励金哦。</text>
+     	<text>分享好物给好友，TA从你分享的链接购物消费，你最高可获得成交金额2%的奖励金哦。</text>
       <!-- <el-image class='close middle' src='close.png' bindtap='toggleSelectShareType'></el-image> -->
     </view>
     <view class='types'>

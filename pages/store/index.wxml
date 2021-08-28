@@ -110,11 +110,11 @@
                                 </view>
                                 <view class='a' wx:elif='{{!isSelf && isAgent == 1}}'>
                                     <view class='price1'>
-                                        <text class="mr-8">￥ {{chat.agent_price}}</text>
-                                        <text class="c-000 td-l">￥ {{chat.sale_price}}</text>
+                                        <text class="fz-32 mr-8 color-fbd49d">￥ {{chat.agent_price}}</text>
+                                        <text class="fz-24 c-000 td-l">￥ {{chat.sale_price}}</text>
                                     </view>
                                 </view>
-                                <view class='a' wx:else>
+                                <view class='a' wx:if="{{!isSelf && !isAgent}}">
                                     <view class='price1 d-f ai-c'>
                                         <text class="c-000">￥ {{chat.sale_price}}</text>
                                         <image data-url='../applyAgent/index?storeId={{userInfo.user_id}}&storeName={{userInfo.nickname}}' catchtap="isAuth_"  class="w-64 h-28 mlr-16"  src='/assets/images/daili@2x (2).png'></image>

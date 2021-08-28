@@ -262,11 +262,13 @@ Vs沙宣深层滋润-57
                 ctx.fillText(remark_txt, rpxTopx(170), rpxTopx(120))
                 ctx.draw(true)
 
-                // 画商家名和日期
+                // 画日期
                 let date = new Date();
+                let year = date.getFullYear();
                 let month = date.getMonth() + 1;
                 let day = date.getDate();
-                let storeName = '商家名';
+                let hour = date.getHours();
+                let minute = date.getMinutes();
                 let title = `${month}月${day}日文字报价单`
                 ctx.setFontSize(rpxTopx(32))
                 ctx.setFillStyle('#333')
@@ -274,11 +276,10 @@ Vs沙宣深层滋润-57
                 ctx.draw(true)
                 
                 let num = -30; // 调整上下距离
-                // 画数据(日期)
-                // ctx.font = 'normal bold ' + rpxTopx(20) + ' sans-serif';
+                // 画报价日期
                 ctx.setFontSize(rpxTopx(24))
                 ctx.setFillStyle('#333')
-                ctx.fillText('报价日期：2021-01-01 15：30', rpxTopx(52), rpxTopx(314 + num))
+                ctx.fillText(`报价日期：${year}-${month}-${day}- ${hour}:${minute}`, rpxTopx(52), rpxTopx(314 + num))
                 ctx.draw(true)
 
                 // ctx.font = 'normal bold ' + rpxTopx(20) + ' sans-serif';
@@ -397,7 +398,7 @@ Vs沙宣深层滋润-57
                                         console.log(res);
                                         
                                         let qrSize = rpxTopx(188)
-                                        ctx.drawImage(res.path, 0, 0, res.width, res.height, rpxTopx(464), rpxTopx(326), qrSize, qrSize)
+                                        ctx.drawImage(res.path, 0, 0, res.width, res.height, rpxTopx(464), rpxTopx(266), qrSize, qrSize)
                                         ctx.draw(true)
                                     }
                                 })

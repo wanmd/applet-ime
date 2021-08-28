@@ -8,13 +8,16 @@
         <text class='pull-right bold'>{{goods.goods_no}}</text>
       </view>
       <view class='goods-qty'>
-        <text class='pull-left color-666'>数量</text>
-        <text class='pull-right bold'>{{goods.quantity}}</text>
+        <text class='pull-left color-666'>{{goods.product_specs}}</text>
       </view>
-      <view class="goods-product__note">
+      <view class='goods-qty'>
+        <text class='pull-left color-f61935'>￥{{goods.price/goods.quantity}}</text>
+        <text class='pull-right bold'>X{{goods.quantity}}</text>
+      </view>
+      <!-- <view class="goods-product__note">
         <view class="g-p__note_title color-666">购买备注:</view>
         <view class="g-p__note_val">{{goods.remarks||''}}</view>
-      </view>
+      </view> -->
     </view>
   </view>
 </navigator>

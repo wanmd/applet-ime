@@ -53,8 +53,17 @@ Page({
     rows.forEach(item => {
       item.delivery = { remarks: item.remarks, consignee: item.consignee, mobile: item.mobile, province: item.province, city: item.city, district: item.district, address: item.address }
       item.store.nickname = item.store.nickname.substring(0,10)
-      item.goods.forEach(good => {
-        good.remarks = item.remarks
+      item.goods.forEach(gitem => {
+        // gitem.remarks = item.remarks;
+        let display = '';
+          if(gitem.product_specs) {
+              let specs =JSON.parse(gitem.product_specs);
+              for (let key in specs) {
+                  display +=  specs[key] + '/'
+              }
+              display = display.substr(0, display.length -1);
+          }
+          gitem.product_specs = display;
       })
       orderList.push(item)
     })

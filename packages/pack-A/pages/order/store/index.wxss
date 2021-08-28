@@ -93,3 +93,17 @@
   height: 80rpx;
   line-height: 80rpx;
 }
+.order-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 96rpx;
+  height: 40rpx;
+  background: #FFE200;
+  opacity: 1;
+  border-radius: 22rpx;
+  font-size: 20rpx;
+  line-height: 28rpx;
+  color: #3A3A3A;
+  margin-left: 120rpx;
+}

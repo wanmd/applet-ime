@@ -12,12 +12,13 @@
   <view class="self bgc-fff p-20 mb-16" wx:if="{{order.self_pickup}}">
     <view class="self-A d-f">
       <view class="self-A-left d-f fx-1 fxd-c pos-r mr-48 pl-54">
-        <image src="/assets/images/iyou_user/shopname@2x.png" class="w-44 h-44 pos-a t-0 l-0" />
-        <view><text class="fz-32 c-434759 mr-40">{{storeInfo.name}}</text><text class="ml-20">{{storeInfo.mobile}}</text></view>
+        <el-image class='w-44 h-44 pos-a t-0 l-0' src='ic_location.png'></el-image>
+        <!-- <image src="/assets/images/iyou_user/shopname@2x.png" class="w-44 h-44 pos-a t-0 l-0" /> -->
+        <view><text class="fz-32 c-434759 mr-40">{{storeInfo.nickname}}</text><text class="ml-20">{{storeInfo.mobile}}</text></view>
         <view class="fz-20 c-3A3A3A">{{storeInfo.m_prov}}-{{storeInfo.m_city}}-{{storeInfo.m_dist}}-{{storeInfo.m_street}}</view>
       </view>
       <view class="self-A-right d-f fxd-c jc-c ai-c pos-r w-120" bindtap="daohang">
-        <image src="/assets/images/iyou_user/daohang@2x.png" class="w-32 h-32 mb-16" />
+        <el-image class='w-32 h-32 mb-16' src='walk.png'></el-image>
         <view class="fz-20 c-3A3A3A">导航到商家</view>
       </view>
     </view>
@@ -26,10 +27,10 @@
       <view class="d-f jc-sb ai-c">
         <view class="d-f ai-c">
           <text class="c-B3B3B3 fz-20 w-120">联系人：</text>
-          <input class="w-120" value="{{order.consignee}}"disabled="{{true}}" data-key="consignee" />
-          <input class="w-200 ml-50" value="{{order.mobile}}"disabled="{{true}}" data-key="mobile" />
+          <input class="w-120" value="{{storeInfo.nickname}}"disabled="{{true}}" data-key="consignee" />
+          <input class="w-200 ml-50" value="{{storeInfo.mobile}}"disabled="{{true}}" data-key="mobile" />
         </view>
-        <view class='pull-right c-FFC901 f-28' data-content="{{order.mobile}}" catch:tap="copyTxt">复制</view>
+        <view class='pull-right c-FFC901 f-28' data-content="{{storeInfo.mobile}}" catch:tap="copyTxt">复制</view>
       </view>
       <view class="d-f jc-sb">
         <view class="c-B3B3B3 fz-20 w-150">消费方式：</view>
@@ -98,6 +99,10 @@
     <view class='overflow'>
       <view class='pull-left'>订单号：<text class='m-l-20'>{{order.order_no}}</text></view>
       <view class='pull-right color-ffe200 f-28' data-content="{{order.order_no}}" catch:tap="copyTxt">复制</view>
+    </view>
+    <view class='m-t-20 overflow'>
+      <view class='pull-left'>购买备注：<text class='m-l-20'>{{order.remarks}}</text></view>
+      <view class='pull-right color-ffe200 f-28' data-content="{{order.remarks}}" catch:tap="copyTxt">复制</view>
     </view>
     <view class='m-t-20 overflow'>
       <view class='pull-left'>付款方式：<text class='m-l-20'>{{order.is_self_pay == 1 ? '自助支付' : '在线支付'}}</text></view>

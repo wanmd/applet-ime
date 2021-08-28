@@ -333,7 +333,16 @@ Page({
         order.goods.forEach(item => {
             total_price += app.formatDecimal(item.sale_price) * item.quantity;
             vip_price += app.formatDecimal(item.member_price) * item.quantity;
-            item.remark = order.remarks
+            item.remark = order.remarks;
+            let display = '';
+            if(item.product_specs) {
+                let specs =JSON.parse(item.product_specs);
+                for (let key in specs) {
+                    display +=  specs[key] + '/'
+                }
+                display = display.substr(0, display.length -1);
+            }
+            item.product_specs = display;
         })
         amount_price = order.amount;
 

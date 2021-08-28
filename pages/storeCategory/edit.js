@@ -72,7 +72,7 @@ Page({
       focus: false
     }]
     this.setData({
-      treeData: [...this.data.treeData, ...item]
+      treeData: [ ...item, ...this.data.treeData, ]
     })
   },
 
@@ -119,6 +119,10 @@ Page({
       success: (res) => {
         if (res.confirm == true) {
           if (id < 0) {
+            that.setData({
+              treeData: treeData.filter(item => item.name !== name),
+              level2_treeData: []
+            })
             return
           }
           request.post('cateogry/remove/' + id, res => {
@@ -183,7 +187,7 @@ Page({
       focus: false
     }]
     this.setData({
-      level2_treeData: [...this.data.level2_treeData, ...item]
+      level2_treeData: [...item, ...this.data.level2_treeData, ]
     }, () => {
       console.log(this.data.level2_treeData);
     })
@@ -230,6 +234,9 @@ Page({
       success: (res) => {
         if (res.confirm == true) {
           if (id < 0) {
+            that.setData({
+              level2_treeData: level2_treeData.filter(item => item.name !== name)
+            })
             return
           }
           request.post('cateogry/remove/' + id, res => {

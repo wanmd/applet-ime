@@ -256,6 +256,7 @@ wx.Page({
     },
 
     setCategoryIds(categoryIds) {
+        if (!categoryIds.length) return
         this.setData({
             categoryIds
         })

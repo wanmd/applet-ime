@@ -222,7 +222,7 @@ Page({
           v.cart.forEach(item => {
             let display = '';
             if(item.product_specs) {
-              let product_specs =JSON.parse(opt.product_specs);
+              let product_specs =JSON.parse(item.product_specs);
               for (let key in product_specs) {
                 display += product_specs[key] + '/'
               }

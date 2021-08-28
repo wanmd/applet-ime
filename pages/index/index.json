@@ -3,6 +3,5 @@
     "navigationBarBackgroundColor": "#fff",
     "usingComponents": {
         "tab-bar": "/component/tab-bar/index"
-    },
-    "enablePullDownRefresh": true
+    }
 }

@@ -16,6 +16,10 @@ Component({
       type : String,
       value : {}
     },
+    self_pickup : {
+      type : Number,
+      value : 0
+    },
   },
 
   /**

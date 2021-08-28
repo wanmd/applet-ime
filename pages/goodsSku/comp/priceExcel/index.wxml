@@ -4,7 +4,7 @@
   <view class="excel">
     <view class="excel-header d-f jc-fe ta-c c-333 fz-30 mb-20">
       <view class="mr-120">规格-价格设定</view>
-      <view bindtap="batchPrice">批量设置</view>
+      <view class="c-FF0000" bindtap="batchPrice">批量设置</view>
     </view>
     <view class="wrap">
       <view class="theader whs-nw">

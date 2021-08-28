@@ -84,16 +84,26 @@
   </view>
   <view class="arrow-right"></view>
 </navigator>
-<view class="p-l-r c-FFE200 ta-r" catch:tap="capyAll" wx:if="{{query.groupstate != 1 && query.status == 2 && orderList.length}}">复制全部订单</view>
+<view 
+  class="p-l-r c-FFE200 ta-r" 
+  catch:tap="capyAll" 
+  wx:if="{{query.groupstate != 1 && query.status == 2 && orderList.length}}"
+>复制全部订单</view>
 <pagination id='pagination' url='order/list' query='{{query}}' pkName='order_id' bind:load='load'>
 <view class='order-list' wx:if="{{orderList.length>0}}">
   <view class='item p-l-r' wx:for='{{orderList}}' wx:key='order_id'>
-    <store store='{{item.buyer}}' status='{{item.status}}' is_agent='{{item.is_agent}}'></store>
+    <store 
+      store='{{item.buyer}}' 
+      status='{{item.status}}' 
+      is_agent='{{item.is_agent}}' 
+      self_pickup="{{item.self_pickup}}"
+    ></store>
     <view class='relative'>
       <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>
       <goods wx:for='{{item.goods}}' ismy="{{false}}" goods='{{item}}' wx:key='chat_id'></goods>
       <view class='bottom'>
-        <view class='wrap'>
+        <view>购买备注:{{item.remarks}}</view>
+        <view class='wrap mt-10'>
           <view class='overflow'>
             <text class='pull-left'>共 {{item.quantity}} 件，合计：</text>
             <text class='pull-right color-f9bb69'>￥<text class='f-36'>{{item.amount}}</text></text>

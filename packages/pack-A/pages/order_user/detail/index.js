@@ -298,6 +298,7 @@ Page({
                 order.deliver_time = parseTime(order.deliver_time)
                 order.complete_time = parseTime(order.complete_time)
                 order.diff_time = order.group_time + 86400 - Math.floor(new Date().getTime()/1000)
+                order.pickup_time = parseTime(order.pickup_time)
 
                 let total_price = 0;
                 let vip_price = 0;
@@ -305,7 +306,16 @@ Page({
                 order.goods.forEach(item => {
                     total_price += app.formatDecimal(item.sale_price) * item.quantity;
                     vip_price += app.formatDecimal(item.member_price) * item.quantity;
-                    item.remarks = order.remarks
+                    item.remarks = order.remarks;
+                    let display = '';
+                    if(item.product_specs) {
+                        let specs =JSON.parse(item.product_specs);
+                        for (let key in specs) {
+                            display +=  specs[key] + '/'
+                        }
+                        display = display.substr(0, display.length -1);
+                    }
+                    item.product_specs = display;
                 })
                 amount_price = order.amount;
 
@@ -327,6 +337,7 @@ Page({
                     total_price: total_price,
                     vip_price: vip_price,
                     amount_price: amount_price,
+                    storeInfo: order.store
                 })
                 if (order.status == 2) {
                     this.hideHX();
@@ -448,6 +459,17 @@ Page({
     toggleViewSelfPay() {
         this.setData({
         selfPay_pic: !this.data.selfPay_pic
+        })
+    },
+    daohang() {
+        const { storeInfo } = this.data;
+        if (!storeInfo.lat || !storeInfo.lng) {
+            toast('该商家暂未设置位置信息');
+            return
+        }
+        wx.openLocation({
+            latitude: Number(storeInfo.lat),//要去的纬度-地址
+            longitude: Number(storeInfo.lng),//要去的经度-地址
         })
     },
     previewImage (e) {

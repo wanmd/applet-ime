@@ -14,7 +14,7 @@ Page({
 		content:['指根据iME平台条款和交易情况，以及相关消协、消费者协议的规定，通过iME平台发布的产品信息，并利用支付交易的方式向买家出售过程中，应履行的保真、如实描述义务，在指定交易期内保障买家在付款并收到产品实物，与卖家所售产品描述不符、商品存在质量问题情形下的权益，买家享有的理赔服务。卖家应根据iME平台条款之约定缴存，并在卖家关闭店铺时，在不存在交易纠纷的情况下，根据最终交易情况可申请退理此消费者权益保证金。'],
     modalFlag: false,
     userInfo: null,
-    total: 298,
+    total: 398,
     assetsImages: app.assetsImages,
   },
 
@@ -52,7 +52,7 @@ Page({
 
       let data = JSON.parse(options.data)
       let amount = data.amount || 0
-      this.setData({ data: data,type:options.type,total: 298 + data.amount})
+      this.setData({ data: data,type:options.type,total: 398 + data.amount})
     // }else{
       // this.setData({ total: 298 })
     // }
