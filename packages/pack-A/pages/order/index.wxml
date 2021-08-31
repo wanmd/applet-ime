@@ -97,6 +97,7 @@
       status='{{item.status}}' 
       is_agent='{{item.is_agent}}' 
       self_pickup="{{item.self_pickup}}"
+      pickup_state_part="{{item.pickup_state_part}}"
     ></store>
     <view class='relative'>
       <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>

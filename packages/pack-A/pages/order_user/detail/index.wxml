@@ -5,6 +5,7 @@
     is_agent='{{order.is_agent}}' 
     is_vip='{{userInfo.Vip}}'
     self_pickup='{{order.self_pickup}}'
+    pickup_state_part='{{order.pickup_state_part}}'
     groupstate="{{order.is_group}}"
   >
   </store>
@@ -23,7 +24,7 @@
       </view>
     </view>
     <view class="self-B d-f fxd-c mt-44 pl-54 pos-r">
-      <image src="/assets/images/iyou_user/walk@2x.png" class="w-44 h-44 pos-a t-24 l-0" />
+      <image src="/assets/images/walk.png" class="w-44 h-44 pos-a t-24 l-0" />
       <view class="d-f jc-sb ai-c">
         <view class="d-f ai-c">
           <text class="c-B3B3B3 fz-20 w-120">联系人：</text>

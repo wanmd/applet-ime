@@ -207,19 +207,30 @@ Page({
   handleblur2(e) {
     const { name, id } = e.currentTarget.dataset;
     const { currentName } = this.data;
+    const { level2_treeData } = this.data;
 
     if (name !== currentName) {
       if (id < 0) {
-        this.postAdd({
-          name,
-          parentId: this.data.parentid
-        })
+        if (level2_treeData.filter(item => item.name == name).length > 1) {
+          toast('二级分类名称重复,请重试~')
+          return
+        } else {
+          this.postAdd({
+            name,
+            parentId: this.data.parentid
+          })
+        }
       } else {
-        this.postEdit({
-          name,
-          parentId: this.data.parentid,
-          id
-        })
+        if (level2_treeData.filter(item => item.name == name).length > 1) {
+          toast('二级分类名称重复,请重试~')
+          return
+        } else {
+          this.postEdit({
+            name,
+            parentId: this.data.parentid,
+            id
+          })
+        }
       }
     }
   },

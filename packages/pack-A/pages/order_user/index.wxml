@@ -67,6 +67,7 @@
       status='{{item.status}}' 
       is_agent='{{item.is_agent}}' 
       self_pickup="{{item.self_pickup}}"
+      pickup_state_part="{{item.pickup_state_part}}"
       groupstate="{{query.groupstate}}">
     </store>
     <view class='relative'>

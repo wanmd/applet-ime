@@ -8,7 +8,8 @@
 	<view class='user-type' wx:if="{{is_agent==1}}">我的代理</view>
 	<view class='user-type' wx:if="{{!is_agent && is_vip}}">我的商家</view>
 	<view class='order-type' wx:if="{{!self_pickup}}">快递订单</view>
-	<view class='order-type' wx:if="{{self_pickup}}">自提订单</view>
+	<view class='order-type' wx:if="{{self_pickup && pickup_state_part == 1}}">店内消费</view>
+	<view class='order-type' wx:if="{{self_pickup && pickup_state_part == 2}}">到店自提</view>
 	<view class='order-store' wx:if="{{status==-1||status==-2}}">发货超时已退款</view>
 	<view class='order-store' wx:if="{{status==1}}">等待买家付款</view>
 	<view class='order-store' wx:if="{{status==2 && !groupstate}}">买家已付款</view>

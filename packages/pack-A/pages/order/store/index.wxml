@@ -1,14 +1,17 @@
 <view class="store-wrap">
-    <avatar size='80rpx' src='{{store.avatar}}' userId='{{store.user_id}}'>
+  <avatar size='80rpx' src='{{store.avatar}}' userId='{{store.user_id}}'>
 	  <!-- <image class='avatar' src='{{store.avatar}}'></image> -->
-	  <view class='user-info'>{{store.nickname}}</view>
+	 
 	</avatar>
+	<view class='user-info'>{{store.nickname}}</view>
 	<view class='user-type1' wx:if="{{is_agent==1}}">我的代理</view>
 	<view class='order-type' wx:if="{{!self_pickup}}">快递订单</view>
-	<view class='order-type' wx:if="{{self_pickup}}">到店消费</view>
+	<view class='order-type' wx:if="{{self_pickup && pickup_state_part == 1}}">店内消费</view>
+	<view class='order-type' wx:if="{{self_pickup && pickup_state_part == 2}}">到店自提</view>
 	<view class='order-store' wx:if="{{status==-1||status==-2}}">发货超时已退款</view>
 	<view class='order-store' wx:if="{{status==1}}">等待买家付款</view>
-	<view class='order-store' wx:if="{{status==2}}">买家已付款</view>
+	<view class='order-store' wx:if="{{status==2 && !groupstate}}">买家已付款</view>
+	<view class='order-store' wx:if="{{status==2 && groupstate}}">待分享成团</view>
 	<view class='order-store' wx:if="{{status==3}}">卖家已发货</view>
 	<view class='order-store' wx:if="{{status==4}}">交易成功</view>
 </view>

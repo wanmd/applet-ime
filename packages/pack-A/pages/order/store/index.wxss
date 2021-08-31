@@ -31,7 +31,7 @@
 }
 .user-info{
   margin-right: 14rpx;
-  width: 300rpx;
+  max-width: 150rpx;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 /*.user-type{
@@ -105,5 +105,5 @@
   font-size: 20rpx;
   line-height: 28rpx;
   color: #3A3A3A;
-  margin-left: 120rpx;
+  /* margin-left: 120rpx; */
 }
