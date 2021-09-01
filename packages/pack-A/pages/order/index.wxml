@@ -100,7 +100,7 @@
       pickup_state_part="{{item.pickup_state_part}}"
     ></store>
     <view class='relative'>
-      <deliveryInfo delivery='{{item.delivery}}'></deliveryInfo>
+      <deliveryInfo delivery='{{item.delivery}}' goods='{{item.goods}}'></deliveryInfo>
       <goods wx:for='{{item.goods}}' ismy="{{false}}" goods='{{item}}' wx:key='chat_id'></goods>
       <view class='bottom'>
         <view>购买备注:{{item.remarks}}</view>

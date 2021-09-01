@@ -45,9 +45,9 @@
       
     </view>
   </view>
-  <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
+  <deliveryInfo delivery='{{order.delivery}}' goods='{{order.goods}}'></deliveryInfo>
   <!-- 拼团 -->
- <view wx:if="{{order.is_group}}" class="d-f jc-sb ai-c p-20">
+ <!-- <view wx:if="{{order.is_group}}" class="d-f jc-sb ai-c p-20">
     <view>
       <text class="c-333 fz-26 lh-34 mr-22">拼单组合</text>
       <timer time="{{order.diff_time}}" font="fz-22" color="c-979797" /><text class="c-979797 fz-22">后结束</text>
@@ -59,7 +59,7 @@
         <image src="/assets/images/order/nobody@2x.png" class="w-48 h-48" />
       </view>
     </view>
-  </view>
+  </view> -->
   <goods wx:for='{{order.goods}}' ismy="{{false}}" goods='{{item}}' note='{{true}}' wx:key="index"></goods>
   <view class='order-fee-detail'>
     <!-- <view class='item'>
@@ -267,7 +267,7 @@
     <contact-wx contact='联系买家' userInfo='{{otherUserInfo}}'></contact-wx>
   </view>
 
-  <view class='bottom-fixed' style='display:flex;z-index:2;'  wx:if='{{(order.status == 1 && isShowTime)||(order.status == 2 && isShowTime)}}'>
+  <view class='bottom-fixed' style='display:flex;z-index:2;'  wx:if='{{(order.status == 1)||(order.status == 2)}}'>
         <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if='{{order.status == 1}}'>
           
           <btn wx:if="{{isShowTime}}" style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);'>
@@ -278,7 +278,10 @@
             <view class="line1">订单已超时取消</view>
           </btn>
         </view>
-      <view style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' wx:if="{{order.status == 2 && isShowTime}}">
+      <view 
+        style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);' 
+        wx:if="{{order.status == 2 && isShowTime}}"
+      >
         <btn style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);' >
           <view class="line2 m-t-b">{{surplusObj.day}}天{{surplusObj.hou}}：{{surplusObj.min}}：{{surplusObj.sec}}后</view>
           <view class="line1 m-b">未发货/消费将自动退款给买家</view>

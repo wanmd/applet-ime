@@ -1,7 +1,7 @@
 <!--pages/goodsCategoryManageNew/index.wxml-->
 <!-- 自己的分类 -->
 <block wx:if="{{!storeId}}">
-  <view class="p-44 mb-400 bgc-fff">
+  <view class="p-44 bgc-fff" style="padding-bottom: 400rpx">
     <view class="pb-20 mb-44 borderb-1-solid-EAEAEA pb-40" wx:for="{{treeData}}" wx:key="id" wx:for-index="parentIndex">
       <!-- 一级分类 -->
       <view class="d-f ai-c jc-c w-330 h-82 bdr8 {{item.active ? 'bgc-F7F7FA' : 'bgc-F7F7FA' }} c-333 fz-28 mb-28">{{item.name}}</view>
