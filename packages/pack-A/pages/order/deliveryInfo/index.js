@@ -7,6 +7,10 @@ Component({
     delivery : {
       type : Object,
       value : {}
+    },
+    goods : {
+      type : Array,
+      value : []
     }
   },
 
@@ -22,12 +26,19 @@ Component({
    */
   methods: {
     capy(e) {
+      console.log(this.data.goods);
       let content = e.currentTarget.dataset.content;
       if (content == '') {
         return;
       }
+      const { goods = [] } = this.data;
+      let goods_str = '';
+      goods.length && goods.forEach(gitem => {
+        const { goods_name, quantity, goods_no } = gitem;
+        goods_str = `${goods_str}${goods_name},${quantity},${goods_no}`
+      })
       wx.setClipboardData({
-        data: content,
+        data: `${content},${goods_str}`,
         success(res) {
           wx.showToast({
             title: '买家信息已复制',

@@ -720,7 +720,7 @@
           "scene": null
         },
         {
-          "name": "店铺分类",
+          "name": "分类设置",
           "pathName": "pages/storeCategory/index",
           "query": "",
           "scene": null

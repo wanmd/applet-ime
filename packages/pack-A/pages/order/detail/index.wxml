@@ -45,9 +45,9 @@
       
     </view>
   </view>
-  <deliveryInfo delivery='{{order.delivery}}'></deliveryInfo>
+  <deliveryInfo delivery='{{order.delivery}}' goods='{{order.goods}}'></deliveryInfo>
   <!-- 拼团 -->
- <view wx:if="{{order.is_group}}" class="d-f jc-sb ai-c p-20">
+ <!-- <view wx:if="{{order.is_group}}" class="d-f jc-sb ai-c p-20">
     <view>
       <text class="c-333 fz-26 lh-34 mr-22">拼单组合</text>
       <timer time="{{order.diff_time}}" font="fz-22" color="c-979797" /><text class="c-979797 fz-22">后结束</text>
@@ -59,7 +59,7 @@
         <image src="/assets/images/order/nobody@2x.png" class="w-48 h-48" />
       </view>
     </view>
-  </view>
+  </view> -->
   <goods wx:for='{{order.goods}}' ismy="{{false}}" goods='{{item}}' note='{{true}}' wx:key="index"></goods>
   <view class='order-fee-detail'>
     <!-- <view class='item'>
@@ -266,7 +266,6 @@
   <view class='contact'>
     <contact-wx contact='联系买家' userInfo='{{otherUserInfo}}'></contact-wx>
   </view>
-
   <view class='bottom-fixed' style='display:flex;z-index:2;'  wx:if='{{(order.status == 1 && isShowTime)||(order.status == 2 && isShowTime)}}'>
     <view wx:if='{{order.status == 1}}' style='flex: 1;align-items: center;justify-content:center;display: flex;flex-wrap: nowrap;flex-direction: row; background:rgba(242,242,242,1);'>
       <btn wx:if="{{isShowTime}}" style-text='width: 100%;color:#999999;background:rgba(242,242,242,1);'>
