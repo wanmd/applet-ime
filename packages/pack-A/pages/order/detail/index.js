@@ -365,7 +365,7 @@ Page({
             amount_price: amount_price,
           })
 
-        if(order.surplusTime&&order.surplusTime>0){
+        if((order.surplusTime&&order.surplusTime>0) || (order.is_self_pay && order.self_pay_state == 1)){
           let surplusTime = order.surplusTime*1000
           // let surplusTime = 23456765
           let nowTime = new Date().getTime();//现在时间（时间戳）
