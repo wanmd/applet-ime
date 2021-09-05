@@ -14,8 +14,8 @@ wx.Page({
         barTitlle: "发布公开报价",
         type: "",
         placeholder: "公开报价格式如下例：\n高露洁牙膏-25\n力士沐浴露1l：35\n多芬沐浴露1g 36\n清扬冰爽薄荷-37\n清扬去屑洗发乳-37\n力士柔亮丝滑-30\n飘柔去屑滋润-36\nVs沙宣深层滋润-57",
-				showCard: false,
-				cardData: {}
+        showCard: false,
+        cardData: {}
     },
     /*
 高露洁牙膏：25
@@ -175,31 +175,31 @@ Vs沙宣深层滋润-57
                 toast(res.msg)
             }
         })
-		},
-		// 报价canvas
-		initPricePicture() {
-			const { content } = this.data;
-			if (!content) {
-				toast('请先填写报价信息');
-				return
-			}
-			var arr = content.split("\n");
+	},
+    // 报价canvas
+    initPricePicture() {
+        const { content } = this.data;
+        if (!content) {
+            toast('请先填写报价信息');
+            return
+        }
+        var arr = content.split("\n");
 
-			request.get('quote/poster', res => {
-				if (res.success) {
-					// console.log(res);
-					this.setData({
-						cardData: {
-							...res.data.list,
-							good_num: arr.length
-						}
-					})
-					this.draw();
-				} else {
-						toast(res.msg)
-				}
-			}).showLoading()
-		},
+        request.get('quote/poster', res => {
+            if (res.success) {
+                // console.log(res);
+                this.setData({
+                    cardData: {
+                        ...res.data.list,
+                        good_num: arr.length
+                    }
+                })
+                this.draw();
+            } else {
+                    toast(res.msg)
+            }
+        }).showLoading()
+    },
     // 画图
     draw() {
         this.setData({
@@ -460,34 +460,34 @@ Vs沙宣深层滋润-57
     },
     toggleCardHide (){
         this.setData({ storeQr: '' ,showCard:false})
-		},
-		saveCard() {
-			let self = this
-			wx.canvasToTempFilePath({
-				x: 0,
-				y: 0,
-				width: W,
-				height: H,
-				canvasId: 'firstCanvas',
-				success(res) {
-					wx.saveImageToPhotosAlbum({
-						filePath: res.tempFilePath,
-						success(res) {
-							wx.showToast({
-								title: '已下载至相册',
-								icon: 'success',
-								duration: 1500
-							})
-							// self.toggleCard()
-						},
-						fail() {
-							toast('保存失败')
-						}
-					})
-				}
-			})
-	
-		},
+    },
+    saveCard() {
+        let self = this
+        wx.canvasToTempFilePath({
+            x: 0,
+            y: 0,
+            width: W,
+            height: H,
+            canvasId: 'firstCanvas',
+            success(res) {
+                wx.saveImageToPhotosAlbum({
+                    filePath: res.tempFilePath,
+                    success(res) {
+                        wx.showToast({
+                            title: '已下载至相册',
+                            icon: 'success',
+                            duration: 1500
+                        })
+                        // self.toggleCard()
+                    },
+                    fail() {
+                        toast('保存失败')
+                    }
+                })
+            }
+        })
+
+    },
     onLoad: function(options) {
         console.log(options.type);
         let type = options.type;
