@@ -1,4 +1,4 @@
-import { Request, toast, rpxTopx, copyText, errorToast, maskNumber, navToIyou } from '../../utils/util.js';
+import { Request, toast, rpxTopx, copyText, errorToast, maskNumber, navToIyou, queryParams } from '../../utils/util.js';
 import { assetsImages, ALIYUN_URL } from '../../utils/config.js';
 let request = new Request();
 let app = getApp();
@@ -65,6 +65,10 @@ wx.Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        console.log(options);
+        console.log(queryParams(options.scene));
+        options = queryParams(options.scene);
+        
         let selectedNav = this.data.selectedNav;
         if (options.type) {
             selectedNav = options.type;
