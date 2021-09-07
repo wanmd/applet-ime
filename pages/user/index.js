@@ -139,6 +139,7 @@ Component({
                 image: '../../assets/images/user/lesson@2x.png',
                 text: 'iME课堂',
                 url: '',
+                method: 'toUnivercity'
             },
             {
                 image: '../../assets/images/user/record@2x.png',
@@ -274,8 +275,9 @@ Component({
             app.requireLogin('/pages/wallet/index')
         },
         toUnivercity(e) {
-            let url = e.currentTarget.dataset.url
-            wx.navigateTo({ url: `/pages/webview/webview?url=${this.data[url]}` });
+            // console.log(e);
+            // let url = e.currentTarget.dataset.url
+            wx.navigateTo({ url: `/pages/webview/webview?url=${this.data.url}` });
         },
         isToOrder(options) {
             let userInfo = wx._getStorageSync('userinfo');

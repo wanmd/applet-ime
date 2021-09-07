@@ -563,8 +563,9 @@ wx.Page({
             if (res.success) {
                 console.log(res);
                 
-                let data = res.data
-                    // let chatType = data.chat_type
+                let data = res.data;
+                let userInfo = wx.getStorageSync('userinfo') || app.globalData.userInfo
+                let isSelf = data.user_id == userInfo.user_id;
                 let update = {
                     chatType: data.chat_type || 2,
                     content: data.content,
@@ -573,8 +574,8 @@ wx.Page({
                     lng: data.lng || '',
 
                     name: data.name,
-                    no: '',
-                    remark: '',
+                    no: data.no || '',
+                    remark: isSelf ? data.remark : '',
                     videoUrl: data.video_url,
                     templateId: data.template_id,
                     isExpress: data.is_express,

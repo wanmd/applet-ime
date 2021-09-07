@@ -29,7 +29,7 @@ Page({
     bindblur_() {
         let otherAmount = this.data.otherAmount;
         let otherAmountFlag = 'active';
-        if (otherAmount % 1 != 0 || otherAmount < 10000 || otherAmount > 50000) {
+        if (otherAmount % 1 != 0 || otherAmount < 1 || otherAmount > 50000) {
             otherAmount = '';
             otherAmountFlag = '';
         }

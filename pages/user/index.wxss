@@ -321,3 +321,10 @@ page{
 .w-25p  {
   width: 25%;
 }
+
+.copyright {
+  margin-top: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

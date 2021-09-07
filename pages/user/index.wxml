@@ -163,7 +163,7 @@
       </view>
     </view>
     <!-- 个人类型  新样式 -->
-    <view class="bgc-fff p-26">
+    <view class="bgc-fff p-26" style="padding-bottom: 40rpx">
       <view class="card2">
         <view class="d-f fxd-c jc-c w-20p mb-28" 
           wx:for="{{personManageList}}" 
@@ -180,6 +180,11 @@
             <view class="d-f jc-c c-333 fz-24">联系客服</view>
           </button>
         </view>
+      </view>
+      <view class="copyright">
+        <el-image class="icon" src='copyright@2x.png' style='width:20rpx;display: inline-block;'></el-image>
+        <text class="c-FFE200 fz-20 mlr-12">金维盛科技</text>
+        <text class="c-C5C5C5 fz-20">提供技术支持</text>
       </view>
     </view>
     <view class="p-l-r" wx:if="{{false}}">
@@ -209,8 +214,8 @@
       </navigator>
     </view>
     <view class="line10"></view>
-    <view class="p-l-r">
-      <block wx:if="{{false}}">
+    <view class="p-l-r" wx:if="{{false}}">
+      <block>
         <!-- 商户类型 -->
         <!-- userType == 2 -->
         <view class='nav border-b' bindtap="isAuth_" data-url="../../packages/pack-A/pages/order/index">

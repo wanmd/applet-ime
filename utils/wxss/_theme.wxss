@@ -394,6 +394,10 @@
   margin-left: 10rpx;
   margin-right: 10rpx;
 }
+.mlr-12 {
+  margin-left: 12rpx;
+  margin-right: 12rpx;
+}
 .mlr-16 {
   margin-left: 16rpx;
   margin-right: 16rpx;
