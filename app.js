@@ -16,6 +16,7 @@ App({
         // }
         this.autoUpdate()
         console.log('onLaunch');
+        console.log(options);
         let inviter = options.query.inviter || 0;
         // console.log('inviter=======', inviter)
         // console.log("options=========");

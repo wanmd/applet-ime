@@ -47,8 +47,6 @@ wx.Page({
     let userId = this.data.userId
     this.get('/visit/homepage', { userId }).then(res => {
       if (res.code == 200 && res.success) {
-        console.log(res);
-        
         let data = res.data;
         let user = res.data.user;
         if (!(user instanceof Object)) {

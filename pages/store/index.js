@@ -65,9 +65,11 @@ wx.Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log(options);
-        console.log(queryParams(options.scene));
-        options = queryParams(options.scene);
+        // console.log(options);
+        // console.log(queryParams(options.scene));
+        if (options.scene) {
+            options = queryParams(options.scene);
+        }
         
         let selectedNav = this.data.selectedNav;
         if (options.type) {
@@ -76,7 +78,6 @@ wx.Page({
             selectedNav = 1;
         }
         this.setData({ selectedNav: selectedNav })
-        console.log(options.storeId);
         let storeId = options.storeId || 0
         let query = this.data.query;
         let query2 = this.data.query2;
